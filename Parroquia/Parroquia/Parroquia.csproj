@@ -61,6 +61,12 @@
     <Compile Include="eliminarLibro.Designer.cs">
       <DependentUpon>eliminarLibro.cs</DependentUpon>
     </Compile>
+    <Compile Include="InsertarBautismo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertarBautismo.Designer.cs">
+      <DependentUpon>InsertarBautismo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Libros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="eliminarLibro.resx">
       <DependentUpon>eliminarLibro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertarBautismo.resx">
+      <DependentUpon>InsertarBautismo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Libros.resx">
       <DependentUpon>Libros.cs</DependentUpon>

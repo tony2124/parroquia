@@ -71,7 +71,7 @@ namespace Parroquia
 
                     this.libritos[i].Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
                     this.libritos[i].Location = new System.Drawing.Point(4, 4);
-                    this.libritos[i].Name = conjuntoDatos.GetString(2);
+                    this.libritos[i].Name = conjuntoDatos.GetString(0);
                     this.libritos[i].Size = new System.Drawing.Size(73, 73);
                     this.libritos[i].UseVisualStyleBackColor = true;
                     this.libritos[i].Click += new System.EventHandler(this.Insertar);
