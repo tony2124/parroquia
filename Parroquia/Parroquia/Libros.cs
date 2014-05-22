@@ -48,43 +48,13 @@ namespace Parroquia
 
         public void crearLibro(object sender, EventArgs e)
         {
-           /* BDatos.conexion();
+            crearLibro cl = new crearLibro(CATEGORIA);
+            cl.ShowDialog();
 
-            //Evaluacion para que los nombres no sean iguales
-            String nombreLibro = "LIBRO " + (tamanio + 1);
-            int iguales = 0;
-            MySqlDataReader Datos = BDatos.obtenerBasesDatosMySQL("select nombre_libro from libros");
-            if(Datos.HasRows)
-                while (Datos.Read())
-                {
-                    if (Datos.GetString(0).CompareTo(nombreLibro) == 0)
-                    {
-                        iguales++;
-                        
-                    }
-                }
-            if(iguales>0)
-            nombreLibro = nombreLibro + " ("+iguales+")";
-
-            Datos.Close();
-            if (BDatos.Insertar("insert into libros (id_categoria, nombre_libro) values("+CATEGORIA+",'"+nombreLibro+"');") > 0)
-            {
-                //cada vez que agrego un libro verifico si tiene un label el panel
-                //y si es el caso, lo quito
-                if (panelContenedorLibros.Controls.Contains(label1))
-                    panelContenedorLibros.Controls.Remove(label1);
-               
-                    
-                Pintar();
-                MessageBox.Show("Se ha agregado un libro nuevo"
-                    , " Acción ejecutada con exito ",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-                MessageBox.Show("Se ha detectado un problema al agregar un libro"
-                   , " Error ",
-                  MessageBoxButtons.OK, MessageBoxIcon.Error);
-            BDatos.Desconectar();*/
+            panelContenedorLibros.Controls.Clear();
+            BDatos.conexion();
+            Pintar();
+            BDatos.Desconectar();
         }
 
         public void eliminarLibro(object sender, EventArgs e)
