@@ -51,19 +51,25 @@ namespace Parroquia
             if (b == DialogResult.OK)
             {
                 BDatos.conexion();
-
-                if (BDatos.Eliminar("delete from libros where id_libro = '"+datosID[comboBox1.SelectedIndex]+"'; ") > 0)
+                try
                 {
-                   
-                    MessageBox.Show("Se ha Eliminado un libro"
-                        , " Acción ejecutada con exito ",
-                       MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Dispose();
-                }
-                else
+                    if (BDatos.Eliminar("delete from libros where id_libro = '" + datosID[comboBox1.SelectedIndex] + "'; ") > 0)
+                    {
+
+                        MessageBox.Show("Se ha Eliminado un libro"
+                            , " Acción ejecutada con exito ",
+                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Dispose();
+                    }
+                    else
+                        MessageBox.Show("Se ha detectado un problema al eliminar un libro"
+                           , " Error ",
+                          MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }catch(Exception y){
                     MessageBox.Show("Se ha detectado un problema al eliminar un libro"
-                       , " Error ",
-                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+                           , " Error ",
+                          MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
                 BDatos.Desconectar();
             }

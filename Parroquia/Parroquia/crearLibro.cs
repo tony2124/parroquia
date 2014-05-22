@@ -31,11 +31,17 @@ namespace Parroquia
 
         private void guardarCrearLibro_Click(object sender, EventArgs e)
         {
+            GuardarR();
+
+        }
+
+        public void GuardarR()
+        {
             BDatos.conexion();
 
             //Evaluacion para que los nombres no sean iguales
             int iguales = 0;
-            MySqlDataReader Datos = BDatos.obtenerBasesDatosMySQL("select nombre_libro from libros where id_categoria='"+CATEGORIA+"'");
+            MySqlDataReader Datos = BDatos.obtenerBasesDatosMySQL("select nombre_libro from libros where id_categoria='" + CATEGORIA + "'");
             if (Datos.HasRows)
                 while (Datos.Read())
                 {
@@ -46,13 +52,14 @@ namespace Parroquia
                     }
                 }
             Datos.Close();
-            if (iguales > 0)
+            if (iguales > 0 || nombreLibro.Text.CompareTo("")==0)
             {
-                MessageBox.Show("No puede agregar nombres de libros iguales"
+                MessageBox.Show("No puede agregar nombres de libros iguales y no puede dejar el libro sin nombre"
                  , " Error ",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else {
+            else
+            {
 
                 if (BDatos.Insertar("insert into libros (id_categoria, nombre_libro) values(" + CATEGORIA + ",'" + nombreLibro.Text.ToString() + "');") > 0)
                 {
@@ -61,7 +68,7 @@ namespace Parroquia
                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     BDatos.Desconectar();
                     Dispose();
-                    
+
                 }
                 else
                     MessageBox.Show("Se ha detectado un problema al agregar un libro"
@@ -69,7 +76,6 @@ namespace Parroquia
                       MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             BDatos.Desconectar();
-            
         }
     }
 }

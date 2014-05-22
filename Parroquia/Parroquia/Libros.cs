@@ -80,6 +80,12 @@ namespace Parroquia
                 InsertarBautismo ib = new InsertarBautismo(b.Name.ToString());
                 ib.ShowDialog(); 
             }
+
+            if (CATEGORIA == 2)
+            {
+                Button b = (Button)sender;
+                
+            }
         }
 
     }
