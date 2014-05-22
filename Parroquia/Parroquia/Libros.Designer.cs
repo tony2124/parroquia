@@ -125,6 +125,17 @@ namespace Parroquia
             this.cancelarVentanaLibrosBtn = new System.Windows.Forms.Button();         
             this.panelContenedorLibros.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // eliminarLibroButton
+            // 
+            this.eliminarLibroButton.Location = new System.Drawing.Point(102, 300);
+            this.eliminarLibroButton.Name = "eliminarLibroButton";
+            this.eliminarLibroButton.Size = new System.Drawing.Size(83, 25);
+            this.eliminarLibroButton.TabIndex = 2;
+            this.eliminarLibroButton.Text = "Eliminar libro";
+            this.eliminarLibroButton.Enabled = false;
+            this.eliminarLibroButton.UseVisualStyleBackColor = true;
+            this.eliminarLibroButton.Click += new System.EventHandler(this.eliminarLibro);
            
             // 
             // panelContenedorLibros
@@ -149,17 +160,7 @@ namespace Parroquia
             this.label1.TabIndex = 0;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Text = "No tiene libros en esta categoría de "+Categorias;
-            // 
-            // eliminarLibroButton
-            // 
-            this.eliminarLibroButton.Location = new System.Drawing.Point(102, 300);
-            this.eliminarLibroButton.Name = "eliminarLibroButton";
-            this.eliminarLibroButton.Size = new System.Drawing.Size(83, 25);
-            this.eliminarLibroButton.TabIndex = 2;
-            this.eliminarLibroButton.Text = "Eliminar libro";
-            this.eliminarLibroButton.Enabled = false;
-            this.eliminarLibroButton.UseVisualStyleBackColor = true;
-            this.eliminarLibroButton.Click += new System.EventHandler(this.eliminarLibro);
+            
             // 
             // crearLibroButton
             // 

@@ -15,8 +15,6 @@ namespace Parroquia
     public partial class crearLibro : Form
     {
         private int CATEGORIA;
-
-        private MySqlDataReader conjuntoDatos;
         private ConexionBD BDatos;
 
         public crearLibro(int categoria)

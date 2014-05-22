@@ -18,6 +18,7 @@ namespace Parroquia
         private int tamanio;
         private String Categorias;
         private string[] datosID;
+        private string[] datosNombre;
         private MySqlDataReader conjuntoDatos;
         private ConexionBD BDatos;
 
@@ -45,7 +46,7 @@ namespace Parroquia
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
-            DialogResult b = MessageBox.Show("¿Estás seguro que deseas eliminar el libro?", "¿Seguro?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult b = MessageBox.Show("¿Estás seguro que deseas eliminar el libro " + datosNombre[comboBox1.SelectedIndex] + "?", "¿Seguro?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (b == DialogResult.OK)
             {
