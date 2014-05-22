@@ -61,7 +61,7 @@
             BDatos.conexion();
             conjuntoDatos = BDatos.obtenerBasesDatosMySQL("select id_libro, nombre_libro from libros where id_categoria='" + CATEGORIA + "';");
             
-            string []datosNombre = new string[tamanio];
+            datosNombre = new string[tamanio];
             datosID = new string[tamanio];
             int i = 0;
             while (conjuntoDatos.Read())

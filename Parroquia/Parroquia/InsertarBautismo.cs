@@ -12,7 +12,7 @@ namespace Parroquia
 {
     public partial class InsertarBautismo : Form
     {
-        public InsertarBautismo()
+        public InsertarBautismo(String ID_btn)
         {
             InitializeComponent();
         }

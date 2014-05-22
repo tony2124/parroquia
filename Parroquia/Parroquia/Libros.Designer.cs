@@ -71,9 +71,10 @@ namespace Parroquia
 
                     this.libritos[i].Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
                     this.libritos[i].Location = new System.Drawing.Point(4, 4);
-                    this.libritos[i].Name = "button" + (i + 1);
+                    this.libritos[i].Name = conjuntoDatos.GetString(0);
                     this.libritos[i].Size = new System.Drawing.Size(73, 73);
                     this.libritos[i].UseVisualStyleBackColor = true;
+                    this.libritos[i].Click += new System.EventHandler(this.Insertar);
 
                     this.etiquetaLibro[i].AutoSize = true;
                     this.etiquetaLibro[i].Location = new System.Drawing.Point(4, 84);
@@ -125,6 +126,17 @@ namespace Parroquia
             this.cancelarVentanaLibrosBtn = new System.Windows.Forms.Button();         
             this.panelContenedorLibros.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // eliminarLibroButton
+            // 
+            this.eliminarLibroButton.Location = new System.Drawing.Point(102, 300);
+            this.eliminarLibroButton.Name = "eliminarLibroButton";
+            this.eliminarLibroButton.Size = new System.Drawing.Size(83, 25);
+            this.eliminarLibroButton.TabIndex = 2;
+            this.eliminarLibroButton.Text = "Eliminar libro";
+            this.eliminarLibroButton.Enabled = false;
+            this.eliminarLibroButton.UseVisualStyleBackColor = true;
+            this.eliminarLibroButton.Click += new System.EventHandler(this.eliminarLibro);
            
             // 
             // panelContenedorLibros
@@ -149,17 +161,7 @@ namespace Parroquia
             this.label1.TabIndex = 0;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Text = "No tiene libros en esta categoría de "+Categorias;
-            // 
-            // eliminarLibroButton
-            // 
-            this.eliminarLibroButton.Location = new System.Drawing.Point(102, 300);
-            this.eliminarLibroButton.Name = "eliminarLibroButton";
-            this.eliminarLibroButton.Size = new System.Drawing.Size(83, 25);
-            this.eliminarLibroButton.TabIndex = 2;
-            this.eliminarLibroButton.Text = "Eliminar libro";
-            this.eliminarLibroButton.Enabled = false;
-            this.eliminarLibroButton.UseVisualStyleBackColor = true;
-            this.eliminarLibroButton.Click += new System.EventHandler(this.eliminarLibro);
+            
             // 
             // crearLibroButton
             // 
