@@ -18,3 +18,4 @@ C:\Users\Simpus\Desktop\ProyectosVS\PARROQUIA\Parroquia\Parroquia\obj\Debug\Parr
 C:\Users\Simpus\Desktop\ProyectosVS\PARROQUIA\Parroquia\Parroquia\obj\Debug\Parroquia.csproj.GenerateResource.Cache
 C:\Users\Simpus\Desktop\ProyectosVS\PARROQUIA\Parroquia\Parroquia\obj\Debug\Parroquia.Libros.resources
 C:\Users\Simpus\Desktop\ProyectosVS\PARROQUIA\Parroquia\Parroquia\obj\Debug\Parroquia.eliminarLibro.resources
+C:\Users\Simpus\Desktop\ProyectosVS\PARROQUIA\Parroquia\Parroquia\obj\Debug\Parroquia.crearLibro.resources
