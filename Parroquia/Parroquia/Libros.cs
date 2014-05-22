@@ -72,5 +72,15 @@ namespace Parroquia
             Dispose();
         }
 
+        public void Insertar(object sender, EventArgs e)
+        {
+            if (CATEGORIA == 1)
+            {
+                Button b = (Button)sender;
+                /*matrimonios matrimonio = new matrimonios(b.Name.ToString());
+                matrimonio.ShowDialog(); */
+            }
+        }
+
     }
 }
