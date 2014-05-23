@@ -49,13 +49,13 @@
             // 
             this.nombreLibro.Location = new System.Drawing.Point(16, 32);
             this.nombreLibro.Name = "nombreLibro";
-            this.nombreLibro.Size = new System.Drawing.Size(180, 20);
+            this.nombreLibro.Size = new System.Drawing.Size(207, 20);
             this.nombreLibro.TabIndex = 1;
             // 
             // cancelarCrearLibro
             // 
             this.cancelarCrearLibro.Image = ((System.Drawing.Image)(resources.GetObject("cancelarCrearLibro.Image")));
-            this.cancelarCrearLibro.Location = new System.Drawing.Point(102, 60);
+            this.cancelarCrearLibro.Location = new System.Drawing.Point(123, 68);
             this.cancelarCrearLibro.Name = "cancelarCrearLibro";
             this.cancelarCrearLibro.Size = new System.Drawing.Size(100, 38);
             this.cancelarCrearLibro.TabIndex = 2;
@@ -64,9 +64,11 @@
             // 
             // guardarCrearLibro
             // 
-            this.guardarCrearLibro.Location = new System.Drawing.Point(16, 60);
+            this.guardarCrearLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardarCrearLibro.Image = ((System.Drawing.Image)(resources.GetObject("guardarCrearLibro.Image")));
+            this.guardarCrearLibro.Location = new System.Drawing.Point(12, 68);
             this.guardarCrearLibro.Name = "guardarCrearLibro";
-            this.guardarCrearLibro.Size = new System.Drawing.Size(66, 34);
+            this.guardarCrearLibro.Size = new System.Drawing.Size(90, 38);
             this.guardarCrearLibro.TabIndex = 3;
             this.guardarCrearLibro.Text = "Guardar";
             this.guardarCrearLibro.UseVisualStyleBackColor = true;
@@ -78,7 +80,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(218, 104);
+            this.ClientSize = new System.Drawing.Size(235, 118);
             this.Controls.Add(this.guardarCrearLibro);
             this.Controls.Add(this.cancelarCrearLibro);
             this.Controls.Add(this.nombreLibro);

@@ -66,7 +66,11 @@ namespace Parroquia
                            , " Error ",
                           MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }catch(Exception y){
+<<<<<<< HEAD
                     MessageBox.Show("Se ha detectado un problema al eliminar un libro" + y.ToString()
+=======
+                    MessageBox.Show("Se ha detectado un problema al eliminar un libro: "+y.Message
+>>>>>>> b99c211cb14d0380ef74afda139447c3903f508c
                            , " Error ",
                           MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

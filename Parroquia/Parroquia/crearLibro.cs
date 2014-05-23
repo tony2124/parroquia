@@ -42,6 +42,12 @@ namespace Parroquia
             //Evaluacion para que los nombres no sean iguales
             int iguales = 0;
             MySqlDataReader Datos = BDatos.obtenerBasesDatosMySQL("select nombre_libro from libros where id_categoria='" + CATEGORIA + "'");
+            if (nombreLibro.Text.ToString().Substring(0, 1).CompareTo(" ") == 0)
+                nombreLibro.Text = nombreLibro.Text.ToString().Substring(1, (nombreLibro.Text.ToString().Length-1));
+
+            if (nombreLibro.Text.ToString().Substring((nombreLibro.Text.ToString().Length - 1), 1).CompareTo(" ") == 0)
+                nombreLibro.Text = nombreLibro.Text.ToString().Substring(0, (nombreLibro.Text.ToString().Length - 1));
+
             if (Datos.HasRows)
                 while (Datos.Read())
                 {

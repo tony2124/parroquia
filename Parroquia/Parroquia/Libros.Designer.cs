@@ -183,7 +183,7 @@ namespace Parroquia
             this.editarLibroButton.Tag = "Editar libro";
             this.editarLibroButton.Text = "Editar libro";
             this.editarLibroButton.UseVisualStyleBackColor = true;
-            //this.crearLibroButton.Click += new System.EventHandler(this.crearLibro);
+            this.editarLibroButton.Click += new System.EventHandler(this.editarLibro);
            
             // 
             // cancelarVentanaLibrosBtn

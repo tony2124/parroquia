@@ -38,12 +38,22 @@ namespace Parroquia
                 this.Categorias = "Primera Comunión";
             if (CATEGORIA == 4)
                 this.Categorias = "Matrimonio";
-
-            //Realizo conexion a la base de datos
-            BDatos = new ConexionBD();
-            BDatos.conexion();
-
-           InitializeComponent();
+        
+            try
+            {
+                //Realizo conexion a la base de datos
+                BDatos = new ConexionBD();
+                BDatos.conexion();
+                InitializeComponent();
+            }
+            catch (Exception h)
+            {
+                Dispose();
+                MessageBox.Show("Error al conectar al servidor de MySQL: " +
+                    h.Message, "Error al conectar",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         public void crearLibro(object sender, EventArgs e)
@@ -84,8 +94,20 @@ namespace Parroquia
             if (CATEGORIA == 2)
             {
                 Button b = (Button)sender;
+                InsertarConfirmacion ic = new InsertarConfirmacion(b.Name.ToString());
+                ic.ShowDialog();
                 
             }
+        }
+
+        public void editarLibro(object sender, EventArgs e) 
+        {
+            editarLibro Editl = new editarLibro(CATEGORIA, tamanio);
+            Editl.ShowDialog();
+            panelContenedorLibros.Controls.Clear();
+            BDatos.conexion();
+            Pintar();
+            BDatos.Desconectar();
         }
 
     }

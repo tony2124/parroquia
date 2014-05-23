@@ -68,9 +68,10 @@ namespace conexionbd
         {
          
             int resultado=0;
-            MySqlCommand cmd = new MySqlCommand(consulta, conexionBD);
             try
             {
+                MySqlCommand cmd = new MySqlCommand(consulta, conexionBD);
+           
                 resultado = cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)
@@ -100,6 +101,7 @@ namespace conexionbd
             }
             return resultado;
         }
+
 
         public void Desconectar()
         {

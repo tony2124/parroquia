@@ -32,26 +32,42 @@ namespace Parroquia
 
         private void bautismoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Libros l = new Libros(1);
-            l.ShowDialog();
+            try
+            {
+                Libros l = new Libros(1);
+                l.ShowDialog();
+            }
+            catch (Exception g) { MessageBox.Show("Error: " + g.Message, "Error",MessageBoxButtons.OK,MessageBoxIcon.Error); }
         }
 
         private void confirmaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Libros l = new Libros(2);
-            l.ShowDialog();
+             try
+            {
+                Libros l = new Libros(2);
+                l.ShowDialog();
+            }
+             catch (Exception g) { MessageBox.Show("Error: " + g.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void primeraComuniónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Libros l = new Libros(3);
-            l.ShowDialog();
+            try
+            {
+                Libros l = new Libros(3);
+                l.ShowDialog();
+            }
+            catch (Exception g) { MessageBox.Show("Error: " + g.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void matrimonioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Libros l = new Libros(4);
-            l.ShowDialog();
+            try
+            {
+                Libros l = new Libros(4);
+                l.ShowDialog();
+            }
+            catch (Exception g) { MessageBox.Show("Error: " + g.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)

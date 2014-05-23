@@ -525,7 +525,11 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "InsertarBautismo";
+<<<<<<< HEAD
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+=======
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+>>>>>>> b99c211cb14d0380ef74afda139447c3903f508c
             this.Text = "Insertar Registro de Bautismo";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
