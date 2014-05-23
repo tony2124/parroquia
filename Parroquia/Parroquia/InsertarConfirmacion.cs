@@ -17,6 +17,8 @@ namespace Parroquia
         private String ID_LIBRO;
         private int Partida;
         private double Hoja;
+
+
         MySqlDataReader Datos;
         ConexionBD Bdatos = new ConexionBD();
 

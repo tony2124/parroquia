@@ -337,11 +337,7 @@ namespace Parroquia
             this.anioCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.anioCombo.FormattingEnabled = true;
             this.anioCombo.Location = new System.Drawing.Point(87, 544);
-            this.anioCombo.Name = "anioCombo";
-            DateTime hoy = DateTime.Now;
-            for (int i = 1700; i <= hoy.Year; i++)
-                this.anioCombo.Items.Add(i);
-            this.anioCombo.Text = hoy.Year.ToString();
+            this.anioCombo.Name = "anioCombo";  
             this.anioCombo.Size = new System.Drawing.Size(121, 21);
             this.anioCombo.TabIndex = 32;
             // 
