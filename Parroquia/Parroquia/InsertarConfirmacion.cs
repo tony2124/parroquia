@@ -80,14 +80,14 @@ namespace Parroquia
             {
                 Bdatos.conexion();
 
-                if ((nombre.Text.ToString().CompareTo("") == 0) ||
+                if ((nombre.Text.ToString().CompareTo("") == 0) ||/*
                     (padre.Text.ToString().CompareTo("") == 0) ||
-                    (madre.Text.ToString().CompareTo("") == 0) ||
-                    (padrino.Text.ToString().CompareTo("") == 0) ||
-                    (madrina.Text.ToString().CompareTo("") == 0) ||
+                    (madre.Text.ToString().CompareTo("") == 0) ||*/
+                    /*(padrino.Text.ToString().CompareTo("") == 0) ||
+                    (madrina.Text.ToString().CompareTo("") == 0) ||*/
                     (lugar_bautismo.Text.ToString().CompareTo("") == 0) ||
                     (ministro.Text.ToString().CompareTo("") == 0))
-                    MessageBox.Show("Tiene que llenar todos los campos para poder guardar", " Error",
+                    MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
@@ -117,6 +117,7 @@ namespace Parroquia
 
                         /*Se establecen en blanco todos los campos*/
                         nombre.Text = "";
+                        nombre.Focus();
                         padre.Text = "";
                         madre.Text = "";
                         padrino.Text = "";
@@ -147,5 +148,48 @@ namespace Parroquia
         {
 
         }
+
+
+        private void nombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            botones(e);
+        }
+
+        private void botones(KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                guardarConfirBtn.PerformClick();
+        }
+
+        private void padre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            botones(e);
+        }
+
+        private void madre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            botones(e);
+        }
+
+        private void lugar_bautismo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            botones(e);
+        }
+
+        private void padrino_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            botones(e);
+        }
+
+        private void madrina_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            botones(e);
+        }
+
+        private void ministro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            botones(e);
+        }
+
     }
 }

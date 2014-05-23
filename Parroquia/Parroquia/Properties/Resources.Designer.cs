@@ -63,9 +63,29 @@ namespace Parroquia.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _253331_112399185524690_100002638274955_82681_7576911_n {
+            get {
+                object obj = ResourceManager.GetObject("253331_112399185524690_100002638274955_82681_7576911_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bautismo {
             get {
                 object obj = ResourceManager.GetObject("bautismo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap confirmacion {
+            get {
+                object obj = ResourceManager.GetObject("confirmacion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

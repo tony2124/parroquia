@@ -118,19 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="simpus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\simpus.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="253331_112399185524690_100002638274955_82681_7576911_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\253331_112399185524690_100002638274955_82681_7576911_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="virgen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\virgen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="virgen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\virgen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="virgen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\virgen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bautismo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bautismo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="simpus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\simpus.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="virgen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\virgen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="confirmacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\confirmacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
