@@ -49,6 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConexionBD.cs" />
+    <Compile Include="InsertarConfirmacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertarConfirmacion.Designer.cs">
+      <DependentUpon>InsertarConfirmacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="crearLibro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="InsertarConfirmacion.resx">
+      <DependentUpon>InsertarConfirmacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="crearLibro.resx">
       <DependentUpon>crearLibro.cs</DependentUpon>
     </EmbeddedResource>
