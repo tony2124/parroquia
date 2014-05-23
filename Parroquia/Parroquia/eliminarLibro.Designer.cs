@@ -61,7 +61,7 @@ namespace Parroquia
             // 
             BDatos.conexion();
             conjuntoDatos = BDatos.obtenerBasesDatosMySQL("select id_libro, nombre_libro from libros where id_categoria='" + CATEGORIA + "';");
-            
+
             datosNombre = new string[tamanio];
             datosID = new string[tamanio];
             int i = 0;
@@ -81,11 +81,14 @@ namespace Parroquia
             this.comboBox1.Text = datosNombre[0];
             this.comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
+            // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(258, 13);
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.Location = new System.Drawing.Point(262, 13);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.Size = new System.Drawing.Size(91, 38);
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -94,28 +97,28 @@ namespace Parroquia
             // botonCancelar
             // 
             this.botonCancelar.Image = ((System.Drawing.Image)(resources.GetObject("botonCancelar.Image")));
-            this.botonCancelar.Location = new System.Drawing.Point(230, 56);
+            this.botonCancelar.Location = new System.Drawing.Point(262, 57);
             this.botonCancelar.Name = "botonCancelar";
-            this.botonCancelar.Size = new System.Drawing.Size(103, 37);
+            this.botonCancelar.Size = new System.Drawing.Size(91, 37);
             this.botonCancelar.TabIndex = 4;
             this.botonCancelar.UseVisualStyleBackColor = true;
             this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
             // 
             // eliminarLibro
             // 
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(345, 108);
-            this.MaximizeBox = false;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(365, 108);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.Name = "eliminarLibro";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Name = "eliminarLibro";
             this.Text = "Eliminar un libro de "+Categorias;
             this.ResumeLayout(false);
             this.PerformLayout();

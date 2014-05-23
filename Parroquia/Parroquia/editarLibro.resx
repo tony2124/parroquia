@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnEliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFMAAAA+CAIAAADYurDTAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
         DwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKJ2lDQ1BpY2MAAEjHnZZ3VFTXFofPvXd6
@@ -165,7 +165,7 @@
         t7xuXbu94vbgcOjwnZHokdE77DtTd1PuvriXeW/h/sYH6AdFD6UeVjxSfNTws+7PbaOWo6fHXMf6Hwc/
         vj/OGn/2S8Yv7ycKnpCfVEyqTDZPmU2dmnafvvF05dOJZ+nPFmYKf5X+tfa5zvMffnP8rX82YnbiBf/F
         p99LXsq/PPRq2aueuYC5R69TXy/MF72Rf3P4LeNt37vwd5MLWe+x7ys/6H7o/ujz8cGn1E+f/gUDmPP8
-        atgFYAAAAAlwSFlzAAALEQAACxEBf2RfkQAAJvJJREFUaEOFWwVXVlu3PnYHtscuDBTsOCYqAiJKNwIq
+        atgFYAAAAAlwSFlzAAALDgAACw4BQL7hQQAAJvJJREFUaEOFWwVXVlu3PnYHtscuDBTsOCYqAiJKNwIq
         oBiggBIq3Uh3qKCEICC2CNgFKCFdb9F67m+4z1xrv8A59/vGdTxju9nvrhlrxrPW/mPkyFEjRoz447/+
         G/HHqLF/jJ4wYszEEWMnjRg3ZdTEGaMmzxo9efboyXNGT5k7Zsq8MVPnj52+cOz0RWOnLyYoYCvf538S
         loybuWz8bMXxcxQnzFacMGfN+Hnrx89fP36u0oTZqyfMARTHz141bsbicQoEdgc5pg3uLBw7bQEeN2bK
@@ -334,7 +334,7 @@
         /E3j5imPm6M0bva6sYTVo6cvGz110ajJ80ZOUBg5biKEBQMHs/8v7VdTYz/xMjIAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="botonCancelar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGMAAAAjCAYAAACAY7T5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdh

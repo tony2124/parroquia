@@ -101,6 +101,7 @@ namespace conexionbd
             return resultado;
         }
 
+
         public void Desconectar()
         {
             conexionBD.Close();

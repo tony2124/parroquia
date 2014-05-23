@@ -88,5 +88,15 @@ namespace Parroquia
             }
         }
 
+        public void editarLibro(object sender, EventArgs e) 
+        {
+            editarLibro Editl = new editarLibro(CATEGORIA, tamanio);
+            Editl.ShowDialog();
+            panelContenedorLibros.Controls.Clear();
+            BDatos.conexion();
+            Pintar();
+            BDatos.Desconectar();
+        }
+
     }
 }

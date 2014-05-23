@@ -55,6 +55,12 @@
     <Compile Include="crearLibro.Designer.cs">
       <DependentUpon>crearLibro.cs</DependentUpon>
     </Compile>
+    <Compile Include="editarLibro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editarLibro.Designer.cs">
+      <DependentUpon>editarLibro.cs</DependentUpon>
+    </Compile>
     <Compile Include="eliminarLibro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="crearLibro.resx">
       <DependentUpon>crearLibro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editarLibro.resx">
+      <DependentUpon>editarLibro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="eliminarLibro.resx">
       <DependentUpon>eliminarLibro.cs</DependentUpon>
