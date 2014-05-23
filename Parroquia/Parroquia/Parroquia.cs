@@ -53,5 +53,10 @@ namespace Parroquia
             Libros l = new Libros(4);
             l.ShowDialog();
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

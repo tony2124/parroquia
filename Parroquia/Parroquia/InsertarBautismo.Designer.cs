@@ -35,26 +35,39 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.nombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.padre = new System.Windows.Forms.TextBox();
+            this.madre = new System.Windows.Forms.TextBox();
+            this.lugarnac = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.fechanac = new System.Windows.Forms.DateTimePicker();
+            this.fechabautismo = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.madrina = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.padrino = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.presbitero = new System.Windows.Forms.TextBox();
+            this.anio = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.guardar = new System.Windows.Forms.Button();
+            this.guardareimp = new System.Windows.Forms.Button();
+            this.cancelar = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.anotacion = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,14 +88,15 @@
             this.textBox1.Location = new System.Drawing.Point(87, 26);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
+            this.textBox1.Size = new System.Drawing.Size(57, 23);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(242, 29);
+            this.label2.Location = new System.Drawing.Point(189, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 17);
             this.label2.TabIndex = 2;
@@ -92,17 +106,18 @@
             // 
             this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(298, 26);
+            this.textBox2.Location = new System.Drawing.Point(245, 26);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
+            this.textBox2.Size = new System.Drawing.Size(52, 23);
             this.textBox2.TabIndex = 3;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(469, 29);
+            this.label3.Location = new System.Drawing.Point(343, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 17);
             this.label3.TabIndex = 4;
@@ -112,11 +127,12 @@
             // 
             this.textBox3.Enabled = false;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(550, 26);
+            this.textBox3.Location = new System.Drawing.Point(424, 26);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(100, 23);
             this.textBox3.TabIndex = 5;
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
@@ -128,19 +144,21 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "NOMBRE DEL BAUTIZADO:";
             // 
-            // textBox4
+            // nombre
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(192, 106);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(481, 23);
-            this.textBox4.TabIndex = 7;
+            this.nombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombre.Location = new System.Drawing.Point(192, 94);
+            this.nombre.MaxLength = 100;
+            this.nombre.Name = "nombre";
+            this.nombre.Size = new System.Drawing.Size(479, 23);
+            this.nombre.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(189, 147);
+            this.label5.Location = new System.Drawing.Point(189, 132);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(176, 15);
             this.label5.TabIndex = 8;
@@ -150,7 +168,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(210, 223);
+            this.label6.Location = new System.Drawing.Point(210, 188);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 15);
             this.label6.TabIndex = 9;
@@ -160,7 +178,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(26, 291);
+            this.label7.Location = new System.Drawing.Point(189, 227);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(166, 15);
             this.label7.TabIndex = 10;
@@ -170,7 +188,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(26, 327);
+            this.label8.Location = new System.Drawing.Point(188, 256);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(152, 15);
             this.label8.TabIndex = 11;
@@ -180,116 +198,117 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(27, 361);
+            this.label9.Location = new System.Drawing.Point(28, 296);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(168, 15);
             this.label9.TabIndex = 14;
             this.label9.Text = "LUGAR DE NACIMIENTO:";
             // 
-            // textBox5
+            // padre
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(281, 177);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(391, 23);
-            this.textBox5.TabIndex = 15;
+            this.padre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.padre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.padre.Location = new System.Drawing.Point(281, 155);
+            this.padre.MaxLength = 100;
+            this.padre.Name = "padre";
+            this.padre.Size = new System.Drawing.Size(390, 23);
+            this.padre.TabIndex = 3;
             // 
-            // textBox6
+            // madre
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(282, 219);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(390, 23);
-            this.textBox6.TabIndex = 16;
+            this.madre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.madre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.madre.Location = new System.Drawing.Point(282, 184);
+            this.madre.MaxLength = 100;
+            this.madre.Name = "madre";
+            this.madre.Size = new System.Drawing.Size(389, 23);
+            this.madre.TabIndex = 4;
             // 
-            // textBox7
+            // lugarnac
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(212, 358);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(460, 23);
-            this.textBox7.TabIndex = 19;
+            this.lugarnac.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lugarnac.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lugarnac.Location = new System.Drawing.Point(213, 293);
+            this.lugarnac.MaxLength = 100;
+            this.lugarnac.Name = "lugarnac";
+            this.lugarnac.Size = new System.Drawing.Size(458, 23);
+            this.lugarnac.TabIndex = 7;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(210, 180);
+            this.label10.Location = new System.Drawing.Point(210, 158);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 15);
             this.label10.TabIndex = 17;
             this.label10.Text = "PADRE:";
             // 
-            // pictureBox1
+            // fechanac
             // 
-            this.pictureBox1.Image = global::Parroquia.Properties.Resources.virgen;
-            this.pictureBox1.Location = new System.Drawing.Point(29, 67);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(143, 200);
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
+            this.fechanac.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fechanac.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fechanac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fechanac.Location = new System.Drawing.Point(375, 224);
+            this.fechanac.Name = "fechanac";
+            this.fechanac.Size = new System.Drawing.Size(296, 23);
+            this.fechanac.TabIndex = 5;
             // 
-            // dateTimePicker1
+            // fechabautismo
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(212, 288);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(185, 23);
-            this.dateTimePicker1.TabIndex = 22;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(213, 324);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(185, 23);
-            this.dateTimePicker2.TabIndex = 23;
+            this.fechabautismo.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fechabautismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fechabautismo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fechabautismo.Location = new System.Drawing.Point(375, 253);
+            this.fechabautismo.Name = "fechabautismo";
+            this.fechabautismo.Size = new System.Drawing.Size(296, 23);
+            this.fechabautismo.TabIndex = 6;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(122, 425);
+            this.label11.Location = new System.Drawing.Point(121, 352);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(64, 15);
             this.label11.TabIndex = 28;
             this.label11.Text = "PADRINO:";
             // 
-            // textBox8
+            // madrina
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(214, 465);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(458, 23);
-            this.textBox8.TabIndex = 27;
+            this.madrina.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.madrina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.madrina.Location = new System.Drawing.Point(213, 379);
+            this.madrina.MaxLength = 100;
+            this.madrina.Name = "madrina";
+            this.madrina.Size = new System.Drawing.Size(458, 23);
+            this.madrina.TabIndex = 9;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(122, 468);
+            this.label12.Location = new System.Drawing.Point(121, 382);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 15);
             this.label12.TabIndex = 25;
             this.label12.Text = "MADRINA:";
             // 
-            // textBox9
+            // padrino
             // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(213, 423);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(459, 23);
-            this.textBox9.TabIndex = 26;
+            this.padrino.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.padrino.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.padrino.Location = new System.Drawing.Point(212, 350);
+            this.padrino.MaxLength = 100;
+            this.padrino.Name = "padrino";
+            this.padrino.Size = new System.Drawing.Size(459, 23);
+            this.padrino.TabIndex = 8;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(30, 398);
+            this.label13.Location = new System.Drawing.Point(29, 325);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(77, 15);
             this.label13.TabIndex = 24;
@@ -299,45 +318,205 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(30, 506);
+            this.label14.Location = new System.Drawing.Point(26, 422);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(189, 15);
             this.label14.TabIndex = 29;
             this.label14.Text = "NOMBRE DEL PRESBÍTERO";
             // 
-            // textBox10
+            // presbitero
             // 
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(245, 503);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(427, 23);
-            this.textBox10.TabIndex = 30;
+            this.presbitero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.presbitero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.presbitero.Location = new System.Drawing.Point(281, 419);
+            this.presbitero.MaxLength = 100;
+            this.presbitero.Name = "presbitero";
+            this.presbitero.Size = new System.Drawing.Size(392, 23);
+            this.presbitero.TabIndex = 10;
+            // 
+            // anio
+            // 
+            this.anio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.anio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.anio.Location = new System.Drawing.Point(595, 26);
+            this.anio.MaxLength = 4;
+            this.anio.Name = "anio";
+            this.anio.Size = new System.Drawing.Size(76, 23);
+            this.anio.TabIndex = 1;
+            this.anio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(543, 29);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(46, 17);
+            this.label15.TabIndex = 31;
+            this.label15.Text = "AÑO:";
+            // 
+            // guardar
+            // 
+            this.guardar.Location = new System.Drawing.Point(389, 518);
+            this.guardar.Name = "guardar";
+            this.guardar.Size = new System.Drawing.Size(89, 51);
+            this.guardar.TabIndex = 12;
+            this.guardar.Text = "Guardar registro";
+            this.guardar.UseVisualStyleBackColor = true;
+            this.guardar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // guardareimp
+            // 
+            this.guardareimp.Location = new System.Drawing.Point(484, 518);
+            this.guardareimp.Name = "guardareimp";
+            this.guardareimp.Size = new System.Drawing.Size(89, 51);
+            this.guardareimp.TabIndex = 13;
+            this.guardareimp.Text = "Guardar e imprimir";
+            this.guardareimp.UseVisualStyleBackColor = true;
+            // 
+            // cancelar
+            // 
+            this.cancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelar.Location = new System.Drawing.Point(579, 518);
+            this.cancelar.Name = "cancelar";
+            this.cancelar.Size = new System.Drawing.Size(92, 51);
+            this.cancelar.TabIndex = 14;
+            this.cancelar.Text = "Cancelar";
+            this.cancelar.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(26, 456);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(249, 52);
+            this.label16.TabIndex = 35;
+            this.label16.Text = "ANOTACIÓN DE LA CONFIRMACIÓN. SUBDIACONADO. PROFESIÓN RELIGIOSA O MATRIMONIO";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
+            // 
+            // anotacion
+            // 
+            this.anotacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.anotacion.Location = new System.Drawing.Point(281, 455);
+            this.anotacion.Multiline = true;
+            this.anotacion.Name = "anotacion";
+            this.anotacion.Size = new System.Drawing.Size(392, 46);
+            this.anotacion.TabIndex = 11;
+            // 
+            // label17
+            // 
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(32, 530);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(296, 34);
+            this.label17.TabIndex = 36;
+            this.label17.Text = "\"Un pasaje de la Biblia sobre el bautismo, al final se debe agregar el capitulo y" +
+    " versículo. Mt. 2, 14-5\"";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Parroquia.Properties.Resources.bautismo;
+            this.pictureBox1.Location = new System.Drawing.Point(18, 72);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(168, 200);
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(677, 26);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(12, 15);
+            this.label18.TabIndex = 37;
+            this.label18.Text = "*";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(677, 94);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(12, 15);
+            this.label19.TabIndex = 38;
+            this.label19.Text = "*";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Red;
+            this.label22.Location = new System.Drawing.Point(677, 224);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(12, 15);
+            this.label22.TabIndex = 41;
+            this.label22.Text = "*";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Red;
+            this.label23.Location = new System.Drawing.Point(677, 253);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(12, 15);
+            this.label23.TabIndex = 42;
+            this.label23.Text = "*";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.Red;
+            this.label24.Location = new System.Drawing.Point(677, 293);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(12, 15);
+            this.label24.TabIndex = 43;
+            this.label24.Text = "*";
             // 
             // InsertarBautismo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 631);
-            this.Controls.Add(this.textBox10);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.CancelButton = this.cancelar;
+            this.ClientSize = new System.Drawing.Size(709, 586);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.anotacion);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.cancelar);
+            this.Controls.Add(this.guardareimp);
+            this.Controls.Add(this.guardar);
+            this.Controls.Add(this.anio);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.presbitero);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.madrina);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.padrino);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.fechabautismo);
+            this.Controls.Add(this.madre);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.fechanac);
+            this.Controls.Add(this.padre);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.lugarnac);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.nombre);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
@@ -346,6 +525,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "InsertarBautismo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insertar Registro de Bautismo";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -362,25 +542,38 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox padre;
+        private System.Windows.Forms.TextBox madre;
+        private System.Windows.Forms.TextBox lugarnac;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker fechanac;
+        private System.Windows.Forms.DateTimePicker fechabautismo;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox madrina;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox padrino;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox presbitero;
+        private System.Windows.Forms.TextBox anio;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button guardar;
+        private System.Windows.Forms.Button guardareimp;
+        private System.Windows.Forms.Button cancelar;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox anotacion;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
     }
 }

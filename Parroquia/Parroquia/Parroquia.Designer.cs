@@ -44,7 +44,6 @@
             this.descargarManualDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -68,12 +67,13 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -198,15 +198,6 @@
             this.acercaDeToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
             this.acercaDeToolStripMenuItem1.Text = "Acerca de...";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Parroquia.Properties.Resources.virgen;
-            this.pictureBox1.Location = new System.Drawing.Point(24, 46);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(135, 174);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -243,7 +234,8 @@
             this.textBox1.Location = new System.Drawing.Point(113, 131);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(316, 26);
-            this.textBox1.TabIndex = 5;
+            this.textBox1.TabIndex = 1;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // panel1
             // 
@@ -257,7 +249,7 @@
             this.panel1.Location = new System.Drawing.Point(711, 46);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 174);
-            this.panel1.TabIndex = 6;
+            this.panel1.TabIndex = 2;
             // 
             // radioButton5
             // 
@@ -265,7 +257,7 @@
             this.radioButton5.Location = new System.Drawing.Point(33, 133);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(121, 17);
-            this.radioButton5.TabIndex = 5;
+            this.radioButton5.TabIndex = 6;
             this.radioButton5.Text = "Libros de matrimonio";
             this.radioButton5.UseVisualStyleBackColor = true;
             // 
@@ -275,7 +267,7 @@
             this.radioButton4.Location = new System.Drawing.Point(33, 110);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(154, 17);
-            this.radioButton4.TabIndex = 4;
+            this.radioButton4.TabIndex = 5;
             this.radioButton4.Text = "Libros de primera comunión";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
@@ -285,7 +277,7 @@
             this.radioButton3.Location = new System.Drawing.Point(33, 87);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(131, 17);
-            this.radioButton3.TabIndex = 3;
+            this.radioButton3.TabIndex = 4;
             this.radioButton3.Text = "Libros de confirmación";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
@@ -295,7 +287,7 @@
             this.radioButton2.Location = new System.Drawing.Point(33, 65);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(113, 17);
-            this.radioButton2.TabIndex = 2;
+            this.radioButton2.TabIndex = 3;
             this.radioButton2.Text = "Libros de bautismo";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
@@ -306,7 +298,7 @@
             this.radioButton1.Location = new System.Drawing.Point(33, 42);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(50, 17);
-            this.radioButton1.TabIndex = 1;
+            this.radioButton1.TabIndex = 3;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Todo";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -333,7 +325,7 @@
             this.panel2.Location = new System.Drawing.Point(190, 46);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(515, 174);
-            this.panel2.TabIndex = 7;
+            this.panel2.TabIndex = 1;
             // 
             // label6
             // 
@@ -358,7 +350,7 @@
             this.button1.Location = new System.Drawing.Point(435, 131);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(66, 26);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -380,7 +372,7 @@
             this.dataGridView1.RowHeadersWidth = 100;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(887, 329);
-            this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // nombre
@@ -432,6 +424,15 @@
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Parroquia.Properties.Resources.virgen2;
+            this.pictureBox1.Location = new System.Drawing.Point(24, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(160, 211);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Parroquia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,7 +451,6 @@
             this.Text = "Parroquía de Nuestra Señora de Guadalupe";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -458,6 +458,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

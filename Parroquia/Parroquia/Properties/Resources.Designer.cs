@@ -63,6 +63,16 @@ namespace Parroquia.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bautismo {
+            get {
+                object obj = ResourceManager.GetObject("bautismo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap simpus {
             get {
                 object obj = ResourceManager.GetObject("simpus", resourceCulture);
@@ -76,6 +86,26 @@ namespace Parroquia.Properties {
         internal static System.Drawing.Bitmap virgen {
             get {
                 object obj = ResourceManager.GetObject("virgen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap virgen1 {
+            get {
+                object obj = ResourceManager.GetObject("virgen1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap virgen2 {
+            get {
+                object obj = ResourceManager.GetObject("virgen2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
