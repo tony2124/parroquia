@@ -1,4 +1,5 @@
-﻿namespace Parroquia
+﻿using System;
+namespace Parroquia
 {
     partial class InsertarConfirmacion
     {
@@ -28,6 +29,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsertarConfirmacion));
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,28 +38,32 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.nombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.padre = new System.Windows.Forms.TextBox();
+            this.madre = new System.Windows.Forms.TextBox();
+            this.lugar_bautismo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.fecha_Confirm = new System.Windows.Forms.DateTimePicker();
+            this.fecha_bautism = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.madrina = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.padrino = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.ministro = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.anioCombo = new System.Windows.Forms.ComboBox();
+            this.cancelBtnConfirmacion = new System.Windows.Forms.Button();
+            this.guardarConfirBtn = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.guardaImprimeBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,13 +137,13 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "NOMBRE COMPLETO DEL CONFIRMADO:";
             // 
-            // textBox4
+            // nombre
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(192, 106);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(481, 23);
-            this.textBox4.TabIndex = 7;
+            this.nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombre.Location = new System.Drawing.Point(192, 106);
+            this.nombre.Name = "nombre";
+            this.nombre.Size = new System.Drawing.Size(481, 23);
+            this.nombre.TabIndex = 7;
             // 
             // label5
             // 
@@ -188,29 +195,29 @@
             this.label9.TabIndex = 14;
             this.label9.Text = "LUGAR DEL BAUTISMO";
             // 
-            // textBox5
+            // padre
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(281, 177);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(391, 23);
-            this.textBox5.TabIndex = 15;
+            this.padre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.padre.Location = new System.Drawing.Point(281, 177);
+            this.padre.Name = "padre";
+            this.padre.Size = new System.Drawing.Size(391, 23);
+            this.padre.TabIndex = 15;
             // 
-            // textBox6
+            // madre
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(282, 219);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(390, 23);
-            this.textBox6.TabIndex = 16;
+            this.madre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.madre.Location = new System.Drawing.Point(282, 219);
+            this.madre.Name = "madre";
+            this.madre.Size = new System.Drawing.Size(390, 23);
+            this.madre.TabIndex = 16;
             // 
-            // textBox7
+            // lugar_bautismo
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(212, 358);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(460, 23);
-            this.textBox7.TabIndex = 19;
+            this.lugar_bautismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lugar_bautismo.Location = new System.Drawing.Point(212, 358);
+            this.lugar_bautismo.Name = "lugar_bautismo";
+            this.lugar_bautismo.Size = new System.Drawing.Size(460, 23);
+            this.lugar_bautismo.TabIndex = 19;
             // 
             // label10
             // 
@@ -231,25 +238,25 @@
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
-            // dateTimePicker1
+            // fecha_Confirm
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(214, 286);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(185, 23);
-            this.dateTimePicker1.TabIndex = 22;
+            this.fecha_Confirm.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_Confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_Confirm.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fecha_Confirm.Location = new System.Drawing.Point(214, 286);
+            this.fecha_Confirm.Name = "fecha_Confirm";
+            this.fecha_Confirm.Size = new System.Drawing.Size(185, 23);
+            this.fecha_Confirm.TabIndex = 22;
             // 
-            // dateTimePicker2
+            // fecha_bautism
             // 
-            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(214, 322);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(185, 23);
-            this.dateTimePicker2.TabIndex = 23;
+            this.fecha_bautism.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_bautism.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_bautism.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fecha_bautism.Location = new System.Drawing.Point(214, 322);
+            this.fecha_bautism.Name = "fecha_bautism";
+            this.fecha_bautism.Size = new System.Drawing.Size(185, 23);
+            this.fecha_bautism.TabIndex = 23;
             // 
             // label11
             // 
@@ -261,13 +268,13 @@
             this.label11.TabIndex = 28;
             this.label11.Text = "PADRINO:";
             // 
-            // textBox8
+            // madrina
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(214, 465);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(458, 23);
-            this.textBox8.TabIndex = 27;
+            this.madrina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.madrina.Location = new System.Drawing.Point(214, 465);
+            this.madrina.Name = "madrina";
+            this.madrina.Size = new System.Drawing.Size(458, 23);
+            this.madrina.TabIndex = 27;
             // 
             // label12
             // 
@@ -279,13 +286,13 @@
             this.label12.TabIndex = 25;
             this.label12.Text = "MADRINA:";
             // 
-            // textBox9
+            // padrino
             // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(213, 423);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(459, 23);
-            this.textBox9.TabIndex = 26;
+            this.padrino.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.padrino.Location = new System.Drawing.Point(213, 423);
+            this.padrino.Name = "padrino";
+            this.padrino.Size = new System.Drawing.Size(459, 23);
+            this.padrino.TabIndex = 26;
             // 
             // label13
             // 
@@ -307,13 +314,13 @@
             this.label14.TabIndex = 29;
             this.label14.Text = "NOMBRE DEL MINISTRO";
             // 
-            // textBox10
+            // ministro
             // 
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(214, 506);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(427, 23);
-            this.textBox10.TabIndex = 30;
+            this.ministro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ministro.Location = new System.Drawing.Point(214, 506);
+            this.ministro.Name = "ministro";
+            this.ministro.Size = new System.Drawing.Size(427, 23);
+            this.ministro.TabIndex = 30;
             // 
             // label15
             // 
@@ -325,13 +332,53 @@
             this.label15.TabIndex = 31;
             this.label15.Text = "AÑO";
             // 
-            // comboBox1
+            // anioCombo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(87, 544);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 32;
+            this.anioCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.anioCombo.FormattingEnabled = true;
+            this.anioCombo.Location = new System.Drawing.Point(87, 544);
+            this.anioCombo.Name = "anioCombo";
+            DateTime hoy = DateTime.Now;
+            for (int i = 1700; i <= hoy.Year; i++)
+                this.anioCombo.Items.Add(i);
+            this.anioCombo.Text = hoy.Year.ToString();
+            this.anioCombo.Size = new System.Drawing.Size(121, 21);
+            this.anioCombo.TabIndex = 32;
+            // 
+            // cancelBtnConfirmacion
+            // 
+            this.cancelBtnConfirmacion.Image = ((System.Drawing.Image)(resources.GetObject("cancelBtnConfirmacion.Image")));
+            this.cancelBtnConfirmacion.Location = new System.Drawing.Point(600, 584);
+            this.cancelBtnConfirmacion.Name = "cancelBtnConfirmacion";
+            this.cancelBtnConfirmacion.Size = new System.Drawing.Size(97, 35);
+            this.cancelBtnConfirmacion.TabIndex = 33;
+            this.cancelBtnConfirmacion.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.cancelBtnConfirmacion, "Cerrar ventana");
+            this.cancelBtnConfirmacion.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // guardarConfirBtn
+            // 
+            this.guardarConfirBtn.Image = ((System.Drawing.Image)(resources.GetObject("guardarConfirBtn.Image")));
+            this.guardarConfirBtn.Location = new System.Drawing.Point(245, 549);
+            this.guardarConfirBtn.Name = "guardarConfirBtn";
+            this.guardarConfirBtn.Size = new System.Drawing.Size(70, 70);
+            this.guardarConfirBtn.TabIndex = 34;
+            this.toolTip1.SetToolTip(this.guardarConfirBtn, "Guardar y limpiar los datos");
+            this.guardarConfirBtn.UseVisualStyleBackColor = true;
+            this.guardarConfirBtn.Click += new System.EventHandler(this.guardarConfirBtn_Click);
+            // 
+            // guardaImprimeBtn
+            // 
+            this.guardaImprimeBtn.Font = new System.Drawing.Font("Miramonte", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardaImprimeBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.guardaImprimeBtn.Location = new System.Drawing.Point(378, 559);
+            this.guardaImprimeBtn.Name = "guardaImprimeBtn";
+            this.guardaImprimeBtn.Size = new System.Drawing.Size(104, 50);
+            this.guardaImprimeBtn.TabIndex = 35;
+            this.guardaImprimeBtn.Text = "Guardar /Imprimir";
+            this.toolTip1.SetToolTip(this.guardaImprimeBtn, "Guardar e imprimir");
+            this.guardaImprimeBtn.UseVisualStyleBackColor = true;
+            this.guardaImprimeBtn.Click += new System.EventHandler(this.guardaImprimeBtn_Click);
             // 
             // InsertarConfirmacion
             // 
@@ -339,28 +386,31 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(709, 631);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.guardaImprimeBtn);
+            this.Controls.Add(this.guardarConfirBtn);
+            this.Controls.Add(this.cancelBtnConfirmacion);
+            this.Controls.Add(this.anioCombo);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.ministro);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.madrina);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.padrino);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.fecha_bautism);
+            this.Controls.Add(this.madre);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.fecha_Confirm);
+            this.Controls.Add(this.padre);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.lugar_bautismo);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.nombre);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
@@ -388,27 +438,31 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox padre;
+        private System.Windows.Forms.TextBox madre;
+        private System.Windows.Forms.TextBox lugar_bautismo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker fecha_Confirm;
+        private System.Windows.Forms.DateTimePicker fecha_bautism;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox madrina;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox padrino;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox ministro;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox anioCombo;
+        private System.Windows.Forms.Button cancelBtnConfirmacion;
+        private System.Windows.Forms.Button guardarConfirBtn;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button guardaImprimeBtn;
     }
 }
