@@ -183,6 +183,7 @@
             this.guardarConfirBtn.TabIndex = 8;
             this.guardarConfirBtn.Text = "Guardar";
             this.guardarConfirBtn.UseVisualStyleBackColor = true;
+            this.guardarConfirBtn.Click += new System.EventHandler(this.guardarConfirBtn_Click);
             // 
             // anioCombo
             // 
@@ -211,6 +212,7 @@
             this.ministro.Name = "ministro";
             this.ministro.Size = new System.Drawing.Size(522, 23);
             this.ministro.TabIndex = 7;
+            this.ministro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ministro_KeyPress);
             // 
             // label14
             // 
@@ -240,6 +242,7 @@
             this.madrina.Name = "madrina";
             this.madrina.Size = new System.Drawing.Size(522, 23);
             this.madrina.TabIndex = 6;
+            this.madrina.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.madrina_KeyPress);
             // 
             // label12
             // 
@@ -259,6 +262,7 @@
             this.padrino.Name = "padrino";
             this.padrino.Size = new System.Drawing.Size(522, 23);
             this.padrino.TabIndex = 5;
+            this.padrino.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.padrino_KeyPress);
             // 
             // label13
             // 
@@ -288,6 +292,7 @@
             this.madre.Name = "madre";
             this.madre.Size = new System.Drawing.Size(390, 23);
             this.madre.TabIndex = 2;
+            this.madre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.madre_KeyPress);
             // 
             // label6
             // 
@@ -317,6 +322,7 @@
             this.padre.Name = "padre";
             this.padre.Size = new System.Drawing.Size(391, 23);
             this.padre.TabIndex = 1;
+            this.padre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.padre_KeyPress);
             // 
             // lugar_bautismo
             // 
@@ -326,6 +332,7 @@
             this.lugar_bautismo.Name = "lugar_bautismo";
             this.lugar_bautismo.Size = new System.Drawing.Size(278, 23);
             this.lugar_bautismo.TabIndex = 4;
+            this.lugar_bautismo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lugar_bautismo_KeyPress);
             // 
             // textBox3
             // 
