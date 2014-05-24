@@ -93,6 +93,16 @@ namespace Parroquia.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap matrimonio {
+            get {
+                object obj = ResourceManager.GetObject("matrimonio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap simpus {
             get {
                 object obj = ResourceManager.GetObject("simpus", resourceCulture);

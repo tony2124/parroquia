@@ -79,6 +79,12 @@
     <Compile Include="InsertarBautismo.Designer.cs">
       <DependentUpon>InsertarBautismo.cs</DependentUpon>
     </Compile>
+    <Compile Include="InsertarMatrimonios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertarMatrimonios.Designer.cs">
+      <DependentUpon>InsertarMatrimonios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Libros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InsertarBautismo.resx">
       <DependentUpon>InsertarBautismo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertarMatrimonios.resx">
+      <DependentUpon>InsertarMatrimonios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Libros.resx">
       <DependentUpon>Libros.cs</DependentUpon>
@@ -157,6 +166,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\confirmacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\matrimonio.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
