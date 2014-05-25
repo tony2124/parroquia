@@ -1,4 +1,5 @@
-﻿namespace Parroquia
+﻿using System;
+namespace Parroquia
 {
     partial class InsertarBautismo
     {
@@ -54,7 +55,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.presbitero = new System.Windows.Forms.TextBox();
-            this.anio = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.guardar = new System.Windows.Forms.Button();
             this.guardareimp = new System.Windows.Forms.Button();
@@ -68,6 +68,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.anio = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -334,17 +335,6 @@
             this.presbitero.Size = new System.Drawing.Size(392, 23);
             this.presbitero.TabIndex = 10;
             // 
-            // anio
-            // 
-            this.anio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.anio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.anio.Location = new System.Drawing.Point(595, 26);
-            this.anio.MaxLength = 4;
-            this.anio.Name = "anio";
-            this.anio.Size = new System.Drawing.Size(76, 23);
-            this.anio.TabIndex = 1;
-            this.anio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -363,7 +353,7 @@
             this.guardar.TabIndex = 12;
             this.guardar.Text = "Guardar registro";
             this.guardar.UseVisualStyleBackColor = true;
-            this.guardar.Click += new System.EventHandler(this.button1_Click);
+            this.guardar.Click += new System.EventHandler(this.guardar_Click);
             // 
             // guardareimp
             // 
@@ -383,6 +373,7 @@
             this.cancelar.TabIndex = 14;
             this.cancelar.Text = "Cancelar";
             this.cancelar.UseVisualStyleBackColor = true;
+            this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
             // 
             // label16
             // 
@@ -392,7 +383,6 @@
             this.label16.Size = new System.Drawing.Size(249, 52);
             this.label16.TabIndex = 35;
             this.label16.Text = "ANOTACIÓN DE LA CONFIRMACIÓN. SUBDIACONADO. PROFESIÓN RELIGIOSA O MATRIMONIO";
-            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // anotacion
             // 
@@ -477,6 +467,17 @@
             this.label24.TabIndex = 43;
             this.label24.Text = "*";
             // 
+            // anio
+            // 
+            this.anio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.anio.FormattingEnabled = true;
+            this.anio.Location = new System.Drawing.Point(596, 27);
+            this.anio.Name = "anio";
+            this.anio.Items.AddRange(InsertarBautismo.anios);
+            this.anio.Text = DateTime.Now.Year+"";
+            this.anio.Size = new System.Drawing.Size(77, 21);
+            this.anio.TabIndex = 44;
+            // 
             // InsertarBautismo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,6 +485,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.CancelButton = this.cancelar;
             this.ClientSize = new System.Drawing.Size(709, 586);
+            this.Controls.Add(this.anio);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
@@ -495,7 +497,6 @@
             this.Controls.Add(this.cancelar);
             this.Controls.Add(this.guardareimp);
             this.Controls.Add(this.guardar);
-            this.Controls.Add(this.anio);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.presbitero);
             this.Controls.Add(this.label14);
@@ -562,7 +563,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox presbitero;
-        private System.Windows.Forms.TextBox anio;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button guardar;
         private System.Windows.Forms.Button guardareimp;
@@ -575,5 +575,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox anio;
     }
 }

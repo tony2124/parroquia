@@ -17,6 +17,7 @@ namespace Parroquia
         private String ID_LIBRO;
         private int Partida;
         private double Hoja;
+        public static String[] anios=new String[5];
 
 
         MySqlDataReader Datos;
@@ -25,8 +26,18 @@ namespace Parroquia
         public InsertarConfirmacion(String ID_libro)
         {
             ID_LIBRO = ID_libro;
-            //MessageBox.Show(ID_LIBRO);
+
+            anios = new String[(DateTime.Now.Year - 1970)+1];
+            int u = 0;
+            for (int i = 1970; i <= DateTime.Now.Year; i++)
+            {
+                anios[u] = i+"";
+                u++;
+            }
+                
             InitializeComponent();
+            
+
             try
             {
                 Bdatos.conexion();
@@ -80,29 +91,29 @@ namespace Parroquia
             {
                 Bdatos.conexion();
 
-                if ((nombre.Text.ToString().CompareTo("") == 0) ||/*
+                if ((nombre.Text.ToString().CompareTo("") == 0) ||
                     (padre.Text.ToString().CompareTo("") == 0) ||
-                    (madre.Text.ToString().CompareTo("") == 0) ||*/
-                    /*(padrino.Text.ToString().CompareTo("") == 0) ||
-                    (madrina.Text.ToString().CompareTo("") == 0) ||*/
+                    (madre.Text.ToString().CompareTo("") == 0) ||
+                    (padrino.Text.ToString().CompareTo("") == 0) ||
+                    (madrina.Text.ToString().CompareTo("") == 0) ||
                     (lugar_bautismo.Text.ToString().CompareTo("") == 0) ||
                     (ministro.Text.ToString().CompareTo("") == 0))
                     MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
-                {
-                    if (Bdatos.Insertar("insert into confirmaciones(id_libro,num_hoja,num_partida,nombre,padre,madre,padrino,madrina,fecha_bautismo,fecha_confirmacion,lugar_bautismo,ministro,anio)" +
+                {//Se guardan todos los campos en la base de datos
+                    if (Bdatos.Insertar("insert into confirmaciones(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_confirmacion,fecha_bautismo,lugar_bautismo,padrino,madrina,presbitero,anio)" +
                         " values('" + int.Parse(ID_LIBRO) +
                         "','" + int.Parse(textBox2.Text.ToString()) +
                         "','" + int.Parse(textBox3.Text.ToString()) +
                         "','" + nombre.Text.ToString() +
                         "','" + padre.Text.ToString() +
                         "','" + madre.Text.ToString() +
+                        "','" + fecha_Confirm.Value.ToString("yyyy-MM-dd") +
+                        "','" + fecha_bautism.Value.ToString("yyyy-MM-dd") +
+                        "','" + lugar_bautismo.Text.ToString() +
                         "','" + padrino.Text.ToString() +
                         "','" + madrina.Text.ToString() +
-                        "','" + fecha_bautism.Value.ToString("yyyy-MM-dd") +
-                         "','" + fecha_Confirm.Value.ToString("yyyy-MM-dd") +
-                         "','" + lugar_bautismo.Text.ToString() +
                          "','" + ministro.Text.ToString() +
                         "','" + anioCombo.Text.ToString() +
                         "');") > 0)
@@ -126,7 +137,6 @@ namespace Parroquia
                         fecha_Confirm.Value = DateTime.Now;
                         lugar_bautismo.Text = "";
                         ministro.Text = "";
-                        anioCombo.Text = DateTime.Now.Year.ToString();
                     }
                     else MessageBox.Show("Error al ingresar datos en MySQL ", " Error al ingresar ",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);

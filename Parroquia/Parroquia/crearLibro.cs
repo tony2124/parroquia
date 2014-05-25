@@ -37,51 +37,61 @@ namespace Parroquia
 
         public void GuardarR()
         {
-            BDatos.conexion();
 
-            //Evaluacion para que los nombres no sean iguales
-            int iguales = 0;
-            MySqlDataReader Datos = BDatos.obtenerBasesDatosMySQL("select nombre_libro from libros where id_categoria='" + CATEGORIA + "'");
-            if (nombreLibro.Text.ToString().Substring(0, 1).CompareTo(" ") == 0)
-                nombreLibro.Text = nombreLibro.Text.ToString().Substring(1, (nombreLibro.Text.ToString().Length-1));
+            if (nombreLibro.Text.ToString().CompareTo("") != 0)
+            {
+                BDatos.conexion();
 
-            if (nombreLibro.Text.ToString().Substring((nombreLibro.Text.ToString().Length - 1), 1).CompareTo(" ") == 0)
-                nombreLibro.Text = nombreLibro.Text.ToString().Substring(0, (nombreLibro.Text.ToString().Length - 1));
+                //Evaluacion para que los nombres no sean iguales
+                int iguales = 0;
+                MySqlDataReader Datos = BDatos.obtenerBasesDatosMySQL("select nombre_libro from libros where id_categoria='" + CATEGORIA + "'");
+                if (nombreLibro.Text.ToString().Substring(0, 1).CompareTo(" ") == 0)
+                    nombreLibro.Text = nombreLibro.Text.ToString().Substring(1, (nombreLibro.Text.ToString().Length - 1));
 
-            if (Datos.HasRows)
-                while (Datos.Read())
-                {
-                    if (Datos.GetString(0).CompareTo(nombreLibro.Text.ToString()) == 0)
+                if (nombreLibro.Text.ToString().Substring((nombreLibro.Text.ToString().Length - 1), 1).CompareTo(" ") == 0)
+                    nombreLibro.Text = nombreLibro.Text.ToString().Substring(0, (nombreLibro.Text.ToString().Length - 1));
+
+                if (Datos.HasRows)
+                    while (Datos.Read())
                     {
-                        iguales++;
+                        if (Datos.GetString(0).CompareTo(nombreLibro.Text.ToString()) == 0)
+                        {
+                            iguales++;
+
+                        }
+                    }
+                Datos.Close();
+                if (iguales > 0 || nombreLibro.Text.CompareTo("") == 0)
+                {
+                    MessageBox.Show("No puede agregar nombres de libros iguales y no puede dejar el libro sin nombre"
+                     , " Error ",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+
+                    if (BDatos.Insertar("insert into libros (id_categoria, nombre_libro) values(" + CATEGORIA + ",'" + nombreLibro.Text.ToString() + "');") > 0)
+                    {
+                        MessageBox.Show("Se ha agregado un libro nuevo"
+                            , " Acción ejecutada con exito ",
+                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        BDatos.Desconectar();
+                        Dispose();
 
                     }
+                    else
+                        MessageBox.Show("Se ha detectado un problema al agregar un libro"
+                           , " Error ",
+                          MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            Datos.Close();
-            if (iguales > 0 || nombreLibro.Text.CompareTo("")==0)
-            {
-                MessageBox.Show("No puede agregar nombres de libros iguales y no puede dejar el libro sin nombre"
-                 , " Error ",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BDatos.Desconectar();
             }
             else
             {
-
-                if (BDatos.Insertar("insert into libros (id_categoria, nombre_libro) values(" + CATEGORIA + ",'" + nombreLibro.Text.ToString() + "');") > 0)
-                {
-                    MessageBox.Show("Se ha agregado un libro nuevo"
-                        , " Acción ejecutada con exito ",
-                       MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    BDatos.Desconectar();
-                    Dispose();
-
-                }
-                else
-                    MessageBox.Show("Se ha detectado un problema al agregar un libro"
-                       , " Error ",
-                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No puede agregar libros sin nombre"
+                        , " Error ",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            BDatos.Desconectar();
         }
     }
 }

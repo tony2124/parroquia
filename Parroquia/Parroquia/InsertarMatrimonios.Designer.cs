@@ -1,4 +1,5 @@
-﻿namespace Parroquia
+﻿using System;
+namespace Parroquia
 {
     partial class InsertarMatrimonios
     {
@@ -42,19 +43,19 @@
             this.guardarConfirBtn = new System.Windows.Forms.Button();
             this.anioCombo = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.ministro = new System.Windows.Forms.TextBox();
+            this.asistente = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.madrina = new System.Windows.Forms.TextBox();
+            this.testigo2 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.padrino = new System.Windows.Forms.TextBox();
+            this.testigo1 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.madre = new System.Windows.Forms.TextBox();
+            this.novia = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.fecha_Confirm = new System.Windows.Forms.DateTimePicker();
-            this.padre = new System.Windows.Forms.TextBox();
-            this.lugar_bautismo = new System.Windows.Forms.TextBox();
+            this.fecha_Matrimonio = new System.Windows.Forms.DateTimePicker();
+            this.novio = new System.Windows.Forms.TextBox();
+            this.lugar_celebracion = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -191,6 +192,8 @@
             this.anioCombo.FormattingEnabled = true;
             this.anioCombo.Location = new System.Drawing.Point(592, 16);
             this.anioCombo.Name = "anioCombo";
+            this.anioCombo.Items.AddRange(InsertarMatrimonios.anios);
+            this.anioCombo.Text = DateTime.Now.Year+"";
             this.anioCombo.Size = new System.Drawing.Size(89, 21);
             this.anioCombo.TabIndex = 70;
             // 
@@ -204,15 +207,15 @@
             this.label15.TabIndex = 69;
             this.label15.Text = "AÑO:";
             // 
-            // ministro
+            // asistente
             // 
-            this.ministro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ministro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ministro.Location = new System.Drawing.Point(158, 384);
-            this.ministro.Name = "ministro";
-            this.ministro.Size = new System.Drawing.Size(522, 23);
-            this.ministro.TabIndex = 7;
-            this.ministro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ministro_KeyPress);
+            this.asistente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.asistente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.asistente.Location = new System.Drawing.Point(158, 384);
+            this.asistente.Name = "asistente";
+            this.asistente.Size = new System.Drawing.Size(522, 23);
+            this.asistente.TabIndex = 7;
+            this.asistente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ministro_KeyPress);
             // 
             // label14
             // 
@@ -234,15 +237,15 @@
             this.label11.TabIndex = 67;
             this.label11.Text = "TESTIGO 1:";
             // 
-            // madrina
+            // testigo2
             // 
-            this.madrina.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.madrina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.madrina.Location = new System.Drawing.Point(158, 342);
-            this.madrina.Name = "madrina";
-            this.madrina.Size = new System.Drawing.Size(522, 23);
-            this.madrina.TabIndex = 6;
-            this.madrina.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.madrina_KeyPress);
+            this.testigo2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.testigo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.testigo2.Location = new System.Drawing.Point(158, 342);
+            this.testigo2.Name = "testigo2";
+            this.testigo2.Size = new System.Drawing.Size(522, 23);
+            this.testigo2.TabIndex = 6;
+            this.testigo2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.madrina_KeyPress);
             // 
             // label12
             // 
@@ -254,15 +257,15 @@
             this.label12.TabIndex = 66;
             this.label12.Text = "TESTIGO 2:";
             // 
-            // padrino
+            // testigo1
             // 
-            this.padrino.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.padrino.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.padrino.Location = new System.Drawing.Point(158, 311);
-            this.padrino.Name = "padrino";
-            this.padrino.Size = new System.Drawing.Size(522, 23);
-            this.padrino.TabIndex = 5;
-            this.padrino.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.padrino_KeyPress);
+            this.testigo1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.testigo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.testigo1.Location = new System.Drawing.Point(158, 311);
+            this.testigo1.Name = "testigo1";
+            this.testigo1.Size = new System.Drawing.Size(522, 23);
+            this.testigo1.TabIndex = 5;
+            this.testigo1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.padrino_KeyPress);
             // 
             // label13
             // 
@@ -284,15 +287,15 @@
             this.label10.TabIndex = 63;
             this.label10.Text = "NOVIO:";
             // 
-            // madre
+            // novia
             // 
-            this.madre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.madre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.madre.Location = new System.Drawing.Point(290, 133);
-            this.madre.Name = "madre";
-            this.madre.Size = new System.Drawing.Size(390, 23);
-            this.madre.TabIndex = 2;
-            this.madre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.madre_KeyPress);
+            this.novia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.novia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.novia.Location = new System.Drawing.Point(290, 133);
+            this.novia.Name = "novia";
+            this.novia.Size = new System.Drawing.Size(390, 23);
+            this.novia.TabIndex = 2;
+            this.novia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.madre_KeyPress);
             // 
             // label6
             // 
@@ -304,35 +307,35 @@
             this.label6.TabIndex = 55;
             this.label6.Text = "NOVIA:";
             // 
-            // fecha_Confirm
+            // fecha_Matrimonio
             // 
-            this.fecha_Confirm.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fecha_Confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fecha_Confirm.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fecha_Confirm.Location = new System.Drawing.Point(402, 187);
-            this.fecha_Confirm.Name = "fecha_Confirm";
-            this.fecha_Confirm.Size = new System.Drawing.Size(278, 23);
-            this.fecha_Confirm.TabIndex = 3;
+            this.fecha_Matrimonio.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_Matrimonio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_Matrimonio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fecha_Matrimonio.Location = new System.Drawing.Point(402, 187);
+            this.fecha_Matrimonio.Name = "fecha_Matrimonio";
+            this.fecha_Matrimonio.Size = new System.Drawing.Size(278, 23);
+            this.fecha_Matrimonio.TabIndex = 3;
             // 
-            // padre
+            // novio
             // 
-            this.padre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.padre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.padre.Location = new System.Drawing.Point(289, 104);
-            this.padre.Name = "padre";
-            this.padre.Size = new System.Drawing.Size(391, 23);
-            this.padre.TabIndex = 1;
-            this.padre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.padre_KeyPress);
+            this.novio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.novio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.novio.Location = new System.Drawing.Point(289, 104);
+            this.novio.Name = "novio";
+            this.novio.Size = new System.Drawing.Size(391, 23);
+            this.novio.TabIndex = 1;
+            this.novio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.padre_KeyPress);
             // 
-            // lugar_bautismo
+            // lugar_celebracion
             // 
-            this.lugar_bautismo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lugar_bautismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lugar_bautismo.Location = new System.Drawing.Point(402, 223);
-            this.lugar_bautismo.Name = "lugar_bautismo";
-            this.lugar_bautismo.Size = new System.Drawing.Size(278, 23);
-            this.lugar_bautismo.TabIndex = 4;
-            this.lugar_bautismo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lugar_bautismo_KeyPress);
+            this.lugar_celebracion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lugar_celebracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lugar_celebracion.Location = new System.Drawing.Point(402, 223);
+            this.lugar_celebracion.Name = "lugar_celebracion";
+            this.lugar_celebracion.Size = new System.Drawing.Size(278, 23);
+            this.lugar_celebracion.TabIndex = 4;
+            this.lugar_celebracion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lugar_bautismo_KeyPress);
             // 
             // textBox3
             // 
@@ -417,6 +420,7 @@
             this.cancelBtnConfirmacion.Size = new System.Drawing.Size(97, 52);
             this.cancelBtnConfirmacion.TabIndex = 10;
             this.cancelBtnConfirmacion.UseVisualStyleBackColor = true;
+            this.cancelBtnConfirmacion.Click += new System.EventHandler(this.cancelBtnConfirmacion_Click);
             // 
             // pictureBox1
             // 
@@ -447,20 +451,20 @@
             this.Controls.Add(this.cancelBtnConfirmacion);
             this.Controls.Add(this.anioCombo);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.ministro);
+            this.Controls.Add(this.asistente);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.madrina);
+            this.Controls.Add(this.testigo2);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.padrino);
+            this.Controls.Add(this.testigo1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.madre);
+            this.Controls.Add(this.novia);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.fecha_Confirm);
-            this.Controls.Add(this.padre);
+            this.Controls.Add(this.fecha_Matrimonio);
+            this.Controls.Add(this.novio);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lugar_bautismo);
+            this.Controls.Add(this.lugar_celebracion);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
@@ -491,20 +495,20 @@
         private System.Windows.Forms.Button cancelBtnConfirmacion;
         private System.Windows.Forms.ComboBox anioCombo;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox ministro;
+        private System.Windows.Forms.TextBox asistente;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox madrina;
+        private System.Windows.Forms.TextBox testigo2;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox padrino;
+        private System.Windows.Forms.TextBox testigo1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox madre;
+        private System.Windows.Forms.TextBox novia;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker fecha_Confirm;
-        private System.Windows.Forms.TextBox padre;
+        private System.Windows.Forms.DateTimePicker fecha_Matrimonio;
+        private System.Windows.Forms.TextBox novio;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox lugar_bautismo;
+        private System.Windows.Forms.TextBox lugar_celebracion;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;

@@ -98,6 +98,14 @@ namespace Parroquia
                 ic.ShowDialog();
                 
             }
+
+            if (CATEGORIA == 4)
+            {
+                Button b = (Button)sender;
+                InsertarMatrimonios im = new InsertarMatrimonios(b.Name.ToString());
+                im.ShowDialog();
+
+            }
         }
 
         public void editarLibro(object sender, EventArgs e) 

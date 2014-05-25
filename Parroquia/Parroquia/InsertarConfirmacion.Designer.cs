@@ -353,6 +353,8 @@ namespace Parroquia
             this.anioCombo.FormattingEnabled = true;
             this.anioCombo.Location = new System.Drawing.Point(584, 26);
             this.anioCombo.Name = "anioCombo";
+            this.anioCombo.Items.AddRange(InsertarConfirmacion.anios);
+            this.anioCombo.Text = DateTime.Now.Year + "";
             this.anioCombo.Size = new System.Drawing.Size(89, 21);
             this.anioCombo.TabIndex = 32;
             // 
