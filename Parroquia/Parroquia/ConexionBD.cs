@@ -102,6 +102,25 @@ namespace conexionbd
             return resultado;
         }
 
+        public int Actualizar(String consulta)
+        {
+
+            int resultado = 0;
+            MySqlCommand cmd = new MySqlCommand(consulta, conexionBD);
+            try
+            {
+                resultado = cmd.ExecuteNonQuery();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error al actualizar datos en MySQL: " +
+                    ex.Message, " Error al Eliminar ",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return resultado;
+        }
+
 
         public void Desconectar()
         {

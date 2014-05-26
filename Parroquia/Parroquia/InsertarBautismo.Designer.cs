@@ -356,7 +356,10 @@ namespace Parroquia
             this.guardar.Name = "guardar";
             this.guardar.Size = new System.Drawing.Size(89, 51);
             this.guardar.TabIndex = 12;
-            this.guardar.Text = "Guardar registro";
+            if(edicion)
+                this.guardar.Text = "Editar registro";
+            else
+                this.guardar.Text = "Guardar registro";
             this.guardar.UseVisualStyleBackColor = true;
             this.guardar.Click += new System.EventHandler(this.guardar_Click);
             // 
@@ -366,7 +369,7 @@ namespace Parroquia
             this.guardareimp.Name = "guardareimp";
             this.guardareimp.Size = new System.Drawing.Size(89, 51);
             this.guardareimp.TabIndex = 13;
-            this.guardareimp.Text = "Guardar e imprimir";
+            this.guardareimp.Text = "Imprimir";
             this.guardareimp.UseVisualStyleBackColor = true;
             // 
             // cancelar
@@ -593,7 +596,10 @@ namespace Parroquia
             this.Name = "InsertarBautismo";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Insertar Registro de Bautismo";
+            if(!edicion)
+                this.Text = "Insertar Registro de Bautismo";
+            else
+                this.Text = "Actualizar Registro de Bautismo";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
