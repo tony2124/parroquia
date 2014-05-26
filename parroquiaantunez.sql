@@ -2,10 +2,10 @@
 -- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 26-05-2014 a las 00:12:44
--- Versión del servidor: 5.6.12-log
--- Versión de PHP: 5.4.12
+-- Host: localhost
+-- Generation Time: May 26, 2014 at 04:44 AM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `parroquiaantunez`
+-- Database: `parroquiaantunez`
 --
 CREATE DATABASE IF NOT EXISTS `parroquiaantunez` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `parroquiaantunez`;
@@ -25,7 +25,7 @@ USE `parroquiaantunez`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bautismos`
+-- Table structure for table `bautismos`
 --
 
 CREATE TABLE IF NOT EXISTS `bautismos` (
@@ -47,20 +47,21 @@ CREATE TABLE IF NOT EXISTS `bautismos` (
   PRIMARY KEY (`id_bautismo`),
   KEY `id_libro` (`id_libro`),
   KEY `id_libro_2` (`id_libro`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Volcado de datos para la tabla `bautismos`
+-- Dumping data for table `bautismos`
 --
 
 INSERT INTO `bautismos` (`id_bautismo`, `id_libro`, `num_hoja`, `num_partida`, `nombre`, `padre`, `madre`, `fecha_nac`, `lugar_nac`, `fecha_bautismo`, `padrino`, `madrina`, `presbitero`, `anotacion`, `anio`) VALUES
 (1, 1, 1, 3, 'JAVIER CALDERO', 'NO SE ', 'NO SE 2', '2014-05-20', 'NUEVA ITALIA', '2014-05-20', 'PADRINO', 'NO SE DE DONDE MADRINA', 'PRESBITERO', 'QUE CHIDO TODO', '1988'),
-(2, 1, 1, 2, 'ALFONSO CALDERON CHAVEZ', 'MARIO CALDERON MENDEZ', 'TERESA CHAVEZ HERNANDEZ', '1990-06-04', 'APATZINGAN', '1991-04-10', 'REYES SANCHEZ PONCE', 'SILVIA VERDUZCO', 'RUBEN GARCIA', '', '1991');
+(2, 1, 1, 2, 'ALFONSO CALDERON CHAVEZ', 'MARIO CALDERON MENDEZ', 'TERESA CHAVEZ HERNANDEZ', '1990-06-04', 'APATZINGAN', '1991-04-10', 'REYES SANCHEZ PONCE', 'SILVIA VERDUZCO', 'RUBEN GARCIA', '', '1991'),
+(3, 3, 1, 3, 'ASD', 'ASDAS', 'ASDASDASD', '2014-05-25', 'ASDASDASDASD', '2014-05-25', 'ASDASD', 'ASDASD', 'ASDASD', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
+-- Table structure for table `categorias`
 --
 
 CREATE TABLE IF NOT EXISTS `categorias` (
@@ -70,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `categorias` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Volcado de datos para la tabla `categorias`
+-- Dumping data for table `categorias`
 --
 
 INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`) VALUES
@@ -82,7 +83,48 @@ INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `confirmaciones`
+-- Table structure for table `comuniones`
+--
+
+CREATE TABLE IF NOT EXISTS `comuniones` (
+  `id_comunion` int(11) NOT NULL AUTO_INCREMENT,
+  `id_libro` int(11) NOT NULL,
+  `num_hoja` int(11) NOT NULL,
+  `num_partida` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `padre` varchar(100) NOT NULL,
+  `madre` varchar(100) NOT NULL,
+  `fecha_comunion` date NOT NULL,
+  `fecha_bautismo` date NOT NULL,
+  `lugar_bautismo` varchar(100) NOT NULL,
+  `padrino` varchar(100) NOT NULL,
+  `madrina` varchar(100) NOT NULL,
+  `anio` varchar(10) NOT NULL,
+  PRIMARY KEY (`id_comunion`),
+  KEY `id_libro` (`id_libro`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+
+--
+-- Dumping data for table `comuniones`
+--
+
+INSERT INTO `comuniones` (`id_comunion`, `id_libro`, `num_hoja`, `num_partida`, `nombre`, `padre`, `madre`, `fecha_comunion`, `fecha_bautismo`, `lugar_bautismo`, `padrino`, `madrina`, `anio`) VALUES
+(1, 11, 1, 1, 'FRANCISCO JAVIER CALDERON CHAVEZ', 'MARIO CALDERON MENDEZ', 'TERESA CHAVEZ HERNANDEZ', '1997-12-12', '1991-11-24', 'EL CEÑIDOR MICHOACAN', 'SERGIO PARDO', 'VENEDA CHAVEZ', '2014'),
+(2, 12, 1, 2, 'WATASHI NAKATA NO', 'ZOKKA TAKOMU', 'NIOJO AKATA ', '1997-12-12', '1901-11-24', 'ANTUNEZ MICHOACAN', 'AANG TORILLA MA', 'KATARA UZUMAKI', '1997'),
+(3, 12, 1, 3, 'ASD ASDSA', 'SDFSD', 'FDSF SF', '2014-05-25', '1991-12-19', 'SDFSDF', 'SDFSD', 'FDSF', '1997'),
+(4, 12, 1, 4, 'FYG', 'GFDFQ', 'YGYT', '2014-05-25', '2014-05-25', 'UYUYT', '1TYF', 'YGF', '1997'),
+(5, 12, 1, 5, 'HJG', 'HJG', 'JHG', '2014-05-25', '2014-05-25', 'JHGJ', 'HGJ', 'HGJH', '1997'),
+(6, 12, 1, 6, 'K', 'KJH', 'KJHKJ', '2014-05-25', '2014-05-25', 'HKJ', 'HKJ', 'HJK', '1997'),
+(7, 12, 1, 7, 'POI', 'OPII', 'IOP', '2014-05-25', '2014-05-25', 'POIPOI', 'POI', 'RTER', '1997'),
+(8, 12, 1, 8, 'TRE', 'TR', 'RERER', '2014-05-25', '2014-05-25', 'RYT', 'RYTR', 'YT', '1997'),
+(9, 12, 1, 9, 'TR', 'RT', 'RT', '2014-05-25', '2014-05-25', 'T', 'TRE', 'TR', '1997'),
+(10, 12, 1, 10, 'T', 'TR', 'TYR', '2014-05-25', '2014-05-25', 'R', 'YTR', 'YT', '1997'),
+(11, 11, 2, 11, 'DFD', 'ASD', 'ADDDDD DSDASD', '2014-05-25', '2014-05-25', 'FGD', 'FGDGFD', 'GFDGFD', '2013');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `confirmaciones`
 --
 
 CREATE TABLE IF NOT EXISTS `confirmaciones` (
@@ -106,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `confirmaciones` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=63 ;
 
 --
--- Volcado de datos para la tabla `confirmaciones`
+-- Dumping data for table `confirmaciones`
 --
 
 INSERT INTO `confirmaciones` (`id_confirmacion`, `id_libro`, `num_hoja`, `num_partida`, `nombre`, `padre`, `madre`, `fecha_confirmacion`, `fecha_bautismo`, `lugar_bautismo`, `padrino`, `madrina`, `presbitero`, `anio`) VALUES
@@ -116,7 +158,7 @@ INSERT INTO `confirmaciones` (`id_confirmacion`, `id_libro`, `num_hoja`, `num_pa
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `libros`
+-- Table structure for table `libros`
 --
 
 CREATE TABLE IF NOT EXISTS `libros` (
@@ -124,10 +166,10 @@ CREATE TABLE IF NOT EXISTS `libros` (
   `id_categoria` int(11) DEFAULT NULL,
   `nombre_libro` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id_libro`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
--- Volcado de datos para la tabla `libros`
+-- Dumping data for table `libros`
 --
 
 INSERT INTO `libros` (`id_libro`, `id_categoria`, `nombre_libro`) VALUES
@@ -135,12 +177,14 @@ INSERT INTO `libros` (`id_libro`, `id_categoria`, `nombre_libro`) VALUES
 (3, 1, 'LIBRO 2'),
 (7, 2, 'LIBRO 2'),
 (8, 4, 'LIBRO 1'),
-(9, 4, 'LIBRO 2');
+(9, 4, 'LIBRO 2'),
+(11, 3, 'LIBRO 1'),
+(12, 3, 'Libro 2');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `matrimonios`
+-- Table structure for table `matrimonios`
 --
 
 CREATE TABLE IF NOT EXISTS `matrimonios` (
@@ -159,35 +203,43 @@ CREATE TABLE IF NOT EXISTS `matrimonios` (
   `anio` varchar(10) NOT NULL,
   PRIMARY KEY (`id_matrimonio`),
   KEY `id_libro` (`id_libro`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Volcado de datos para la tabla `matrimonios`
+-- Dumping data for table `matrimonios`
 --
 
 INSERT INTO `matrimonios` (`id_matrimonio`, `id_libro`, `num_hoja`, `num_partida`, `novio`, `novia`, `fecha_matrimonio`, `lugar_celebracion`, `testigo1`, `testigo2`, `asistente`, `nota_marginal`, `anio`) VALUES
 (1, 8, 1, 1, 'JAVIER CALDERON CHAVEZ', 'MARIBEL TORRES', '2016-06-15', 'EL CEÑIDOR', 'ALFONSO CALDERON', 'TERESA CHAVEZ', 'ARISAI BOTELLO', '', '2014'),
 (2, 8, 1, 2, 'KJ SDKJFHDSKJFH SJDF H', 'H DSKJFHSKJDF SD FSDKFH SKJD FHK', '2014-05-24', 'KJ SHFKJDSF HDSK FKJDSHF K', ' SHDFKJ SHK', ' HKSD HFKJ', 'H KJ HFK', '', '1991'),
-(3, 9, 1, 3, 'ADSJLK', 'DSLKFJLKDSFJ', '2014-05-24', 'SDKLFJ SDLKF LKF ', 'KJDS FLKSDJ FL', ' LDS FJLKSF JLK', 'J LKDFJ LDSKJFLKSD', '', '2014');
+(3, 9, 1, 3, 'ADSJLK', 'DSLKFJLKDSFJ', '2014-05-24', 'SDKLFJ SDLKF LKF ', 'KJDS FLKSDJ FL', ' LDS FJLKSF JLK', 'J LKDFJ LDSKJFLKSD', '', '2014'),
+(4, 8, 1, 4, 'JAVIER CALDERON', 'MARIBEL TORRES', '2012-05-14', 'EL CEÑIDOR', 'NOSE QUIEN TESTIGO 1', 'NOSE QUIEN TESTIGO 2', 'ASD ASISTENTE', '', '2012'),
+(5, 8, 1, 5, 'JAVIER', 'MARIBEL', '1991-11-24', 'CEÑIDOR EL', 'T1', 'T2', 'ASISTENTE', 'SE VOLVIERON A CASAR', '1988');
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `bautismos`
+-- Constraints for table `bautismos`
 --
 ALTER TABLE `bautismos`
   ADD CONSTRAINT `bautismos_ibfk_1` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id_libro`) ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `confirmaciones`
+-- Constraints for table `comuniones`
+--
+ALTER TABLE `comuniones`
+  ADD CONSTRAINT `comuniones_ibfk_1` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id_libro`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `confirmaciones`
 --
 ALTER TABLE `confirmaciones`
   ADD CONSTRAINT `confirmaciones_ibfk_1` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id_libro`) ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `matrimonios`
+-- Constraints for table `matrimonios`
 --
 ALTER TABLE `matrimonios`
   ADD CONSTRAINT `matrimonios_ibfk_1` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id_libro`) ON UPDATE CASCADE;

@@ -30,15 +30,33 @@ namespace Parroquia
             BDatos.Desconectar();
             InitializeComponent();
             tablaBusqueda.DataSource = ds;
-           
             tablaBusqueda.DataMember = "prueba";
+
+            //Agregamos el boton de accion despues de todas las columnas
+            this.tablaBusqueda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.uu});
+
+            //Agregamos nombre de headers de las columnas
             tablaBusqueda.Columns[0].HeaderText = "NOMBRE";
             tablaBusqueda.Columns[1].HeaderText = "AÑO";
             tablaBusqueda.Columns[2].HeaderText = "LIBRO";
             tablaBusqueda.Columns[3].HeaderText = "FOJA";
             tablaBusqueda.Columns[4].HeaderText = "PARTIDA";
-            tablaBusqueda.Columns[4].HeaderText = "ACCION";
-            //tablaBusqueda.Columns.Add(new System.Windows.Forms.DataGridViewColumn();
+            tablaBusqueda.Columns[5].HeaderText = "ACCION";
+
+           
+
+            //Centramos datos de las columnas
+            tablaBusqueda.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            tablaBusqueda.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            tablaBusqueda.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            tablaBusqueda.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            tablaBusqueda.AutoResizeColumns();
+            //Establecemos ancho de la columna nombres
+            tablaBusqueda.Columns[0].Width = 400;
+            //Oculto columna inicial
+            tablaBusqueda.RowHeadersVisible = false;
             
         }
 

@@ -72,6 +72,7 @@
             this.partida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.accionBtn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.uu = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -370,7 +371,7 @@
             this.tablaBusqueda.ReadOnly = true;
             this.tablaBusqueda.RowHeadersWidth = 100;
             this.tablaBusqueda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaBusqueda.Size = new System.Drawing.Size(887, 329);
+            this.tablaBusqueda.Size = new System.Drawing.Size(876, 329);
             this.tablaBusqueda.TabIndex = 4;
             this.tablaBusqueda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -445,18 +446,19 @@
             // 
             // accion
             // 
-            this.accion.HeaderText = "ACCION";
             this.accion.Name = "accion";
-            this.accion.ReadOnly = true;
-            this.accion.Text = "Imprimir";
-            this.accion.ToolTipText = "Imprimir";
             // 
             // accionBtn
             // 
-            this.accionBtn.Frozen = true;
-            this.accionBtn.HeaderText = "ACCION";
             this.accionBtn.Name = "accionBtn";
-            this.accionBtn.ReadOnly = true;
+            // 
+            // uu
+            // 
+            this.uu.Name = "uu";
+            this.uu.ReadOnly = true;
+            this.uu.Text = "Ver...";
+            this.uu.ToolTipText = "Edita e imprime este registro.";
+            this.uu.UseColumnTextForButtonValue = true;
             // 
             // Parroquia
             // 
@@ -535,6 +537,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn partida;
         private System.Windows.Forms.DataGridViewButtonColumn accion;
         private System.Windows.Forms.DataGridViewButtonColumn accionBtn;
+        private System.Windows.Forms.DataGridViewButtonColumn uu;
 
     }
 }
