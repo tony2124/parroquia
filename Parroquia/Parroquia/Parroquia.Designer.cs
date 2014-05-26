@@ -1,4 +1,5 @@
-﻿namespace Parroquia
+﻿using System.Windows.Forms;
+namespace Parroquia
 {
     partial class Parroquia
     {
@@ -373,7 +374,8 @@
             this.tablaBusqueda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tablaBusqueda.Size = new System.Drawing.Size(876, 329);
             this.tablaBusqueda.TabIndex = 4;
-            this.tablaBusqueda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.tablaBusqueda.CellClick += new DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            //this.tablaBusqueda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // statusStrip1
             // 
