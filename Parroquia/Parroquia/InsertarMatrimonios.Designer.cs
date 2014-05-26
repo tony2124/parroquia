@@ -65,6 +65,8 @@ namespace Parroquia
             this.label4 = new System.Windows.Forms.Label();
             this.cancelBtnConfirmacion = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,20 +170,20 @@ namespace Parroquia
             // 
             this.guardaImprimeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardaImprimeBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guardaImprimeBtn.Location = new System.Drawing.Point(320, 430);
+            this.guardaImprimeBtn.Location = new System.Drawing.Point(310, 518);
             this.guardaImprimeBtn.Name = "guardaImprimeBtn";
             this.guardaImprimeBtn.Size = new System.Drawing.Size(103, 52);
-            this.guardaImprimeBtn.TabIndex = 9;
+            this.guardaImprimeBtn.TabIndex = 10;
             this.guardaImprimeBtn.Text = "Guardar e imprimir";
             this.guardaImprimeBtn.UseVisualStyleBackColor = true;
             // 
             // guardarConfirBtn
             // 
             this.guardarConfirBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardarConfirBtn.Location = new System.Drawing.Point(200, 430);
+            this.guardarConfirBtn.Location = new System.Drawing.Point(190, 518);
             this.guardarConfirBtn.Name = "guardarConfirBtn";
             this.guardarConfirBtn.Size = new System.Drawing.Size(103, 52);
-            this.guardarConfirBtn.TabIndex = 8;
+            this.guardarConfirBtn.TabIndex = 9;
             this.guardarConfirBtn.Text = "Guardar";
             this.guardarConfirBtn.UseVisualStyleBackColor = true;
             this.guardarConfirBtn.Click += new System.EventHandler(this.guardarConfirBtn_Click);
@@ -192,8 +194,6 @@ namespace Parroquia
             this.anioCombo.FormattingEnabled = true;
             this.anioCombo.Location = new System.Drawing.Point(592, 16);
             this.anioCombo.Name = "anioCombo";
-            this.anioCombo.Items.AddRange(InsertarMatrimonios.anios);
-            this.anioCombo.Text = DateTime.Now.Year+"";
             this.anioCombo.Size = new System.Drawing.Size(89, 21);
             this.anioCombo.TabIndex = 70;
             // 
@@ -415,10 +415,10 @@ namespace Parroquia
             // cancelBtnConfirmacion
             // 
             this.cancelBtnConfirmacion.Image = ((System.Drawing.Image)(resources.GetObject("cancelBtnConfirmacion.Image")));
-            this.cancelBtnConfirmacion.Location = new System.Drawing.Point(440, 430);
+            this.cancelBtnConfirmacion.Location = new System.Drawing.Point(430, 518);
             this.cancelBtnConfirmacion.Name = "cancelBtnConfirmacion";
             this.cancelBtnConfirmacion.Size = new System.Drawing.Size(97, 52);
-            this.cancelBtnConfirmacion.TabIndex = 10;
+            this.cancelBtnConfirmacion.TabIndex = 11;
             this.cancelBtnConfirmacion.UseVisualStyleBackColor = true;
             this.cancelBtnConfirmacion.Click += new System.EventHandler(this.cancelBtnConfirmacion_Click);
             // 
@@ -431,11 +431,32 @@ namespace Parroquia
             this.pictureBox1.TabIndex = 64;
             this.pictureBox1.TabStop = false;
             // 
+            // textBox4
+            // 
+            this.textBox4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(158, 425);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(522, 52);
+            this.textBox4.TabIndex = 8;
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(36, 435);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(116, 62);
+            this.label9.TabIndex = 79;
+            this.label9.Text = "NOTAS MARGINALES:";
+            // 
             // InsertarMatrimonios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 505);
+            this.ClientSize = new System.Drawing.Size(719, 582);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
@@ -472,6 +493,7 @@ namespace Parroquia
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "InsertarMatrimonios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InsertarMatrimonios";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -516,5 +538,7 @@ namespace Parroquia
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label9;
     }
 }

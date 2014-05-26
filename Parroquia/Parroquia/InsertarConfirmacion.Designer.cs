@@ -353,7 +353,7 @@ namespace Parroquia
             this.anioCombo.FormattingEnabled = true;
             this.anioCombo.Location = new System.Drawing.Point(584, 26);
             this.anioCombo.Name = "anioCombo";
-            this.anioCombo.Items.AddRange(InsertarConfirmacion.anios);
+            this.anioCombo.Items.AddRange(anios);
             this.anioCombo.Text = DateTime.Now.Year + "";
             this.anioCombo.Size = new System.Drawing.Size(89, 21);
             this.anioCombo.TabIndex = 32;
@@ -516,7 +516,7 @@ namespace Parroquia
             this.MaximizeBox = false;
             this.Name = "InsertarConfirmacion";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insertar Registro de Confirmacion";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
