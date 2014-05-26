@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 26, 2014 at 04:44 AM
+-- Generation Time: May 26, 2014 at 07:28 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -47,16 +47,16 @@ CREATE TABLE IF NOT EXISTS `bautismos` (
   PRIMARY KEY (`id_bautismo`),
   KEY `id_libro` (`id_libro`),
   KEY `id_libro_2` (`id_libro`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `bautismos`
 --
 
 INSERT INTO `bautismos` (`id_bautismo`, `id_libro`, `num_hoja`, `num_partida`, `nombre`, `padre`, `madre`, `fecha_nac`, `lugar_nac`, `fecha_bautismo`, `padrino`, `madrina`, `presbitero`, `anotacion`, `anio`) VALUES
-(1, 1, 1, 3, 'JAVIER CALDERO', 'NO SE ', 'NO SE 2', '2014-05-20', 'NUEVA ITALIA', '2014-05-20', 'PADRINO', 'NO SE DE DONDE MADRINA', 'PRESBITERO', 'QUE CHIDO TODO', '1988'),
-(2, 1, 1, 2, 'ALFONSO CALDERON CHAVEZ', 'MARIO CALDERON MENDEZ', 'TERESA CHAVEZ HERNANDEZ', '1990-06-04', 'APATZINGAN', '1991-04-10', 'REYES SANCHEZ PONCE', 'SILVIA VERDUZCO', 'RUBEN GARCIA', '', '1991'),
-(3, 3, 1, 3, 'ASD', 'ASDAS', 'ASDASDASD', '2014-05-25', 'ASDASDASDASD', '2014-05-25', 'ASDASD', 'ASDASD', 'ASDASD', '', '');
+(4, 1, 1, 1, 'FRANCISCO JAVIER CALDERON CHAVEZ', 'MARIO CALDERON MENDEZ', 'TERESA CHAVEZ HERNANDEZ', '1991-11-24', 'NUEVA ITALIA MICHOACAN', '1992-11-24', 'SERGIO PARDO', 'VENEDA CHAVEZ', 'NO ME ACUERDO DEL PADRE', 'NO RECUERDA EL PADRE EN ANOTACIONES', '1992'),
+(5, 1, 1, 2, 'ALFONSO CALDERON CHAVEZ', 'MARIO CALDERON MENDEZ', 'TERESA CHAVEZ HERNANDEZ', '1990-06-04', 'APATZINGAN MICHOACAN', '1991-06-04', 'REYES NO RECUERDO NOMBRE', 'NO RECUERDO NOMBRE DE MADRINA', 'PRESBITERO PADRE RUBEN', '', '1990'),
+(6, 3, 1, 3, 'JUAN PEREZ MOTA A', 'JONATHAN PEREZ A', 'MARIA MOTA A ', '1999-11-17', 'APATZINGANA', '2000-02-17', 'PADRINO A', 'MADRINA A', 'PRESBITEROA', 'NO ES VERDAD QA', '2000');
 
 -- --------------------------------------------------------
 
