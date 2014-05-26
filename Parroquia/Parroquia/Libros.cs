@@ -99,6 +99,14 @@ namespace Parroquia
                 
             }
 
+            if (CATEGORIA == 3)
+            {
+                Button b = (Button)sender;
+                InsertarPrimerComunion ipc = new InsertarPrimerComunion(b.Name.ToString());
+                ipc.ShowDialog();
+
+            }
+
             if (CATEGORIA == 4)
             {
                 Button b = (Button)sender;

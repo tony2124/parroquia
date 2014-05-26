@@ -209,6 +209,7 @@ namespace Parroquia
             this.Controls.Add(this.panelContenedorLibros);
             this.MaximizeBox = false;
             this.Name = "Libros";
+            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Libros de "+Categorias;

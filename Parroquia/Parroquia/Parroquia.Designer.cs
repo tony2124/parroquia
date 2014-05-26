@@ -59,19 +59,23 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.anio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tablaBusqueda = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.anio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hoja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.accionBtn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaBusqueda)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -354,52 +358,21 @@
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // tablaBusqueda
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombre,
-            this.anio,
-            this.libro,
-            this.accion});
-            this.dataGridView1.Location = new System.Drawing.Point(24, 240);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 100;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(887, 329);
-            this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "NOMBRE";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // anio
-            // 
-            this.anio.HeaderText = "AÑO";
-            this.anio.Name = "anio";
-            this.anio.ReadOnly = true;
-            // 
-            // libro
-            // 
-            this.libro.HeaderText = "LIBRO";
-            this.libro.Name = "libro";
-            this.libro.ReadOnly = true;
-            // 
-            // accion
-            // 
-            this.accion.HeaderText = "ACCION";
-            this.accion.Name = "accion";
-            this.accion.ReadOnly = true;
-            this.accion.Text = "Imprimir";
-            this.accion.ToolTipText = "Imprimir";
+            this.tablaBusqueda.AllowUserToOrderColumns = true;
+            this.tablaBusqueda.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.tablaBusqueda.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.tablaBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.tablaBusqueda.Location = new System.Drawing.Point(35, 248);
+            this.tablaBusqueda.MultiSelect = false;
+            this.tablaBusqueda.Name = "tablaBusqueda";
+            this.tablaBusqueda.ReadOnly = true;
+            this.tablaBusqueda.RowHeadersWidth = 100;
+            this.tablaBusqueda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tablaBusqueda.Size = new System.Drawing.Size(887, 329);
+            this.tablaBusqueda.TabIndex = 4;
+            this.tablaBusqueda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // statusStrip1
             // 
@@ -433,13 +406,65 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // id
+            // 
+            this.id.Frozen = true;
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "NOMBRE";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // anio
+            // 
+            this.anio.HeaderText = "AÑO";
+            this.anio.Name = "anio";
+            this.anio.ReadOnly = true;
+            // 
+            // libro
+            // 
+            this.libro.HeaderText = "LIBRO";
+            this.libro.Name = "libro";
+            this.libro.ReadOnly = true;
+            // 
+            // hoja
+            // 
+            this.hoja.HeaderText = "HOJA";
+            this.hoja.Name = "hoja";
+            this.hoja.ReadOnly = true;
+            // 
+            // partida
+            // 
+            this.partida.HeaderText = "PARTIDA";
+            this.partida.Name = "partida";
+            this.partida.ReadOnly = true;
+            // 
+            // accion
+            // 
+            this.accion.HeaderText = "ACCION";
+            this.accion.Name = "accion";
+            this.accion.ReadOnly = true;
+            this.accion.Text = "Imprimir";
+            this.accion.ToolTipText = "Imprimir";
+            // 
+            // accionBtn
+            // 
+            this.accionBtn.Frozen = true;
+            this.accionBtn.HeaderText = "ACCION";
+            this.accionBtn.Name = "accionBtn";
+            this.accionBtn.ReadOnly = true;
+            // 
             // Parroquia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 626);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.tablaBusqueda);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
@@ -455,7 +480,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaBusqueda)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -498,14 +523,18 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView tablaBusqueda;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn anio;
         private System.Windows.Forms.DataGridViewTextBoxColumn libro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hoja;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partida;
         private System.Windows.Forms.DataGridViewButtonColumn accion;
+        private System.Windows.Forms.DataGridViewButtonColumn accionBtn;
 
     }
 }

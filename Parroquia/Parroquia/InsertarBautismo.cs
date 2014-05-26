@@ -92,9 +92,8 @@ namespace Parroquia
                     (padrino.Text.ToString().CompareTo("") == 0) ||
                     (madrina.Text.ToString().CompareTo("") == 0) ||
                     (lugarnac.Text.ToString().CompareTo("") == 0) ||
-                    //(anotacion.Text.ToString().CompareTo("") == 0) ||
                     (presbitero.Text.ToString().CompareTo("") == 0))
-                    MessageBox.Show("Debe llenar todos los campos.", " Error",
+                    MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {//Se guardan todos los campos en la base de datos

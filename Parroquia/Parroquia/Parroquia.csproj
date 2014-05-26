@@ -49,6 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConexionBD.cs" />
+    <Compile Include="InsertarPrimerComunion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertarPrimerComunion.Designer.cs">
+      <DependentUpon>InsertarPrimerComunion.cs</DependentUpon>
+    </Compile>
     <Compile Include="InsertarConfirmacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="InsertarPrimerComunion.resx">
+      <DependentUpon>InsertarPrimerComunion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InsertarConfirmacion.resx">
       <DependentUpon>InsertarConfirmacion.cs</DependentUpon>
     </EmbeddedResource>

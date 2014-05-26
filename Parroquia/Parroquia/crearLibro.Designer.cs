@@ -47,6 +47,7 @@
             // 
             // nombreLibro
             // 
+            this.nombreLibro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.nombreLibro.Location = new System.Drawing.Point(16, 32);
             this.nombreLibro.Name = "nombreLibro";
             this.nombreLibro.Size = new System.Drawing.Size(207, 20);
