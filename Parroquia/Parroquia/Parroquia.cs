@@ -37,7 +37,7 @@ namespace Parroquia
            " from matrimonios natural join libros natural join categorias union " +
             "select id_matrimonio as id,id_libro,id_categoria, novia as nombre,anio,nombre_categoria,nombre_libro,  num_hoja,num_partida" +
            " from matrimonios natural join libros natural join categorias union " +
-           "select id_comunion as id,id_libro,id_comunion, nombre,anio,nombre_categoria,nombre_libro,  num_hoja,num_partida" +
+           "select id_comunion as id,id_libro,id_categoria, nombre,anio,nombre_categoria,nombre_libro,  num_hoja,num_partida" +
            " from comuniones natural join libros natural join categorias union " +
            " select id_bautismo as id,id_libro,id_categoria, nombre,anio,nombre_categoria,nombre_libro,  num_hoja,num_partida" +
            " from bautismos natural join libros natural join categorias order by nombre asc ",
@@ -49,10 +49,6 @@ namespace Parroquia
             
             tablaBusqueda.DataSource = ds;
             tablaBusqueda.DataMember = "prueba";
-
-            //Agregamos el boton de accion despues de todas las columnas
-            /*  this.tablaBusqueda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-              this.uu});*/
 
             //Ancho de columnas al tamaño del contenido
             tablaBusqueda.AutoResizeColumns();
@@ -91,36 +87,36 @@ namespace Parroquia
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+           
             if (e.RowIndex >= 0)
             {
+                MessageBox.Show(tablaBusqueda["id_categoria", e.RowIndex].Value + "");
                 if (int.Parse(tablaBusqueda["id_categoria", e.RowIndex].Value + "") == 1)
                 {
                     InsertarBautismo ib = new InsertarBautismo(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
                     ib.ShowDialog();
-                    //tablaBusqueda.Columns.Clear();
-                    //Pintar_tabla();
-                }
-
+                }else
                 if (int.Parse(tablaBusqueda["id_categoria", e.RowIndex].Value + "") == 2)
                 {
-                    //InsertarBautismo ib = new InsertarBautismo(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
-                   // ib.ShowDialog();
+                    InsertarConfirmacion ic = new InsertarConfirmacion(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
+                    ic.ShowDialog();
                 }
-
+                else
                 if (int.Parse(tablaBusqueda["id_categoria", e.RowIndex].Value + "") == 3)
                 {
-                    //InsertarBautismo ib = new InsertarBautismo(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
-                    // ib.ShowDialog();
+                    InsertarPrimerComunion ipc = new InsertarPrimerComunion(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
+                    ipc.ShowDialog();
                 }
-
+                else
                 if (int.Parse(tablaBusqueda["id_categoria", e.RowIndex].Value + "") == 4)
                 {
-                    //InsertarBautismo ib = new InsertarBautismo(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
-                    // ib.ShowDialog();
+                    InsertarMatrimonios im = new InsertarMatrimonios(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
+                    im.ShowDialog();
                 }
                
             }
-                
+
+        
         }
 
         private void informacionDeLaParroquiaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -139,7 +135,6 @@ namespace Parroquia
             {
                 Libros l = new Libros(1);
                 l.ShowDialog();
-                Pintar_tabla();
             }
             catch (Exception g) { MessageBox.Show("Error: " + g.Message, "Error",MessageBoxButtons.OK,MessageBoxIcon.Error); }
         }

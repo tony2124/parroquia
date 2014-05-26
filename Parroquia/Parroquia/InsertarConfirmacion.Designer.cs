@@ -369,8 +369,14 @@ namespace Parroquia
             this.guardarConfirBtn.Name = "guardarConfirBtn";
             this.guardarConfirBtn.Size = new System.Drawing.Size(103, 52);
             this.guardarConfirBtn.TabIndex = 10;
-            this.guardarConfirBtn.Text = "Guardar";
-            this.toolTip1.SetToolTip(this.guardarConfirBtn, "Guardar y limpiar los datos");
+            if(edicion){
+                this.guardarConfirBtn.Text = "Editar Registro";
+                this.toolTip1.SetToolTip(this.guardarConfirBtn, "Editar los datos");
+            }     
+            else{
+                this.guardarConfirBtn.Text = "Guardar";
+                this.toolTip1.SetToolTip(this.guardarConfirBtn, "Guardar y limpiar los datos");
+            }   
             this.guardarConfirBtn.UseVisualStyleBackColor = true;
             this.guardarConfirBtn.Click += new System.EventHandler(this.guardarConfirBtn_Click);
             // 
@@ -382,8 +388,15 @@ namespace Parroquia
             this.guardaImprimeBtn.Name = "guardaImprimeBtn";
             this.guardaImprimeBtn.Size = new System.Drawing.Size(103, 52);
             this.guardaImprimeBtn.TabIndex = 11;
-            this.guardaImprimeBtn.Text = "Guardar e imprimir";
-            this.toolTip1.SetToolTip(this.guardaImprimeBtn, "Guardar e imprimir");
+            if (edicion)
+            {
+                this.guardaImprimeBtn.Text = "Imprimir";
+                this.toolTip1.SetToolTip(this.guardaImprimeBtn, "imprimir Registro");
+            }
+            else {
+                this.guardaImprimeBtn.Text = "Guardar e imprimir";
+                this.toolTip1.SetToolTip(this.guardaImprimeBtn, "Guardar e imprimir registro");
+            }  
             this.guardaImprimeBtn.UseVisualStyleBackColor = true;
             this.guardaImprimeBtn.Click += new System.EventHandler(this.guardaImprimeBtn_Click);
             // 
@@ -570,7 +583,10 @@ namespace Parroquia
             this.Name = "InsertarConfirmacion";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Insertar Registro de Confirmacion";
+            if(edicion)
+                this.Text = "Actualizar Registro de Confirmacion";
+            else
+                this.Text = "Insertar Registro de Confirmacion";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

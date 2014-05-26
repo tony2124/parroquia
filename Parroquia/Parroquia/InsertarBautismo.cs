@@ -198,6 +198,10 @@ namespace Parroquia
                             Hoja = Math.Ceiling((Partida + 1) / 10.0);
                             textBox2.Text = "" + Hoja;
 
+                            //actualizamos la tabla
+                            //Parroquia.tablaBusqueda.Columns.Clear();
+                           // Parroquia.Pintar_tabla();
+
                             /*Se establecen en blanco todos los campos*/
                             nombre.Text = "";
                             nombre.Focus();

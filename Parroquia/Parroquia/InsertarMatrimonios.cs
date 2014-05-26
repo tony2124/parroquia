@@ -19,6 +19,10 @@ namespace Parroquia
         private double Hoja;
         static public Object[] anios;
 
+        //VARIABLES OCUPADAS PARA LA EDICION
+        private int ID_REGISTRO;
+        private Boolean edicion;
+        private Boolean btn = false;
 
         MySqlDataReader Datos;
         ConexionBD Bdatos = new ConexionBD();
@@ -77,6 +81,65 @@ namespace Parroquia
             }
             catch (Exception r) { MessageBox.Show("Error: " + r.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
+        }
+
+        //CONSTRUCTOR PARA EDICIONES
+        public InsertarMatrimonios(int id_registro, String NOMMBRE_LIBRO)
+        {
+            edicion = true;
+            ID_REGISTRO = id_registro;
+
+            anios = new String[(DateTime.Now.Year - 1970) + 1];
+            int u = 0;
+            for (int i = 1970; i <= DateTime.Now.Year; i++)
+            {
+                anios[u] = i+"";
+                u++;
+            }
+
+            InitializeComponent();
+            //Establecemos los componentes sin edicion
+        /*    nombre.Enabled = false;
+            padre.Enabled = false;
+            madre.Enabled = false;
+            fechaPrimerCom.Enabled = false;
+            lugar_bautismo.Enabled = false;
+            fecha_bautism.Enabled = false;
+            padrino.Enabled = false;
+            madrina.Enabled = false;
+            anioCombo.Enabled = false;*/
+
+            try
+            {  
+                textBox1.Text = NOMMBRE_LIBRO;
+                Bdatos.conexion();
+
+                Datos = Bdatos.obtenerBasesDatosMySQL("SELECT * FROM matrimonios where id_matrimonio = " + ID_REGISTRO);
+
+                if (Datos.HasRows)
+                {
+                    while (Datos.Read())
+                    {
+                        textBox2.Text = Datos.GetString(2);
+                        textBox3.Text = Datos.GetString(3);
+                     /*   nombre.Text = Datos.GetString(4);
+                        padre.Text = Datos.GetString(5);
+                        madre.Text = Datos.GetString(6);
+                        fechaPrimerCom.Text = Datos.GetString(7);
+                        fecha_bautism.Text = Datos.GetString(8);
+                        lugar_bautismo.Text = Datos.GetString(9);
+                        padrino.Text = Datos.GetString(10);
+                        madrina.Text = Datos.GetString(11); 
+                        anioCombo.Text = Datos.GetString(12);*/
+                    }
+                }
+                Bdatos.Desconectar();
+            }
+            catch (Exception j)
+            {
+                MessageBox.Show("Error al mostrar edicion. "+j.Message, " Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void guardarConfirBtn_Click(object sender, EventArgs e)
