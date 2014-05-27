@@ -489,7 +489,7 @@ namespace Parroquia
             this.anio.FormattingEnabled = true;
             this.anio.Location = new System.Drawing.Point(596, 27);
             this.anio.Name = "anio";
-            this.anio.Items.AddRange(anios);
+            this.anio.Items.AddRange(anios); 
             this.anio.Text = DateTime.Now.Year.ToString();
             this.anio.Size = new System.Drawing.Size(77, 21);
             this.anio.TabIndex = 44;
@@ -614,7 +614,7 @@ namespace Parroquia
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "InsertarBautismo";
-
+            
             if (edicion)
                 this.Text = "::ACTUALIZAR REGISTRO BAUTISMO::";
             else this.Text = "::INSERTAR REGISTRO BAUTISMO::";
