@@ -40,7 +40,7 @@ namespace Parroquia
            " from comuniones natural join libros natural join categorias where (nombre like '%" + filtro + "%' or anio = '" + filtro + "') "+libros+" union " +
            " select id_bautismo as id,id_libro,id_categoria, nombre,anio,nombre_categoria,nombre_libro,  num_hoja,num_partida" +
            " from bautismos natural join libros natural join categorias where (nombre like '%" + filtro + "%' or anio = '" + filtro + "') "+libros+" order by nombre asc ",
-           "server=localhost; port=3306; user id=root; password=; database=parroquiaantunez;");
+           "server=localhost; port=3306; user id=root; password=simpus2124; database=parroquiaantunez;");
             ds = new DataSet();
             Adaptador.Fill(ds, "prueba");
 
@@ -192,5 +192,11 @@ namespace Parroquia
         {
             label7.Text = DateTime.Now.ToLongTimeString()+"                Fecha:   "+DateTime.Now.ToLongDateString();
         }
+
+        public void Salir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }
