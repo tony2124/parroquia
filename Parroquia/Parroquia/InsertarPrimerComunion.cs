@@ -226,7 +226,6 @@ namespace Parroquia
                 {
                     btn = true;
                     this.guardarConfirBtn.Text = "Guardar registro";
-                    this.cancelBtnConfirmacion.Enabled = false;
                     this.guardaImprimeBtn.Enabled = false;
 
                     //Permitimes edicion a los componentes

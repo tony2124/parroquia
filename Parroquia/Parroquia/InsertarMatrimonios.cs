@@ -99,15 +99,15 @@ namespace Parroquia
 
             InitializeComponent();
             //Establecemos los componentes sin edicion
-        /*    nombre.Enabled = false;
-            padre.Enabled = false;
-            madre.Enabled = false;
-            fechaPrimerCom.Enabled = false;
-            lugar_bautismo.Enabled = false;
-            fecha_bautism.Enabled = false;
-            padrino.Enabled = false;
-            madrina.Enabled = false;
-            anioCombo.Enabled = false;*/
+            novio.Enabled = false;
+            novia.Enabled = false;
+            fecha_Matrimonio.Enabled = false;
+            lugar_celebracion.Enabled = false;
+            testigo1.Enabled = false;
+            testigo2.Enabled = false;
+            asistente.Enabled = false;
+            notas_marginales.Enabled = false;
+            anioCombo.Enabled = false;
 
             try
             {  
@@ -122,15 +122,15 @@ namespace Parroquia
                     {
                         textBox2.Text = Datos.GetString(2);
                         textBox3.Text = Datos.GetString(3);
-                     /*   nombre.Text = Datos.GetString(4);
-                        padre.Text = Datos.GetString(5);
-                        madre.Text = Datos.GetString(6);
-                        fechaPrimerCom.Text = Datos.GetString(7);
-                        fecha_bautism.Text = Datos.GetString(8);
-                        lugar_bautismo.Text = Datos.GetString(9);
-                        padrino.Text = Datos.GetString(10);
-                        madrina.Text = Datos.GetString(11); 
-                        anioCombo.Text = Datos.GetString(12);*/
+                        novio.Text = Datos.GetString(4);
+                        novia.Text = Datos.GetString(5);
+                        fecha_Matrimonio.Text = Datos.GetString(6);
+                        lugar_celebracion.Text = Datos.GetString(7);
+                        testigo1.Text = Datos.GetString(8);
+                        testigo2.Text = Datos.GetString(9);
+                        asistente.Text = Datos.GetString(10);
+                        notas_marginales.Text = Datos.GetString(11); 
+                        anioCombo.Text = Datos.GetString(12);
                     }
                 }
                 Bdatos.Desconectar();
@@ -144,66 +144,102 @@ namespace Parroquia
 
         private void guardarConfirBtn_Click(object sender, EventArgs e)
         {
-            try
+            if (!edicion) //SI NO ESTA PUESTO EDICION SE GUARDA NORMALMENTE
             {
-                Bdatos.conexion();
+                try
+                {
+                    Bdatos.conexion();
 
-                if ((novio.Text.ToString().CompareTo("") == 0) ||
-                    (novia.Text.ToString().CompareTo("") == 0) ||
-                    (testigo1.Text.ToString().CompareTo("") == 0) ||
-                    (lugar_celebracion.Text.ToString().CompareTo("") == 0) ||
-                    (testigo2.Text.ToString().CompareTo("") == 0) ||
-                    (asistente.Text.ToString().CompareTo("") == 0))
-                    MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
-                   MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else
-                {//Se guardan todos los campos en la base de datos
-                    if (Bdatos.Insertar("insert into matrimonios(id_libro,num_hoja,num_partida,novio,novia,fecha_matrimonio,lugar_celebracion,testigo1,testigo2,asistente,nota_marginal,anio)" +
-                        " values('" + int.Parse(ID_LIBRO) +
-                        "','" + int.Parse(textBox2.Text.ToString()) +
-                        "','" + int.Parse(textBox3.Text.ToString()) +
-                        "','" + novio.Text.ToString() +
-                        "','" + novia.Text.ToString() +
-                        "','" + fecha_Matrimonio.Value.ToString("yyyy-MM-dd") +
-                        "','" + lugar_celebracion.Text.ToString() +
-                        "','" + testigo1.Text.ToString() +
-                        "','" + testigo2.Text.ToString() +
-                        "','" + asistente.Text.ToString() +
-                        "','" + notas_marginales.Text.ToString() +
-                        "','" + anioCombo.Text.ToString() +
-                        "');") > 0)
-                    {
-                        MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa",
-                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Partida++;
-                        textBox3.Text = "" + (Partida + 1);
+                    if ((novio.Text.ToString().CompareTo("") == 0) ||
+                        (novia.Text.ToString().CompareTo("") == 0) ||
+                        (testigo1.Text.ToString().CompareTo("") == 0) ||
+                        (lugar_celebracion.Text.ToString().CompareTo("") == 0) ||
+                        (testigo2.Text.ToString().CompareTo("") == 0) ||
+                        (asistente.Text.ToString().CompareTo("") == 0))
+                        MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                    {//Se guardan todos los campos en la base de datos
+                        if (Bdatos.Insertar("insert into matrimonios(id_libro,num_hoja,num_partida,novio,novia,fecha_matrimonio,lugar_celebracion,testigo1,testigo2,asistente,nota_marginal,anio)" +
+                            " values('" + int.Parse(ID_LIBRO) +
+                            "','" + int.Parse(textBox2.Text.ToString()) +
+                            "','" + int.Parse(textBox3.Text.ToString()) +
+                            "','" + novio.Text.ToString() +
+                            "','" + novia.Text.ToString() +
+                            "','" + fecha_Matrimonio.Value.ToString("yyyy-MM-dd") +
+                            "','" + lugar_celebracion.Text.ToString() +
+                            "','" + testigo1.Text.ToString() +
+                            "','" + testigo2.Text.ToString() +
+                            "','" + asistente.Text.ToString() +
+                            "','" + notas_marginales.Text.ToString() +
+                            "','" + anioCombo.Text.ToString() +
+                            "');") > 0)
+                        {
+                            MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa",
+                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Partida++;
+                            textBox3.Text = "" + (Partida + 1);
 
-                        Hoja = Math.Ceiling((Partida + 1) / 10.0);
-                        textBox2.Text = "" + Hoja;
+                            Hoja = Math.Ceiling((Partida + 1) / 10.0);
+                            textBox2.Text = "" + Hoja;
 
-                        /*Se establecen en blanco todos los campos*/
-                        novio.Text = "";
-                        novia.Text = "";
-                        lugar_celebracion.Text = "";
-                        testigo1.Text = "";
-                        testigo2.Text = "";
-                        asistente.Text = "";
-                        notas_marginales.Text = "";
-                        fecha_Matrimonio.Value = DateTime.Now;
+                            /*Se establecen en blanco todos los campos*/
+                            novio.Text = "";
+                            novia.Text = "";
+                            lugar_celebracion.Text = "";
+                            testigo1.Text = "";
+                            testigo2.Text = "";
+                            asistente.Text = "";
+                            notas_marginales.Text = "";
+                            fecha_Matrimonio.Value = DateTime.Now;
+                        }
+                        else MessageBox.Show("Error al ingresar datos en MySQL ", " Error al ingresar ",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        Bdatos.Desconectar();
                     }
-                    else MessageBox.Show("Error al ingresar datos en MySQL ", " Error al ingresar ",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    Bdatos.Desconectar();
+
                 }
-
-
+                catch (Exception y)
+                {
+                    MessageBox.Show("Error al ingresar datos en MySQL: " +
+                        y.Message, " Error al ingresar ",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error); ;
+                }
             }
-            catch (Exception y)
+            else //SI LA EDICION ESTA PUESTA
             {
-                MessageBox.Show("Error al ingresar datos en MySQL: " +
-                    y.Message, " Error al ingresar ",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error); ;
+                if (btn == false)
+                {
+                    btn = true;
+                    this.guardarConfirBtn.Text = "Guardar registro";
+                    this.guardaImprimeBtn.Enabled = false;
+
+                    //Permitimes edicion a los componentes
+                    novio.Enabled = true;
+                    novia.Enabled = true;
+                    fecha_Matrimonio.Enabled = true;
+                    lugar_celebracion.Enabled = true;
+                    testigo1.Enabled = true;
+                    testigo2.Enabled = true;
+                    asistente.Enabled = true;
+                    notas_marginales.Enabled = true;
+                    anioCombo.Enabled = true;
+                }
+                else
+                {
+                    //Actualizamos datos en la base de datos
+                    if ((novio.Text.ToString().CompareTo("") == 0) ||
+                       (novia.Text.ToString().CompareTo("") == 0) ||
+                       (lugar_celebracion.Text.ToString().CompareTo("") == 0) ||
+                       (testigo1.Text.ToString().CompareTo("") == 0) ||
+                       (testigo2.Text.ToString().CompareTo("") == 0) ||
+                       (asistente.Text.ToString().CompareTo("") == 0)||
+                       (anioCombo.Text.ToString().CompareTo("") == 0))
+                        MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
