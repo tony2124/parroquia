@@ -74,6 +74,7 @@ namespace Parroquia
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
+            this.registronull = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -352,28 +353,36 @@ namespace Parroquia
             // 
             // guardar
             // 
+            this.guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardar.Location = new System.Drawing.Point(389, 518);
             this.guardar.Name = "guardar";
+            
+            if (edicion)
+                this.guardar.Text = "Editar";
+            else this.guardar.Text = "Guardar";
+            
             this.guardar.Size = new System.Drawing.Size(89, 51);
             this.guardar.TabIndex = 12;
-            if(edicion)
-                this.guardar.Text = "Editar registro";
-            else
-                this.guardar.Text = "Guardar registro";
             this.guardar.UseVisualStyleBackColor = true;
             this.guardar.Click += new System.EventHandler(this.guardar_Click);
             // 
             // guardareimp
             // 
+            this.guardareimp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardareimp.Location = new System.Drawing.Point(484, 518);
             this.guardareimp.Name = "guardareimp";
+            
+            if (edicion)
+                this.guardareimp.Text = "Imprimir";
+            else this.guardareimp.Text = "Guardar e Imprimir";
+            
             this.guardareimp.Size = new System.Drawing.Size(89, 51);
             this.guardareimp.TabIndex = 13;
-            this.guardareimp.Text = "Imprimir";
             this.guardareimp.UseVisualStyleBackColor = true;
             // 
             // cancelar
             // 
+            this.cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelar.Location = new System.Drawing.Point(579, 518);
             this.cancelar.Name = "cancelar";
@@ -404,12 +413,11 @@ namespace Parroquia
             // label17
             // 
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(32, 530);
+            this.label17.Location = new System.Drawing.Point(29, 530);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(296, 34);
+            this.label17.Size = new System.Drawing.Size(311, 39);
             this.label17.TabIndex = 36;
-            this.label17.Text = "\"Un pasaje de la Biblia sobre el bautismo, al final se debe agregar el capitulo y" +
-    " versículo. Mt. 2, 14-5\"";
+            this.label17.Text = "\"Él os bautizará en el nombre del EspÍritu Santo y fuego. Mt. 3, 11\"";
             // 
             // pictureBox1
             // 
@@ -481,8 +489,8 @@ namespace Parroquia
             this.anio.FormattingEnabled = true;
             this.anio.Location = new System.Drawing.Point(596, 27);
             this.anio.Name = "anio";
-            this.anio.Items.AddRange(InsertarBautismo.anios);
-            this.anio.Text = DateTime.Now.Year + "";
+            this.anio.Items.AddRange(anios);
+            this.anio.Text = DateTime.Now.Year.ToString();
             this.anio.Size = new System.Drawing.Size(77, 21);
             this.anio.TabIndex = 44;
             // 
@@ -541,6 +549,17 @@ namespace Parroquia
             this.label27.TabIndex = 49;
             this.label27.Text = "*";
             // 
+            // registronull
+            // 
+            this.registronull.AutoSize = true;
+            this.registronull.Location = new System.Drawing.Point(585, 62);
+            this.registronull.Name = "registronull";
+            this.registronull.Size = new System.Drawing.Size(88, 17);
+            this.registronull.TabIndex = 50;
+            this.registronull.Text = "Registro nulo";
+            this.registronull.UseVisualStyleBackColor = true;
+            this.registronull.CheckedChanged += new System.EventHandler(this.registronull_CheckedChanged);
+            // 
             // InsertarBautismo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -548,6 +567,7 @@ namespace Parroquia
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.CancelButton = this.cancelar;
             this.ClientSize = new System.Drawing.Size(709, 586);
+            this.Controls.Add(this.registronull);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.label25);
@@ -594,12 +614,14 @@ namespace Parroquia
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "InsertarBautismo";
+
+            if (edicion)
+                this.Text = "::ACTUALIZAR REGISTRO BAUTISMO::";
+            else this.Text = "::INSERTAR REGISTRO BAUTISMO::";
+            
+
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            if(!edicion)
-                this.Text = "Insertar Registro de Bautismo";
-            else
-                this.Text = "Actualizar Registro de Bautismo";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -653,5 +675,6 @@ namespace Parroquia
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.CheckBox registronull;
     }
 }

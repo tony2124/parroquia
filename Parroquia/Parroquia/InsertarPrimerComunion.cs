@@ -226,7 +226,6 @@ namespace Parroquia
                 {
                     btn = true;
                     this.guardarConfirBtn.Text = "Guardar registro";
-                    this.cancelBtnConfirmacion.Enabled = false;
                     this.guardaImprimeBtn.Enabled = false;
 
                     //Permitimes edicion a los componentes
@@ -271,10 +270,7 @@ namespace Parroquia
 
 
                             //actualizamos la tabla
-                            Parroquia.tablaBusqueda.Columns.Clear();
-                            Parroquia.Pintar_tabla();
-
-
+                            Parroquia.btnbuscar.PerformClick();
                             //Establecemos los componentes sin edicion
                             nombre.Enabled = false;
                             padre.Enabled = false;

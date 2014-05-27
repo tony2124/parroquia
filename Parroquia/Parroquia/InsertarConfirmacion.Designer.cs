@@ -46,10 +46,10 @@ namespace Parroquia
             this.label9 = new System.Windows.Forms.Label();
             this.padre = new System.Windows.Forms.TextBox();
             this.madre = new System.Windows.Forms.TextBox();
-            this.lugar_bautismo = new System.Windows.Forms.TextBox();
+            this.lugarbau = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.fecha_Confirm = new System.Windows.Forms.DateTimePicker();
-            this.fecha_bautism = new System.Windows.Forms.DateTimePicker();
+            this.fecconf = new System.Windows.Forms.DateTimePicker();
+            this.fecbau = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.madrina = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -61,8 +61,8 @@ namespace Parroquia
             this.anioCombo = new System.Windows.Forms.ComboBox();
             this.guardarConfirBtn = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.guardaImprimeBtn = new System.Windows.Forms.Button();
             this.cancelBtnConfirmacion = new System.Windows.Forms.Button();
+            this.guardaImprimeBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -74,6 +74,8 @@ namespace Parroquia
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.registronull = new System.Windows.Forms.CheckBox();
+            this.label26 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -231,15 +233,16 @@ namespace Parroquia
             this.madre.TabIndex = 3;
             this.madre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.madre_KeyPress);
             // 
-            // lugar_bautismo
+            // lugarbau
             // 
-            this.lugar_bautismo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.lugar_bautismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lugar_bautismo.Location = new System.Drawing.Point(212, 295);
-            this.lugar_bautismo.Name = "lugar_bautismo";
-            this.lugar_bautismo.Size = new System.Drawing.Size(460, 23);
-            this.lugar_bautismo.TabIndex = 6;
-            this.lugar_bautismo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lugar_bautismo_KeyPress);
+            this.lugarbau.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lugarbau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lugarbau.Location = new System.Drawing.Point(212, 295);
+            this.lugarbau.Name = "lugarbau";
+            this.lugarbau.Size = new System.Drawing.Size(460, 23);
+            this.lugarbau.TabIndex = 6;
+            this.lugarbau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lugar_bautismo_KeyPress);
+
             // 
             // label10
             // 
@@ -251,25 +254,26 @@ namespace Parroquia
             this.label10.TabIndex = 17;
             this.label10.Text = "PADRE:";
             // 
-            // fecha_Confirm
+            // fecconf
             // 
-            this.fecha_Confirm.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fecha_Confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fecha_Confirm.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fecha_Confirm.Location = new System.Drawing.Point(407, 216);
-            this.fecha_Confirm.Name = "fecha_Confirm";
-            this.fecha_Confirm.Size = new System.Drawing.Size(266, 23);
-            this.fecha_Confirm.TabIndex = 4;
+            this.fecconf.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecconf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecconf.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fecconf.Location = new System.Drawing.Point(407, 216);
+            this.fecconf.Name = "fecconf";
+            this.fecconf.Size = new System.Drawing.Size(266, 23);
+            this.fecconf.TabIndex = 4;
             // 
-            // fecha_bautism
+            // fecbau
             // 
-            this.fecha_bautism.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fecha_bautism.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fecha_bautism.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fecha_bautism.Location = new System.Drawing.Point(407, 248);
-            this.fecha_bautism.Name = "fecha_bautism";
-            this.fecha_bautism.Size = new System.Drawing.Size(265, 23);
-            this.fecha_bautism.TabIndex = 5;
+            this.fecbau.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecbau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecbau.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fecbau.Location = new System.Drawing.Point(407, 248);
+            this.fecbau.Name = "fecbau";
+            this.fecbau.Size = new System.Drawing.Size(265, 23);
+            this.fecbau.TabIndex = 5;
+
             // 
             // label11
             // 
@@ -365,51 +369,57 @@ namespace Parroquia
             // guardarConfirBtn
             // 
             this.guardarConfirBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardarConfirBtn.Location = new System.Drawing.Point(335, 469);
+            this.guardarConfirBtn.Location = new System.Drawing.Point(357, 468);
             this.guardarConfirBtn.Name = "guardarConfirBtn";
-            this.guardarConfirBtn.Size = new System.Drawing.Size(103, 52);
-            this.guardarConfirBtn.TabIndex = 10;
-            if(edicion){
+            if (edicion)
+            {
                 this.guardarConfirBtn.Text = "Editar Registro";
                 this.toolTip1.SetToolTip(this.guardarConfirBtn, "Editar los datos");
-            }     
-            else{
+            }
+            else
+            {
                 this.guardarConfirBtn.Text = "Guardar";
                 this.toolTip1.SetToolTip(this.guardarConfirBtn, "Guardar y limpiar los datos");
-            }   
+            }  
+            this.guardarConfirBtn.Size = new System.Drawing.Size(103, 52);
+            this.guardarConfirBtn.TabIndex = 10;
             this.guardarConfirBtn.UseVisualStyleBackColor = true;
             this.guardarConfirBtn.Click += new System.EventHandler(this.guardarConfirBtn_Click);
+            // 
+            // cancelBtnConfirmacion
+            // 
+            this.cancelBtnConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelBtnConfirmacion.Location = new System.Drawing.Point(575, 469);
+            this.cancelBtnConfirmacion.Name = "cancelBtnConfirmacion";
+            this.cancelBtnConfirmacion.Size = new System.Drawing.Size(97, 52);
+            this.cancelBtnConfirmacion.TabIndex = 12;
+            this.cancelBtnConfirmacion.Text = "Cancelar";
+            this.toolTip1.SetToolTip(this.cancelBtnConfirmacion, "Cerrar ventana");
+            this.cancelBtnConfirmacion.UseVisualStyleBackColor = true;
+            this.cancelBtnConfirmacion.Click += new System.EventHandler(this.button1_Click);
             // 
             // guardaImprimeBtn
             // 
             this.guardaImprimeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardaImprimeBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guardaImprimeBtn.Location = new System.Drawing.Point(455, 469);
+            this.guardaImprimeBtn.Location = new System.Drawing.Point(466, 469);
             this.guardaImprimeBtn.Name = "guardaImprimeBtn";
-            this.guardaImprimeBtn.Size = new System.Drawing.Size(103, 52);
-            this.guardaImprimeBtn.TabIndex = 11;
+            
             if (edicion)
             {
                 this.guardaImprimeBtn.Text = "Imprimir";
                 this.toolTip1.SetToolTip(this.guardaImprimeBtn, "imprimir Registro");
             }
-            else {
+            else
+            {
                 this.guardaImprimeBtn.Text = "Guardar e imprimir";
                 this.toolTip1.SetToolTip(this.guardaImprimeBtn, "Guardar e imprimir registro");
-            }  
+            }
+ 
+            this.guardaImprimeBtn.Size = new System.Drawing.Size(103, 52);
+            this.guardaImprimeBtn.TabIndex = 11;
             this.guardaImprimeBtn.UseVisualStyleBackColor = true;
             this.guardaImprimeBtn.Click += new System.EventHandler(this.guardaImprimeBtn_Click);
-            // 
-            // cancelBtnConfirmacion
-            // 
-            this.cancelBtnConfirmacion.Image = ((System.Drawing.Image)(resources.GetObject("cancelBtnConfirmacion.Image")));
-            this.cancelBtnConfirmacion.Location = new System.Drawing.Point(575, 469);
-            this.cancelBtnConfirmacion.Name = "cancelBtnConfirmacion";
-            this.cancelBtnConfirmacion.Size = new System.Drawing.Size(97, 52);
-            this.cancelBtnConfirmacion.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.cancelBtnConfirmacion, "Cerrar ventana");
-            this.cancelBtnConfirmacion.UseVisualStyleBackColor = true;
-            this.cancelBtnConfirmacion.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -530,12 +540,34 @@ namespace Parroquia
             this.label25.TabIndex = 42;
             this.label25.Text = "*";
             // 
+            // registronull
+            // 
+            this.registronull.AutoSize = true;
+            this.registronull.Location = new System.Drawing.Point(584, 62);
+            this.registronull.Name = "registronull";
+            this.registronull.Size = new System.Drawing.Size(88, 17);
+            this.registronull.TabIndex = 52;
+            this.registronull.Text = "Registro nulo";
+            this.registronull.UseVisualStyleBackColor = true;
+            this.registronull.CheckedChanged += new System.EventHandler(this.registronull_CheckedChanged);
+            // 
+            // label26
+            // 
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(26, 482);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(303, 52);
+            this.label26.TabIndex = 51;
+            this.label26.Text = "\"Él os bautizará en el nombre del EspÍritu Santo y fuego. Mt. 3, 11\"";
+            // 
             // InsertarConfirmacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(709, 543);
+            this.Controls.Add(this.registronull);
+            this.Controls.Add(this.label26);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
@@ -564,13 +596,13 @@ namespace Parroquia
             this.Controls.Add(this.padrino);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.fecha_bautism);
+            this.Controls.Add(this.fecbau);
             this.Controls.Add(this.madre);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.fecha_Confirm);
+            this.Controls.Add(this.fecconf);
             this.Controls.Add(this.padre);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lugar_bautismo);
+            this.Controls.Add(this.lugarbau);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
@@ -579,14 +611,16 @@ namespace Parroquia
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
-            this.ShowInTaskbar = false;
             this.Name = "InsertarConfirmacion";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            if(edicion)
+
+            if (edicion)
                 this.Text = "Actualizar Registro de Confirmacion";
             else
                 this.Text = "Insertar Registro de Confirmacion";
+
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -610,11 +644,11 @@ namespace Parroquia
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox padre;
         private System.Windows.Forms.TextBox madre;
-        private System.Windows.Forms.TextBox lugar_bautismo;
+        private System.Windows.Forms.TextBox lugarbau;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker fecha_Confirm;
-        private System.Windows.Forms.DateTimePicker fecha_bautism;
+        private System.Windows.Forms.DateTimePicker fecconf;
+        private System.Windows.Forms.DateTimePicker fecbau;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox madrina;
         private System.Windows.Forms.Label label12;
@@ -638,5 +672,7 @@ namespace Parroquia
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.CheckBox registronull;
+        private System.Windows.Forms.Label label26;
     }
 }

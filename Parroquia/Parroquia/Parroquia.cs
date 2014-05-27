@@ -25,22 +25,21 @@ namespace Parroquia
             BDatos = new ConexionBD();
             BDatos.conexion();
             InitializeComponent();
-            Pintar_tabla();
 
         }
 
-        public static void Pintar_tabla()
+        public void Pintar_tabla(String filtro, String libros)
         {
             Adaptador = new MySqlDataAdapter("select id_confirmacion as id,id_libro,id_categoria, nombre,anio,nombre_categoria,nombre_libro, num_hoja,num_partida" +
-           " from confirmaciones natural join libros natural join categorias union " +
+           " from confirmaciones natural join libros natural join categorias where (nombre like '%" + filtro + "%' or anio = '"+filtro+"') "+libros+" union " +
            "select id_matrimonio as id,id_libro,id_categoria, novio as nombre,anio,nombre_categoria,nombre_libro,  num_hoja,num_partida" +
-           " from matrimonios natural join libros natural join categorias union " +
+           " from matrimonios natural join libros natural join categorias where (novio like '%" + filtro + "%' or anio = '" + filtro + "') "+libros+" union " +
             "select id_matrimonio as id,id_libro,id_categoria, novia as nombre,anio,nombre_categoria,nombre_libro,  num_hoja,num_partida" +
-           " from matrimonios natural join libros natural join categorias union " +
+           " from matrimonios natural join libros natural join categorias where (novia like '%" + filtro + "%' or anio = '" + filtro + "') "+libros+" union " +
            "select id_comunion as id,id_libro,id_categoria, nombre,anio,nombre_categoria,nombre_libro,  num_hoja,num_partida" +
-           " from comuniones natural join libros natural join categorias union " +
+           " from comuniones natural join libros natural join categorias where (nombre like '%" + filtro + "%' or anio = '" + filtro + "') "+libros+" union " +
            " select id_bautismo as id,id_libro,id_categoria, nombre,anio,nombre_categoria,nombre_libro,  num_hoja,num_partida" +
-           " from bautismos natural join libros natural join categorias order by nombre asc ",
+           " from bautismos natural join libros natural join categorias where (nombre like '%" + filtro + "%' or anio = '" + filtro + "') "+libros+" order by nombre asc ",
            "server=localhost; port=3306; user id=root; password=; database=parroquiaantunez;");
             ds = new DataSet();
             Adaptador.Fill(ds, "prueba");
@@ -90,7 +89,6 @@ namespace Parroquia
            
             if (e.RowIndex >= 0)
             {
-                MessageBox.Show(tablaBusqueda["id_categoria", e.RowIndex].Value + "");
                 if (int.Parse(tablaBusqueda["id_categoria", e.RowIndex].Value + "") == 1)
                 {
                     InsertarBautismo ib = new InsertarBautismo(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
@@ -171,7 +169,23 @@ namespace Parroquia
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == 13)
+                btnbuscar.PerformClick();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string libro = "";
+            if (librobautismo.Checked)
+                libro = "and id_categoria = 1";
+            else if (libroconfirmacion.Checked)
+                libro = "and id_categoria = 2";
+            else if (librocomunion.Checked)
+                libro = "and id_categoria = 3";
+            else if (libromatrimonio.Checked)
+                libro = "and id_categoria = 4";
+
+            Pintar_tabla(busqueda.Text, libro);
         }
     }
 }

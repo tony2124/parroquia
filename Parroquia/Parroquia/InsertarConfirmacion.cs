@@ -105,13 +105,14 @@ namespace Parroquia
             nombre.Enabled = false;
             padre.Enabled = false;
             madre.Enabled = false;
-            fecha_Confirm.Enabled = false;
-            lugar_bautismo.Enabled = false;
-            fecha_bautism.Enabled = false;
+            fecconf.Enabled = false;
+            lugarbau.Enabled = false;
+            fecbau.Enabled = false;
             padrino.Enabled = false;
             madrina.Enabled = false;
             ministro.Enabled = false;
             anioCombo.Enabled = false;
+            registronull.Enabled = false;
 
             try
             {  
@@ -129,9 +130,9 @@ namespace Parroquia
                         nombre.Text = Datos.GetString(4);
                         padre.Text = Datos.GetString(5);
                         madre.Text = Datos.GetString(6);
-                        fecha_Confirm.Text = Datos.GetString(7);
-                        fecha_bautism.Text = Datos.GetString(8);
-                        lugar_bautismo.Text = Datos.GetString(9);
+                        fecconf.Text = Datos.GetString(7);
+                        fecbau.Text = Datos.GetString(8);
+                        lugarbau.Text = Datos.GetString(9);
                         padrino.Text = Datos.GetString(10);
                         madrina.Text = Datos.GetString(11);
                         ministro.Text = Datos.GetString(12);
@@ -155,70 +156,72 @@ namespace Parroquia
         private void guardarConfirBtn_Click(object sender, EventArgs e)
         {
 
-            if (!edicion) //SI NO ESTA PUESTO EDICION SE GUARDA NORMALMENTE
+            if (!edicion)//si no esta puesta edicion se guarda normalmente
             {
                 try
                 {
                     Bdatos.conexion();
+                    if (!registronull.Checked)
+                    {
+                        if ((nombre.Text.ToString().CompareTo("") == 0) ||
+                       (padre.Text.ToString().CompareTo("") == 0) ||
+                       (madre.Text.ToString().CompareTo("") == 0) ||
+                       (padrino.Text.ToString().CompareTo("") == 0) ||
+                       (madrina.Text.ToString().CompareTo("") == 0) ||
+                       (lugarbau.Text.ToString().CompareTo("") == 0) ||
+                       (ministro.Text.ToString().CompareTo("") == 0))
+                        {
+                            MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    //Se guardan todos los campos en la base de datos
 
-                    if ((nombre.Text.ToString().CompareTo("") == 0) ||
-                        (padre.Text.ToString().CompareTo("") == 0) ||
-                        (madre.Text.ToString().CompareTo("") == 0) ||
-                        (padrino.Text.ToString().CompareTo("") == 0) ||
-                        (madrina.Text.ToString().CompareTo("") == 0) ||
-                        (lugar_bautismo.Text.ToString().CompareTo("") == 0) ||
-                        (ministro.Text.ToString().CompareTo("") == 0))
-                        MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
-                       MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    else
-                    {//Se guardan todos los campos en la base de datos
-                        if (Bdatos.Insertar("insert into confirmaciones(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_confirmacion,fecha_bautismo,lugar_bautismo,padrino,madrina,presbitero,anio)" +
+                    if (Bdatos.Insertar("insert into confirmaciones(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_confirmacion,fecha_bautismo,lugar_bautismo,padrino,madrina,presbitero,anio)" +
                             " values('" + int.Parse(ID_LIBRO) +
                             "','" + int.Parse(textBox2.Text.ToString()) +
                             "','" + int.Parse(textBox3.Text.ToString()) +
                             "','" + nombre.Text.ToString() +
                             "','" + padre.Text.ToString() +
                             "','" + madre.Text.ToString() +
-                            "','" + fecha_Confirm.Value.ToString("yyyy-MM-dd") +
-                            "','" + fecha_bautism.Value.ToString("yyyy-MM-dd") +
-                            "','" + lugar_bautismo.Text.ToString() +
+                            "','" + fecconf.Value.ToString("yyyy-MM-dd") +
+                            "','" + fecbau.Value.ToString("yyyy-MM-dd") +
+                            "','" + lugarbau.Text.ToString() +
                             "','" + padrino.Text.ToString() +
                             "','" + madrina.Text.ToString() +
                              "','" + ministro.Text.ToString() +
                             "','" + anioCombo.Text.ToString() +
                             "');") > 0)
-                        {
-                            MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa",
-                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Partida++;
-                            textBox3.Text = "" + (Partida + 1);
+                    {
+                        MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa",
+                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Partida++;
+                        textBox3.Text = "" + (Partida + 1);
 
-                            Hoja = Math.Ceiling((Partida + 1) / 10.0);
-                            textBox2.Text = "" + Hoja;
+                        Hoja = Math.Ceiling((Partida + 1) / 10.0);
+                        textBox2.Text = "" + Hoja;
 
-                            //actualizamos la tabla
-                            //Parroquia.tablaBusqueda.Columns.Clear();
-                            //Parroquia.Pintar_tabla();
+                        //actualizamos la tabla
+                        //Parroquia.tablaBusqueda.Columns.Clear();
+                        //Parroquia.Pintar_tabla();
 
-                            /*Se establecen en blanco todos los campos*/
-                            nombre.Text = "";
-                            nombre.Focus();
-                            padre.Text = "";
-                            madre.Text = "";
-                            padrino.Text = "";
-                            madrina.Text = "";
-                            fecha_bautism.Value = DateTime.Now;
-                            fecha_Confirm.Value = DateTime.Now;
-                            lugar_bautismo.Text = "";
-                            ministro.Text = "";
-                        }
-                        else MessageBox.Show("Error al ingresar datos en MySQL ", " Error al ingresar ",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                        Bdatos.Desconectar();
+                        /*Se establecen en blanco todos los campos*/
+                        nombre.Text = "";
+                        nombre.Focus();
+                        padre.Text = "";
+                        madre.Text = "";
+                        padrino.Text = "";
+                        madrina.Text = "";
+                        fecbau.Value = DateTime.Now;
+                        fecconf.Value = DateTime.Now;
+                        lugarbau.Text = "";
+                        ministro.Text = "";
                     }
+                    else MessageBox.Show("Error al ingresar datos en MySQL ", " Error al ingresar ",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-
+                    Bdatos.Desconectar();
                 }
                 catch (Exception y)
                 {
@@ -227,47 +230,53 @@ namespace Parroquia
                         MessageBoxButtons.OK, MessageBoxIcon.Error); ;
                 }
             }
-            else //SI EDICION ESTA PUESTA
+            else//Si edicion esta puesta
             {
                 if (btn == false)
                 {
                     btn = true;
                     this.guardarConfirBtn.Text = "Guardar registro";
-                    this.cancelBtnConfirmacion.Enabled = false;
                     this.guardaImprimeBtn.Enabled = false;
 
                     //Permitimes edicion a los componentes
                     nombre.Enabled = true;
                     padre.Enabled = true;
                     madre.Enabled = true;
-                    fecha_Confirm.Enabled = true;
-                    lugar_bautismo.Enabled = true;
-                    fecha_bautism.Enabled = true;
+                    fecconf.Enabled = true;
+                    lugarbau.Enabled = true;
+                    fecbau.Enabled = true;
                     padrino.Enabled = true;
                     madrina.Enabled = true;
                     ministro.Enabled = true;
                     anioCombo.Enabled = true;
+                    registronull.Enabled = true;
+                    return;
                 }
                 else
                 {
                     //Actualizamos datos en la base de datos
-                    if ((nombre.Text.ToString().CompareTo("") == 0) ||
+                    if (!registronull.Checked)
+                    {
+                        if ((nombre.Text.ToString().CompareTo("") == 0) ||
                        (padre.Text.ToString().CompareTo("") == 0) ||
                        (madre.Text.ToString().CompareTo("") == 0) ||
                        (padrino.Text.ToString().CompareTo("") == 0) ||
                        (madrina.Text.ToString().CompareTo("") == 0) ||
-                       (lugar_bautismo.Text.ToString().CompareTo("") == 0) ||
+                       (lugarbau.Text.ToString().CompareTo("") == 0) ||
                        (ministro.Text.ToString().CompareTo("") == 0))
-                        MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
-                       MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    else
-                    {
-                        Bdatos.conexion();
-                        //Se hace la actualizacion en la base de datos
-                        if (Bdatos.Actualizar("UPDATE confirmaciones SET nombre='" + nombre.Text.ToString() +
+                        {
+                            MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    Bdatos.conexion();
+                    
+                    if (Bdatos.Actualizar("UPDATE confirmaciones SET nombre='" + nombre.Text.ToString() +
                              "',padre='" + padre.Text.ToString() + "',madre='" + madre.Text.ToString() +
-                             "',fecha_confirmacion='" + fecha_Confirm.Value.ToString("yyyy-MM-dd") + "',fecha_bautismo='" + fecha_bautism.Value.ToString("yyyy-MM-dd") +
-                             "',lugar_bautismo='" + lugar_bautismo.Text.ToString() + "',padrino='" + padrino.Text.ToString() +
+                             "',fecha_confirmacion='" + fecconf.Value.ToString("yyyy-MM-dd") + "',fecha_bautismo='" + fecbau.Value.ToString("yyyy-MM-dd") +
+                             "',lugar_bautismo='" + lugarbau.Text.ToString() + "',padrino='" + padrino.Text.ToString() +
                              "',madrina='" + madrina.Text.ToString() + "',presbitero='" + ministro.Text.ToString() +
                              "',anio='" + anioCombo.Text.ToString() + "' where id_confirmacion= '" + ID_REGISTRO + "';") > 0)
                         {
@@ -278,31 +287,28 @@ namespace Parroquia
                             this.cancelBtnConfirmacion.Enabled = true;
                             this.guardaImprimeBtn.Enabled = true;
 
-
-                            //actualizamos la tabla
-                            Parroquia.tablaBusqueda.Columns.Clear();
-                            Parroquia.Pintar_tabla();
-
-
                             //Establecemos los componentes sin edicion
+                            registronull.Checked = false;
                             nombre.Enabled = false;
                             padre.Enabled = false;
                             madre.Enabled = false;
-                            fecha_Confirm.Enabled = false;
-                            lugar_bautismo.Enabled = false;
-                            fecha_bautism.Enabled = false;
+                            fecconf.Enabled = false;
+                            lugarbau.Enabled = false;
+                            fecbau.Enabled = false;
                             padrino.Enabled = false;
                             madrina.Enabled = false;
                             ministro.Enabled = false;
                             anioCombo.Enabled = false;
+                            registronull.Enabled = false;
+
+                            //actualizar tabla de busqueda
+                            Parroquia.btnbuscar.PerformClick();
                         }
                         else
-                            MessageBox.Show("Error al actualizar datos en MySQL ", " Error al ingresar ",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Bdatos.Desconectar();
-                    }
+                        MessageBox.Show("Error al actualizar datos en MySQL ", " Error al ingresar ",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Bdatos.Desconectar();
                 }
-
             }
         }
 
@@ -351,6 +357,48 @@ namespace Parroquia
         private void ministro_KeyPress(object sender, KeyPressEventArgs e)
         {
             botones(e);
+        }
+
+        private void registronull_CheckedChanged(object sender, EventArgs e)
+        {
+            if (registronull.Checked)
+            {
+                nombre.Text = "";
+                nombre.Enabled = false;
+                padre.Text = "";
+                padre.Enabled = false;
+                madre.Text = "";
+                madre.Enabled = false;
+                fecconf.Text = "";
+                fecconf.Enabled = false;
+                fecbau.Text = "";
+                fecbau.Enabled = false;
+                lugarbau.Text = "";
+                lugarbau.Enabled = false;
+                padrino.Text = "";
+                padrino.Enabled = false;
+                madrina.Text = "";
+                madrina.Enabled = false;
+                ministro.Text = "";
+                ministro.Enabled = false;
+               
+                guardaImprimeBtn.Enabled = false;
+            }
+            else
+            {
+                nombre.Enabled = true;
+                padre.Enabled = true;
+                madre.Enabled = true;
+                fecconf.Enabled = true;
+                fecbau.Enabled = true;
+                lugarbau.Enabled = true;
+                padrino.Enabled = true;
+                madrina.Enabled = true;
+                ministro.Enabled = true;
+                if (!edicion)
+                    guardaImprimeBtn.Enabled = true;
+                else guardaImprimeBtn.Enabled = false;
+            }
         }
 
     }
