@@ -558,7 +558,7 @@ namespace Parroquia
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(303, 52);
             this.label26.TabIndex = 51;
-            this.label26.Text = "\"Él os bautizará en el nombre del EspÍritu Santo y fuego. Mt. 3, 11\"";
+            this.label26.Text = "\"Y tú, después que hayas vuelto, tendrás que fortalecer a tus hermanos. Lc 22, 32\"";
             // 
             // InsertarConfirmacion
             // 

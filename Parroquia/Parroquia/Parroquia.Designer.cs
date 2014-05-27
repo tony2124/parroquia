@@ -57,20 +57,18 @@ namespace Parroquia
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             btnbuscar = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tablaBusqueda = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaBusqueda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaBusqueda)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -198,6 +196,7 @@ namespace Parroquia
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(6, 159);
             this.label3.Name = "label3";
@@ -211,7 +210,7 @@ namespace Parroquia
             this.busqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.busqueda.Location = new System.Drawing.Point(113, 156);
             this.busqueda.Name = "busqueda";
-            this.busqueda.Size = new System.Drawing.Size(316, 26);
+            this.busqueda.Size = new System.Drawing.Size(469, 26);
             this.busqueda.TabIndex = 1;
             this.busqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
@@ -226,7 +225,7 @@ namespace Parroquia
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(711, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 211);
+            this.panel1.Size = new System.Drawing.Size(211, 211);
             this.panel1.TabIndex = 2;
             // 
             // libromatrimonio
@@ -299,24 +298,34 @@ namespace Parroquia
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(btnbuscar);
             this.panel2.Controls.Add(this.busqueda);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(190, 31);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Location = new System.Drawing.Point(12, 31);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(515, 211);
+            this.panel2.Size = new System.Drawing.Size(693, 211);
             this.panel2.TabIndex = 1;
             // 
             // btnbuscar
             // 
-            btnbuscar.Location = new System.Drawing.Point(435, 156);
+            btnbuscar.BackColor = System.Drawing.Color.Transparent;
+            btnbuscar.Location = new System.Drawing.Point(588, 156);
             btnbuscar.Name = "btnbuscar";
             btnbuscar.Size = new System.Drawing.Size(66, 26);
             btnbuscar.TabIndex = 2;
             btnbuscar.Text = "Buscar";
-            btnbuscar.UseVisualStyleBackColor = true;
+            btnbuscar.UseVisualStyleBackColor = false;
             btnbuscar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Parroquia.Properties.Resources.baner2;
+            this.pictureBox2.Location = new System.Drawing.Point(-1, -1);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(693, 211);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
             // 
             // tablaBusqueda
             // 
@@ -329,13 +338,13 @@ namespace Parroquia
             this.tablaBusqueda.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.tablaBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.tablaBusqueda.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tablaBusqueda.Location = new System.Drawing.Point(29, 248);
+            this.tablaBusqueda.Location = new System.Drawing.Point(12, 248);
             this.tablaBusqueda.MultiSelect = false;
             this.tablaBusqueda.Name = "tablaBusqueda";
             this.tablaBusqueda.ReadOnly = true;
             this.tablaBusqueda.RowHeadersWidth = 100;
             this.tablaBusqueda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaBusqueda.Size = new System.Drawing.Size(882, 329);
+            this.tablaBusqueda.Size = new System.Drawing.Size(910, 329);
             this.tablaBusqueda.TabIndex = 4;
             this.tablaBusqueda.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -372,24 +381,6 @@ namespace Parroquia
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Parroquia.Properties.Resources.baner;
-            this.pictureBox2.Location = new System.Drawing.Point(-1, -1);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(515, 126);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Parroquia.Properties.Resources.virgen2;
-            this.pictureBox1.Location = new System.Drawing.Point(24, 31);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(160, 211);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -411,7 +402,6 @@ namespace Parroquia
             this.Controls.Add(this.tablaBusqueda);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.HelpButton = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -424,9 +414,8 @@ namespace Parroquia
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaBusqueda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaBusqueda)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -450,7 +439,6 @@ namespace Parroquia
         private System.Windows.Forms.ToolStripMenuItem respaldoDeBDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton libromatrimonio;
@@ -467,8 +455,8 @@ namespace Parroquia
         private Label label7;
         private Timer timer1;
         private PictureBox pictureBox2;
-        public static Button btnbuscar;
         private Label label1;
+        public static Button btnbuscar;
 
 
     }

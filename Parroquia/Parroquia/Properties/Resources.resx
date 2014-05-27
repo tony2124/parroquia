@@ -121,8 +121,11 @@
   <data name="253331_112399185524690_100002638274955_82681_7576911_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\253331_112399185524690_100002638274955_82681_7576911_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="matrimonio" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\matrimonio.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="baner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\baner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="virgen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\virgen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="matrimonio1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\matrimonio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,8 +139,8 @@
   <data name="comunion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\comunion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="virgen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\virgen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="matrimonio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\matrimonio.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bautismo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bautismo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,7 +151,7 @@
   <data name="virgen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\virgen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="baner" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\baner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="baner2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\baner2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

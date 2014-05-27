@@ -492,7 +492,7 @@ namespace Parroquia
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(311, 61);
             this.label23.TabIndex = 81;
-            this.label23.Text = "\"Él os bautizará en el nombre del EspÍritu Santo y fuego. Mt. 3, 11\"";
+            this.label23.Text = "\"El hombre dejará a su padre y a su madre y se unirá a su mujer, y los dos serán una sola carne. Así que ya no son dos sino una sola carne. Lo que Dios ha unido, ningún hombre lo separe. Mt 19, 4-6\"";
             // 
             // InsertarMatrimonios
             // 

@@ -510,7 +510,7 @@ namespace Parroquia
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(298, 39);
             this.label24.TabIndex = 51;
-            this.label24.Text = "\"Él os bautizará en el nombre del EspÍritu Santo y fuego. Mt. 3, 11\"";
+            this.label24.Text = "\"El que come mi carne y bebe mi sangre permanece en mí y yo en Él. Jn. 15, 12\"";
             // 
             // pictureBox1
             // 
