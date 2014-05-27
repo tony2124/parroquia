@@ -614,9 +614,9 @@ namespace Parroquia
             this.Name = "InsertarConfirmacion";
 
             if (edicion)
-                this.Text = "Actualizar Registro de Confirmacion";
+                this.Text = ":: ACTUALIZAR REGISTRO DE CONFIRMACIÓN ::";
             else
-                this.Text = "Insertar Registro de Confirmacion";
+                this.Text = ":: INSERTAR REGISTRO DE CONFIRMACIÓN ::";
 
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

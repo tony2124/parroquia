@@ -202,10 +202,6 @@ namespace Parroquia
                         Hoja = Math.Ceiling((Partida + 1) / 10.0);
                         textBox2.Text = "" + Hoja;
 
-                        //actualizamos la tabla
-                        //Parroquia.tablaBusqueda.Columns.Clear();
-                        // Parroquia.Pintar_tabla();
-
                         /*Se establecen en blanco todos los campos*/
                         nombre.Text = "";
                         nombre.Focus();
@@ -363,6 +359,17 @@ namespace Parroquia
                     guardareimp.Enabled = true;
                 else guardareimp.Enabled = false;
             }
+        }
+
+        private void botones(KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                guardar.PerformClick();
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

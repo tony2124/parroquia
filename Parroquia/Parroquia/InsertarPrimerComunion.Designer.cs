@@ -572,9 +572,9 @@ namespace Parroquia
             this.MaximizeBox = false;
             this.Name = "InsertarPrimerComunion";
             if (edicion)
-                this.Text = "Insertar Registro de Primer Comunión";
+                this.Text = ":: ACTUALIZAR REGISTRO DE PRIMERA COMUNIÓN ::";
             else
-                this.Text = "Insertar Registro de Primer Comunión";
+                this.Text = ":: INSERTAR REGISTRO DE PRIMERA COMUNIÓN ::";
 
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

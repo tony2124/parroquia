@@ -29,7 +29,6 @@ namespace Parroquia
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsertarMatrimonios));
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -63,11 +62,13 @@ namespace Parroquia
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.cancelBtnConfirmacion = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.notas_marginales = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.cancelBtnConfirmacion = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.registronull = new System.Windows.Forms.CheckBox();
+            this.label23 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,28 +172,29 @@ namespace Parroquia
             // 
             this.guardaImprimeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardaImprimeBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guardaImprimeBtn.Location = new System.Drawing.Point(310, 518);
+            this.guardaImprimeBtn.Location = new System.Drawing.Point(475, 518);
             this.guardaImprimeBtn.Name = "guardaImprimeBtn";
-            this.guardaImprimeBtn.Size = new System.Drawing.Size(103, 52);
-            this.guardaImprimeBtn.TabIndex = 10;
-            if(edicion)
+            if (edicion)
                 this.guardaImprimeBtn.Text = "Imprimir registro";
             else
                 this.guardaImprimeBtn.Text = "Guardar e imprimir registro";
+
+            this.guardaImprimeBtn.Size = new System.Drawing.Size(103, 52);
+            this.guardaImprimeBtn.TabIndex = 10;
             this.guardaImprimeBtn.UseVisualStyleBackColor = true;
             // 
             // guardarConfirBtn
             // 
             this.guardarConfirBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardarConfirBtn.Location = new System.Drawing.Point(190, 518);
+            this.guardarConfirBtn.Location = new System.Drawing.Point(366, 518);
             this.guardarConfirBtn.Name = "guardarConfirBtn";
-            this.guardarConfirBtn.Size = new System.Drawing.Size(103, 52);
-            this.guardarConfirBtn.TabIndex = 9;
-            if(edicion)
+            if (edicion)
                 this.guardarConfirBtn.Text = "Editar registro";
             else
                 this.guardarConfirBtn.Text = "Guardar registro";
 
+            this.guardarConfirBtn.Size = new System.Drawing.Size(103, 52);
+            this.guardarConfirBtn.TabIndex = 9;
             this.guardarConfirBtn.UseVisualStyleBackColor = true;
             this.guardarConfirBtn.Click += new System.EventHandler(this.guardarConfirBtn_Click);
             // 
@@ -422,25 +424,6 @@ namespace Parroquia
             this.label4.TabIndex = 77;
             this.label4.Text = "*";
             // 
-            // cancelBtnConfirmacion
-            // 
-            this.cancelBtnConfirmacion.Image = ((System.Drawing.Image)(resources.GetObject("cancelBtnConfirmacion.Image")));
-            this.cancelBtnConfirmacion.Location = new System.Drawing.Point(430, 518);
-            this.cancelBtnConfirmacion.Name = "cancelBtnConfirmacion";
-            this.cancelBtnConfirmacion.Size = new System.Drawing.Size(97, 52);
-            this.cancelBtnConfirmacion.TabIndex = 11;
-            this.cancelBtnConfirmacion.UseVisualStyleBackColor = true;
-            this.cancelBtnConfirmacion.Click += new System.EventHandler(this.cancelBtnConfirmacion_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Parroquia.Properties.Resources.matrimonio;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 58);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(175, 208);
-            this.pictureBox1.TabIndex = 64;
-            this.pictureBox1.TabStop = false;
-            // 
             // notas_marginales
             // 
             this.notas_marginales.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -471,11 +454,53 @@ namespace Parroquia
             this.label22.TabIndex = 80;
             this.label22.Text = "*";
             // 
+            // cancelBtnConfirmacion
+            // 
+            this.cancelBtnConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelBtnConfirmacion.Location = new System.Drawing.Point(584, 518);
+            this.cancelBtnConfirmacion.Name = "cancelBtnConfirmacion";
+            this.cancelBtnConfirmacion.Size = new System.Drawing.Size(97, 52);
+            this.cancelBtnConfirmacion.TabIndex = 11;
+            this.cancelBtnConfirmacion.Text = "Cancelar";
+            this.cancelBtnConfirmacion.UseVisualStyleBackColor = true;
+            this.cancelBtnConfirmacion.Click += new System.EventHandler(this.cancelBtnConfirmacion_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Parroquia.Properties.Resources.matrimonio1;
+            this.pictureBox1.Location = new System.Drawing.Point(16, 58);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(175, 220);
+            this.pictureBox1.TabIndex = 64;
+            this.pictureBox1.TabStop = false;
+            // 
+            // registronull
+            // 
+            this.registronull.AutoSize = true;
+            this.registronull.Location = new System.Drawing.Point(592, 51);
+            this.registronull.Name = "registronull";
+            this.registronull.Size = new System.Drawing.Size(88, 17);
+            this.registronull.TabIndex = 82;
+            this.registronull.Text = "Registro nulo";
+            this.registronull.UseVisualStyleBackColor = true;
+            this.registronull.CheckedChanged += new System.EventHandler(this.registronull_CheckedChanged);
+            // 
+            // label23
+            // 
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(36, 509);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(311, 61);
+            this.label23.TabIndex = 81;
+            this.label23.Text = "\"Él os bautizará en el nombre del EspÍritu Santo y fuego. Mt. 3, 11\"";
+            // 
             // InsertarMatrimonios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(719, 582);
+            this.Controls.Add(this.registronull);
+            this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.notas_marginales);
             this.Controls.Add(this.label9);
@@ -514,15 +539,14 @@ namespace Parroquia
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.ShowInTaskbar = false;
             this.Name = "InsertarMatrimonios";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-
-            if(edicion)
-                this.Text = "Actualizar registro de Matrimonio";
+            if (edicion)
+                this.Text = ":: ACTUALIZAR REGISTRO DE MATRIMONIO ::";
             else
-                 this.Text = "Insertar registro de Matrimonio";
-           
+                this.Text = ":: INSERTAR REGISTRO DE MATRIMONIO ::";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.InsertarMatrimonios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -569,5 +593,7 @@ namespace Parroquia
         private System.Windows.Forms.TextBox notas_marginales;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.CheckBox registronull;
+        private System.Windows.Forms.Label label23;
     }
 }

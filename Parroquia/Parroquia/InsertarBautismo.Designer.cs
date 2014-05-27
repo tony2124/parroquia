@@ -356,11 +356,11 @@ namespace Parroquia
             this.guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardar.Location = new System.Drawing.Point(389, 518);
             this.guardar.Name = "guardar";
-            
             if (edicion)
-                this.guardar.Text = "Editar";
-            else this.guardar.Text = "Guardar";
-            
+                this.guardar.Text = "Editar registro";
+            else
+                this.guardar.Text = "Guardar registro";
+
             this.guardar.Size = new System.Drawing.Size(89, 51);
             this.guardar.TabIndex = 12;
             this.guardar.UseVisualStyleBackColor = true;
@@ -371,19 +371,18 @@ namespace Parroquia
             this.guardareimp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardareimp.Location = new System.Drawing.Point(484, 518);
             this.guardareimp.Name = "guardareimp";
-            
             if (edicion)
-                this.guardareimp.Text = "Imprimir";
-            else this.guardareimp.Text = "Guardar e Imprimir";
-            
+                this.guardareimp.Text = "Imprimir registro";
+            else
+                this.guardareimp.Text = "Guardar e imprimir registro";
             this.guardareimp.Size = new System.Drawing.Size(89, 51);
             this.guardareimp.TabIndex = 13;
             this.guardareimp.UseVisualStyleBackColor = true;
             // 
             // cancelar
             // 
-            this.cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelar.Location = new System.Drawing.Point(579, 518);
             this.cancelar.Name = "cancelar";
             this.cancelar.Size = new System.Drawing.Size(92, 51);
@@ -418,6 +417,7 @@ namespace Parroquia
             this.label17.Size = new System.Drawing.Size(311, 39);
             this.label17.TabIndex = 36;
             this.label17.Text = "\"Él os bautizará en el nombre del EspÍritu Santo y fuego. Mt. 3, 11\"";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // pictureBox1
             // 
@@ -489,8 +489,8 @@ namespace Parroquia
             this.anio.FormattingEnabled = true;
             this.anio.Location = new System.Drawing.Point(596, 27);
             this.anio.Name = "anio";
-            this.anio.Items.AddRange(anios); 
-            this.anio.Text = DateTime.Now.Year.ToString();
+            this.anio.Items.AddRange(InsertarBautismo.anios);
+            this.anio.Text = DateTime.Now.Year + "";
             this.anio.Size = new System.Drawing.Size(77, 21);
             this.anio.TabIndex = 44;
             // 
@@ -614,12 +614,10 @@ namespace Parroquia
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "InsertarBautismo";
-            
             if (edicion)
-                this.Text = "::ACTUALIZAR REGISTRO BAUTISMO::";
-            else this.Text = "::INSERTAR REGISTRO BAUTISMO::";
-            
-
+                this.Text = "::ACTUALIZAR REGISTRO DE BAUTISMO::";
+            else
+                this.Text = "::INSERTAR REGISTRO DE BAUTISMO::";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

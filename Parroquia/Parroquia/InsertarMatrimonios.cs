@@ -108,6 +108,7 @@ namespace Parroquia
             asistente.Enabled = false;
             notas_marginales.Enabled = false;
             anioCombo.Enabled = false;
+            registronull.Enabled = false;
             try
             {  
                 textBox1.Text = NOMMBRE_LIBRO;
@@ -148,17 +149,22 @@ namespace Parroquia
                 try
                 {
                     Bdatos.conexion();
-
-                    if ((novio.Text.ToString().CompareTo("") == 0) ||
-                        (novia.Text.ToString().CompareTo("") == 0) ||
-                        (testigo1.Text.ToString().CompareTo("") == 0) ||
-                        (lugar_celebracion.Text.ToString().CompareTo("") == 0) ||
-                        (testigo2.Text.ToString().CompareTo("") == 0) ||
-                        (asistente.Text.ToString().CompareTo("") == 0))
-                        MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
-                       MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    else
-                    {//Se guardan todos los campos en la base de datos
+                    if (!registronull.Checked)
+                    {
+                        if ((novio.Text.ToString().CompareTo("") == 0) ||
+                            (novia.Text.ToString().CompareTo("") == 0) ||
+                            (testigo1.Text.ToString().CompareTo("") == 0) ||
+                            (lugar_celebracion.Text.ToString().CompareTo("") == 0) ||
+                            (testigo2.Text.ToString().CompareTo("") == 0) ||
+                            (asistente.Text.ToString().CompareTo("") == 0))
+                        {
+                            MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    
+                    //Se guardan todos los campos en la base de datos
                         if (Bdatos.Insertar("insert into matrimonios(id_libro,num_hoja,num_partida,novio,novia,fecha_matrimonio,lugar_celebracion,testigo1,testigo2,asistente,nota_marginal,anio)" +
                             " values('" + int.Parse(ID_LIBRO) +
                             "','" + int.Parse(textBox2.Text.ToString()) +
@@ -196,9 +202,6 @@ namespace Parroquia
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                         Bdatos.Desconectar();
-                    }
-
-
                 }
                 catch (Exception y)
                 {
@@ -225,60 +228,63 @@ namespace Parroquia
                     asistente.Enabled = true;
                     notas_marginales.Enabled = true;
                     anioCombo.Enabled = true;
+                    registronull.Enabled = true;
+                    return;
                 }
                 else
                 {
                     //Actualizamos datos en la base de datos
-                    if ((novio.Text.ToString().CompareTo("") == 0) ||
-                       (novia.Text.ToString().CompareTo("") == 0) ||
-                       (lugar_celebracion.Text.ToString().CompareTo("") == 0) ||
-                       (testigo1.Text.ToString().CompareTo("") == 0) ||
-                       (testigo2.Text.ToString().CompareTo("") == 0) ||
-                       (asistente.Text.ToString().CompareTo("") == 0) ||
-                       (anioCombo.Text.ToString().CompareTo("") == 0))
+                    if (!registronull.Checked)
                     {
-                        MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        if ((novio.Text.ToString().CompareTo("") == 0) ||
+                           (novia.Text.ToString().CompareTo("") == 0) ||
+                           (lugar_celebracion.Text.ToString().CompareTo("") == 0) ||
+                           (testigo1.Text.ToString().CompareTo("") == 0) ||
+                           (testigo2.Text.ToString().CompareTo("") == 0) ||
+                           (asistente.Text.ToString().CompareTo("") == 0))
+                        {
+                            MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    Bdatos.conexion();
+                    //Se hace la actualizacion en la base de datos
+                    if (Bdatos.Actualizar("UPDATE matrimonios SET novio='" + novio.Text.ToString() +
+                         "',novia='" + novia.Text.ToString() + "',fecha_matrimonio='" + fecha_Matrimonio.Value.ToString("yyyy-MM-dd") +
+                         "',lugar_celebracion='" + lugar_celebracion.Text.ToString() + "',testigo1='" + testigo1.Text.ToString() +
+                         "',testigo2='" + testigo2.Text.ToString() + "',asistente='" + asistente.Text.ToString() +
+                         "',nota_marginal='" + notas_marginales.Text.ToString() + "',anio='" + anioCombo.Text.ToString() +
+                         "' where id_matrimonio= '" + ID_REGISTRO + "';") > 0)
+                    {
+                        MessageBox.Show("Registro actualizado correctamente ", " Acción exitosa",
+                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        btn = false;
+                        this.guardarConfirBtn.Text = "Editar registro";
+                        this.cancelBtnConfirmacion.Enabled = true;
+                        this.guardaImprimeBtn.Enabled = true;
+
+                        //Establecemos los componentes sin edicion
+                        registronull.Checked = false;
+                        novio.Enabled = false;
+                        novia.Enabled = false;
+                        fecha_Matrimonio.Enabled = false;
+                        lugar_celebracion.Enabled = false;
+                        testigo1.Enabled = false;
+                        testigo2.Enabled = false;
+                        asistente.Enabled = false;
+                        notas_marginales.Enabled = false;
+                        anioCombo.Enabled = false;
+                        registronull.Enabled = false;
+
+                        //actualizamos la tabla
+                        Parroquia.btnbuscar.PerformClick();
                     }
                     else
-                    {
-                        Bdatos.conexion();
-                        //Se hace la actualizacion en la base de datos
-                        if (Bdatos.Actualizar("UPDATE matrimonios SET novio='" + novio.Text.ToString() +
-                             "',novia='" + novia.Text.ToString() + "',fecha_matrimonio='" + fecha_Matrimonio.Value.ToString("yyyy-MM-dd") +
-                             "',lugar_celebracion='" + lugar_celebracion.Text.ToString() + "',testigo1='" + testigo1.Text.ToString() +
-                             "',testigo2='" + testigo2.Text.ToString() + "',asistente='" + asistente.Text.ToString() +
-                             "',nota_marginal='" + notas_marginales.Text.ToString() + "',anio='" + anioCombo.Text.ToString() +
-                             "' where id_matrimonio= '" + ID_REGISTRO + "';") > 0)
-                        {
-                            MessageBox.Show("Registro actualizado correctamente ", " Acción exitosa",
-                             MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            btn = false;
-                            this.guardarConfirBtn.Text = "Editar registro";
-                            this.cancelBtnConfirmacion.Enabled = true;
-                            this.guardaImprimeBtn.Enabled = true;
-
-
-                            //actualizamos la tabla
-                            Parroquia.btnbuscar.PerformClick();
-                            //Establecemos los componentes sin edicion
-                            novio.Enabled = false;
-                            novia.Enabled = false;
-                            fecha_Matrimonio.Enabled = false;
-                            lugar_celebracion.Enabled = false;
-                            testigo1.Enabled = false;
-                            testigo2.Enabled = false;
-                            asistente.Enabled = false;
-                            notas_marginales.Enabled = false;
-                            anioCombo.Enabled = false;
-                        }
-                        else
-                            MessageBox.Show("Error al actualizar datos en MySQL ", " Error al ingresar ",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Bdatos.Desconectar();
-                    }
-                        
+                        MessageBox.Show("Error al actualizar datos en MySQL ", " Error al ingresar ",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Bdatos.Desconectar();
                 }
             }
         }
@@ -322,6 +328,50 @@ namespace Parroquia
         private void cancelBtnConfirmacion_Click(object sender, EventArgs e)
         {
             Dispose();
+        }
+
+        private void InsertarMatrimonios_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void registronull_CheckedChanged(object sender, EventArgs e)
+        {
+            if (registronull.Checked)
+            {
+                novio.Text = "";
+                novio.Enabled = false;
+                novia.Text = "";
+                novia.Enabled = false;
+                fecha_Matrimonio.Text = "";
+                fecha_Matrimonio.Enabled = false;
+                lugar_celebracion.Text = "";
+                lugar_celebracion.Enabled = false;
+                testigo1.Text = "";
+                testigo1.Enabled = false;
+                testigo2.Text = "";
+                testigo2.Enabled = false;
+                asistente.Text = "";
+                asistente.Enabled = false;
+                notas_marginales.Text = "";
+                notas_marginales.Enabled = false;
+                guardaImprimeBtn.Enabled = false;
+            }
+            else
+            {
+                
+                novio.Enabled = true;
+                novia.Enabled = true;
+                fecha_Matrimonio.Enabled = true;
+                lugar_celebracion.Enabled = true;
+                testigo1.Enabled = true;
+                testigo2.Enabled = true;
+                asistente.Enabled = true;
+                notas_marginales.Enabled = true;
+                if (!edicion)
+                    guardaImprimeBtn.Enabled = true;
+                else guardaImprimeBtn.Enabled = false;
+            }
         }
 
 
