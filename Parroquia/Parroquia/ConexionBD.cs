@@ -26,7 +26,7 @@ namespace conexionbd
         {
             host = "localhost";
             usuario = "root";
-            contrasena = "";
+            contrasena = "simpus2124";
             basedatos = "parroquiaantunez";
         }
 

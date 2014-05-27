@@ -125,6 +125,7 @@ namespace Parroquia
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.Salir_Click);
             // 
             // librosToolStripMenuItem
             // 
