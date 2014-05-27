@@ -234,10 +234,51 @@ namespace Parroquia
                        (lugar_celebracion.Text.ToString().CompareTo("") == 0) ||
                        (testigo1.Text.ToString().CompareTo("") == 0) ||
                        (testigo2.Text.ToString().CompareTo("") == 0) ||
-                       (asistente.Text.ToString().CompareTo("") == 0)||
+                       (asistente.Text.ToString().CompareTo("") == 0) ||
                        (anioCombo.Text.ToString().CompareTo("") == 0))
+                    {
                         MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
-                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        Bdatos.conexion();
+                        //Se hace la actualizacion en la base de datos
+                        if (Bdatos.Actualizar("UPDATE matrimonios SET novio='" + novio.Text.ToString() +
+                             "',novia='" + novia.Text.ToString() + "',fecha_matrimonio='" + fecha_Matrimonio.Value.ToString("yyyy-MM-dd") +
+                             "',lugar_celebracion='" + lugar_celebracion.Text.ToString() + "',testigo1='" + testigo1.Text.ToString() +
+                             "',testigo2='" + testigo2.Text.ToString() + "',asistente='" + asistente.Text.ToString() +
+                             "',nota_marginal='" + notas_marginales.Text.ToString() + "',anio='" + anioCombo.Text.ToString() +
+                             "' where id_matrimonio= '" + ID_REGISTRO + "';") > 0)
+                        {
+                            MessageBox.Show("Registro actualizado correctamente ", " Acción exitosa",
+                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            btn = false;
+                            this.guardarConfirBtn.Text = "Editar registro";
+                            this.cancelBtnConfirmacion.Enabled = true;
+                            this.guardaImprimeBtn.Enabled = true;
+
+
+                            //actualizamos la tabla
+                            Parroquia.btnbuscar.PerformClick();
+                            //Establecemos los componentes sin edicion
+                            novio.Enabled = false;
+                            novia.Enabled = false;
+                            fecha_Matrimonio.Enabled = false;
+                            lugar_celebracion.Enabled = false;
+                            testigo1.Enabled = false;
+                            testigo2.Enabled = false;
+                            asistente.Enabled = false;
+                            notas_marginales.Enabled = false;
+                            anioCombo.Enabled = false;
+                        }
+                        else
+                            MessageBox.Show("Error al actualizar datos en MySQL ", " Error al ingresar ",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Bdatos.Desconectar();
+                    }
+                        
                 }
             }
         }

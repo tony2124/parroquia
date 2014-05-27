@@ -175,7 +175,10 @@ namespace Parroquia
             this.guardaImprimeBtn.Name = "guardaImprimeBtn";
             this.guardaImprimeBtn.Size = new System.Drawing.Size(103, 52);
             this.guardaImprimeBtn.TabIndex = 10;
-            this.guardaImprimeBtn.Text = "Guardar e imprimir";
+            if(edicion)
+                this.guardaImprimeBtn.Text = "Imprimir registro";
+            else
+                this.guardaImprimeBtn.Text = "Guardar e imprimir registro";
             this.guardaImprimeBtn.UseVisualStyleBackColor = true;
             // 
             // guardarConfirBtn
@@ -185,7 +188,11 @@ namespace Parroquia
             this.guardarConfirBtn.Name = "guardarConfirBtn";
             this.guardarConfirBtn.Size = new System.Drawing.Size(103, 52);
             this.guardarConfirBtn.TabIndex = 9;
-            this.guardarConfirBtn.Text = "Guardar";
+            if(edicion)
+                this.guardarConfirBtn.Text = "Editar registro";
+            else
+                this.guardarConfirBtn.Text = "Guardar registro";
+
             this.guardarConfirBtn.UseVisualStyleBackColor = true;
             this.guardarConfirBtn.Click += new System.EventHandler(this.guardarConfirBtn_Click);
             // 
@@ -510,7 +517,12 @@ namespace Parroquia
             this.ShowInTaskbar = false;
             this.Name = "InsertarMatrimonios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Insertar registro de Matrimonio";
+
+            if(edicion)
+                this.Text = "Actualizar registro de Matrimonio";
+            else
+                 this.Text = "Insertar registro de Matrimonio";
+           
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
