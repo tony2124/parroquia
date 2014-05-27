@@ -187,5 +187,10 @@ namespace Parroquia
 
             Pintar_tabla(busqueda.Text, libro);
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label7.Text = DateTime.Now.ToLongTimeString()+"                Fecha:   "+DateTime.Now.ToLongDateString();
+        }
     }
 }
