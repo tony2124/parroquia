@@ -108,7 +108,6 @@ namespace Parroquia
             asistente.Enabled = false;
             notas_marginales.Enabled = false;
             anioCombo.Enabled = false;
-
             try
             {  
                 textBox1.Text = NOMMBRE_LIBRO;

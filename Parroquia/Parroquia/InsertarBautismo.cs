@@ -114,7 +114,6 @@ namespace Parroquia
             anotacion.Enabled = false;
             anio.Enabled = false;
             registronull.Enabled = false;
-
             try
             {  
                 textBox1.Text = NOMMBRE_LIBRO;
@@ -224,6 +223,7 @@ namespace Parroquia
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     Bdatos.Desconectar();
+
                 }
                 catch (Exception y)
                 {
@@ -238,7 +238,6 @@ namespace Parroquia
                 {
                     btn = true;
                     this.guardar.Text = "Guardar registro";
-                    //this.cancelar.Enabled = false;
                     this.guardareimp.Enabled = false;
 
                     //Permitimes edicion a los componentes
@@ -313,6 +312,7 @@ namespace Parroquia
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Bdatos.Desconectar();
                 }
+
             }
         }
 
@@ -364,5 +364,6 @@ namespace Parroquia
                 else guardareimp.Enabled = false;
             }
         }
+
     }
 }

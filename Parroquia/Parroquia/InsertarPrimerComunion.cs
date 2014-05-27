@@ -271,7 +271,6 @@ namespace Parroquia
 
                             //actualizamos la tabla
                             Parroquia.btnbuscar.PerformClick();
-
                             //Establecemos los componentes sin edicion
                             nombre.Enabled = false;
                             padre.Enabled = false;

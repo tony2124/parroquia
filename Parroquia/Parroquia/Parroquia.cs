@@ -25,7 +25,6 @@ namespace Parroquia
             BDatos = new ConexionBD();
             BDatos.conexion();
             InitializeComponent();
-           // Pintar_tabla("astrolopitecus","");
 
         }
 

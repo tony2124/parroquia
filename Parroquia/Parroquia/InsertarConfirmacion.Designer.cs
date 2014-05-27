@@ -30,6 +30,7 @@ namespace Parroquia
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsertarConfirmacion));
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -241,6 +242,7 @@ namespace Parroquia
             this.lugarbau.Size = new System.Drawing.Size(460, 23);
             this.lugarbau.TabIndex = 6;
             this.lugarbau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lugar_bautismo_KeyPress);
+
             // 
             // label10
             // 
@@ -271,6 +273,7 @@ namespace Parroquia
             this.fecbau.Name = "fecbau";
             this.fecbau.Size = new System.Drawing.Size(265, 23);
             this.fecbau.TabIndex = 5;
+
             // 
             // label11
             // 

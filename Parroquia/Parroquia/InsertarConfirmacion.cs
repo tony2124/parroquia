@@ -113,6 +113,7 @@ namespace Parroquia
             ministro.Enabled = false;
             anioCombo.Enabled = false;
             registronull.Enabled = false;
+
             try
             {  
                 textBox1.Text = NOMMBRE_LIBRO;
@@ -160,7 +161,6 @@ namespace Parroquia
                 try
                 {
                     Bdatos.conexion();
-
                     if (!registronull.Checked)
                     {
                         if ((nombre.Text.ToString().CompareTo("") == 0) ||
@@ -236,7 +236,6 @@ namespace Parroquia
                 {
                     btn = true;
                     this.guardarConfirBtn.Text = "Guardar registro";
-                    //this.cancelBtnConfirmacion.Enabled = false;
                     this.guardaImprimeBtn.Enabled = false;
 
                     //Permitimes edicion a los componentes
