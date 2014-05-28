@@ -68,6 +68,7 @@ namespace Parroquia
             this.cancelBtnConfirmacion = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.registronull = new System.Windows.Forms.CheckBox();
+            this.registrobis = new System.Windows.Forms.CheckBox();
             this.label23 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -484,6 +485,17 @@ namespace Parroquia
             this.registronull.Text = "Registro nulo";
             this.registronull.UseVisualStyleBackColor = true;
             this.registronull.CheckedChanged += new System.EventHandler(this.registronull_CheckedChanged);
+            //
+            // registrobis
+            // 
+            this.registrobis.AutoSize = true;
+            this.registrobis.Location = new System.Drawing.Point(450, 51);
+            this.registrobis.Name = "registronull";
+            this.registrobis.Size = new System.Drawing.Size(88, 17);
+            this.registrobis.TabIndex = 50;
+            this.registrobis.Text = "Registro bis";
+            this.registrobis.UseVisualStyleBackColor = true;
+            this.registrobis.CheckedChanged += new System.EventHandler(this.registrobis_CheckedChanged);
             // 
             // label23
             // 
@@ -500,6 +512,7 @@ namespace Parroquia
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(719, 582);
             this.Controls.Add(this.registronull);
+            this.Controls.Add(this.registrobis);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.notas_marginales);
@@ -594,6 +607,7 @@ namespace Parroquia
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.CheckBox registronull;
+        private System.Windows.Forms.CheckBox registrobis;
         private System.Windows.Forms.Label label23;
     }
 }

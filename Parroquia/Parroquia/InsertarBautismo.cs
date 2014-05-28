@@ -199,8 +199,8 @@ namespace Parroquia
                         "','" + fechabautismo.Value.ToString("yyyy-MM-dd") +
                         "','" + padrino.Text +
                         "','" + madrina.Text +
-                            "','" + presbitero.Text +
-                            "','" + anotacion.Text +
+                        "','" + presbitero.Text +
+                        "','" + anotacion.Text +
                         "','" + anio.Text +
                         "',"+bis+");") > 0)
                     {
@@ -327,6 +327,7 @@ namespace Parroquia
 
             }
         }
+
         //IMPRIMIR
         public void guardar_imprimir_Click(object sender, EventArgs e)
         {
@@ -488,7 +489,7 @@ namespace Parroquia
             
         }
 
-        public void pd_PrintPage(object sender, PrintPageEventArgs ev)
+    /*    public void pd_PrintPage(object sender, PrintPageEventArgs ev)
         {
             //IMPRIME TITULO
             ev.Graphics.DrawString("ANTUNEZ MICHOACAN",
@@ -497,7 +498,7 @@ namespace Parroquia
             ev.Graphics.DrawString("PARROQUIA DE NUESTRA SEÑORA DE GUADALUPE",
                 new Font("Times New Roman", 10, FontStyle.Bold),
                         Brushes.Black, 250, 80);
-        }
+        }*/
 
         public void pd_PrintPage_edicion(object sender, PrintPageEventArgs ev)
         {

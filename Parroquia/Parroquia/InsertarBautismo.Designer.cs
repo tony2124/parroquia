@@ -573,7 +573,6 @@ namespace Parroquia
             this.registrobis.UseVisualStyleBackColor = true;
             this.registrobis.CheckedChanged += new System.EventHandler(this.registrobis_CheckedChanged);
             // 
-            // 
             // InsertarBautismo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
