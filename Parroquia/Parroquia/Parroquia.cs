@@ -91,7 +91,7 @@ namespace Parroquia
             {
                 if (int.Parse(tablaBusqueda["id_categoria", e.RowIndex].Value + "") == 1)
                 {
-                    InsertarBautismo ib = new InsertarBautismo(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
+                    Bautismo ib = new Bautismo(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
                     ib.ShowDialog();
                 }else
                 if (int.Parse(tablaBusqueda["id_categoria", e.RowIndex].Value + "") == 2)

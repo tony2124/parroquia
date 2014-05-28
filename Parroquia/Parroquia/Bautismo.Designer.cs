@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Parroquia
 {
-    partial class InsertarBautismo
+    partial class Bautismo
     {
         /// <summary>
         /// Required designer variable.
@@ -491,7 +491,7 @@ namespace Parroquia
             this.anio.FormattingEnabled = true;
             this.anio.Location = new System.Drawing.Point(596, 27);
             this.anio.Name = "anio";
-            this.anio.Items.AddRange(InsertarBautismo.anios);
+            this.anio.Items.AddRange(Bautismo.anios);
             this.anio.Text = DateTime.Now.Year + "";
             this.anio.Size = new System.Drawing.Size(77, 21);
             this.anio.TabIndex = 44;

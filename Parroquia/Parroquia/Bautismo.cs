@@ -13,7 +13,7 @@ using System.Drawing.Printing;
 
 namespace Parroquia
 {
-    public partial class InsertarBautismo : Form
+    public partial class Bautismo : Form
     {
         private String ID_LIBRO;
         private int Partida;
@@ -29,34 +29,26 @@ namespace Parroquia
         MySqlDataReader Datos;
         ConexionBD Bdatos = new ConexionBD();
 
-        public InsertarBautismo(String ID_libro)
+        /* CONSTRUCTOR PARA LA VENTANA DE INSERCION */
+        public Bautismo(String ID_libro)
         {
             edicion = false;
             ID_LIBRO = ID_libro;
 
-            anios = new Object[(DateTime.Now.Year - 1970) + 1];
-            int u = 0;
-            for (int i = 1970; i <= DateTime.Now.Year; i++)
-            {
-                anios[u] = i;
-                u++;
-            }
+            calculoAnios();
 
             InitializeComponent();
 
-
             try
             {
+                /* CONSULTA A LA BASE PARA OBTENER INFORMACION DE LIBROS */
                 Bdatos.conexion();
-
                 Datos = Bdatos.obtenerBasesDatosMySQL("select nombre_libro from libros where id_libro=" + ID_LIBRO + ";");
-
                 if (Datos.HasRows)
                 {
                     while (Datos.Read())
                     {
                         textBox1.Text = Datos.GetString(0).ToString();
-
                     }
                 }
                 Datos.Close();
@@ -64,7 +56,6 @@ namespace Parroquia
                 /*Estableciendo la partida*/
                 Partida = 0;
                 Datos = Bdatos.obtenerBasesDatosMySQL("select id_bautismo from bautismos where id_libro ="+ID_LIBRO+" AND bis=0;");
-
                 if (Datos.HasRows)
                 {
                     while (Datos.Read())
@@ -72,57 +63,37 @@ namespace Parroquia
                         Partida++;
                     }
                 }
-                
+                Datos.Close();
+                Bdatos.Desconectar();
 
                 textBox3.Text = "" + (Partida + 1);
 
                 /*CALCULANDO LA HOJA*/    
                 Hoja = Math.Ceiling((Partida + 1) / 10.0);
-
                 textBox2.Text = "" + Hoja;
-
-
-                Bdatos.Desconectar();
+                
             }
             catch (Exception r) { MessageBox.Show("Error: " + r.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
         }
 
-        public InsertarBautismo(int id_registro,  String NOMMBRE_LIBRO)
-        {
 
+        /* CONSTRUCTOR PARA LA VENTANA DE EDICION */
+        public Bautismo(int id_registro,  String NOMMBRE_LIBRO)
+        {
             nLibro = NOMMBRE_LIBRO;
             edicion = true;
             ID_REGISTRO = id_registro;
-
-            anios = new Object[(DateTime.Now.Year - 1970) + 1];
-            int u = 0;
-            for (int i = 1970; i <= DateTime.Now.Year; i++)
-            {
-                anios[u] = i;
-                u++;
-            }
+            calculoAnios();
 
             InitializeComponent();
-            //Establecemos los componentes sin edicion
-            nombre.Enabled = false;
-            padre.Enabled = false;
-            madre.Enabled = false;
-            fechanac.Enabled = false;
-            lugarnac.Enabled = false;
-            fechabautismo.Enabled = false;
-            padrino.Enabled = false;
-            madrina.Enabled = false;
-            presbitero.Enabled = false;
-            anotacion.Enabled = false;
-            anio.Enabled = false;
-            registronull.Enabled = false;
-            registrobis.Enabled = false;
+            habilitarCampos(false);
             try
             {  
                 textBox1.Text = NOMMBRE_LIBRO;
-                Bdatos.conexion();
 
+                /* CONSULTA A LA BASE DE DATOS PARA OBTENER INFORMACION DEL LIBRO, HOJA Y PARTIDA */
+                Bdatos.conexion();
                 Datos = Bdatos.obtenerBasesDatosMySQL("SELECT * FROM bautismos where id_bautismo = " + ID_REGISTRO);
 
                 if (Datos.HasRows)
@@ -151,9 +122,109 @@ namespace Parroquia
                 MessageBox.Show("Error al mostrar edicion. "+j.Message, " Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
-           
+        public void calculoAnios()
+        {
+            /*Calculo de años para el combobox */
+            anios = new Object[(DateTime.Now.Year - 1970) + 1];
+            int u = 0;
+            for (int i = 1970; i <= DateTime.Now.Year; i++)
+            {
+                anios[u] = i;
+                u++;
+            }
+        }
 
+
+        public void habilitarCampos(Boolean enabled)
+        {
+            nombre.Enabled = enabled;
+            padre.Enabled = enabled;
+            madre.Enabled = enabled;
+            fechanac.Enabled = enabled;
+            lugarnac.Enabled = enabled;
+            fechabautismo.Enabled = enabled;
+            padrino.Enabled = enabled;
+            madrina.Enabled = enabled;
+            presbitero.Enabled = enabled;
+            anotacion.Enabled = enabled;
+            anio.Enabled = enabled;
+            registronull.Enabled = enabled;
+            registrobis.Enabled = enabled;
+        }
+
+        public Boolean camposVacios()
+        {
+            if ((nombre.Text.CompareTo("") == 0)    ||
+                (padre.Text.CompareTo("") == 0)     ||
+                (madre.Text.CompareTo("") == 0)     ||
+                (padrino.Text.CompareTo("") == 0)   ||
+                (madrina.Text.CompareTo("") == 0)   ||
+                (lugarnac.Text.CompareTo("") == 0)  ||
+                (presbitero.Text.CompareTo("") == 0))
+            {
+                MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
+               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+            return false;
+        }
+
+        /*INSERTAR REGISTRO EN LA BD */
+        private void guardarRegistro()
+        {
+            String bis = "0", partida = textBox3.Text;
+            if (registrobis.Checked)
+                bis = "1";
+
+            //insertar datos
+            if (Bdatos.Insertar("insert into bautismos(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_nac,lugar_nac,fecha_bautismo,padrino,madrina,presbitero,anotacion,anio,bis)" +
+                " values('" + int.Parse(ID_LIBRO) +
+                "','" + textBox2.Text +
+                "','" + partida +
+                "','" + nombre.Text +
+                "','" + padre.Text +
+                "','" + madre.Text +
+                "','" + fechanac.Value.ToString("yyyy-MM-dd") +
+                "','" + lugarnac.Text +
+                "','" + fechabautismo.Value.ToString("yyyy-MM-dd") +
+                "','" + padrino.Text +
+                "','" + madrina.Text +
+                    "','" + presbitero.Text +
+                    "','" + anotacion.Text +
+                "','" + anio.Text +
+                "'," + bis + ");") > 0)
+            {
+
+                MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (!registrobis.Checked)
+                    Partida++;
+                else
+                    registrobis.Checked = false;
+
+                textBox3.Text = "" + (Partida + 1);
+
+                Hoja = Math.Ceiling((Partida + 1) / 10.0);
+                textBox2.Text = "" + Hoja;
+
+                /*Se establecen en blanco todos los campos*/
+                nombre.Text = "";
+                nombre.Focus();
+                padre.Text = "";
+                madre.Text = "";
+                padrino.Text = "";
+                madrina.Text = "";
+                //fechanac.Value = DateTime.Now;
+                //fechabautismo.Value = DateTime.Now;
+                lugarnac.Text = "";
+                presbitero.Text = "";
+                anotacion.Text = "";
+            }
+            else MessageBox.Show("Error al ingresar datos ", " Error al ingresar ",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Bdatos.Desconectar();
         }
 
         private void guardar_Click(object sender, EventArgs e)
@@ -166,104 +237,24 @@ namespace Parroquia
 
                     if (!registronull.Checked)
                     {
-                        if ((nombre.Text.ToString().CompareTo("") == 0) ||
-                       (padre.Text.ToString().CompareTo("") == 0) ||
-                       (madre.Text.ToString().CompareTo("") == 0) ||
-                       (padrino.Text.ToString().CompareTo("") == 0) ||
-                       (madrina.Text.ToString().CompareTo("") == 0) ||
-                       (lugarnac.Text.ToString().CompareTo("") == 0) ||
-                       (presbitero.Text.ToString().CompareTo("") == 0))
-                        {
-                            MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
-                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (camposVacios())
                             return;
-                        }
                     }
-                    //Se guardan todos los campos en la base de datos
-                    String bis = "0", partida = textBox3.Text;
-                    if (registrobis.Checked)
-                    {
-                        bis = "1";
-                    }
- 
-
-                    if (Bdatos.Insertar("insert into bautismos(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_nac,lugar_nac,fecha_bautismo,padrino,madrina,presbitero,anotacion,anio,bis)" +
-                        " values('" + int.Parse(ID_LIBRO) +
-                        "','" + textBox2.Text +
-                        "','" + partida +
-                        "','" + nombre.Text +
-                        "','" + padre.Text +
-                        "','" + madre.Text +
-                        "','" + fechanac.Value.ToString("yyyy-MM-dd") +
-                        "','" + lugarnac.Text +
-                        "','" + fechabautismo.Value.ToString("yyyy-MM-dd") +
-                        "','" + padrino.Text +
-                        "','" + madrina.Text +
-                            "','" + presbitero.Text +
-                            "','" + anotacion.Text +
-                        "','" + anio.Text +
-                        "',"+bis+");") > 0)
-                    {
-                        MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        if (!registrobis.Checked)
-                            Partida++;
-                        else
-                            registrobis.Checked = false;
-                        
-
-                        textBox3.Text = "" + (Partida + 1);
-
-                        Hoja = Math.Ceiling((Partida + 1) / 10.0);
-                        textBox2.Text = "" + Hoja;
-
-                        /*Se establecen en blanco todos los campos*/
-                        nombre.Text = "";
-                        nombre.Focus();
-                        padre.Text = "";
-                        madre.Text = "";
-                        padrino.Text = "";
-                        madrina.Text = "";
-                        fechanac.Value = DateTime.Now;
-                        fechabautismo.Value = DateTime.Now;
-                        lugarnac.Text = "";
-                        presbitero.Text = "";
-                        anotacion.Text = "";
-                    }
-                    else MessageBox.Show("Error al ingresar datos ", " Error al ingresar ",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    Bdatos.Desconectar();
-
+                    guardarRegistro();
                 }
                 catch (Exception y)
                 {
-                    MessageBox.Show("Error al ingresar datos en MySQL: " +
-                        y.Message, " Error al ingresar ",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error); ;
+                    MessageBox.Show("Error al ingresar datos en MySQL: " + y.Message, " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else//Si edicion esta puesta
+            else //Si edicion esta puesta
             {
                 if (btn == false)
                 {
                     btn = true;
-                    this.guardar.Text = "Guardar registro";
-                    this.guardareimp.Enabled = false;
-
-                    //Permitimes edicion a los componentes
-                    nombre.Enabled = true;
-                    padre.Enabled = true;
-                    madre.Enabled = true;
-                    fechanac.Enabled = true;
-                    lugarnac.Enabled = true;
-                    fechabautismo.Enabled = true;
-                    padrino.Enabled = true;
-                    madrina.Enabled = true;
-                    presbitero.Enabled = true;
-                    anotacion.Enabled = true;
-                    anio.Enabled = true;
-                    registronull.Enabled = true;
+                    guardar.Text = "Guardar registro";
+                    guardareimp.Enabled = false;
+                    habilitarCampos(true);
                     return;
                 }
                 else

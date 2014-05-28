@@ -113,11 +113,11 @@
     <Compile Include="eliminarLibro.Designer.cs">
       <DependentUpon>eliminarLibro.cs</DependentUpon>
     </Compile>
-    <Compile Include="InsertarBautismo.cs">
+    <Compile Include="Bautismo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InsertarBautismo.Designer.cs">
-      <DependentUpon>InsertarBautismo.cs</DependentUpon>
+    <Compile Include="Bautismo.Designer.cs">
+      <DependentUpon>Bautismo.cs</DependentUpon>
     </Compile>
     <Compile Include="InsertarMatrimonios.cs">
       <SubType>Form</SubType>
@@ -157,8 +157,8 @@
     <EmbeddedResource Include="eliminarLibro.resx">
       <DependentUpon>eliminarLibro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InsertarBautismo.resx">
-      <DependentUpon>InsertarBautismo.cs</DependentUpon>
+    <EmbeddedResource Include="Bautismo.resx">
+      <DependentUpon>Bautismo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InsertarMatrimonios.resx">
       <DependentUpon>InsertarMatrimonios.cs</DependentUpon>
