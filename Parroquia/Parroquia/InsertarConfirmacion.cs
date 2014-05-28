@@ -61,7 +61,7 @@ namespace Parroquia
 
                 /*Estableciendo la partida*/
                 Partida = 0;
-                Datos = Bdatos.obtenerBasesDatosMySQL("select id_confirmacion from confirmaciones where id_libro =" + ID_LIBRO + ";");
+                Datos = Bdatos.obtenerBasesDatosMySQL("select id_confirmacion from confirmaciones where id_libro =" + ID_LIBRO + " AND bis=0 ;");
 
                 if (Datos.HasRows)
                 {
@@ -113,6 +113,7 @@ namespace Parroquia
             ministro.Enabled = false;
             anioCombo.Enabled = false;
             registronull.Enabled = false;
+            registrobis.Enabled = false;
 
             try
             {  
@@ -177,26 +178,35 @@ namespace Parroquia
                         }
                     }
                     //Se guardan todos los campos en la base de datos
+                    String bis = "0", partida = textBox3.Text;
+                    if (registrobis.Checked)
+                    {
+                        bis = "1";
+                    }
 
-                    if (Bdatos.Insertar("insert into confirmaciones(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_confirmacion,fecha_bautismo,lugar_bautismo,padrino,madrina,presbitero,anio)" +
+                    if (Bdatos.Insertar("insert into confirmaciones(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_confirmacion,fecha_bautismo,lugar_bautismo,padrino,madrina,presbitero,anio,bis)" +
                             " values('" + int.Parse(ID_LIBRO) +
-                            "','" + int.Parse(textBox2.Text.ToString()) +
-                            "','" + int.Parse(textBox3.Text.ToString()) +
-                            "','" + nombre.Text.ToString() +
-                            "','" + padre.Text.ToString() +
-                            "','" + madre.Text.ToString() +
+                            "','" + int.Parse(textBox2.Text) +
+                            "','" + textBox3.Text +
+                            "','" + nombre.Text +
+                            "','" + padre.Text +
+                            "','" + madre.Text +
                             "','" + fecconf.Value.ToString("yyyy-MM-dd") +
                             "','" + fecbau.Value.ToString("yyyy-MM-dd") +
-                            "','" + lugarbau.Text.ToString() +
-                            "','" + padrino.Text.ToString() +
-                            "','" + madrina.Text.ToString() +
-                             "','" + ministro.Text.ToString() +
-                            "','" + anioCombo.Text.ToString() +
-                            "');") > 0)
+                            "','" + lugarbau.Text +
+                            "','" + padrino.Text +
+                            "','" + madrina.Text +
+                            "','" + ministro.Text+
+                            "','" + anioCombo.Text +
+                            "'," + bis + ");") > 0)
                     {
                         MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa",
                      MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Partida++;
+                        if (!registrobis.Checked)
+                            Partida++;
+                        else
+                            registrobis.Checked = false;
+
                         textBox3.Text = "" + (Partida + 1);
 
                         Hoja = Math.Ceiling((Partida + 1) / 10.0);
@@ -300,6 +310,7 @@ namespace Parroquia
                             ministro.Enabled = false;
                             anioCombo.Enabled = false;
                             registronull.Enabled = false;
+                            registrobis.Enabled = false;
 
                             //actualizar tabla de busqueda
                             Parroquia.btnbuscar.PerformClick();
@@ -357,6 +368,18 @@ namespace Parroquia
         private void ministro_KeyPress(object sender, KeyPressEventArgs e)
         {
             botones(e);
+        }
+
+        private void registrobis_CheckedChanged(object sender, EventArgs e)
+        {
+            if (registrobis.Checked)
+            {
+                textBox3.Text = (int.Parse(textBox3.Text) - 1) + "BIS";
+            }
+            else
+            {
+                textBox3.Text = (Partida + 1) + "";
+            }
         }
 
         private void registronull_CheckedChanged(object sender, EventArgs e)

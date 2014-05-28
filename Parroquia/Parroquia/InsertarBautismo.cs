@@ -117,7 +117,7 @@ namespace Parroquia
             anotacion.Enabled = false;
             anio.Enabled = false;
             registronull.Enabled = false;
-            registroviz.Enabled = false;
+            registrobis.Enabled = false;
             try
             {  
                 textBox1.Text = NOMMBRE_LIBRO;
@@ -181,7 +181,7 @@ namespace Parroquia
                     }
                     //Se guardan todos los campos en la base de datos
                     String bis = "0", partida = textBox3.Text;
-                    if (registroviz.Checked)
+                    if (registrobis.Checked)
                     {
                         bis = "1";
                     }
@@ -206,10 +206,10 @@ namespace Parroquia
                     {
                         MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        if (!registroviz.Checked)
+                        if (!registrobis.Checked)
                             Partida++;
                         else
-                            registroviz.Checked = false;
+                            registrobis.Checked = false;
                         
 
                         textBox3.Text = "" + (Partida + 1);
@@ -314,7 +314,7 @@ namespace Parroquia
                         anotacion.Enabled = false;
                         anio.Enabled = false;
                         registronull.Enabled = false;
-                        registroviz.Enabled = false;
+                        registrobis.Enabled = false;
                         
                         //actualizar tabla de busqueda
                         Parroquia.btnbuscar.PerformClick();
@@ -327,7 +327,7 @@ namespace Parroquia
 
             }
         }
-
+        //IMPRIMIR
         public void guardar_imprimir_Click(object sender, EventArgs e)
         {
 
@@ -355,7 +355,7 @@ namespace Parroquia
                     }
                     //Se guardan todos los campos en la base de datos
                     String bis = "0", partida = textBox3.Text;
-                    if (registroviz.Checked)
+                    if (registrobis.Checked)
                     {
                         bis = "1";
                     }
@@ -414,10 +414,10 @@ namespace Parroquia
                             //pd.Print();
                         }
 
-                        if (!registroviz.Checked)
+                        if (!registrobis.Checked)
                             Partida++;
                         else
-                            registroviz.Checked = false;
+                            registrobis.Checked = false;
 
 
                         textBox3.Text = "" + (Partida + 1);
@@ -637,7 +637,7 @@ namespace Parroquia
 
         public void registrobis_CheckedChanged(object sender, EventArgs e)
         {
-            if (registroviz.Checked)
+            if (registrobis.Checked)
             {
                 textBox3.Text = (int.Parse(textBox3.Text) - 1) + "BIS";
             }
