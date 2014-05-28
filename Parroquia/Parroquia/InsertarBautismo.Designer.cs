@@ -379,6 +379,7 @@ namespace Parroquia
             this.guardareimp.Size = new System.Drawing.Size(89, 51);
             this.guardareimp.TabIndex = 13;
             this.guardareimp.UseVisualStyleBackColor = true;
+            this.guardareimp.Click += new System.EventHandler(this.guardar_imprimir_Click);
             // 
             // cancelar
             // 
