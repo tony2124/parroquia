@@ -12,6 +12,7 @@ namespace conexionbd
     class ConexionBD
     {
         string usuario, contrasena, basedatos, host;
+        public static string conex;
         private MySqlConnection conexionBD;
 
         public ConexionBD(string host, string usuario, string contrasena, string basedatos)
@@ -34,8 +35,8 @@ namespace conexionbd
         {
             try
             {
-                string con = "server=localhost; port=3306; user id=" + usuario + "; password=" + contrasena + "; database=parroquiaantunez;";
-                conexionBD = new MySqlConnection(con);
+                conex = "server=localhost; port=3307; user id=" + usuario + "; password=" + contrasena + "; database=parroquiaantunez;";
+                conexionBD = new MySqlConnection(conex);
                 conexionBD.Open();
             }
             catch (MySqlException ex)

@@ -123,6 +123,26 @@ namespace Parroquia.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap facebook_icon {
+            get {
+                object obj = ResourceManager.GetObject("facebook_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_simpus {
+            get {
+                object obj = ResourceManager.GetObject("logo_simpus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap matrimonio {
             get {
                 object obj = ResourceManager.GetObject("matrimonio", resourceCulture);
@@ -153,6 +173,16 @@ namespace Parroquia.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap twitter_icon {
+            get {
+                object obj = ResourceManager.GetObject("twitter_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap virgen {
             get {
                 object obj = ResourceManager.GetObject("virgen", resourceCulture);
@@ -176,6 +206,16 @@ namespace Parroquia.Properties {
         internal static System.Drawing.Bitmap virgen2 {
             get {
                 object obj = ResourceManager.GetObject("virgen2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap youtube_icon {
+            get {
+                object obj = ResourceManager.GetObject("youtube_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

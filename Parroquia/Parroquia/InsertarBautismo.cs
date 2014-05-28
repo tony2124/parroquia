@@ -61,7 +61,7 @@ namespace Parroquia
 
                 /*Estableciendo la partida*/
                 Partida = 0;
-                Datos = Bdatos.obtenerBasesDatosMySQL("select id_bautismo from bautismos;");
+                Datos = Bdatos.obtenerBasesDatosMySQL("select id_bautismo from bautismos where id_libro ="+ID_LIBRO+" AND bis=0;");
 
                 if (Datos.HasRows)
                 {
@@ -70,10 +70,11 @@ namespace Parroquia
                         Partida++;
                     }
                 }
+                
 
                 textBox3.Text = "" + (Partida + 1);
 
-                /*CALCULANDO LA HOJA*/
+                /*CALCULANDO LA HOJA*/    
                 Hoja = Math.Ceiling((Partida + 1) / 10.0);
 
                 textBox2.Text = "" + Hoja;
@@ -114,6 +115,7 @@ namespace Parroquia
             anotacion.Enabled = false;
             anio.Enabled = false;
             registronull.Enabled = false;
+            registroviz.Enabled = false;
             try
             {  
                 textBox1.Text = NOMMBRE_LIBRO;
@@ -176,27 +178,38 @@ namespace Parroquia
                         }
                     }
                     //Se guardan todos los campos en la base de datos
+                    String bis = "0", partida = textBox3.Text;
+                    if (registroviz.Checked)
+                    {
+                        bis = "1";
+                    }
+ 
 
-                    if (Bdatos.Insertar("insert into bautismos(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_nac,lugar_nac,fecha_bautismo,padrino,madrina,presbitero,anotacion,anio)" +
+                    if (Bdatos.Insertar("insert into bautismos(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_nac,lugar_nac,fecha_bautismo,padrino,madrina,presbitero,anotacion,anio,bis)" +
                         " values('" + int.Parse(ID_LIBRO) +
-                        "','" + int.Parse(textBox2.Text.ToString()) +
-                        "','" + int.Parse(textBox3.Text.ToString()) +
-                        "','" + nombre.Text.ToString() +
-                        "','" + padre.Text.ToString() +
-                        "','" + madre.Text.ToString() +
+                        "','" + textBox2.Text +
+                        "','" + partida +
+                        "','" + nombre.Text +
+                        "','" + padre.Text +
+                        "','" + madre.Text +
                         "','" + fechanac.Value.ToString("yyyy-MM-dd") +
-                        "','" + lugarnac.Text.ToString() +
+                        "','" + lugarnac.Text +
                         "','" + fechabautismo.Value.ToString("yyyy-MM-dd") +
-                        "','" + padrino.Text.ToString() +
-                        "','" + madrina.Text.ToString() +
-                            "','" + presbitero.Text.ToString() +
-                            "','" + anotacion.Text.ToString() +
-                        "','" + anio.Text.ToString() +
-                        "');") > 0)
+                        "','" + padrino.Text +
+                        "','" + madrina.Text +
+                            "','" + presbitero.Text +
+                            "','" + anotacion.Text +
+                        "','" + anio.Text +
+                        "',"+bis+");") > 0)
                     {
                         MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Partida++;
+                        if (!registroviz.Checked)
+                            Partida++;
+                        else
+                            registroviz.Checked = false;
+                        
+
                         textBox3.Text = "" + (Partida + 1);
 
                         Hoja = Math.Ceiling((Partida + 1) / 10.0);
@@ -299,6 +312,7 @@ namespace Parroquia
                         anotacion.Enabled = false;
                         anio.Enabled = false;
                         registronull.Enabled = false;
+                        registroviz.Enabled = false;
                         
                         //actualizar tabla de busqueda
                         Parroquia.btnbuscar.PerformClick();
@@ -315,6 +329,18 @@ namespace Parroquia
         private void cancelar_Click(object sender, EventArgs e)
         {
             Dispose();
+        }
+
+        public void registrobis_CheckedChanged(object sender, EventArgs e)
+        {
+            if (registroviz.Checked)
+            {
+                textBox3.Text = (int.Parse(textBox3.Text) - 1) + "BIS";
+            }
+            else
+            {
+                textBox3.Text = (Partida + 1) + "";
+            }
         }
 
         private void registronull_CheckedChanged(object sender, EventArgs e)

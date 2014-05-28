@@ -408,12 +408,12 @@ namespace Parroquia
             if (edicion)
             {
                 this.guardaImprimeBtn.Text = "Imprimir";
-                this.toolTip1.SetToolTip(this.guardaImprimeBtn, "imprimir Registro");
+                this.toolTip1.SetToolTip(this.guardaImprimeBtn, "Imprimir Registro");
             }
             else
             {
                 this.guardaImprimeBtn.Text = "Guardar e imprimir";
-                this.toolTip1.SetToolTip(this.guardaImprimeBtn, "Guardar e imprimir registro");
+                this.toolTip1.SetToolTip(this.guardaImprimeBtn, "Guardar e imprimir");
             }
  
             this.guardaImprimeBtn.Size = new System.Drawing.Size(103, 52);

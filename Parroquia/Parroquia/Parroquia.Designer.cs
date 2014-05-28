@@ -193,13 +193,14 @@ namespace Parroquia
             this.acercaDeToolStripMenuItem1.Name = "acercaDeToolStripMenuItem1";
             this.acercaDeToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
             this.acercaDeToolStripMenuItem1.Text = "Acerca de...";
+            this.acercaDeToolStripMenuItem1.Click += new System.EventHandler(this.acercaDeToolStripMenuItem1_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 159);
+            this.label3.Location = new System.Drawing.Point(21, 177);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 18);
             this.label3.TabIndex = 4;
@@ -209,7 +210,7 @@ namespace Parroquia
             // 
             this.busqueda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.busqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.busqueda.Location = new System.Drawing.Point(113, 156);
+            this.busqueda.Location = new System.Drawing.Point(128, 174);
             this.busqueda.Name = "busqueda";
             this.busqueda.Size = new System.Drawing.Size(469, 26);
             this.busqueda.TabIndex = 1;
@@ -311,7 +312,7 @@ namespace Parroquia
             // btnbuscar
             // 
             btnbuscar.BackColor = System.Drawing.Color.Transparent;
-            btnbuscar.Location = new System.Drawing.Point(588, 156);
+            btnbuscar.Location = new System.Drawing.Point(603, 174);
             btnbuscar.Name = "btnbuscar";
             btnbuscar.Size = new System.Drawing.Size(66, 26);
             btnbuscar.TabIndex = 2;
@@ -345,13 +346,13 @@ namespace Parroquia
             this.tablaBusqueda.ReadOnly = true;
             this.tablaBusqueda.RowHeadersWidth = 100;
             this.tablaBusqueda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaBusqueda.Size = new System.Drawing.Size(910, 329);
+            this.tablaBusqueda.Size = new System.Drawing.Size(910, 356);
             this.tablaBusqueda.TabIndex = 4;
             this.tablaBusqueda.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 604);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 647);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(934, 22);
             this.statusStrip1.TabIndex = 9;
@@ -361,7 +362,7 @@ namespace Parroquia
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(26, 607);
+            this.label6.Location = new System.Drawing.Point(12, 609);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 16);
             this.label6.TabIndex = 10;
@@ -371,10 +372,11 @@ namespace Parroquia
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(250, 607);
+            this.label7.Location = new System.Drawing.Point(63, 610);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 16);
+            this.label7.Size = new System.Drawing.Size(33, 16);
             this.label7.TabIndex = 11;
+            this.label7.Text = "-----";
             // 
             // timer1
             // 
@@ -384,18 +386,17 @@ namespace Parroquia
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(615, 610);
+            this.label1.Location = new System.Drawing.Point(626, 609);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(296, 13);
+            this.label1.Size = new System.Drawing.Size(296, 36);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Simpus Soluciones Informáticas :: Derechos reservados 2014";
+            this.label1.Text = "Simpus Soluciones Informáticas :: Derechos reservados 2014 Prototipo de prueba.";
             // 
             // Parroquia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 626);
+            this.ClientSize = new System.Drawing.Size(934, 669);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);

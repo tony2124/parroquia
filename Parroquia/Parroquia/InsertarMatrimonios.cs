@@ -59,7 +59,7 @@ namespace Parroquia
 
                 /*Estableciendo la partida*/
                 Partida = 0;
-                Datos = Bdatos.obtenerBasesDatosMySQL("select id_matrimonio from matrimonios;");
+                Datos = Bdatos.obtenerBasesDatosMySQL("select id_matrimonio from matrimonios where id_libro =" + ID_LIBRO + ";");
 
                 if (Datos.HasRows)
                 {

@@ -177,7 +177,7 @@ namespace Parroquia
             if (edicion)
                 this.guardaImprimeBtn.Text = "Imprimir registro";
             else
-                this.guardaImprimeBtn.Text = "Guardar e imprimir registro";
+                this.guardaImprimeBtn.Text = "Guardar e imprimir";
 
             this.guardaImprimeBtn.Size = new System.Drawing.Size(103, 52);
             this.guardaImprimeBtn.TabIndex = 10;

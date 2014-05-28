@@ -75,6 +75,7 @@ namespace Parroquia
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.registronull = new System.Windows.Forms.CheckBox();
+            this.registroviz = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -372,9 +373,9 @@ namespace Parroquia
             this.guardareimp.Location = new System.Drawing.Point(484, 518);
             this.guardareimp.Name = "guardareimp";
             if (edicion)
-                this.guardareimp.Text = "Imprimir registro";
+                this.guardareimp.Text = "Imprimir";
             else
-                this.guardareimp.Text = "Guardar e imprimir registro";
+                this.guardareimp.Text = "Guardar e imprimir";
             this.guardareimp.Size = new System.Drawing.Size(89, 51);
             this.guardareimp.TabIndex = 13;
             this.guardareimp.UseVisualStyleBackColor = true;
@@ -559,6 +560,18 @@ namespace Parroquia
             this.registronull.Text = "Registro nulo";
             this.registronull.UseVisualStyleBackColor = true;
             this.registronull.CheckedChanged += new System.EventHandler(this.registronull_CheckedChanged);
+            //
+            // registroviz
+            // 
+            this.registroviz.AutoSize = true;
+            this.registroviz.Location = new System.Drawing.Point(450, 62);
+            this.registroviz.Name = "registronull";
+            this.registroviz.Size = new System.Drawing.Size(88, 17);
+            this.registroviz.TabIndex = 50;
+            this.registroviz.Text = "Registro bis";
+            this.registroviz.UseVisualStyleBackColor = true;
+            this.registroviz.CheckedChanged += new System.EventHandler(this.registrobis_CheckedChanged);
+            // 
             // 
             // InsertarBautismo
             // 
@@ -568,6 +581,7 @@ namespace Parroquia
             this.CancelButton = this.cancelar;
             this.ClientSize = new System.Drawing.Size(709, 586);
             this.Controls.Add(this.registronull);
+            this.Controls.Add(this.registroviz);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.label25);
@@ -674,5 +688,6 @@ namespace Parroquia
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.CheckBox registronull;
+        private System.Windows.Forms.CheckBox registroviz;
     }
 }
