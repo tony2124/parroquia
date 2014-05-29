@@ -61,11 +61,9 @@ namespace Parroquia
             ppD.WindowState = FormWindowState.Maximized;
             ppD.MinimizeBox = true;
             ppD.ShowInTaskbar = true;
-            ppD.WindowState = FormWindowState.Normal;
 
             pDialog.AllowSomePages = false;
             pDialog.AllowPrintToFile = false;
-            //pDialog.WindowState = FormWindowState.Normal;
 
             DialogResult t= pDialog.ShowDialog();
            
@@ -81,11 +79,11 @@ namespace Parroquia
                 pd.PrintPage += new PrintPageEventHandler
                     (this.imprimirBautismo);
 
-                ppD.Document = pd;
-                ppD.Show();
+               ppD.Document = pd;
+                ppD.ShowDialog();
                 ppD.BringToFront();
                 
-               // pd.Print();
+               pd.Print();
             }
         }
 
@@ -133,7 +131,7 @@ namespace Parroquia
             //IMPRIME FECHA DE NACIMIENTO
             //separo la fecha de nacimiento
             String[] fecha = fechaNacimiento.Split('-');
-
+            fecha[1] = fecha[1].ToUpper();
             //Imprimo el dia 
             ev.Graphics.DrawString(fecha[2],
                 new Font("Times New Roman", 10, FontStyle.Bold),
@@ -152,6 +150,8 @@ namespace Parroquia
             //IMPRIME FECHA DE BAUTISMO
             //separo la fecha de bautismo
             fecha = fechaBautismo.Split('-');
+
+            fecha[1] = fecha[1].ToUpper();
 
             //imprimo el dia
             ev.Graphics.DrawString(fecha[2],
@@ -189,8 +189,10 @@ namespace Parroquia
 
             //ESTABLECEMOS LA FECHA ACTUAL
             String d = DateTime.Now.Day+"";
-            String m = DateTime.Now.Month+"";
+            String m = DateTime.Now.ToString("MMMM");
             String a = DateTime.Now.Year+"";
+
+            m = m.ToUpper();
 
             ev.Graphics.DrawString(d,
                 new Font("Times New Roman", 10, FontStyle.Bold),
