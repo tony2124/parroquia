@@ -61,11 +61,9 @@ namespace Parroquia
             ppD.WindowState = FormWindowState.Maximized;
             ppD.MinimizeBox = true;
             ppD.ShowInTaskbar = true;
-            ppD.WindowState = FormWindowState.Normal;
 
             pDialog.AllowSomePages = false;
             pDialog.AllowPrintToFile = false;
-            //pDialog.WindowState = FormWindowState.Normal;
 
             DialogResult t= pDialog.ShowDialog();
            
@@ -81,11 +79,11 @@ namespace Parroquia
                 pd.PrintPage += new PrintPageEventHandler
                     (this.imprimirBautismo);
 
-                ppD.Document = pd;
-                ppD.Show();
-                ppD.BringToFront();
+               /* ppD.Document = pd;
+                ppD.ShowDialog();
+                ppD.BringToFront();*/
                 
-               // pd.Print();
+               pd.Print();
             }
         }
 
