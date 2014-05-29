@@ -96,7 +96,7 @@ namespace Parroquia
                 }else
                 if (int.Parse(tablaBusqueda["id_categoria", e.RowIndex].Value + "") == 2)
                 {
-                    InsertarConfirmacion ic = new InsertarConfirmacion(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
+                    Confirmacion ic = new Confirmacion(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
                     ic.ShowDialog();
                 }
                 else

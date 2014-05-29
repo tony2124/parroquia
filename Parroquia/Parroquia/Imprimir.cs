@@ -21,7 +21,7 @@ namespace Parroquia
         /**/ public int i = 260, j = 690, u = 50, cont = 0;
         /***********************************************************************/
 
-        public String libro, foja, partida, nombre, padre, madre, lugarNacimiento,
+        public static String libro, foja, partida, nombre, padre, madre, lugarNacimiento,
             fechaNacimiento, fechaBautismo, presbitero, madrina, padrino, anotacion;
 
         public void leerArchivo()
@@ -29,8 +29,26 @@ namespace Parroquia
             newImage = Image.FromFile("C:\\DOCSParroquia\\Bautismo.jpg");
         }
 
-        public Imprimir(String libro, String foja, String partida, String nombre, String padre, String madre, String lugarNacimiento, String fechaNacimiento, String fechaBautismo, String presbitero)
+        public Imprimir(String a, String b, String c, String d, String e, String f, 
+            String g, String h, String i, String j, String k, String l, String m)
         {
+            //Asignacion de variables
+            libro = a;
+            foja = b;
+            partida = c;
+            nombre = d;
+            padre = e;
+            madre = f;
+            lugarNacimiento = g;
+            fechaNacimiento = h;
+            fechaBautismo = i;
+            presbitero = j;
+            madrina = k;
+            padrino = l;
+            anotacion = m;
+
+
+
             //DESPUES DE GUARDAR IMPRIMO
             Cursor.Current = Cursors.WaitCursor;
             //SE ESTABLECEN LAS PROPIEDADES DE IMPRESORA
@@ -49,10 +67,10 @@ namespace Parroquia
             pDialog.AllowPrintToFile = false;
             //pDialog.WindowState = FormWindowState.Normal;
 
-            DialogResult a= pDialog.ShowDialog();
+            DialogResult t= pDialog.ShowDialog();
            
 
-            if (a == DialogResult.OK)
+            if (t == DialogResult.OK)
             {
                 //SE LEE EL ARCHIVO QUE SE IMPRIMIRA
                 leerArchivo();

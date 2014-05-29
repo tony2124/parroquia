@@ -94,7 +94,7 @@ namespace Parroquia
             if (CATEGORIA == 2)
             {
                 Button b = (Button)sender;
-                InsertarConfirmacion ic = new InsertarConfirmacion(b.Name.ToString());
+                Confirmacion ic = new Confirmacion(b.Name.ToString());
                 ic.ShowDialog();
                 
             }

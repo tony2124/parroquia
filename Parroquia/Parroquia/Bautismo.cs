@@ -41,6 +41,8 @@ namespace Parroquia
 
             /* MODIFICACION DEL FORMULARIO EN CASO DE INSERCION DE REGISTRO */
             Text = "::INSERTAR REGISTRO DE BAUTISMO::";
+            toolTip1.SetToolTip(guardar, ":: GUARDAR REGISTRO ::");
+            toolTip1.SetToolTip(guardareimp, ":: GUARDAR E IMPRIMIR::");
             anio.Items.AddRange(Bautismo.anios);
             anio.Text = DateTime.Now.Year + "";
            
@@ -54,7 +56,7 @@ namespace Parroquia
                 {
                     while (Datos.Read())
                     {
-                        textBox1.Text = Datos.GetString(0).ToString();
+                        libro.Text = Datos.GetString(0).ToString();
                     }
                 }
                 Datos.Close();
@@ -72,11 +74,11 @@ namespace Parroquia
                 Datos.Close();
                 Bdatos.Desconectar();
 
-                textBox3.Text = "" + (Partida + 1);
+                num_partida.Text = "" + (Partida + 1);
 
                 /*CALCULANDO LA HOJA*/    
                 Hoja = Math.Ceiling((Partida + 1) / 10.0);
-                textBox2.Text = "" + Hoja;
+                num_hoja.Text = "" + Hoja;
                 
             }
             catch (Exception r) { MessageBox.Show("Error: " + r.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -97,16 +99,16 @@ namespace Parroquia
 
             /* MODIFICACION DEL FORMULARIO EN CASO DE EDICION DE BAUTISMO */
             registrobis.Visible = false;
-            Text = "::ACTUALIZAR REGISTRO DE BAUTISMO::";
+            Text = "::MODIFICAR REGISTRO DE BAUTISMO::";
+            toolTip1.SetToolTip(guardar, ":: MODIFICAR REGISTRO ::");
+            toolTip1.SetToolTip(guardareimp, ":: IMPRIMIR::");
             anio.Items.AddRange(Bautismo.anios);
             anio.Text = DateTime.Now.Year + "";
             guardar.Image = global::Parroquia.Properties.Resources.actualizar;
 
-            
-
             try
             {  
-                textBox1.Text = NOMMBRE_LIBRO;
+                libro.Text = NOMMBRE_LIBRO;
 
                 /* CONSULTA A LA BASE DE DATOS PARA OBTENER INFORMACION DEL LIBRO, HOJA Y PARTIDA */
                 Bdatos.conexion();
@@ -116,8 +118,8 @@ namespace Parroquia
                 {
                     while (Datos.Read())
                     {
-                        textBox2.Text = Datos.GetString(2);
-                        textBox3.Text = Datos.GetString(3);
+                        num_hoja.Text = Datos.GetString(2);
+                        num_partida.Text = Datos.GetString(3);
                         nombre.Text = Datos.GetString(4);
                         padre.Text = Datos.GetString(5);
                         madre.Text = Datos.GetString(6);
@@ -209,14 +211,14 @@ namespace Parroquia
         private Boolean guardarRegistro()
         {
             //Prepara la partida
-            String bis = "0", partida = textBox3.Text;
+            String bis = "0", partida = num_partida.Text;
             if (registrobis.Checked)
                 bis = "1";
 
             //insertar datos
             if (Bdatos.Insertar("insert into bautismos(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_nac,lugar_nac,fecha_bautismo,padrino,madrina,presbitero,anotacion,anio,bis)" +
                 " values('" + int.Parse(ID_LIBRO) +
-                "','" + textBox2.Text +
+                "','" + num_hoja.Text +
                 "','" + partida +
                 "','" + nombre.Text +
                 "','" + padre.Text +
@@ -231,17 +233,6 @@ namespace Parroquia
                 "','" + anio.Text +
                 "'," + bis + ");") > 0)
             {
-                if (!registrobis.Checked)
-                    Partida++;
-                else
-                    registrobis.Checked = false;
-
-                textBox3.Text = "" + (Partida + 1);
-
-                Hoja = Math.Ceiling((Partida + 1) / 10.0);
-                textBox2.Text = "" + Hoja;
-
-                limpiarCampos();
                 MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
@@ -266,10 +257,12 @@ namespace Parroquia
                 habilitarCampos(false);
                 guardareimp.Enabled = true;
                 guardar.Image = global::Parroquia.Properties.Resources.actualizar;
+                toolTip1.SetToolTip(guardar, ":: EDITAR REGISTRO ::");
 
                 //actualizar tabla de busqueda
                 Parroquia.btnbuscar.PerformClick();
                 MessageBox.Show("Registro actualizado correctamente ", " Acción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Bdatos.Desconectar();
                 return true;
             }
             else
@@ -292,7 +285,20 @@ namespace Parroquia
                             return;
                     }
 
-                    guardarRegistro();
+                    if (guardarRegistro())
+                    {
+                        if (!registrobis.Checked)
+                            Partida++;
+                        else
+                            registrobis.Checked = false;
+
+                        num_partida.Text = "" + (Partida + 1);
+
+                        Hoja = Math.Ceiling((Partida + 1) / 10.0);
+                        num_hoja.Text = "" + Hoja;
+
+                        limpiarCampos();
+                    }
                 }
                 catch (Exception y)
                 {
@@ -306,6 +312,7 @@ namespace Parroquia
                     btn = true;
                     guardar.Image = global::Parroquia.Properties.Resources.guardar1;
                     guardareimp.Enabled = false;
+                    toolTip1.SetToolTip(guardar, ":: GUARDAR REGISTRO ::");
                     habilitarCampos(true);
                     return;
                 }
@@ -343,8 +350,25 @@ namespace Parroquia
                     }
 
                     if(guardarRegistro()){
-                        //IMPRIME
-                        Imprimir a = new Imprimir();
+                        
+                         //IMPRIME
+                        Imprimir a = new Imprimir(libro.Text, num_hoja.Text,
+                            num_partida.Text, nombre.Text, padre.Text, madre.Text, 
+                            lugarnac.Text,fechanac.Value.ToString("yyyy-MM-dd"), 
+                            fechabautismo.Value.ToString("yyyy-MM-dd"),
+                            presbitero.Text,madrina.Text, padrino.Text, anotacion.Text);
+
+                        if (!registrobis.Checked)
+                            Partida++;
+                        else
+                            registrobis.Checked = false;
+
+                        num_partida.Text = "" + (Partida + 1);
+
+                        Hoja = Math.Ceiling((Partida + 1) / 10.0);
+                        num_hoja.Text = "" + Hoja;
+
+                        limpiarCampos();                     
                     }
                    
                     Bdatos.Desconectar();
@@ -359,13 +383,16 @@ namespace Parroquia
             else
             {
                 //IMPRIME
-                Imprimir a = new Imprimir();
+                Imprimir a = new Imprimir(libro.Text, num_hoja.Text,
+                               num_partida.Text, nombre.Text, padre.Text, madre.Text,
+                               lugarnac.Text, fechanac.Value.ToString("yyyy-MM-dd"),
+                               fechabautismo.Value.ToString("yyyy-MM-dd"),
+                               presbitero.Text, madrina.Text, padrino.Text, anotacion.Text);
 
             }
             
-            
         }
-  
+
         private void cancelar_Click(object sender, EventArgs e)
         {
             Dispose();
@@ -375,11 +402,11 @@ namespace Parroquia
         {
             if (registrobis.Checked)
             {
-                textBox3.Text = (int.Parse(textBox3.Text) - 1) + "BIS";
+                num_partida.Text = (int.Parse(num_partida.Text) - 1) + "BIS";
             }
             else
             {
-                textBox3.Text = (Partida + 1) + "";
+                num_partida.Text = (Partida + 1) + "";
             }
         }
 
@@ -406,9 +433,44 @@ namespace Parroquia
                 guardar.PerformClick();
         }
 
-        private void label17_Click(object sender, EventArgs e)
+        private void nombre_KeyPress(object sender, KeyPressEventArgs e)
         {
+            botones(e);
+        }
 
+        private void padre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            botones(e);
+        }
+
+        private void madre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            botones(e);
+        }
+
+        private void lugarnac_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            botones(e);
+        }
+
+        private void padrino_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            botones(e);
+        }
+
+        private void madrina_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            botones(e);
+        }
+
+        private void presbitero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            botones(e);
+        }
+
+        private void anotacion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            botones(e);
         }
 
     }
