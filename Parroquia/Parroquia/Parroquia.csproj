@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Alfonso\Desktop\AplicacionParroquia\</PublishUrl>
+    <PublishUrl>C:\Users\Public\parroquia\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -83,6 +83,7 @@
       <DependentUpon>acercade.cs</DependentUpon>
     </Compile>
     <Compile Include="ConexionBD.cs" />
+    <Compile Include="Imprimir.cs" />
     <Compile Include="InsertarPrimerComunion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,11 +114,11 @@
     <Compile Include="eliminarLibro.Designer.cs">
       <DependentUpon>eliminarLibro.cs</DependentUpon>
     </Compile>
-    <Compile Include="InsertarBautismo.cs">
+    <Compile Include="Bautismo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InsertarBautismo.Designer.cs">
-      <DependentUpon>InsertarBautismo.cs</DependentUpon>
+    <Compile Include="Bautismo.Designer.cs">
+      <DependentUpon>Bautismo.cs</DependentUpon>
     </Compile>
     <Compile Include="InsertarMatrimonios.cs">
       <SubType>Form</SubType>
@@ -157,8 +158,8 @@
     <EmbeddedResource Include="eliminarLibro.resx">
       <DependentUpon>eliminarLibro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InsertarBautismo.resx">
-      <DependentUpon>InsertarBautismo.cs</DependentUpon>
+    <EmbeddedResource Include="Bautismo.resx">
+      <DependentUpon>Bautismo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InsertarMatrimonios.resx">
       <DependentUpon>InsertarMatrimonios.cs</DependentUpon>
@@ -258,6 +259,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar-icono-4790-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imprimir-icono-3650-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualizar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -87,7 +87,7 @@ namespace Parroquia
             if (CATEGORIA == 1)
             {
                 Button b = (Button)sender;
-                InsertarBautismo ib = new InsertarBautismo(b.Name.ToString());
+                Bautismo ib = new Bautismo(b.Name.ToString());
                 ib.ShowDialog(); 
             }
 

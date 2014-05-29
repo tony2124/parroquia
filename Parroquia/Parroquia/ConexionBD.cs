@@ -35,7 +35,7 @@ namespace conexionbd
         {
             try
             {
-                conex = "server=localhost; port=3306; user id=" + usuario + "; password=" + contrasena + "; database=parroquiaantunez;";
+                conex = "server="+host+"; port=3306; user id=" + usuario + "; password=" + contrasena + "; database=parroquiaantunez;";
                 conexionBD = new MySqlConnection(conex);
                 conexionBD.Open();
             }
