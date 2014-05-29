@@ -25,9 +25,9 @@ namespace conexionbd
 
         public ConexionBD()
         {
-            host = "localhost";
+            host = "192.168.0.102";
             usuario = "root";
-            contrasena = "";
+            contrasena = "simpus2124";
             basedatos = "parroquiaantunez";
         }
 
@@ -44,6 +44,7 @@ namespace conexionbd
                 MessageBox.Show("Error al conectar al servidor de MySQL: " +
                     ex.Message, "Error al conectar",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
         }
 
