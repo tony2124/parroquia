@@ -79,10 +79,10 @@ namespace Parroquia
                 pd.PrintPage += new PrintPageEventHandler
                     (this.imprimirBautismo);
 
-               ppD.Document = pd;
+             /*  ppD.Document = pd;
                 ppD.ShowDialog();
                 ppD.BringToFront();
-                
+               */ 
                pd.Print();
             }
         }
