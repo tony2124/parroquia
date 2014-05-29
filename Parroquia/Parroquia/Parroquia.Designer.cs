@@ -64,6 +64,7 @@ namespace Parroquia
             this.label7 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -392,6 +393,10 @@ namespace Parroquia
             this.label1.TabIndex = 12;
             this.label1.Text = "Simpus Soluciones Informáticas :: Derechos reservados 2014 Prototipo de prueba.";
             // 
+            // timer2
+            // 
+            this.timer2.Interval = 10000;
+            // 
             // Parroquia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,6 +463,7 @@ namespace Parroquia
         private Timer timer1;
         private PictureBox pictureBox2;
         private Label label1;
+        private Timer timer2;
         public static Button btnbuscar;
 
 

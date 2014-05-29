@@ -214,7 +214,7 @@ namespace Parroquia
             String bis = "0", partida = num_partida.Text;
             if (registrobis.Checked)
                 bis = "1";
-
+            Bdatos.conexion();
             //insertar datos
             if (Bdatos.Insertar("insert into bautismos(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_nac,lugar_nac,fecha_bautismo,padrino,madrina,presbitero,anotacion,anio,bis)" +
                 " values('" + int.Parse(ID_LIBRO) +
@@ -234,6 +234,7 @@ namespace Parroquia
                 "'," + bis + ");") > 0)
             {
                 MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Bdatos.Desconectar();
                 return true;
             }
             else MessageBox.Show("Error al ingresar datos ", " Error al ingresar ",
@@ -277,8 +278,6 @@ namespace Parroquia
             {
                 try
                 {
-                    Bdatos.conexion();
-
                     if (!registronull.Checked)
                     {
                         if (camposVacios())
@@ -341,8 +340,6 @@ namespace Parroquia
 
                 try
                 {
-                    Bdatos.conexion();
-
                     if (!registronull.Checked)
                     {
                         if (camposVacios())
@@ -352,7 +349,7 @@ namespace Parroquia
                     if(guardarRegistro()){
                         
                          //IMPRIME
-                        Imprimir a = new Imprimir();
+                       // Imprimir a = new Imprimir();
 
                         if (!registrobis.Checked)
                             Partida++;
@@ -366,8 +363,6 @@ namespace Parroquia
 
                         limpiarCampos();                     
                     }
-                   
-                    Bdatos.Desconectar();
 
                 }
                 catch (Exception y)
@@ -379,7 +374,7 @@ namespace Parroquia
             else
             {
                 //IMPRIME
-                Imprimir a = new Imprimir();
+                //Imprimir a = new Imprimir();
 
             }
             
