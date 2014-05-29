@@ -203,5 +203,15 @@ namespace Parroquia
             new acercade().ShowDialog() ;
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            fondoImg.Image = global::Parroquia.Properties.Resources.p1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fondoImg.Image = global::Parroquia.Properties.Resources.p10;
+        }
+
     }
 }
