@@ -17,14 +17,19 @@ namespace Parroquia
         PrintDocument pd;
         Image newImage;
 
-        public int i = 260, j = 690, u = 50, cont = 0;
+        //Controladores para imprimir las anotaciones en diferentes renglones*/
+        /**/ public int i = 260, j = 690, u = 50, cont = 0;
+        /***********************************************************************/
+
+        public String libro, foja, partida, nombre, padre, madre, lugarNacimiento,
+            fechaNacimiento, fechaBautismo, presbitero, madrina, padrino, anotacion;
 
         public void leerArchivo()
         {
             newImage = Image.FromFile("C:\\DOCSParroquia\\Bautismo.jpg");
         }
 
-        public Imprimir()
+        public Imprimir(String libro, String foja, String partida, String nombre, String padre, String madre, String lugarNacimiento, String fechaNacimiento, String fechaBautismo, String presbitero)
         {
             //DESPUES DE GUARDAR IMPRIMO
             Cursor.Current = Cursors.WaitCursor;
@@ -73,43 +78,43 @@ namespace Parroquia
             ev.Graphics.DrawImage(newImage, 0, 0);
 
             //IMPRIME LIBRO
-            ev.Graphics.DrawString(Bautismo.textBox1.Text,
+            ev.Graphics.DrawString(libro,
                 new Font("Times New Roman", 10, FontStyle.Bold),
                         Brushes.Black, 355, 260);
 
             //IMPRIME FOJA   
-            ev.Graphics.DrawString(Bautismo.textBox2.Text,
+            ev.Graphics.DrawString(foja,
                 new Font("Times New Roman", 10, FontStyle.Bold),
                         Brushes.Black, 505, 260);
 
             //IMPRIME PARTIDA
-            ev.Graphics.DrawString(Bautismo.textBox3.Text,
+            ev.Graphics.DrawString(partida,
                 new Font("Times New Roman", 10, FontStyle.Bold),
                         Brushes.Black, 650, 260);
 
              //IMPRIME Nombre
-             ev.Graphics.DrawString(Bautismo.nombre.Text,
+             ev.Graphics.DrawString(nombre,
                  new Font("Times New Roman", 10, FontStyle.Bold),
                          Brushes.Black, 310, 298);
 
             //IMPRIME PAPA
-            ev.Graphics.DrawString(Bautismo.padre.Text,
+            ev.Graphics.DrawString(padre,
                 new Font("Times New Roman", 10, FontStyle.Bold),
                         Brushes.Black, 200, 478);
 
             //IMPRIME MADRE
-            ev.Graphics.DrawString(Bautismo.madre.Text,
+            ev.Graphics.DrawString(madre,
                 new Font("Times New Roman", 10, FontStyle.Bold),
                         Brushes.Black, 440, 478);
 
             //IMPRIME LUGAR DE NACIMIENTO
-            ev.Graphics.DrawString(Bautismo.lugarnac.Text,
+            ev.Graphics.DrawString(lugarNacimiento,
                 new Font("Times New Roman", 10, FontStyle.Bold),
                         Brushes.Black, 185, 513);
 
             //IMPRIME FECHA DE NACIMIENTO
             //separo la fecha de nacimiento
-            String[] fecha = Bautismo.fechanac.Value.ToString("yyyy-MM-dd").Split('-');
+            String[] fecha = fechaNacimiento.Split('-');
 
             //Imprimo el dia 
             ev.Graphics.DrawString(fecha[2],
@@ -128,7 +133,7 @@ namespace Parroquia
 
             //IMPRIME FECHA DE BAUTISMO
             //separo la fecha de bautismo
-            fecha = Bautismo.fechabautismo.Value.ToString("yyyy-MM-dd").Split('-');
+            fecha = fechaBautismo.Split('-');
 
             //imprimo el dia
             ev.Graphics.DrawString(fecha[2],
@@ -146,22 +151,22 @@ namespace Parroquia
                         Brushes.Black, 620, 550);
 
             //IMPRIME PRESBITERO
-            ev.Graphics.DrawString(Bautismo.presbitero.Text,
+            ev.Graphics.DrawString(presbitero,
                 new Font("Times New Roman", 10, FontStyle.Bold),
                         Brushes.Black, 250, 585);
 
             //IMPRIME PADRINO
-            ev.Graphics.DrawString(Bautismo.padrino.Text,
+            ev.Graphics.DrawString(padrino,
                 new Font("Times New Roman", 10, FontStyle.Bold),
                         Brushes.Black, 210, 620);
 
             //IMPRIME MADRINA
-            ev.Graphics.DrawString(Bautismo.madrina.Text,
+            ev.Graphics.DrawString(madrina,
                 new Font("Times New Roman", 10, FontStyle.Bold),
                         Brushes.Black, 460, 620);
 
             //IMPRIME ANOTACIONES 
-            notasMarginales(Bautismo.anotacion.Text,ev);
+            notasMarginales(anotacion,ev);
 
 
             //ESTABLECEMOS LA FECHA ACTUAL

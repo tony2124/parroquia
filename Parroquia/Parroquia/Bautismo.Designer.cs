@@ -30,41 +30,41 @@ namespace Parroquia
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            nombre = new System.Windows.Forms.TextBox();
+            this.nombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            padre = new System.Windows.Forms.TextBox();
-            madre = new System.Windows.Forms.TextBox();
-            lugarnac = new System.Windows.Forms.TextBox();
+            this.padre = new System.Windows.Forms.TextBox();
+            this.madre = new System.Windows.Forms.TextBox();
+            this.lugarnac = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            fechanac = new System.Windows.Forms.DateTimePicker();
-            fechabautismo = new System.Windows.Forms.DateTimePicker();
+            this.fechanac = new System.Windows.Forms.DateTimePicker();
+            this.fechabautismo = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            madrina = new System.Windows.Forms.TextBox();
+            this.madrina = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            padrino = new System.Windows.Forms.TextBox();
+            this.padrino = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            presbitero = new System.Windows.Forms.TextBox();
+            this.presbitero = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            anotacion = new System.Windows.Forms.TextBox();
+            this.anotacion = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            anio = new System.Windows.Forms.ComboBox();
+            this.anio = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -91,14 +91,14 @@ namespace Parroquia
             // 
             // textBox1
             // 
-            textBox1.Enabled = false;
-            textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            textBox1.Location = new System.Drawing.Point(87, 14);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new System.Drawing.Size(84, 23);
-            textBox1.TabIndex = 1;
-            textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(87, 14);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(84, 23);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -112,14 +112,14 @@ namespace Parroquia
             // 
             // textBox2
             // 
-            textBox2.Enabled = false;
-            textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            textBox2.Location = new System.Drawing.Point(261, 14);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new System.Drawing.Size(52, 23);
-            textBox2.TabIndex = 3;
-            textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(261, 14);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(52, 23);
+            this.textBox2.TabIndex = 3;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -133,14 +133,14 @@ namespace Parroquia
             // 
             // textBox3
             // 
-            textBox3.Enabled = false;
-            textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            textBox3.Location = new System.Drawing.Point(424, 14);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new System.Drawing.Size(100, 23);
-            textBox3.TabIndex = 5;
-            textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox3.Enabled = false;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(424, 14);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(100, 23);
+            this.textBox3.TabIndex = 5;
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
@@ -154,13 +154,13 @@ namespace Parroquia
             // 
             // nombre
             // 
-            nombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nombre.Location = new System.Drawing.Point(192, 100);
-            nombre.MaxLength = 100;
-            nombre.Name = "nombre";
-            nombre.Size = new System.Drawing.Size(479, 23);
-            nombre.TabIndex = 2;
+            this.nombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombre.Location = new System.Drawing.Point(192, 100);
+            this.nombre.MaxLength = 100;
+            this.nombre.Name = "nombre";
+            this.nombre.Size = new System.Drawing.Size(479, 23);
+            this.nombre.TabIndex = 2;
             // 
             // label5
             // 
@@ -214,33 +214,33 @@ namespace Parroquia
             // 
             // padre
             // 
-            padre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            padre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            padre.Location = new System.Drawing.Point(281, 161);
-            padre.MaxLength = 100;
-            padre.Name = "padre";
-            padre.Size = new System.Drawing.Size(390, 23);
-            padre.TabIndex = 3;
+            this.padre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.padre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.padre.Location = new System.Drawing.Point(283, 156);
+            this.padre.MaxLength = 100;
+            this.padre.Name = "padre";
+            this.padre.Size = new System.Drawing.Size(390, 23);
+            this.padre.TabIndex = 3;
             // 
             // madre
             // 
-            madre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            madre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            madre.Location = new System.Drawing.Point(282, 190);
-            madre.MaxLength = 100;
-            madre.Name = "madre";
-            madre.Size = new System.Drawing.Size(389, 23);
-            madre.TabIndex = 4;
+            this.madre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.madre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.madre.Location = new System.Drawing.Point(282, 190);
+            this.madre.MaxLength = 100;
+            this.madre.Name = "madre";
+            this.madre.Size = new System.Drawing.Size(389, 23);
+            this.madre.TabIndex = 4;
             // 
             // lugarnac
             // 
-            lugarnac.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            lugarnac.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lugarnac.Location = new System.Drawing.Point(213, 299);
-            lugarnac.MaxLength = 100;
-            lugarnac.Name = "lugarnac";
-            lugarnac.Size = new System.Drawing.Size(458, 23);
-            lugarnac.TabIndex = 7;
+            this.lugarnac.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.lugarnac.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lugarnac.Location = new System.Drawing.Point(213, 299);
+            this.lugarnac.MaxLength = 100;
+            this.lugarnac.Name = "lugarnac";
+            this.lugarnac.Size = new System.Drawing.Size(458, 23);
+            this.lugarnac.TabIndex = 7;
             // 
             // label10
             // 
@@ -254,23 +254,23 @@ namespace Parroquia
             // 
             // fechanac
             // 
-            fechanac.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            fechanac.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            fechanac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            fechanac.Location = new System.Drawing.Point(375, 230);
-            fechanac.Name = "fechanac";
-            fechanac.Size = new System.Drawing.Size(296, 23);
-            fechanac.TabIndex = 5;
+            this.fechanac.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fechanac.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fechanac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fechanac.Location = new System.Drawing.Point(375, 230);
+            this.fechanac.Name = "fechanac";
+            this.fechanac.Size = new System.Drawing.Size(296, 23);
+            this.fechanac.TabIndex = 5;
             // 
             // fechabautismo
             // 
-            fechabautismo.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            fechabautismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            fechabautismo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            fechabautismo.Location = new System.Drawing.Point(375, 259);
-            fechabautismo.Name = "fechabautismo";
-            fechabautismo.Size = new System.Drawing.Size(296, 23);
-            fechabautismo.TabIndex = 6;
+            this.fechabautismo.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fechabautismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fechabautismo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fechabautismo.Location = new System.Drawing.Point(375, 259);
+            this.fechabautismo.Name = "fechabautismo";
+            this.fechabautismo.Size = new System.Drawing.Size(296, 23);
+            this.fechabautismo.TabIndex = 6;
             // 
             // label11
             // 
@@ -284,13 +284,13 @@ namespace Parroquia
             // 
             // madrina
             // 
-            madrina.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            madrina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            madrina.Location = new System.Drawing.Point(157, 385);
-            madrina.MaxLength = 100;
-            madrina.Name = "madrina";
-            madrina.Size = new System.Drawing.Size(374, 23);
-            madrina.TabIndex = 9;
+            this.madrina.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.madrina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.madrina.Location = new System.Drawing.Point(157, 385);
+            this.madrina.MaxLength = 100;
+            this.madrina.Name = "madrina";
+            this.madrina.Size = new System.Drawing.Size(374, 23);
+            this.madrina.TabIndex = 9;
             // 
             // label12
             // 
@@ -304,13 +304,13 @@ namespace Parroquia
             // 
             // padrino
             // 
-            padrino.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            padrino.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            padrino.Location = new System.Drawing.Point(156, 356);
-            padrino.MaxLength = 100;
-            padrino.Name = "padrino";
-            padrino.Size = new System.Drawing.Size(375, 23);
-            padrino.TabIndex = 8;
+            this.padrino.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.padrino.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.padrino.Location = new System.Drawing.Point(156, 356);
+            this.padrino.MaxLength = 100;
+            this.padrino.Name = "padrino";
+            this.padrino.Size = new System.Drawing.Size(375, 23);
+            this.padrino.TabIndex = 8;
             // 
             // label13
             // 
@@ -334,13 +334,13 @@ namespace Parroquia
             // 
             // presbitero
             // 
-            presbitero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            presbitero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            presbitero.Location = new System.Drawing.Point(221, 425);
-            presbitero.MaxLength = 100;
-            presbitero.Name = "presbitero";
-            presbitero.Size = new System.Drawing.Size(310, 23);
-            presbitero.TabIndex = 10;
+            this.presbitero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.presbitero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.presbitero.Location = new System.Drawing.Point(221, 425);
+            this.presbitero.MaxLength = 100;
+            this.presbitero.Name = "presbitero";
+            this.presbitero.Size = new System.Drawing.Size(310, 23);
+            this.presbitero.TabIndex = 10;
             // 
             // label15
             // 
@@ -363,12 +363,12 @@ namespace Parroquia
             // 
             // anotacion
             // 
-            anotacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            anotacion.Location = new System.Drawing.Point(281, 461);
-            anotacion.Multiline = true;
-            anotacion.Name = "anotacion";
-            anotacion.Size = new System.Drawing.Size(250, 46);
-            anotacion.TabIndex = 11;
+            this.anotacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.anotacion.Location = new System.Drawing.Point(281, 461);
+            this.anotacion.Multiline = true;
+            this.anotacion.Name = "anotacion";
+            this.anotacion.Size = new System.Drawing.Size(250, 46);
+            this.anotacion.TabIndex = 11;
             // 
             // label17
             // 
@@ -437,12 +437,12 @@ namespace Parroquia
             // 
             // anio
             // 
-            anio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            anio.FormattingEnabled = true;
-            anio.Location = new System.Drawing.Point(596, 15);
-            anio.Name = "anio";
-            anio.Size = new System.Drawing.Size(77, 21);
-            anio.TabIndex = 44;
+            this.anio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.anio.FormattingEnabled = true;
+            this.anio.Location = new System.Drawing.Point(596, 15);
+            this.anio.Name = "anio";
+            this.anio.Size = new System.Drawing.Size(77, 21);
+            this.anio.TabIndex = 44;
             // 
             // label20
             // 
@@ -580,45 +580,45 @@ namespace Parroquia
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
-            this.Controls.Add(anio);
+            this.Controls.Add(this.anio);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
-            this.Controls.Add(anotacion);
+            this.Controls.Add(this.anotacion);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.cancelar);
             this.Controls.Add(this.guardareimp);
             this.Controls.Add(this.guardar);
             this.Controls.Add(this.label15);
-            this.Controls.Add(presbitero);
+            this.Controls.Add(this.presbitero);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label11);
-            this.Controls.Add(madrina);
+            this.Controls.Add(this.madrina);
             this.Controls.Add(this.label12);
-            this.Controls.Add(padrino);
+            this.Controls.Add(this.padrino);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label10);
-            this.Controls.Add(fechabautismo);
-            this.Controls.Add(madre);
+            this.Controls.Add(this.fechabautismo);
+            this.Controls.Add(this.madre);
             this.Controls.Add(this.label6);
-            this.Controls.Add(fechanac);
-            this.Controls.Add(padre);
+            this.Controls.Add(this.fechanac);
+            this.Controls.Add(this.padre);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(lugarnac);
+            this.Controls.Add(this.lugarnac);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
-            this.Controls.Add(nombre);
+            this.Controls.Add(this.nombre);
             this.Controls.Add(this.label4);
-            this.Controls.Add(textBox3);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
-            this.Controls.Add(textBox2);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(textBox1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "Bautismo";
             this.ShowIcon = false;
@@ -666,19 +666,19 @@ namespace Parroquia
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.CheckBox registronull;
         private System.Windows.Forms.CheckBox registrobis;
-        public static System.Windows.Forms.TextBox textBox1;
-        public static System.Windows.Forms.TextBox textBox2;
-        public static System.Windows.Forms.TextBox textBox3;
-        public static System.Windows.Forms.TextBox nombre;
-        public static System.Windows.Forms.TextBox padre;
-        public static System.Windows.Forms.TextBox madre;
-        public static System.Windows.Forms.TextBox lugarnac;
-        public static System.Windows.Forms.DateTimePicker fechanac;
-        public static System.Windows.Forms.DateTimePicker fechabautismo;
-        public static System.Windows.Forms.TextBox madrina;
-        public static System.Windows.Forms.TextBox padrino;
-        public static System.Windows.Forms.TextBox presbitero;
-        public static System.Windows.Forms.TextBox anotacion;
-        public static System.Windows.Forms.ComboBox anio;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox nombre;
+        public System.Windows.Forms.TextBox padre;
+        public System.Windows.Forms.TextBox madre;
+        public System.Windows.Forms.TextBox lugarnac;
+        public System.Windows.Forms.DateTimePicker fechanac;
+        public System.Windows.Forms.DateTimePicker fechabautismo;
+        public System.Windows.Forms.TextBox madrina;
+        public System.Windows.Forms.TextBox padrino;
+        public System.Windows.Forms.TextBox presbitero;
+        public System.Windows.Forms.TextBox anotacion;
+        public System.Windows.Forms.ComboBox anio;
     }
 }

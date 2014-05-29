@@ -365,10 +365,7 @@ namespace Parroquia
             
             
         }
-
-
-
-            
+  
         private void cancelar_Click(object sender, EventArgs e)
         {
             Dispose();
