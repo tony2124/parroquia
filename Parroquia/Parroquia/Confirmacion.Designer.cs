@@ -31,11 +31,11 @@ namespace Parroquia
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.libro = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.num_hoja = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.num_partida = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.nombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -89,17 +89,17 @@ namespace Parroquia
             this.label1.TabIndex = 0;
             this.label1.Text = "LIBRO:";
             // 
-            // textBox1
+            // libro
             // 
-            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(86, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(69, 23);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.libro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.libro.Enabled = false;
+            this.libro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.libro.Location = new System.Drawing.Point(86, 12);
+            this.libro.Name = "libro";
+            this.libro.ReadOnly = true;
+            this.libro.Size = new System.Drawing.Size(69, 23);
+            this.libro.TabIndex = 1;
+            this.libro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -111,16 +111,16 @@ namespace Parroquia
             this.label2.TabIndex = 2;
             this.label2.Text = "HOJA:";
             // 
-            // textBox2
+            // num_hoja
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(227, 12);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(57, 23);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.num_hoja.Enabled = false;
+            this.num_hoja.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.num_hoja.Location = new System.Drawing.Point(227, 12);
+            this.num_hoja.Name = "num_hoja";
+            this.num_hoja.ReadOnly = true;
+            this.num_hoja.Size = new System.Drawing.Size(57, 23);
+            this.num_hoja.TabIndex = 3;
+            this.num_hoja.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -132,16 +132,16 @@ namespace Parroquia
             this.label3.TabIndex = 4;
             this.label3.Text = "PARTIDA:";
             // 
-            // textBox3
+            // num_partida
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(393, 12);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(71, 23);
-            this.textBox3.TabIndex = 5;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.num_partida.Enabled = false;
+            this.num_partida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.num_partida.Location = new System.Drawing.Point(393, 12);
+            this.num_partida.Name = "num_partida";
+            this.num_partida.ReadOnly = true;
+            this.num_partida.Size = new System.Drawing.Size(71, 23);
+            this.num_partida.TabIndex = 5;
+            this.num_partida.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
@@ -593,14 +593,15 @@ namespace Parroquia
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lugarbau);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.num_partida);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.num_hoja);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.libro);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.Name = "Confirmacion";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -613,11 +614,11 @@ namespace Parroquia
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox libro;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox num_hoja;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox num_partida;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Label label5;

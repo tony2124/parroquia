@@ -43,7 +43,7 @@ namespace Parroquia
                 if (Datos.HasRows)
                 {
                     while (Datos.Read()) {
-                        textBox1.Text = Datos.GetString(0);                        
+                        libro.Text = Datos.GetString(0);                        
                     }
                 }
                 Datos.Close();
@@ -68,11 +68,11 @@ namespace Parroquia
                     }
                 }
 
-                textBox3.Text = "" + (Partida+1);
+                num_partida.Text = "" + (Partida+1);
 
                 /*CALCULANDO LA HOJA*/
                 Hoja = Math.Ceiling((Partida + 1) / 10.0);
-                textBox2.Text = "" + Hoja;
+                num_hoja.Text = "" + Hoja;
 
                 Bdatos.Desconectar();
             }
@@ -103,7 +103,7 @@ namespace Parroquia
 
             try
             {  
-                textBox1.Text = NOMMBRE_LIBRO;
+                libro.Text = NOMMBRE_LIBRO;
                 Bdatos.conexion();
 
                 Datos = Bdatos.obtenerBasesDatosMySQL("SELECT * FROM confirmaciones where id_confirmacion = " + ID_REGISTRO);
@@ -112,8 +112,8 @@ namespace Parroquia
                 {
                     while (Datos.Read())
                     {
-                        textBox2.Text = Datos.GetString(2);
-                        textBox3.Text = Datos.GetString(3);
+                        num_hoja.Text = Datos.GetString(2);
+                        num_partida.Text = Datos.GetString(3);
                         nombre.Text = Datos.GetString(4);
                         padre.Text = Datos.GetString(5);
                         madre.Text = Datos.GetString(6);
@@ -204,17 +204,17 @@ namespace Parroquia
         }
 
         /** GUARDAR EL REGISTRO A LA BD */
-        public void guardarRegistro()
+        public bool guardarRegistro()
         {
             //Se prepara para verificar si es BIS
-            String bis = "0", partida = textBox3.Text;
+            String bis = "0", partida = num_partida.Text;
             if (registrobis.Checked)
                 bis = "1";
             
             if (Bdatos.Insertar("insert into confirmaciones(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_confirmacion,fecha_bautismo,lugar_bautismo,padrino,madrina,presbitero,anio,bis)" +
                     " values('" + int.Parse(ID_LIBRO) +
-                    "','" + int.Parse(textBox2.Text) +
-                    "','" + textBox3.Text +
+                    "','" + int.Parse(num_hoja.Text) +
+                    "','" + num_partida.Text +
                     "','" + nombre.Text +
                     "','" + padre.Text +
                     "','" + madre.Text +
@@ -228,22 +228,13 @@ namespace Parroquia
                     "'," + bis + ");") > 0)
             {
                 MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (!registrobis.Checked)
-                    Partida++;
-                else
-                    registrobis.Checked = false;
-
-                textBox3.Text = "" + (Partida + 1);
-
-                Hoja = Math.Ceiling((Partida + 1) / 10.0);
-                textBox2.Text = "" + Hoja;
-
-                /*Se establecen en blanco todos los campos*/
-                limpiarCampos();
+                Bdatos.Desconectar();
+                return true;
             }
             else MessageBox.Show("Error al ingresar datos en MySQL ", " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             Bdatos.Desconectar();
+            return false;
         }
 
         private void guardarConfirBtn_Click(object sender, EventArgs e)
@@ -260,7 +251,21 @@ namespace Parroquia
                             return;
                     }
 
-                    guardarRegistro();
+                    if (guardarRegistro())
+                    {
+                        if (!registrobis.Checked)
+                            Partida++;
+                        else
+                            registrobis.Checked = false;
+
+                        num_partida.Text = "" + (Partida + 1);
+
+                        Hoja = Math.Ceiling((Partida + 1) / 10.0);
+                        num_hoja.Text = "" + Hoja;
+
+                        /*Se establecen en blanco todos los campos*/
+                        limpiarCampos();
+                    }
                 }
                 catch (Exception y)
                 {
@@ -326,7 +331,55 @@ namespace Parroquia
 
         private void guardaImprimeBtn_Click(object sender, EventArgs e)
         {
+            if (!edicion)
+            {
 
+                try
+                {
+                    Bdatos.conexion();
+
+                    if (!registronull.Checked)
+                    {
+                        if (camposVacios())
+                            return;
+                    }
+
+                    if (guardarRegistro())
+                    {
+
+                        //IMPRIME
+
+
+                       // Imprimir a = new Imprimir();
+
+                        if (!registrobis.Checked)
+                            Partida++;
+                        else
+                            registrobis.Checked = false;
+
+                        num_partida.Text = "" + (Partida + 1);
+
+                        Hoja = Math.Ceiling((Partida + 1) / 10.0);
+                        num_hoja.Text = "" + Hoja;
+
+                        limpiarCampos();
+                    }
+
+                    Bdatos.Desconectar();
+
+                }
+                catch (Exception y)
+                {
+                    MessageBox.Show("Error al ingresar datos en MySQL: " + y.Message, " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            else
+            {
+                //IMPRIME
+                //Imprimir a = new Imprimir();
+
+            }
         }
 
 
@@ -375,11 +428,11 @@ namespace Parroquia
         {
             if (registrobis.Checked)
             {
-                textBox3.Text = (int.Parse(textBox3.Text) - 1) + "BIS";
+                num_partida.Text = (int.Parse(num_partida.Text) - 1) + "BIS";
             }
             else
             {
-                textBox3.Text = (Partida + 1) + "";
+                num_partida.Text = (Partida + 1) + "";
             }
         }
 
