@@ -59,7 +59,7 @@ namespace Parroquia
 
                 /*Estableciendo la partida*/
                 Partida = 0;
-                Datos = Bdatos.obtenerBasesDatosMySQL("select id_matrimonio from matrimonios where id_libro =" + ID_LIBRO + ";");
+                Datos = Bdatos.obtenerBasesDatosMySQL("select id_matrimonio from matrimonios where id_libro =" + ID_LIBRO + " AND bis=0;");
 
                 if (Datos.HasRows)
                 {
@@ -109,6 +109,7 @@ namespace Parroquia
             notas_marginales.Enabled = false;
             anioCombo.Enabled = false;
             registronull.Enabled = false;
+            registrobis.Enabled = false;
             try
             {  
                 textBox1.Text = NOMMBRE_LIBRO;
@@ -165,24 +166,33 @@ namespace Parroquia
                     }
                     
                     //Se guardan todos los campos en la base de datos
-                        if (Bdatos.Insertar("insert into matrimonios(id_libro,num_hoja,num_partida,novio,novia,fecha_matrimonio,lugar_celebracion,testigo1,testigo2,asistente,nota_marginal,anio)" +
+                    String bis = "0", partida = textBox3.Text;
+                    if (registrobis.Checked)
+                    {
+                        bis = "1";
+                    }
+                        if (Bdatos.Insertar("insert into matrimonios(id_libro,num_hoja,num_partida,novio,novia,fecha_matrimonio,lugar_celebracion,testigo1,testigo2,asistente,nota_marginal,anio,bis)" +
                             " values('" + int.Parse(ID_LIBRO) +
                             "','" + int.Parse(textBox2.Text.ToString()) +
-                            "','" + int.Parse(textBox3.Text.ToString()) +
-                            "','" + novio.Text.ToString() +
-                            "','" + novia.Text.ToString() +
+                            "','" + textBox3.Text +
+                            "','" + novio.Text +
+                            "','" + novia.Text +
                             "','" + fecha_Matrimonio.Value.ToString("yyyy-MM-dd") +
-                            "','" + lugar_celebracion.Text.ToString() +
-                            "','" + testigo1.Text.ToString() +
-                            "','" + testigo2.Text.ToString() +
-                            "','" + asistente.Text.ToString() +
-                            "','" + notas_marginales.Text.ToString() +
-                            "','" + anioCombo.Text.ToString() +
-                            "');") > 0)
+                            "','" + lugar_celebracion.Text +
+                            "','" + testigo1.Text +
+                            "','" + testigo2.Text +
+                            "','" + asistente.Text +
+                            "','" + notas_marginales.Text +
+                            "','" + anioCombo.Text +
+                            "'," + bis + ");") > 0)
                         {
                             MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa",
                          MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Partida++;
+                            if (!registrobis.Checked)
+                                Partida++;
+                            else
+                                registrobis.Checked = false;
+ 
                             textBox3.Text = "" + (Partida + 1);
 
                             Hoja = Math.Ceiling((Partida + 1) / 10.0);
@@ -277,6 +287,7 @@ namespace Parroquia
                         notas_marginales.Enabled = false;
                         anioCombo.Enabled = false;
                         registronull.Enabled = false;
+                        registrobis.Enabled = false;
 
                         //actualizamos la tabla
                         Parroquia.btnbuscar.PerformClick();
@@ -286,6 +297,18 @@ namespace Parroquia
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Bdatos.Desconectar();
                 }
+            }
+        }
+
+        public void registrobis_CheckedChanged(object sender, EventArgs e)
+        {
+            if (registrobis.Checked)
+            {
+                textBox3.Text = (int.Parse(textBox3.Text) - 1) + "BIS";
+            }
+            else
+            {
+                textBox3.Text = (Partida + 1) + "";
             }
         }
 

@@ -61,7 +61,7 @@ namespace Parroquia
 
                 /*Estableciendo la partida*/
                 Partida = 0;
-                Datos = Bdatos.obtenerBasesDatosMySQL("select id_comunion from comuniones where id_libro =" + ID_LIBRO + ";");
+                Datos = Bdatos.obtenerBasesDatosMySQL("select id_comunion from comuniones where id_libro =" + ID_LIBRO + "  AND bis=0;");
 
                 if (Datos.HasRows)
                 {
@@ -113,6 +113,7 @@ namespace Parroquia
             madrina.Enabled = false;
             anioCombo.Enabled = false;
             registronull.Enabled = false;
+            registrobis.Enabled = false;
             try
             {  
                 textBox1.Text = NOMMBRE_LIBRO;
@@ -175,26 +176,34 @@ namespace Parroquia
                         }
                     }
                     //Se guardan todos los campos en la base de datos
-
-
-                    if (Bdatos.Insertar("insert into comuniones(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_comunion,fecha_bautismo,lugar_bautismo,padrino,madrina,anio)" +
+                    String bis = "0", partida = textBox3.Text;
+                    if (registrobis.Checked)
+                    {
+                        bis = "1";
+                    }
+ 
+                    if (Bdatos.Insertar("insert into comuniones(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_comunion,fecha_bautismo,lugar_bautismo,padrino,madrina,anio, bis)" +
                         " values('" + int.Parse(ID_LIBRO) +
                         "','" + int.Parse(textBox2.Text.ToString()) +
-                        "','" + int.Parse(textBox3.Text.ToString()) +
-                        "','" + nombre.Text.ToString() +
-                        "','" + padre.Text.ToString() +
-                        "','" + madre.Text.ToString() +
+                        "','" + textBox3.Text +
+                        "','" + nombre.Text +
+                        "','" + padre.Text +
+                        "','" + madre.Text +
                         "','" + fechaPrimerCom.Value.ToString("yyyy-MM-dd") +
                         "','" + fecha_bautism.Value.ToString("yyyy-MM-dd") +
-                        "','" + lugar_bautismo.Text.ToString() +
-                        "','" + padrino.Text.ToString() +
-                        "','" + madrina.Text.ToString() +
-                        "','" + anioCombo.Text.ToString() +
-                        "');") > 0)
+                        "','" + lugar_bautismo.Text+
+                        "','" + padrino.Text +
+                        "','" + madrina.Text +
+                        "','" + anioCombo.Text +
+                        "'," + bis + ");") > 0)
                     {
                         MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa",
                      MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Partida++;
+                        if (!registrobis.Checked)
+                            Partida++;
+                        else
+                            registrobis.Checked = false;
+                        
                         textBox3.Text = "" + (Partida + 1);
 
                         Hoja = Math.Ceiling((Partida + 1) / 10.0);
@@ -291,6 +300,7 @@ namespace Parroquia
                         madrina.Enabled = false;
                         anioCombo.Enabled = false;
                         registronull.Enabled = false;
+                        registrobis.Enabled = false;
 
                         //actualizamos la tabla
                         Parroquia.btnbuscar.PerformClick();
@@ -348,6 +358,19 @@ namespace Parroquia
         private void ministro_KeyPress(object sender, KeyPressEventArgs e)
         {
             botones(e);
+        }
+
+        //METODO QUE MANDA LLAMAR EL REGISTRO BIS
+        public void registrobis_CheckedChanged(object sender, EventArgs e)
+        {
+            if (registrobis.Checked)
+            {
+                textBox3.Text = (int.Parse(textBox3.Text) - 1) + "BIS";
+            }
+            else
+            {
+                textBox3.Text = (Partida + 1) + "";
+            }
         }
 
         private void registronull_CheckedChanged(object sender, EventArgs e)

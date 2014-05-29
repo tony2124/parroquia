@@ -118,8 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="simpus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\simpus.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="youtube_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\youtube_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imprimir-icono-3650-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imprimir-icono-3650-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="twitter_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\twitter_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,11 +133,20 @@
   <data name="facebook_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\facebook_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="simpus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\simpus.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo_simpus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo_simpus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="virgen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\virgen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="guardar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guardar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eliminar-icono-4790-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eliminar-icono-4790-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="253331_112399185524690_100002638274955_82681_7576911_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\253331_112399185524690_100002638274955_82681_7576911_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,7 +175,7 @@
   <data name="baner" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\baner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="youtube_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\youtube_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="actualizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actualizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
