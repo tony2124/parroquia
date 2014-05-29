@@ -350,7 +350,7 @@ namespace Parroquia
                         //IMPRIME
 
 
-                        Imprimir a = new Imprimir();
+                       // Imprimir a = new Imprimir();
 
                         if (!registrobis.Checked)
                             Partida++;
@@ -377,7 +377,7 @@ namespace Parroquia
             else
             {
                 //IMPRIME
-                Imprimir a = new Imprimir();
+                //Imprimir a = new Imprimir();
 
             }
         }

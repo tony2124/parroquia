@@ -349,7 +349,12 @@ namespace Parroquia
                     if(guardarRegistro()){
                         
                          //IMPRIME
-                       // Imprimir a = new Imprimir();
+
+                        Imprimir a = new Imprimir(libro.Text, num_hoja.Text,
+                            num_partida.Text, nombre.Text, padre.Text, madre.Text, 
+                            lugarnac.Text,fechanac.Value.ToString("yyyy-MMMM-dd"), 
+                            fechabautismo.Value.ToString("yyyy-MMMM-dd"),
+                            presbitero.Text,madrina.Text, padrino.Text, anotacion.Text);
 
                         if (!registrobis.Checked)
                             Partida++;
@@ -374,13 +379,15 @@ namespace Parroquia
             else
             {
                 //IMPRIME
-                //Imprimir a = new Imprimir();
-
+                Imprimir a = new Imprimir(libro.Text, num_hoja.Text,
+                               num_partida.Text, nombre.Text, padre.Text, madre.Text,
+                               lugarnac.Text, fechanac.Value.ToString("yyyy-MMMM-dd"),
+                               fechabautismo.Value.ToString("yyyy-MMMM-dd"),
+                               presbitero.Text, madrina.Text, padrino.Text, anotacion.Text);
             }
             
         }
 
-            
         private void cancelar_Click(object sender, EventArgs e)
         {
             Dispose();
