@@ -37,35 +37,35 @@ namespace Parroquia
             this.label3 = new System.Windows.Forms.Label();
             this.num_partida = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.nombre = new System.Windows.Forms.TextBox();
+            nombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.padre = new System.Windows.Forms.TextBox();
-            this.madre = new System.Windows.Forms.TextBox();
-            this.lugarnac = new System.Windows.Forms.TextBox();
+            padre = new System.Windows.Forms.TextBox();
+            madre = new System.Windows.Forms.TextBox();
+            lugarnac = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.fechanac = new System.Windows.Forms.DateTimePicker();
-            this.fechabautismo = new System.Windows.Forms.DateTimePicker();
+            fechanac = new System.Windows.Forms.DateTimePicker();
+            fechabautismo = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            this.madrina = new System.Windows.Forms.TextBox();
+            madrina = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.padrino = new System.Windows.Forms.TextBox();
+            padrino = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.presbitero = new System.Windows.Forms.TextBox();
+            presbitero = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.anotacion = new System.Windows.Forms.TextBox();
+            anotacion = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.anio = new System.Windows.Forms.ComboBox();
+            anio = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -143,6 +143,7 @@ namespace Parroquia
             this.num_partida.Size = new System.Drawing.Size(100, 23);
             this.num_partida.TabIndex = 5;
             this.num_partida.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+
             // 
             // label4
             // 
@@ -156,6 +157,7 @@ namespace Parroquia
             // 
             // nombre
             // 
+
             this.nombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombre.Location = new System.Drawing.Point(192, 103);
@@ -164,6 +166,7 @@ namespace Parroquia
             this.nombre.Size = new System.Drawing.Size(479, 23);
             this.nombre.TabIndex = 2;
             this.nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nombre_KeyPress);
+
             // 
             // label5
             // 
@@ -247,6 +250,7 @@ namespace Parroquia
             this.lugarnac.Size = new System.Drawing.Size(458, 23);
             this.lugarnac.TabIndex = 7;
             this.lugarnac.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lugarnac_KeyPress);
+
             // 
             // label10
             // 
@@ -260,23 +264,23 @@ namespace Parroquia
             // 
             // fechanac
             // 
-            this.fechanac.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fechanac.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fechanac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechanac.Location = new System.Drawing.Point(375, 230);
-            this.fechanac.Name = "fechanac";
-            this.fechanac.Size = new System.Drawing.Size(296, 23);
-            this.fechanac.TabIndex = 5;
+            fechanac.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            fechanac.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            fechanac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            fechanac.Location = new System.Drawing.Point(375, 230);
+            fechanac.Name = "fechanac";
+            fechanac.Size = new System.Drawing.Size(296, 23);
+            fechanac.TabIndex = 5;
             // 
             // fechabautismo
             // 
-            this.fechabautismo.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fechabautismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fechabautismo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechabautismo.Location = new System.Drawing.Point(375, 259);
-            this.fechabautismo.Name = "fechabautismo";
-            this.fechabautismo.Size = new System.Drawing.Size(296, 23);
-            this.fechabautismo.TabIndex = 6;
+            fechabautismo.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            fechabautismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            fechabautismo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            fechabautismo.Location = new System.Drawing.Point(375, 259);
+            fechabautismo.Name = "fechabautismo";
+            fechabautismo.Size = new System.Drawing.Size(296, 23);
+            fechabautismo.TabIndex = 6;
             // 
             // label11
             // 
@@ -319,6 +323,7 @@ namespace Parroquia
             this.padrino.Size = new System.Drawing.Size(393, 23);
             this.padrino.TabIndex = 8;
             this.padrino.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.padrino_KeyPress);
+
             // 
             // label13
             // 
@@ -446,12 +451,12 @@ namespace Parroquia
             // 
             // anio
             // 
-            this.anio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.anio.FormattingEnabled = true;
-            this.anio.Location = new System.Drawing.Point(596, 15);
-            this.anio.Name = "anio";
-            this.anio.Size = new System.Drawing.Size(77, 21);
-            this.anio.TabIndex = 44;
+            anio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            anio.FormattingEnabled = true;
+            anio.Location = new System.Drawing.Point(596, 15);
+            anio.Name = "anio";
+            anio.Size = new System.Drawing.Size(77, 21);
+            anio.TabIndex = 44;
             // 
             // label20
             // 
@@ -594,39 +599,39 @@ namespace Parroquia
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.anio);
+            this.Controls.Add(anio);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.anotacion);
+            this.Controls.Add(anotacion);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.cancelar);
             this.Controls.Add(this.guardareimp);
             this.Controls.Add(this.guardar);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.presbitero);
+            this.Controls.Add(presbitero);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.madrina);
+            this.Controls.Add(madrina);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.padrino);
+            this.Controls.Add(padrino);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.fechabautismo);
-            this.Controls.Add(this.madre);
+            this.Controls.Add(fechabautismo);
+            this.Controls.Add(madre);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.fechanac);
-            this.Controls.Add(this.padre);
+            this.Controls.Add(fechanac);
+            this.Controls.Add(padre);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lugarnac);
+            this.Controls.Add(lugarnac);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.nombre);
+            this.Controls.Add(nombre);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.num_partida);
             this.Controls.Add(this.label3);
@@ -654,39 +659,28 @@ namespace Parroquia
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox num_partida;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox padre;
-        private System.Windows.Forms.TextBox madre;
-        private System.Windows.Forms.TextBox lugarnac;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker fechanac;
-        private System.Windows.Forms.DateTimePicker fechabautismo;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox madrina;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox padrino;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox presbitero;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button guardar;
         private System.Windows.Forms.Button guardareimp;
         private System.Windows.Forms.Button cancelar;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox anotacion;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.ComboBox anio;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label25;
@@ -695,5 +689,19 @@ namespace Parroquia
         private System.Windows.Forms.CheckBox registronull;
         private System.Windows.Forms.CheckBox registrobis;
         private System.Windows.Forms.ToolTip toolTip1;
+        public  System.Windows.Forms.TextBox textBox1;
+        public  System.Windows.Forms.TextBox textBox2;
+        public  System.Windows.Forms.TextBox textBox3;
+        public  System.Windows.Forms.TextBox nombre;
+        public  System.Windows.Forms.TextBox padre;
+        public  System.Windows.Forms.TextBox madre;
+        public  System.Windows.Forms.TextBox lugarnac;
+        public  System.Windows.Forms.DateTimePicker fechanac;
+        public  System.Windows.Forms.DateTimePicker fechabautismo;
+        public  System.Windows.Forms.TextBox madrina;
+        public  System.Windows.Forms.TextBox padrino;
+        public  System.Windows.Forms.TextBox presbitero;
+        public  System.Windows.Forms.TextBox anotacion;
+        public  System.Windows.Forms.ComboBox anio;
     }
 }

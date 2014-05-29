@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,213 +12,202 @@ namespace Parroquia
 {
     class Imprimir
     {
+        PrintDialog pDialog;
+        PrintPreviewDialog ppD ;
+        PrintDocument pd;
+        Image newImage;
 
-        /*public Imprimir()
+        public int i = 260, j = 690, u = 50, cont = 0;
+
+        public void leerArchivo()
+        {
+            newImage = Image.FromFile("C:\\DOCSParroquia\\Bautismo.jpg");
+        }
+
+        public Imprimir()
         {
             //DESPUES DE GUARDAR IMPRIMO
-
             Cursor.Current = Cursors.WaitCursor;
             //SE ESTABLECEN LAS PROPIEDADES DE IMPRESORA
-
-            PrintDialog pDialog = new PrintDialog();
-            PrintPreviewDialog ppD = new PrintPreviewDialog();
-            PrintDocument pd = new PrintDocument();
+            pDialog = new PrintDialog();
+            ppD = new PrintPreviewDialog();
+            pd = new PrintDocument();
+            
 
             ppD.PrintPreviewControl.Zoom = 1;
             ppD.WindowState = FormWindowState.Maximized;
             ppD.MinimizeBox = true;
+            ppD.ShowInTaskbar = true;
+            ppD.WindowState = FormWindowState.Normal;
 
             pDialog.AllowSomePages = false;
             pDialog.AllowPrintToFile = false;
+            //pDialog.WindowState = FormWindowState.Normal;
 
+            DialogResult a= pDialog.ShowDialog();
+           
 
-            DialogResult = pDialog.ShowDialog();
-
-            if (DialogResult == DialogResult.OK)
+            if (a == DialogResult.OK)
             {
+                //SE LEE EL ARCHIVO QUE SE IMPRIMIRA
+                leerArchivo();
+
                 pd.PrinterSettings = pDialog.PrinterSettings;
                 pd.PrinterSettings.Copies = pDialog.PrinterSettings.Copies;
 
                 pd.PrintPage += new PrintPageEventHandler
-                    (this.pd_PrintPage_edicion);
+                    (this.imprimirBautismo);
 
                 ppD.Document = pd;
-                ppD.ShowDialog();
-                //pd.Print();
+                ppD.Show();
+                ppD.BringToFront();
+                
+               // pd.Print();
             }
         }
 
-        public void imprimir()
+        public void imprimirBautismo(object sender, PrintPageEventArgs ev)
         {
 
-            Cursor.Current = Cursors.WaitCursor;
-            //SE ESTABLECEN LAS PROPIEDADES DE IMPRESORA
-
-            PrintDialog pDialog = new PrintDialog();
-            PrintPreviewDialog ppD = new PrintPreviewDialog();
-            PrintDocument pd = new PrintDocument();
-
-            ppD.PrintPreviewControl.Zoom = 1;
-            ppD.MinimizeBox = true;
-            ppD.WindowState = FormWindowState.Maximized;
-
-            pDialog.AllowSomePages = false;
-            pDialog.AllowPrintToFile = false;
-
-
-            DialogResult = pDialog.ShowDialog();
-            if (DialogResult == DialogResult.OK)
-            {
-                pd.PrinterSettings = pDialog.PrinterSettings;
-                pd.PrintPage += new PrintPageEventHandler
-                    (this.pd_PrintPage_edicion);
-                ppD.Document = pd;
-                ppD.ShowDialog();
-                //pd.Print();
-            }
-        }*/
-
-        /*    public void pd_PrintPage(object sender, PrintPageEventArgs ev)
-    {
-        //IMPRIME TITULO
-        ev.Graphics.DrawString("ANTUNEZ MICHOACAN",
-            new Font("Times New Roman", 10, FontStyle.Bold),
-                    Brushes.Black, 350, 50);
-        ev.Graphics.DrawString("PARROQUIA DE NUESTRA SEÑORA DE GUADALUPE",
-            new Font("Times New Roman", 10, FontStyle.Bold),
-                    Brushes.Black, 250, 80);
-    }
-
-        public void imprimirDato()
-        {
-            //IMPRIME TITULO
-            ev.Graphics.DrawString("ANTUNEZ MICHOACAN",
-                new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 350, 50);
-            ev.Graphics.DrawString("PARROQUIA DE NUESTRA SEÑORA DE GUADALUPE",
-                new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 250, 80);
-
-            //IMPRIME CATEGORIA
-            ev.Graphics.DrawString("CATEGORIA: ",
-                new Font("Times New Roman", 10, FontStyle.Regular),
-                        Brushes.Black, 20, 120);
-            ev.Graphics.DrawString("BAUTISMOS ",
-                new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 200, 120);
+            //IMPRIMIMOS DOCUMENTO
+            ev.Graphics.DrawImage(newImage, 0, 0);
 
             //IMPRIME LIBRO
-            ev.Graphics.DrawString("LIBRO: ",
-                new Font("Times New Roman", 10, FontStyle.Regular),
-                        Brushes.Black, 20, 140);
-            ev.Graphics.DrawString(textBox1.Text,
+            ev.Graphics.DrawString(Bautismo.textBox1.Text,
                 new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 200, 140);
+                        Brushes.Black, 355, 260);
 
-            //IMPRIME FOJA
-            ev.Graphics.DrawString("FOJA: ",
-               new Font("Times New Roman", 10, FontStyle.Regular),
-                       Brushes.Black, 20, 160);
-            ev.Graphics.DrawString(textBox2.Text,
+            //IMPRIME FOJA   
+            ev.Graphics.DrawString(Bautismo.textBox2.Text,
                 new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 200, 160);
+                        Brushes.Black, 505, 260);
 
             //IMPRIME PARTIDA
-            ev.Graphics.DrawString("PARTIDA: ",
-               new Font("Times New Roman", 10, FontStyle.Regular),
-                       Brushes.Black, 20, 180);
-            ev.Graphics.DrawString(textBox3.Text,
+            ev.Graphics.DrawString(Bautismo.textBox3.Text,
                 new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 200, 180);
+                        Brushes.Black, 650, 260);
 
-            //IMPRIME Nombre
-            ev.Graphics.DrawString("NOMBRE: ",
-               new Font("Times New Roman", 10, FontStyle.Regular),
-                       Brushes.Black, 20, 200);
-            ev.Graphics.DrawString(nombre.Text,
-                new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 200, 200);
+             //IMPRIME Nombre
+             ev.Graphics.DrawString(Bautismo.nombre.Text,
+                 new Font("Times New Roman", 10, FontStyle.Bold),
+                         Brushes.Black, 310, 298);
 
             //IMPRIME PAPA
-            ev.Graphics.DrawString("PADRE: ",
-               new Font("Times New Roman", 10, FontStyle.Regular),
-                       Brushes.Black, 20, 220);
-            ev.Graphics.DrawString(padre.Text,
+            ev.Graphics.DrawString(Bautismo.padre.Text,
                 new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 200, 220);
+                        Brushes.Black, 200, 478);
 
             //IMPRIME MADRE
-            ev.Graphics.DrawString("MADRE: ",
-               new Font("Times New Roman", 10, FontStyle.Regular),
-                       Brushes.Black, 20, 240);
-            ev.Graphics.DrawString(madre.Text,
+            ev.Graphics.DrawString(Bautismo.madre.Text,
                 new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 200, 240);
+                        Brushes.Black, 440, 478);
+
+            //IMPRIME LUGAR DE NACIMIENTO
+            ev.Graphics.DrawString(Bautismo.lugarnac.Text,
+                new Font("Times New Roman", 10, FontStyle.Bold),
+                        Brushes.Black, 185, 513);
 
             //IMPRIME FECHA DE NACIMIENTO
-            ev.Graphics.DrawString("FECHA DE NACIMIENTO: ",
-               new Font("Times New Roman", 10, FontStyle.Regular),
-                       Brushes.Black, 20, 260);
-            ev.Graphics.DrawString(fechanac.Text,
-                new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 200, 260);
+            //separo la fecha de nacimiento
+            String[] fecha = Bautismo.fechanac.Value.ToString("yyyy-MM-dd").Split('-');
 
-            //IMPRIME LUGAR DE NACIMIENTO
-            ev.Graphics.DrawString("LUGAR DE NACIMIENTO: ",
-               new Font("Times New Roman", 10, FontStyle.Regular),
-                       Brushes.Black, 20, 280);
-            ev.Graphics.DrawString(lugarnac.Text,
+            //Imprimo el dia 
+            ev.Graphics.DrawString(fecha[2],
                 new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 200, 280);
+                        Brushes.Black, 495, 513);
 
-            //IMPRIME LUGAR DE NACIMIENTO
-            ev.Graphics.DrawString("FECHA DE BAUTISMO: ",
-               new Font("Times New Roman", 10, FontStyle.Regular),
-                       Brushes.Black, 20, 300);
-            ev.Graphics.DrawString(fechabautismo.Text,
+            //Imprimo el mes
+            ev.Graphics.DrawString(fecha[1],
                 new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 200, 300);
+                        Brushes.Black, 575, 513);
 
-            //IMPRIME PADRINOS
-            ev.Graphics.DrawString("PADRINO (S): ",
-               new Font("Times New Roman", 10, FontStyle.Regular),
-                       Brushes.Black, 20, 320);
-            ev.Graphics.DrawString(padrino.Text,
+            //Imprimo el año
+            ev.Graphics.DrawString(fecha[0],
                 new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 200, 320);
+                        Brushes.Black, 665, 513);
 
-            //IMPRIME MADRINA
-            ev.Graphics.DrawString("MADRINA: ",
-               new Font("Times New Roman", 10, FontStyle.Regular),
-                       Brushes.Black, 20, 340);
-            ev.Graphics.DrawString(madrina.Text,
+            //IMPRIME FECHA DE BAUTISMO
+            //separo la fecha de bautismo
+            fecha = Bautismo.fechabautismo.Value.ToString("yyyy-MM-dd").Split('-');
+
+            //imprimo el dia
+            ev.Graphics.DrawString(fecha[2],
                 new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 200, 340);
+                        Brushes.Black, 300, 550);
+
+            //imprimo el mes
+            ev.Graphics.DrawString(fecha[1],
+                new Font("Times New Roman", 10, FontStyle.Bold),
+                        Brushes.Black, 490, 550);
+
+            //imprimo el año
+            ev.Graphics.DrawString(fecha[0],
+                new Font("Times New Roman", 10, FontStyle.Bold),
+                        Brushes.Black, 620, 550);
 
             //IMPRIME PRESBITERO
-            ev.Graphics.DrawString("PRESBITERO: ",
-               new Font("Times New Roman", 10, FontStyle.Regular),
-                       Brushes.Black, 20, 360);
-            ev.Graphics.DrawString(presbitero.Text,
+            ev.Graphics.DrawString(Bautismo.presbitero.Text,
                 new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 200, 360);
+                        Brushes.Black, 250, 585);
 
-            //IMPRIME AÑO
-            ev.Graphics.DrawString("AÑO: ",
-               new Font("Times New Roman", 10, FontStyle.Regular),
-                       Brushes.Black, 20, 380);
-            ev.Graphics.DrawString(anio.Text,
+            //IMPRIME PADRINO
+            ev.Graphics.DrawString(Bautismo.padrino.Text,
                 new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 200, 380);
+                        Brushes.Black, 210, 620);
 
-            //IMPRIME ANOTACIONES
-            ev.Graphics.DrawString("ANOTACIONES: ",
-               new Font("Times New Roman", 10, FontStyle.Regular),
-                       Brushes.Black, 20, 400);
-            ev.Graphics.DrawString(anotacion.Text,
+            //IMPRIME MADRINA
+            ev.Graphics.DrawString(Bautismo.madrina.Text,
                 new Font("Times New Roman", 10, FontStyle.Bold),
-                        Brushes.Black, 200, 400);
-        }*/
+                        Brushes.Black, 460, 620);
+
+            //IMPRIME ANOTACIONES 
+            notasMarginales(Bautismo.anotacion.Text,ev);
+
+
+            //ESTABLECEMOS LA FECHA ACTUAL
+            String d = DateTime.Now.Day+"";
+            String m = DateTime.Now.Month+"";
+            String a = DateTime.Now.Year+"";
+
+            ev.Graphics.DrawString(d,
+                new Font("Times New Roman", 10, FontStyle.Bold),
+                        Brushes.Black, 290, 866);
+
+            ev.Graphics.DrawString(m,
+                new Font("Times New Roman", 10, FontStyle.Bold),
+                        Brushes.Black, 460, 866);
+
+            ev.Graphics.DrawString(a,
+                new Font("Times New Roman", 10, FontStyle.Bold),
+                        Brushes.Black, 600, 866);
+
+
+        }
+
+        public void notasMarginales(String nota, PrintPageEventArgs ev)
+        {
+            if (cont == 1)
+                u = 65;
+            cont++;
+            if (nota.Length > u)
+            {
+                ev.Graphics.DrawString(nota.Substring(0, u),
+              new Font("Times New Roman", 10, FontStyle.Bold),
+                      Brushes.Black, i, j);
+                i = 120;
+                j = j + 35;
+                
+                notasMarginales(nota.Substring(u), ev);
+            }
+            else
+            {
+                ev.Graphics.DrawString(nota,
+                new Font("Times New Roman", 10, FontStyle.Bold),
+                Brushes.Black, i, j);
+            }
+            
+
+        }
 
     }
 }

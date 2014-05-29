@@ -106,8 +106,6 @@ namespace Parroquia
             anio.Text = DateTime.Now.Year + "";
             guardar.Image = global::Parroquia.Properties.Resources.actualizar;
 
-            
-
             try
             {  
                 libro.Text = NOMMBRE_LIBRO;
@@ -353,7 +351,8 @@ namespace Parroquia
 
                     if(guardarRegistro()){
                         
-                        //IMPRIMIR 
+                         //IMPRIME
+                        Imprimir a = new Imprimir();
 
                         if (!registrobis.Checked)
                             Partida++;
@@ -365,8 +364,7 @@ namespace Parroquia
                         Hoja = Math.Ceiling((Partida + 1) / 10.0);
                         num_hoja.Text = "" + Hoja;
 
-                        limpiarCampos();
-
+                        limpiarCampos();                     
                     }
                    
                     Bdatos.Desconectar();
@@ -380,7 +378,9 @@ namespace Parroquia
             }
             else
             {
-                //IMPRIMIR
+                //IMPRIME
+                Imprimir a = new Imprimir();
+
             }
             
         }
