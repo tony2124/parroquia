@@ -58,11 +58,8 @@ namespace Parroquia
             this.ministro = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.anioCombo = new System.Windows.Forms.ComboBox();
-            this.guardarConfirBtn = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cancelBtnConfirmacion = new System.Windows.Forms.Button();
-            this.guardaImprimeBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -76,6 +73,9 @@ namespace Parroquia
             this.registronull = new System.Windows.Forms.CheckBox();
             this.registrobis = new System.Windows.Forms.CheckBox();
             this.label26 = new System.Windows.Forms.Label();
+            this.guardaImprimeBtn = new System.Windows.Forms.Button();
+            this.guardarConfirBtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -239,7 +239,7 @@ namespace Parroquia
             this.lugarbau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lugarbau.Location = new System.Drawing.Point(212, 311);
             this.lugarbau.Name = "lugarbau";
-            this.lugarbau.Size = new System.Drawing.Size(329, 23);
+            this.lugarbau.Size = new System.Drawing.Size(362, 23);
             this.lugarbau.TabIndex = 6;
             this.lugarbau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lugar_bautismo_KeyPress);
             // 
@@ -289,7 +289,7 @@ namespace Parroquia
             this.madrina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.madrina.Location = new System.Drawing.Point(151, 409);
             this.madrina.Name = "madrina";
-            this.madrina.Size = new System.Drawing.Size(390, 23);
+            this.madrina.Size = new System.Drawing.Size(423, 23);
             this.madrina.TabIndex = 8;
             this.madrina.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.madrina_KeyPress);
             // 
@@ -309,7 +309,7 @@ namespace Parroquia
             this.padrino.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.padrino.Location = new System.Drawing.Point(150, 378);
             this.padrino.Name = "padrino";
-            this.padrino.Size = new System.Drawing.Size(391, 23);
+            this.padrino.Size = new System.Drawing.Size(424, 23);
             this.padrino.TabIndex = 7;
             this.padrino.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.padrino_KeyPress);
             // 
@@ -317,7 +317,7 @@ namespace Parroquia
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(27, 353);
+            this.label13.Location = new System.Drawing.Point(27, 351);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(207, 15);
             this.label13.TabIndex = 24;
@@ -339,7 +339,7 @@ namespace Parroquia
             this.ministro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ministro.Location = new System.Drawing.Point(212, 451);
             this.ministro.Name = "ministro";
-            this.ministro.Size = new System.Drawing.Size(329, 23);
+            this.ministro.Size = new System.Drawing.Size(362, 23);
             this.ministro.TabIndex = 9;
             this.ministro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ministro_KeyPress);
             // 
@@ -362,49 +362,17 @@ namespace Parroquia
             this.anioCombo.Size = new System.Drawing.Size(89, 21);
             this.anioCombo.TabIndex = 32;
             // 
-            // guardarConfirBtn
-            // 
-            this.guardarConfirBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardarConfirBtn.Image = global::Parroquia.Properties.Resources.guardar1;
-            this.guardarConfirBtn.Location = new System.Drawing.Point(581, 302);
-            this.guardarConfirBtn.Name = "guardarConfirBtn";
-            this.guardarConfirBtn.Size = new System.Drawing.Size(91, 73);
-            this.guardarConfirBtn.TabIndex = 10;
-            this.guardarConfirBtn.UseVisualStyleBackColor = true;
-            this.guardarConfirBtn.Click += new System.EventHandler(this.guardarConfirBtn_Click);
-            // 
             // cancelBtnConfirmacion
             // 
             this.cancelBtnConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtnConfirmacion.Image = global::Parroquia.Properties.Resources.eliminar_icono_4790_64;
-            this.cancelBtnConfirmacion.Location = new System.Drawing.Point(581, 457);
+            this.cancelBtnConfirmacion.Location = new System.Drawing.Point(608, 451);
             this.cancelBtnConfirmacion.Name = "cancelBtnConfirmacion";
-            this.cancelBtnConfirmacion.Size = new System.Drawing.Size(91, 73);
+            this.cancelBtnConfirmacion.Size = new System.Drawing.Size(65, 65);
             this.cancelBtnConfirmacion.TabIndex = 12;
             this.toolTip1.SetToolTip(this.cancelBtnConfirmacion, ":: CERRAR VENTANA ::");
             this.cancelBtnConfirmacion.UseVisualStyleBackColor = true;
             this.cancelBtnConfirmacion.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // guardaImprimeBtn
-            // 
-            this.guardaImprimeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardaImprimeBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guardaImprimeBtn.Image = global::Parroquia.Properties.Resources.imprimir_icono_3650_64;
-            this.guardaImprimeBtn.Location = new System.Drawing.Point(581, 379);
-            this.guardaImprimeBtn.Name = "guardaImprimeBtn";
-            this.guardaImprimeBtn.Size = new System.Drawing.Size(91, 73);
-            this.guardaImprimeBtn.TabIndex = 11;
-            this.guardaImprimeBtn.UseVisualStyleBackColor = true;
-            this.guardaImprimeBtn.Click += new System.EventHandler(this.guardaImprimeBtn_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Parroquia.Properties.Resources.confirmacion;
-            this.pictureBox1.Location = new System.Drawing.Point(14, 80);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(175, 200);
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
             // 
             // label16
             // 
@@ -455,7 +423,7 @@ namespace Parroquia
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(547, 314);
+            this.label20.Location = new System.Drawing.Point(580, 314);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(12, 15);
             this.label20.TabIndex = 37;
@@ -466,7 +434,7 @@ namespace Parroquia
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(547, 454);
+            this.label21.Location = new System.Drawing.Point(580, 455);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(12, 15);
             this.label21.TabIndex = 38;
@@ -499,7 +467,7 @@ namespace Parroquia
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.Red;
-            this.label24.Location = new System.Drawing.Point(547, 380);
+            this.label24.Location = new System.Drawing.Point(580, 382);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(12, 15);
             this.label24.TabIndex = 41;
@@ -510,7 +478,7 @@ namespace Parroquia
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.Red;
-            this.label25.Location = new System.Drawing.Point(547, 411);
+            this.label25.Location = new System.Drawing.Point(580, 412);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(12, 15);
             this.label25.TabIndex = 42;
@@ -548,12 +516,44 @@ namespace Parroquia
             this.label26.Text = "\"Y tú, después que hayas vuelto, tendrás que fortalecer a tus hermanos. Lc 22, 32" +
     "\"";
             // 
+            // guardaImprimeBtn
+            // 
+            this.guardaImprimeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardaImprimeBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.guardaImprimeBtn.Image = global::Parroquia.Properties.Resources.imprimir_icono_3650_64;
+            this.guardaImprimeBtn.Location = new System.Drawing.Point(608, 382);
+            this.guardaImprimeBtn.Name = "guardaImprimeBtn";
+            this.guardaImprimeBtn.Size = new System.Drawing.Size(65, 65);
+            this.guardaImprimeBtn.TabIndex = 11;
+            this.guardaImprimeBtn.UseVisualStyleBackColor = true;
+            this.guardaImprimeBtn.Click += new System.EventHandler(this.guardaImprimeBtn_Click);
+            // 
+            // guardarConfirBtn
+            // 
+            this.guardarConfirBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardarConfirBtn.Image = global::Parroquia.Properties.Resources.guardar1;
+            this.guardarConfirBtn.Location = new System.Drawing.Point(608, 314);
+            this.guardarConfirBtn.Name = "guardarConfirBtn";
+            this.guardarConfirBtn.Size = new System.Drawing.Size(65, 65);
+            this.guardarConfirBtn.TabIndex = 10;
+            this.guardarConfirBtn.UseVisualStyleBackColor = true;
+            this.guardarConfirBtn.Click += new System.EventHandler(this.guardarConfirBtn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Parroquia.Properties.Resources.confirmacion;
+            this.pictureBox1.Location = new System.Drawing.Point(14, 80);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(175, 200);
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            // 
             // Confirmacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(709, 543);
+            this.ClientSize = new System.Drawing.Size(709, 537);
             this.Controls.Add(this.registronull);
             this.Controls.Add(this.registrobis);
             this.Controls.Add(this.label26);

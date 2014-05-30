@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Parroquia
 {
-    partial class InsertarMatrimonios
+    partial class Matrimonio
     {
         /// <summary>
         /// Required designer variable.
@@ -78,7 +78,7 @@ namespace Parroquia
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(686, 137);
+            this.label21.Location = new System.Drawing.Point(686, 150);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(12, 15);
             this.label21.TabIndex = 76;
@@ -111,7 +111,7 @@ namespace Parroquia
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(687, 192);
+            this.label18.Location = new System.Drawing.Point(687, 204);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(12, 15);
             this.label18.TabIndex = 73;
@@ -122,7 +122,7 @@ namespace Parroquia
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(686, 228);
+            this.label17.Location = new System.Drawing.Point(686, 240);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(12, 15);
             this.label17.TabIndex = 72;
@@ -133,7 +133,7 @@ namespace Parroquia
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(687, 107);
+            this.label16.Location = new System.Drawing.Point(687, 120);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(12, 15);
             this.label16.TabIndex = 71;
@@ -143,7 +143,7 @@ namespace Parroquia
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(203, 228);
+            this.label8.Location = new System.Drawing.Point(203, 242);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(179, 15);
             this.label8.TabIndex = 59;
@@ -153,7 +153,7 @@ namespace Parroquia
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(203, 192);
+            this.label7.Location = new System.Drawing.Point(203, 206);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(170, 15);
             this.label7.TabIndex = 58;
@@ -163,7 +163,7 @@ namespace Parroquia
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(197, 69);
+            this.label5.Location = new System.Drawing.Point(197, 82);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(199, 15);
             this.label5.TabIndex = 53;
@@ -173,28 +173,20 @@ namespace Parroquia
             // 
             this.guardaImprimeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardaImprimeBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guardaImprimeBtn.Location = new System.Drawing.Point(475, 518);
+            this.guardaImprimeBtn.Image = global::Parroquia.Properties.Resources.imprimir_icono_3650_64;
+            this.guardaImprimeBtn.Location = new System.Drawing.Point(475, 509);
             this.guardaImprimeBtn.Name = "guardaImprimeBtn";
-            if (edicion)
-                this.guardaImprimeBtn.Text = "Imprimir registro";
-            else
-                this.guardaImprimeBtn.Text = "Guardar e imprimir";
-
-            this.guardaImprimeBtn.Size = new System.Drawing.Size(103, 52);
+            this.guardaImprimeBtn.Size = new System.Drawing.Size(65, 65);
             this.guardaImprimeBtn.TabIndex = 10;
             this.guardaImprimeBtn.UseVisualStyleBackColor = true;
             // 
             // guardarConfirBtn
             // 
             this.guardarConfirBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardarConfirBtn.Location = new System.Drawing.Point(366, 518);
+            this.guardarConfirBtn.Image = global::Parroquia.Properties.Resources.guardar1;
+            this.guardarConfirBtn.Location = new System.Drawing.Point(366, 509);
             this.guardarConfirBtn.Name = "guardarConfirBtn";
-            if (edicion)
-                this.guardarConfirBtn.Text = "Editar registro";
-            else
-                this.guardarConfirBtn.Text = "Guardar registro";
-
-            this.guardarConfirBtn.Size = new System.Drawing.Size(103, 52);
+            this.guardarConfirBtn.Size = new System.Drawing.Size(65, 65);
             this.guardarConfirBtn.TabIndex = 9;
             this.guardarConfirBtn.UseVisualStyleBackColor = true;
             this.guardarConfirBtn.Click += new System.EventHandler(this.guardarConfirBtn_Click);
@@ -205,8 +197,6 @@ namespace Parroquia
             this.anioCombo.FormattingEnabled = true;
             this.anioCombo.Location = new System.Drawing.Point(592, 16);
             this.anioCombo.Name = "anioCombo";
-            this.anioCombo.Items.AddRange(InsertarMatrimonios.anios);
-            this.anioCombo.Text = DateTime.Now.Year + "";
             this.anioCombo.Size = new System.Drawing.Size(89, 21);
             this.anioCombo.TabIndex = 70;
             // 
@@ -284,7 +274,7 @@ namespace Parroquia
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(34, 281);
+            this.label13.Location = new System.Drawing.Point(34, 287);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(78, 15);
             this.label13.TabIndex = 65;
@@ -294,7 +284,7 @@ namespace Parroquia
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(218, 107);
+            this.label10.Location = new System.Drawing.Point(218, 120);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 15);
             this.label10.TabIndex = 63;
@@ -304,7 +294,7 @@ namespace Parroquia
             // 
             this.novia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.novia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.novia.Location = new System.Drawing.Point(290, 133);
+            this.novia.Location = new System.Drawing.Point(290, 146);
             this.novia.Name = "novia";
             this.novia.Size = new System.Drawing.Size(390, 23);
             this.novia.TabIndex = 2;
@@ -314,7 +304,7 @@ namespace Parroquia
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(218, 137);
+            this.label6.Location = new System.Drawing.Point(218, 150);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 15);
             this.label6.TabIndex = 55;
@@ -325,7 +315,7 @@ namespace Parroquia
             this.fecha_Matrimonio.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fecha_Matrimonio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fecha_Matrimonio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fecha_Matrimonio.Location = new System.Drawing.Point(402, 187);
+            this.fecha_Matrimonio.Location = new System.Drawing.Point(402, 201);
             this.fecha_Matrimonio.Name = "fecha_Matrimonio";
             this.fecha_Matrimonio.Size = new System.Drawing.Size(278, 23);
             this.fecha_Matrimonio.TabIndex = 3;
@@ -334,7 +324,7 @@ namespace Parroquia
             // 
             this.novio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.novio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.novio.Location = new System.Drawing.Point(289, 104);
+            this.novio.Location = new System.Drawing.Point(289, 117);
             this.novio.Name = "novio";
             this.novio.Size = new System.Drawing.Size(391, 23);
             this.novio.TabIndex = 1;
@@ -344,7 +334,7 @@ namespace Parroquia
             // 
             this.lugar_celebracion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lugar_celebracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lugar_celebracion.Location = new System.Drawing.Point(402, 223);
+            this.lugar_celebracion.Location = new System.Drawing.Point(402, 237);
             this.lugar_celebracion.Name = "lugar_celebracion";
             this.lugar_celebracion.Size = new System.Drawing.Size(278, 23);
             this.lugar_celebracion.TabIndex = 4;
@@ -458,11 +448,11 @@ namespace Parroquia
             // cancelBtnConfirmacion
             // 
             this.cancelBtnConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelBtnConfirmacion.Location = new System.Drawing.Point(584, 518);
+            this.cancelBtnConfirmacion.Image = global::Parroquia.Properties.Resources.eliminar_icono_4790_64;
+            this.cancelBtnConfirmacion.Location = new System.Drawing.Point(617, 509);
             this.cancelBtnConfirmacion.Name = "cancelBtnConfirmacion";
-            this.cancelBtnConfirmacion.Size = new System.Drawing.Size(97, 52);
+            this.cancelBtnConfirmacion.Size = new System.Drawing.Size(65, 65);
             this.cancelBtnConfirmacion.TabIndex = 11;
-            this.cancelBtnConfirmacion.Text = "Cancelar";
             this.cancelBtnConfirmacion.UseVisualStyleBackColor = true;
             this.cancelBtnConfirmacion.Click += new System.EventHandler(this.cancelBtnConfirmacion_Click);
             // 
@@ -478,20 +468,20 @@ namespace Parroquia
             // registronull
             // 
             this.registronull.AutoSize = true;
-            this.registronull.Location = new System.Drawing.Point(592, 51);
+            this.registronull.Location = new System.Drawing.Point(592, 58);
             this.registronull.Name = "registronull";
             this.registronull.Size = new System.Drawing.Size(88, 17);
             this.registronull.TabIndex = 82;
             this.registronull.Text = "Registro nulo";
             this.registronull.UseVisualStyleBackColor = true;
             this.registronull.CheckedChanged += new System.EventHandler(this.registronull_CheckedChanged);
-            //
+            // 
             // registrobis
             // 
             this.registrobis.AutoSize = true;
-            this.registrobis.Location = new System.Drawing.Point(450, 51);
-            this.registrobis.Name = "registronull";
-            this.registrobis.Size = new System.Drawing.Size(88, 17);
+            this.registrobis.Location = new System.Drawing.Point(450, 58);
+            this.registrobis.Name = "registrobis";
+            this.registrobis.Size = new System.Drawing.Size(81, 17);
             this.registrobis.TabIndex = 50;
             this.registrobis.Text = "Registro bis";
             this.registrobis.UseVisualStyleBackColor = true;
@@ -504,9 +494,11 @@ namespace Parroquia
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(311, 61);
             this.label23.TabIndex = 81;
-            this.label23.Text = "\"El hombre dejará a su padre y a su madre y se unirá a su mujer, y los dos serán una sola carne. Así que ya no son dos sino una sola carne. Lo que Dios ha unido, ningún hombre lo separe. Mt 19, 4-6\"";
+            this.label23.Text = "\"El hombre dejará a su padre y a su madre y se unirá a su mujer, y los dos serán " +
+    "una sola carne. Así que ya no son dos sino una sola carne. Lo que Dios ha unido," +
+    " ningún hombre lo separe. Mt 19, 4-6\"";
             // 
-            // InsertarMatrimonios
+            // Matrimonio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -552,11 +544,7 @@ namespace Parroquia
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "InsertarMatrimonios";
-            if (edicion)
-                this.Text = ":: ACTUALIZAR REGISTRO DE MATRIMONIO ::";
-            else
-                this.Text = ":: INSERTAR REGISTRO DE MATRIMONIO ::";
+            this.Name = "Matrimonio";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.InsertarMatrimonios_Load);
