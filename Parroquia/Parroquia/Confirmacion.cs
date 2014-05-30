@@ -253,6 +253,7 @@ namespace Parroquia
 
                     if (guardarRegistro())
                     {
+
                         if (!registrobis.Checked)
                             Partida++;
                         else
@@ -377,7 +378,11 @@ namespace Parroquia
             else
             {
                 //IMPRIME
-                //Imprimir a = new Imprimir();
+                formatosImpresion fi = new formatosImpresion(libro.Text, num_hoja.Text,
+                             num_partida.Text, nombre.Text, padre.Text, madre.Text, lugarbau.Text,
+                             fecbau.Value.ToString("yyyy-MMMM-dd"), fecconf.Value.ToString("yyyy-MMMM-dd"),
+                             ministro.Text, madrina.Text, padrino.Text,"",2);
+                fi.ShowDialog();
 
             }
         }
