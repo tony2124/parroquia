@@ -83,6 +83,12 @@
       <DependentUpon>acercade.cs</DependentUpon>
     </Compile>
     <Compile Include="ConexionBD.cs" />
+    <Compile Include="formatosImpresion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formatosImpresion.Designer.cs">
+      <DependentUpon>formatosImpresion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Imprimir.cs" />
     <Compile Include="Informacion.cs">
       <SubType>Form</SubType>
@@ -148,6 +154,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="acercade.resx">
       <DependentUpon>acercade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formatosImpresion.resx">
+      <DependentUpon>formatosImpresion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Informacion.resx">
       <DependentUpon>Informacion.cs</DependentUpon>

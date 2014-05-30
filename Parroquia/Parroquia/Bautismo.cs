@@ -24,7 +24,6 @@ namespace Parroquia
         private int ID_REGISTRO;
         private Boolean edicion;
         private Boolean btn = false;
-        public  String nLibro;
 
         MySqlDataReader Datos;
         ConexionBD Bdatos = new ConexionBD();
@@ -89,7 +88,6 @@ namespace Parroquia
         /* CONSTRUCTOR PARA LA VENTANA DE EDICION */
         public Bautismo(int id_registro,  String NOMMBRE_LIBRO)
         {
-            nLibro = NOMMBRE_LIBRO;
             edicion = true;
             ID_REGISTRO = id_registro;
             calculoAnios();
@@ -350,11 +348,19 @@ namespace Parroquia
                         
                          //IMPRIME
 
-                        Imprimir a = new Imprimir(libro.Text, num_hoja.Text,
+                       /* Imprimir a = new Imprimir(libro.Text, num_hoja.Text,
                             num_partida.Text, nombre.Text, padre.Text, madre.Text, 
                             lugarnac.Text,fechanac.Value.ToString("yyyy-MMMM-dd"), 
                             fechabautismo.Value.ToString("yyyy-MMMM-dd"),
-                            presbitero.Text,madrina.Text, padrino.Text, anotacion.Text);
+                            presbitero.Text,madrina.Text, padrino.Text, anotacion.Text);*/
+
+                        formatosImpresion fi = new formatosImpresion(libro.Text, num_hoja.Text,
+                            num_partida.Text, nombre.Text, padre.Text, madre.Text,
+                            lugarnac.Text, fechanac.Value.ToString("yyyy-MMMM-dd"),
+                            fechabautismo.Value.ToString("yyyy-MMMM-dd"),
+                            presbitero.Text, madrina.Text, padrino.Text, anotacion.Text,1);
+                        fi.ShowDialog();
+
 
                         if (!registrobis.Checked)
                             Partida++;
@@ -379,11 +385,18 @@ namespace Parroquia
             else
             {
                 //IMPRIME
-                Imprimir a = new Imprimir(libro.Text, num_hoja.Text,
+               /* Imprimir a = new Imprimir(libro.Text, num_hoja.Text,
                                num_partida.Text, nombre.Text, padre.Text, madre.Text,
                                lugarnac.Text, fechanac.Value.ToString("yyyy-MMMM-dd"),
                                fechabautismo.Value.ToString("yyyy-MMMM-dd"),
-                               presbitero.Text, madrina.Text, padrino.Text, anotacion.Text);
+                               presbitero.Text, madrina.Text, padrino.Text, anotacion.Text);*/
+
+                formatosImpresion fi = new formatosImpresion(libro.Text, num_hoja.Text,
+                            num_partida.Text, nombre.Text, padre.Text, madre.Text,
+                            lugarnac.Text, fechanac.Value.ToString("yyyy-MMMM-dd"),
+                            fechabautismo.Value.ToString("yyyy-MMMM-dd"),
+                            presbitero.Text, madrina.Text, padrino.Text, anotacion.Text,1);
+                fi.ShowDialog();
             }
             
         }
