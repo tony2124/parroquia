@@ -45,16 +45,16 @@ namespace Parroquia
                 //Evaluacion para que los nombres no sean iguales
                 int iguales = 0;
                 MySqlDataReader Datos = BDatos.obtenerBasesDatosMySQL("select nombre_libro from libros where id_categoria='" + CATEGORIA + "'");
-                if (nombreLibro.Text.ToString().Substring(0, 1).CompareTo(" ") == 0)
-                    nombreLibro.Text = nombreLibro.Text.ToString().Substring(1, (nombreLibro.Text.ToString().Length - 1));
+                if (nombreLibro.Text.Substring(0, 1).CompareTo(" ") == 0)
+                    nombreLibro.Text = nombreLibro.Text.Substring(1, (nombreLibro.Text.Length - 1));
 
-                if (nombreLibro.Text.ToString().Substring((nombreLibro.Text.ToString().Length - 1), 1).CompareTo(" ") == 0)
-                    nombreLibro.Text = nombreLibro.Text.ToString().Substring(0, (nombreLibro.Text.ToString().Length - 1));
+                if (nombreLibro.Text.Substring((nombreLibro.Text.Length - 1), 1).CompareTo(" ") == 0)
+                    nombreLibro.Text = nombreLibro.Text.Substring(0, (nombreLibro.Text.Length - 1));
 
                 if (Datos.HasRows)
                     while (Datos.Read())
                     {
-                        if (Datos.GetString(0).CompareTo(nombreLibro.Text.ToString()) == 0)
+                        if (Datos.GetString(0).CompareTo(nombreLibro.Text) == 0)
                         {
                             iguales++;
 
@@ -70,7 +70,7 @@ namespace Parroquia
                 else
                 {
 
-                    if (BDatos.Insertar("insert into libros (id_categoria, nombre_libro) values(" + CATEGORIA + ",'" + nombreLibro.Text.ToString() + "');") > 0)
+                    if (BDatos.peticion("insert into libros (id_categoria, nombre_libro) values(" + CATEGORIA + ",'" + nombreLibro.Text.ToString() + "');") > 0)
                     {
                         MessageBox.Show("Se ha agregado un libro nuevo"
                             , " Acción ejecutada con exito ",

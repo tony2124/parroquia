@@ -25,14 +25,32 @@ namespace Parroquia
             lugarNacimiento, fechaNacimiento, fechaBautismo, presbitero, 
             madrina, padrino, anotacion, lugarBautismo, fechaConfirmacion;
 
-        public int CATEGORIA;
+        public int CATEGORIA, FORMATO;
 
         public void leerArchivoBautismo()
         {
-            if(CATEGORIA == 1)
-                newImage = Image.FromFile("C:\\DOCSParroquia\\Bautismo.jpg");
+            if(CATEGORIA == 1){
+                if (FORMATO == 0)
+                    newImage = Image.FromFile("C:\\DOCSParroquia\\Bautismo.jpg");
+                else if (FORMATO == 1)
+                    newImage = Image.FromFile("C:\\DOCSParroquia\\BautismoFormatoOriginal1.jpg");
+                else if(FORMATO == 2)
+                    newImage = Image.FromFile("C:\\DOCSParroquia\\BautismoFormatoOriginal2.jpg");
+            }
             else if (CATEGORIA == 2)
-                newImage = Image.FromFile("C:\\DOCSParroquia\\Confirmacion.jpg");
+            {
+                if (FORMATO == 0)
+                    newImage = Image.FromFile("C:\\DOCSParroquia\\Confirmacion.jpg");
+                if (FORMATO == 1)
+                {
+
+                }
+                else if (FORMATO == 2)
+                {
+                }
+                
+            }
+                
 
 
 
@@ -62,13 +80,15 @@ namespace Parroquia
 
         public Imprimir(String a, String b, String c, String d, 
             String e, String f, String g, String h,
-            String i, String j, String k, String l, String m, int categoria)
+            String i, String j, String k, String l, String m, int categoria,
+            int formato)
         {
             //Asignacion de variables
             libro = a;
             foja = b;
             partida = c;
             CATEGORIA = categoria;
+            FORMATO = formato;
 
             if (categoria == 1 || categoria == 2)
             {
@@ -118,13 +138,29 @@ namespace Parroquia
             pd.PrinterSettings = pDialog.PrinterSettings;
             pd.PrinterSettings.Copies = pDialog.PrinterSettings.Copies;
 
-            if(CATEGORIA==1)
-                pd.PrintPage += new PrintPageEventHandler
-                    (this.imprimirBautismoCopia);
-            else if(CATEGORIA==2)
-                pd.PrintPage += new PrintPageEventHandler
-                   (this.imprimirConfirmacionCopia);
+            if(CATEGORIA == 1){
+               if(FORMATO == 0)
+                    pd.PrintPage += new PrintPageEventHandler
+                        (this.imprimirBautismoCopia);
+               else if (FORMATO == 1)
+                   pd.PrintPage += new PrintPageEventHandler
+                        (this.imprimirBautismoFormato1);
+                else if(FORMATO == 2)
+                   pd.PrintPage += new PrintPageEventHandler
+                        (this.imprimirBautismoFormato2);
+            }
+            else if (CATEGORIA == 2)
+            {
+                if (FORMATO == 0)
+                {
+                    pd.PrintPage += new PrintPageEventHandler
+                       (this.imprimirConfirmacionCopia);
+                }
+                else if (FORMATO == 1)
+                {
 
+                }
+            }
             ppD.Document = pd;
             ppD.ShowDialog();
             ppD.BringToFront();
@@ -132,6 +168,202 @@ namespace Parroquia
             //pd.Print();
         }
 
+        //METODO PARA IMPRIMIR FORMATO ORIGINAL HORIZONTAL EN BAUTISMOS
+        private void imprimirBautismoFormato2(object sender, PrintPageEventArgs ev)
+        {
+            imprimeImagen(ev);
+
+            //IMPRIME NOMBRE
+            ev.Graphics.DrawString(nombre,
+               new Font("Times New Roman", 11, FontStyle.Bold),
+                       Brushes.Black, 210, 140);
+
+            //LUGAR BAUTISMO
+            ev.Graphics.DrawString("ANTÚNEZ, MICHOACÁN",
+               new Font("Times New Roman", 11, FontStyle.Bold),
+                       Brushes.Black, 210, 201);
+
+            //IMPRIME FECHA DE BAUTISMO
+            //separo la fecha de bautismo
+            String []fecha = fechaBautismo.Split('-');
+            fecha[1] = fecha[1].ToUpper();
+            fecha[0] = fecha[0].Substring(2);
+            //imprimo el dia
+            ev.Graphics.DrawString(fecha[2],
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 310, 260);
+
+            //imprimo el mes
+            ev.Graphics.DrawString(fecha[1],
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 400, 260);
+
+            //imprimo el año
+            ev.Graphics.DrawString(fecha[0],
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 610, 260);
+
+            //IMPRIME LUGAR DE NACIMIENTO
+            ev.Graphics.DrawString(lugarNacimiento,
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 140, 293);
+
+            //IMPRIME FECHA DE NACIMIENTO
+            //separo la fecha de nacimiento
+            fecha = fechaNacimiento.Split('-');
+            fecha[1] = fecha[1].ToUpper();
+            fecha[0] = fecha[0].Substring(2);
+            //imprimo el dia
+            ev.Graphics.DrawString(fecha[2],
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 310, 324);
+
+            //imprimo el mes
+            ev.Graphics.DrawString(fecha[1],
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 400, 324);
+
+            //imprimo el año
+            ev.Graphics.DrawString(fecha[0],
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 610, 324);
+
+            //IMPRIME PADRES
+            ev.Graphics.DrawString(padre + " Y " + madre,
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 130, 357);
+
+            //IMPRIME PADRINOS
+            ev.Graphics.DrawString(padrino + " Y " + madrina,
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 145, 390);
+
+            //IMPRIME LIBRO
+            ev.Graphics.DrawString(libro,
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 110, 420);
+
+            //IMPRIME FOJA   
+            ev.Graphics.DrawString(foja,
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 120, 451);
+
+            //IMPRIME PARTIDA
+            ev.Graphics.DrawString(partida,
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 150, 484);
+
+            float tamaño_total;
+            /**/
+            tamaño_total = 880 - ev.Graphics.MeasureString(presbitero, new Font("Times New Roman", 11, FontStyle.Bold)).Width;
+            /**/
+            float mitad = tamaño_total / 2;
+
+            //IMPRIME PRESBITERO 500
+            ev.Graphics.DrawString(presbitero,
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, mitad+130, 463);
+
+        }
+
+        //METODO PARA IMPRIMIR FORMATO ORIGINAL VERTICAL EN BAUTISMOS
+        private void imprimirBautismoFormato1(object sender, PrintPageEventArgs ev)
+        {
+            imprimeImagen(ev);
+
+            //IMPRIME NOMBRE
+            ev.Graphics.DrawString(nombre,
+               new Font("Times New Roman", 9, FontStyle.Bold),
+                       Brushes.Black, 50, 127);
+
+            //IMPRIME PADRES
+            ev.Graphics.DrawString(padre + " Y \n \n" + madre,
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 120, 327);
+
+            //IMPRIME PADRINOS
+            ev.Graphics.DrawString(padrino + " Y \n\n" + madrina,
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 70, 415);
+
+            //IMPRIME LUGAR DE NACIMIENTO
+            ev.Graphics.DrawString(lugarNacimiento,
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 220, 487);
+
+            //IMPRIME FECHA DE NACIMIENTO
+
+            //separo la fecha de nacimiento
+            String[] fecha = fechaNacimiento.Split('-');
+            fecha[1] = fecha[1].ToUpper();
+
+            //Imprimo el dia 
+            ev.Graphics.DrawString(fecha[2],
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 115, 514);
+
+            //Imprimo el mes
+            ev.Graphics.DrawString(fecha[1],
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 205, 514);
+
+            //Imprimo el año
+            ev.Graphics.DrawString(fecha[0],
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 505, 514);
+
+            //IMPRIME LUGAR DE BAUTISMO
+            ev.Graphics.DrawString("ANTÚNEZ, MICHOACÁN",
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 200, 587);
+
+            //IMPRIME FECHA DE BAUTISMO
+            //separo la fecha de bautismo
+            fecha = fechaBautismo.Split('-');
+            fecha[1] = fecha[1].ToUpper();
+
+            //imprimo el dia
+            ev.Graphics.DrawString(fecha[2],
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 115, 615);
+
+            //imprimo el mes
+            ev.Graphics.DrawString(fecha[1],
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 205, 615);
+
+            //imprimo el año
+            ev.Graphics.DrawString(fecha[0],
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 505, 615);
+
+            //IMPRIME PRESBITERO
+            ev.Graphics.DrawString(presbitero,
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 190, 645);
+
+            //IMPRIME ANOTACION
+            ev.Graphics.DrawString(anotacion,
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 190, 689);
+
+            //IMPRIME LIBRO
+            ev.Graphics.DrawString(libro,
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 100, 720);
+
+            //IMPRIME FOJA   
+            ev.Graphics.DrawString(foja,
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 113, 748);
+
+            //IMPRIME PARTIDA
+            ev.Graphics.DrawString(partida,
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 120, 777);
+        }
+
+        //METODO PARA IMPRIMIR COPIA DE CONFIRMACION
         public void imprimirConfirmacionCopia(object sender, PrintPageEventArgs ev)
         {
             imprimeImagen(ev);
@@ -189,6 +421,7 @@ namespace Parroquia
 
         }
 
+        //METODO PARA IMPRIMIR COPIA DE BAUTISMO
         public void imprimirBautismoCopia(object sender, PrintPageEventArgs ev)
         {
 
@@ -214,7 +447,7 @@ namespace Parroquia
                  new Font("Times New Roman", 9, FontStyle.Bold),
                          Brushes.Black, 310, 298);
 
-            //IMPRIME PAPA 478
+            //IMPRIME PAPA 
             ev.Graphics.DrawString(padre,
                 new Font("Times New Roman", 9, FontStyle.Bold),
                         Brushes.Black, 190, 405);
@@ -344,7 +577,6 @@ namespace Parroquia
             
         }
 
-       
 
     }
 }

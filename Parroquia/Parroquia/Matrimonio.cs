@@ -212,9 +212,9 @@ namespace Parroquia
             
             Bdatos.conexion();
             
-            if (Bdatos.Insertar("insert into matrimonios(id_libro,num_hoja,num_partida,novio,novia,fecha_matrimonio,lugar_celebracion,testigo1,testigo2,asistente,nota_marginal,anio,bis)" +
-                " values('" + int.Parse(ID_LIBRO) +
-                "','" + int.Parse(num_hoja.Text.ToString()) +
+            if (Bdatos.peticion("insert into matrimonios(id_libro,num_hoja,num_partida,novio,novia,fecha_matrimonio,lugar_celebracion,testigo1,testigo2,asistente,nota_marginal,anio,bis)" +
+                " values('" + ID_LIBRO +
+                "','" + num_hoja.Text +
                 "','" + num_partida.Text +
                 "','" + novio.Text +
                 "','" + novia.Text +
@@ -242,11 +242,11 @@ namespace Parroquia
         {
             Bdatos.conexion();
             //Se hace la actualizacion en la base de datos
-            if (Bdatos.Actualizar("UPDATE matrimonios SET novio='" + novio.Text.ToString() +
-                    "',novia='" + novia.Text.ToString() + "',fecha_matrimonio='" + fecha_Matrimonio.Value.ToString("yyyy-MM-dd") +
-                    "',lugar_celebracion='" + lugar_celebracion.Text.ToString() + "',testigo1='" + testigo1.Text.ToString() +
-                    "',testigo2='" + testigo2.Text.ToString() + "',asistente='" + asistente.Text.ToString() +
-                    "',nota_marginal='" + notas_marginales.Text.ToString() + "',anio='" + anio.Text.ToString() +
+            if (Bdatos.peticion("UPDATE matrimonios SET novio='" + novio.Text +
+                    "',novia='" + novia.Text + "',fecha_matrimonio='" + fecha_Matrimonio.Value.ToString("yyyy-MM-dd") +
+                    "',lugar_celebracion='" + lugar_celebracion.Text + "',testigo1='" + testigo1.Text +
+                    "',testigo2='" + testigo2.Text + "',asistente='" + asistente.Text +
+                    "',nota_marginal='" + notas_marginales.Text + "',anio='" + anio.Text +
                     "' where id_matrimonio= '" + ID_REGISTRO + "';") > 0)
             {
                 //Establecemos los componentes sin edicion

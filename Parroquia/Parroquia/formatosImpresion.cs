@@ -106,7 +106,7 @@ namespace Parroquia
                 Imprimir a = new Imprimir(LIBRO, HOJA, PARTIDA, NOMBRE,
                 PADRE, MADRE, NACIMIENTO_LUGAR, FECHA_NACIMIENTO,
                 FECHA_BAUTISMO, PRESBITERO, MADRINA, PADRINO, ANOTACION, 
-                CATEGORIA);
+                CATEGORIA,0);
                 Dispose();
             }
             else if (CATEGORIA == 2)
@@ -114,7 +114,7 @@ namespace Parroquia
                 Imprimir a = new Imprimir(LIBRO, HOJA, PARTIDA, NOMBRE,
                 PADRE, MADRE, LUGAR_BAUTISMO, FECHA_BAUTISMO, 
                 FECHA_CONFIRMACION, PRESBITERO, MADRINA, PADRINO,"",
-                CATEGORIA);
+                CATEGORIA,0);
                 Dispose();
             }
             else if (CATEGORIA == 3)
@@ -132,12 +132,62 @@ namespace Parroquia
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (CATEGORIA == 1)
+            {
+                Imprimir a = new Imprimir(LIBRO, HOJA, PARTIDA, NOMBRE,
+                PADRE, MADRE, NACIMIENTO_LUGAR, FECHA_NACIMIENTO,
+                FECHA_BAUTISMO, PRESBITERO, MADRINA, PADRINO, ANOTACION,
+                CATEGORIA, 1);
+                Dispose();
+            }
+            else if (CATEGORIA == 2)
+            {
+                Imprimir a = new Imprimir(LIBRO, HOJA, PARTIDA, NOMBRE,
+                PADRE, MADRE, LUGAR_BAUTISMO, FECHA_BAUTISMO,
+                FECHA_CONFIRMACION, PRESBITERO, MADRINA, PADRINO, "",
+                CATEGORIA, 1);
+                Dispose();
+            }
+            else if (CATEGORIA == 3)
+            {
 
+                Dispose();
+            }
+            else if (CATEGORIA == 4)
+            {
+
+                Dispose();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (CATEGORIA == 1)
+            {
+                Imprimir a = new Imprimir(LIBRO, HOJA, PARTIDA, NOMBRE,
+                PADRE, MADRE, NACIMIENTO_LUGAR, FECHA_NACIMIENTO,
+                FECHA_BAUTISMO, PRESBITERO, MADRINA, PADRINO, ANOTACION,
+                CATEGORIA, 2);
+                Dispose();
+            }
+            else if (CATEGORIA == 2)
+            {
+                Imprimir a = new Imprimir(LIBRO, HOJA, PARTIDA, NOMBRE,
+                PADRE, MADRE, LUGAR_BAUTISMO, FECHA_BAUTISMO,
+                FECHA_CONFIRMACION, PRESBITERO, MADRINA, PADRINO, "",
+                CATEGORIA, 2);
+                Dispose();
+            }
+            else if (CATEGORIA == 3)
+            {
 
+                Dispose();
+            }
+            else if (CATEGORIA == 4)
+            {
+
+                Dispose();
+            }
         }
     }
 }

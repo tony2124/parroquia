@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.nombre_parroquia = new System.Windows.Forms.TextBox();
             this.nombre_parroco = new System.Windows.Forms.TextBox();
             this.ubicacion_parroquia = new System.Windows.Forms.TextBox();
@@ -37,41 +36,31 @@
             this.label3 = new System.Windows.Forms.Label();
             this.guardar = new System.Windows.Forms.Button();
             this.cancelar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Parroquia.Properties.Resources.parroq;
-            this.pictureBox1.Location = new System.Drawing.Point(2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(574, 432);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // nombre_parroquia
             // 
-            this.nombre_parroquia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombre_parroquia.Location = new System.Drawing.Point(11, 25);
+            this.nombre_parroquia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombre_parroquia.Location = new System.Drawing.Point(11, 27);
             this.nombre_parroquia.Name = "nombre_parroquia";
-            this.nombre_parroquia.Size = new System.Drawing.Size(270, 21);
-            this.nombre_parroquia.TabIndex = 1;
+            this.nombre_parroquia.Size = new System.Drawing.Size(270, 24);
+            this.nombre_parroquia.TabIndex = 3;
             // 
             // nombre_parroco
             // 
-            this.nombre_parroco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombre_parroco.Location = new System.Drawing.Point(11, 76);
+            this.nombre_parroco.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombre_parroco.Location = new System.Drawing.Point(11, 78);
             this.nombre_parroco.Name = "nombre_parroco";
-            this.nombre_parroco.Size = new System.Drawing.Size(270, 21);
-            this.nombre_parroco.TabIndex = 2;
+            this.nombre_parroco.Size = new System.Drawing.Size(270, 24);
+            this.nombre_parroco.TabIndex = 4;
             // 
             // ubicacion_parroquia
             // 
-            this.ubicacion_parroquia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ubicacion_parroquia.Location = new System.Drawing.Point(11, 128);
+            this.ubicacion_parroquia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ubicacion_parroquia.Location = new System.Drawing.Point(11, 130);
             this.ubicacion_parroquia.Name = "ubicacion_parroquia";
-            this.ubicacion_parroquia.Size = new System.Drawing.Size(270, 21);
-            this.ubicacion_parroquia.TabIndex = 3;
+            this.ubicacion_parroquia.Size = new System.Drawing.Size(270, 24);
+            this.ubicacion_parroquia.TabIndex = 5;
             // 
             // label1
             // 
@@ -105,21 +94,24 @@
             // 
             // guardar
             // 
+            this.guardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guardar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.guardar.Location = new System.Drawing.Point(402, 371);
             this.guardar.Name = "guardar";
             this.guardar.Size = new System.Drawing.Size(75, 44);
-            this.guardar.TabIndex = 7;
+            this.guardar.TabIndex = 1;
             this.guardar.Text = "GUARDAR";
             this.guardar.UseVisualStyleBackColor = true;
+            this.guardar.Click += new System.EventHandler(this.guardar_Click);
             // 
             // cancelar
             // 
+            this.cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelar.Location = new System.Drawing.Point(483, 371);
             this.cancelar.Name = "cancelar";
             this.cancelar.Size = new System.Drawing.Size(75, 44);
-            this.cancelar.TabIndex = 8;
+            this.cancelar.TabIndex = 2;
             this.cancelar.Text = "CERRAR";
             this.cancelar.UseVisualStyleBackColor = true;
             this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
@@ -128,6 +120,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Parroquia.Properties.Resources.parroq;
             this.CancelButton = this.cancelar;
             this.ClientSize = new System.Drawing.Size(570, 427);
             this.Controls.Add(this.cancelar);
@@ -138,7 +131,6 @@
             this.Controls.Add(this.ubicacion_parroquia);
             this.Controls.Add(this.nombre_parroco);
             this.Controls.Add(this.nombre_parroquia);
-            this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Informacion";
@@ -146,7 +138,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "INFORMACIÓN";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,7 +145,6 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox nombre_parroquia;
         private System.Windows.Forms.TextBox nombre_parroco;
         private System.Windows.Forms.TextBox ubicacion_parroquia;

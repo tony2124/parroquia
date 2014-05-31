@@ -102,7 +102,7 @@ namespace Parroquia
                 else
                 if (int.Parse(tablaBusqueda["id_categoria", e.RowIndex].Value + "") == 3)
                 {
-                    InsertarPrimerComunion ipc = new InsertarPrimerComunion(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
+                    PrimerComunion ipc = new PrimerComunion(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
                     ipc.ShowDialog();
                 }
                 else
