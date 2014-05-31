@@ -256,8 +256,6 @@ namespace Parroquia
                 Bdatos.Desconectar();
                 return true;
             }
-            else
-                MessageBox.Show("Error al actualizar datos en MySQL ", " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Bdatos.Desconectar();
             return false;
         }
@@ -272,21 +270,15 @@ namespace Parroquia
         {
             if (!edicion) //SI NO ESTA PUESTO EDICION SE GUARDA NORMALMENTE
             {
-                try
+                if (!registronull.Checked)
                 {
-                    if (!registronull.Checked)
-                    {
-                        if (camposVacios())
-                            return;
-                    }
+                    if (camposVacios())
+                        return;
+                }
 
-                    if (guardarRegistro())
-                        calculaPartida();
-                }
-                catch (Exception y)
-                {
-                    MessageBox.Show("Error al ingresar datos en MySQL: " + y.Message, " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
-                }
+                if (guardarRegistro())
+                    calculaPartida();
+
             }
             else //SI LA EDICION ESTA PUESTA
             {
@@ -315,29 +307,20 @@ namespace Parroquia
         {
             if (!edicion)
             {
-                try
+               
+                if (!registronull.Checked)
                 {
-                    Bdatos.conexion();
-
-                    if (!registronull.Checked)
-                    {
-                        if (camposVacios())
-                            return;
-                    }
-
-                    if (guardarRegistro())
-                    {
-                        //IMPRIME
-
-                        // Imprimir a = new Imprimir();
-
-                        calculaPartida();
-                    }
-                    Bdatos.Desconectar();
+                    if (camposVacios())
+                        return;
                 }
-                catch (Exception y)
+
+                if (guardarRegistro())
                 {
-                    MessageBox.Show("Error al ingresar datos en MySQL: " + y.Message, " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //IMPRIME
+
+                    // Imprimir a = new Imprimir();
+
+                    calculaPartida();
                 }
             }
             else

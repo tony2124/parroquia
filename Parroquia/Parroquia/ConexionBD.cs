@@ -27,7 +27,7 @@ namespace conexionbd
         {
             host = "localhost";
             usuario = "root";
-            contrasena = "simpus2124";
+            contrasena = "SIMPUS2124";
             basedatos = "parroquiaantunez";
         }
 
@@ -41,7 +41,8 @@ namespace conexionbd
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error al conectar al servidor de MySQL: " + ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al conectar al servidor de MySQL: \nDETALLES DEL ERROR: " + ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new DatosConexionDB().ShowDialog() ;
             }
         }
 
@@ -56,9 +57,7 @@ namespace conexionbd
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error al obtener bases de datos de MySQL: " +
-                    ex.Message, "Error al obtener catálogos",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al obtener bases de datos de MySQL: \nDETALLES DEL ERROR: " + ex.Message, "Error al obtener catálogos",  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return registrosObtenidosMySQL;
         }
@@ -74,7 +73,7 @@ namespace conexionbd
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error al ingresar datos en MySQL: " + ex.Message, " Error al ingresar ",            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al ingresar datos en MySQL: \nDETALLES DEL ERROR: " + ex.Message, " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return resultado;
         }

@@ -88,13 +88,7 @@ namespace Parroquia
             edicion = true;
             ID_REGISTRO = id_registro;
 
-            anios = new String[(DateTime.Now.Year - 1970) + 1];
-            int u = 0;
-            for (int i = 1970; i <= DateTime.Now.Year; i++)
-            {
-                anios[u] = i+"";
-                u++;
-            }
+            calculoAnios();
 
             InitializeComponent();
             habilitarCampos(false);
@@ -205,12 +199,12 @@ namespace Parroquia
          /*INSERTAR REGISTRO EN LA BD */
         private Boolean guardarRegistro()
         {
+            Bdatos.conexion();
+
             //Se guardan todos los campos en la base de datos
             String bis = "0", partida = num_partida.Text;
             if (registrobis.Checked)
                 bis = "1";
-            
-            Bdatos.conexion();
             
             if (Bdatos.peticion("insert into matrimonios(id_libro,num_hoja,num_partida,novio,novia,fecha_matrimonio,lugar_celebracion,testigo1,testigo2,asistente,nota_marginal,anio,bis)" +
                 " values('" + ID_LIBRO +
@@ -231,8 +225,7 @@ namespace Parroquia
                 Bdatos.Desconectar();
                 return true;
             }
-            else MessageBox.Show("Error al ingresar datos ", " Error al ingresar ",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
             Bdatos.Desconectar();
             return false;
         }
@@ -261,8 +254,6 @@ namespace Parroquia
                 Bdatos.Desconectar();
                 return true;
             }
-            else
-                MessageBox.Show("Error al actualizar datos en MySQL ", " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Bdatos.Desconectar();
             return false;
         }
@@ -271,21 +262,13 @@ namespace Parroquia
         {
             if (!edicion) //SI NO ESTA PUESTO EDICION SE GUARDA NORMALMENTE
             {
-                try
-                {
-                    if (!registronull.Checked)
-                    {
-                        if (camposVacios())
-                            return;
-                    }
-
-                    if (guardarRegistro())
-                        calculaPartida();
-                }
-                catch (Exception y)
-                {
-                    MessageBox.Show("Error al ingresar datos en MySQL: " + y.Message, " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
-                }
+                if (!registronull.Checked)
+                    if (camposVacios())
+                        return;
+                
+                if (guardarRegistro())
+                    calculaPartida();
+                
             }
             else //SI LA EDICION ESTA PUESTA
             {
@@ -388,35 +371,26 @@ namespace Parroquia
         private void guardaImprimeBtn_Click(object sender, EventArgs e)
         {
             if (!edicion)
-            {
-                try
+            {   
+                if (!registronull.Checked)
                 {
-                    if (!registronull.Checked)
-                    {
-                        if (camposVacios())
-                            return;
-                    }
-
-                    if (guardarRegistro())
-                    {
-
-                        //IMPRIME
-
-                        /* Imprimir a = new Imprimir(libro.Text, num_hoja.Text,
-                             num_partida.Text, nombre.Text, padre.Text, madre.Text, 
-                             lugarnac.Text,fechanac.Value.ToString("yyyy-MMMM-dd"), 
-                             fechabautismo.Value.ToString("yyyy-MMMM-dd"),
-                             presbitero.Text,madrina.Text, padrino.Text, anotacion.Text);*/
-
-                        calculaPartida();
-                    }
-
-                }
-                catch (Exception y)
-                {
-                    MessageBox.Show("Error al ingresar datos en MySQL: " + y.Message, " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (camposVacios())
+                        return;
                 }
 
+                if (guardarRegistro())
+                {
+
+                    //IMPRIME
+
+                    /* Imprimir a = new Imprimir(libro.Text, num_hoja.Text,
+                            num_partida.Text, nombre.Text, padre.Text, madre.Text, 
+                            lugarnac.Text,fechanac.Value.ToString("yyyy-MMMM-dd"), 
+                            fechabautismo.Value.ToString("yyyy-MMMM-dd"),
+                            presbitero.Text,madrina.Text, padrino.Text, anotacion.Text);*/
+
+                    calculaPartida();
+                }
             }
             else
             {
