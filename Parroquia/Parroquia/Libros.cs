@@ -110,7 +110,7 @@ namespace Parroquia
             if (CATEGORIA == 4)
             {
                 Button b = (Button)sender;
-                InsertarMatrimonios im = new InsertarMatrimonios(b.Name.ToString());
+                Matrimonio im = new Matrimonio(b.Name.ToString());
                 im.ShowDialog();
 
             }

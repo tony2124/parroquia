@@ -25,7 +25,7 @@ namespace conexionbd
 
         public ConexionBD()
         {
-            host = "192.168.0.102";
+            host = "localhost";
             usuario = "root";
             contrasena = "simpus2124";
             basedatos = "parroquiaantunez";

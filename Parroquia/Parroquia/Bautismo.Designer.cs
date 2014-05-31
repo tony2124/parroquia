@@ -295,7 +295,7 @@ namespace Parroquia
             this.madrina.Location = new System.Drawing.Point(157, 385);
             this.madrina.MaxLength = 100;
             this.madrina.Name = "madrina";
-            this.madrina.Size = new System.Drawing.Size(392, 23);
+            this.madrina.Size = new System.Drawing.Size(428, 23);
             this.madrina.TabIndex = 9;
             this.madrina.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.madrina_KeyPress);
             // 
@@ -316,7 +316,7 @@ namespace Parroquia
             this.padrino.Location = new System.Drawing.Point(156, 356);
             this.padrino.MaxLength = 100;
             this.padrino.Name = "padrino";
-            this.padrino.Size = new System.Drawing.Size(393, 23);
+            this.padrino.Size = new System.Drawing.Size(429, 23);
             this.padrino.TabIndex = 8;
             this.padrino.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.padrino_KeyPress);
             // 
@@ -347,7 +347,7 @@ namespace Parroquia
             this.presbitero.Location = new System.Drawing.Point(221, 425);
             this.presbitero.MaxLength = 100;
             this.presbitero.Name = "presbitero";
-            this.presbitero.Size = new System.Drawing.Size(328, 23);
+            this.presbitero.Size = new System.Drawing.Size(364, 23);
             this.presbitero.TabIndex = 10;
             this.presbitero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.presbitero_KeyPress);
             // 
@@ -376,14 +376,14 @@ namespace Parroquia
             this.anotacion.Location = new System.Drawing.Point(221, 461);
             this.anotacion.Multiline = true;
             this.anotacion.Name = "anotacion";
-            this.anotacion.Size = new System.Drawing.Size(328, 96);
+            this.anotacion.Size = new System.Drawing.Size(364, 77);
             this.anotacion.TabIndex = 11;
             this.anotacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.anotacion_KeyPress);
             // 
             // label17
             // 
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(26, 577);
+            this.label17.Location = new System.Drawing.Point(26, 554);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(452, 23);
             this.label17.TabIndex = 36;
@@ -480,7 +480,7 @@ namespace Parroquia
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.Red;
-            this.label25.Location = new System.Drawing.Point(554, 361);
+            this.label25.Location = new System.Drawing.Point(587, 361);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(12, 15);
             this.label25.TabIndex = 47;
@@ -491,7 +491,7 @@ namespace Parroquia
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.Red;
-            this.label26.Location = new System.Drawing.Point(555, 388);
+            this.label26.Location = new System.Drawing.Point(588, 388);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(12, 15);
             this.label26.TabIndex = 48;
@@ -502,7 +502,7 @@ namespace Parroquia
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.Red;
-            this.label27.Location = new System.Drawing.Point(554, 428);
+            this.label27.Location = new System.Drawing.Point(587, 428);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(12, 15);
             this.label27.TabIndex = 49;
@@ -535,9 +535,9 @@ namespace Parroquia
             this.cancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelar.Image = global::Parroquia.Properties.Resources.eliminar_icono_4790_64;
-            this.cancelar.Location = new System.Drawing.Point(580, 485);
+            this.cancelar.Location = new System.Drawing.Point(608, 496);
             this.cancelar.Name = "cancelar";
-            this.cancelar.Size = new System.Drawing.Size(91, 72);
+            this.cancelar.Size = new System.Drawing.Size(65, 65);
             this.cancelar.TabIndex = 14;
             this.toolTip1.SetToolTip(this.cancelar, ":: CERRAR VENTANA ::");
             this.cancelar.UseVisualStyleBackColor = true;
@@ -547,9 +547,9 @@ namespace Parroquia
             // 
             this.guardareimp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardareimp.Image = global::Parroquia.Properties.Resources.imprimir_icono_3650_64;
-            this.guardareimp.Location = new System.Drawing.Point(580, 409);
+            this.guardareimp.Location = new System.Drawing.Point(608, 425);
             this.guardareimp.Name = "guardareimp";
-            this.guardareimp.Size = new System.Drawing.Size(91, 72);
+            this.guardareimp.Size = new System.Drawing.Size(65, 65);
             this.guardareimp.TabIndex = 13;
             this.toolTip1.SetToolTip(this.guardareimp, ":: IMPRIMIR ::");
             this.guardareimp.UseVisualStyleBackColor = true;
@@ -559,10 +559,9 @@ namespace Parroquia
             // 
             this.guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardar.Image = global::Parroquia.Properties.Resources.guardar1;
-            this.guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.guardar.Location = new System.Drawing.Point(580, 334);
+            this.guardar.Location = new System.Drawing.Point(608, 356);
             this.guardar.Name = "guardar";
-            this.guardar.Size = new System.Drawing.Size(91, 72);
+            this.guardar.Size = new System.Drawing.Size(65, 65);
             this.guardar.TabIndex = 12;
             this.guardar.Tag = "";
             this.toolTip1.SetToolTip(this.guardar, ":: GUARDAR REGISTRO::");
@@ -586,7 +585,7 @@ namespace Parroquia
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.CancelButton = this.cancelar;
-            this.ClientSize = new System.Drawing.Size(698, 609);
+            this.ClientSize = new System.Drawing.Size(698, 591);
             this.Controls.Add(this.registronull);
             this.Controls.Add(this.registrobis);
             this.Controls.Add(this.label27);

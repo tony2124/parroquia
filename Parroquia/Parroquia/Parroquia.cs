@@ -108,7 +108,7 @@ namespace Parroquia
                 else
                 if (int.Parse(tablaBusqueda["id_categoria", e.RowIndex].Value + "") == 4)
                 {
-                    InsertarMatrimonios im = new InsertarMatrimonios(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
+                    Matrimonio im = new Matrimonio(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
                     im.ShowDialog();
                 }
                
@@ -201,6 +201,16 @@ namespace Parroquia
         private void acercaDeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new acercade().ShowDialog() ;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            fondoImg.Image = global::Parroquia.Properties.Resources.p1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fondoImg.Image = global::Parroquia.Properties.Resources.p10;
         }
 
     }

@@ -12,7 +12,7 @@ using MySql.Data.MySqlClient;
 
 namespace Parroquia
 {
-    public partial class InsertarMatrimonios : Form
+    public partial class Matrimonio : Form
     {
         private String ID_LIBRO;
         private int Partida;
@@ -27,7 +27,7 @@ namespace Parroquia
         MySqlDataReader Datos;
         ConexionBD Bdatos = new ConexionBD();
 
-        public InsertarMatrimonios(String ID_libro)
+        public Matrimonio(String ID_libro)
         {
             ID_LIBRO = ID_libro;
 
@@ -84,7 +84,7 @@ namespace Parroquia
         }
 
         //CONSTRUCTOR PARA EDICIONES
-        public InsertarMatrimonios(int id_registro, String NOMMBRE_LIBRO)
+        public Matrimonio(int id_registro, String NOMMBRE_LIBRO)
         {
             edicion = true;
             ID_REGISTRO = id_registro;

@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationRevision>13</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -132,11 +132,11 @@
     <Compile Include="Bautismo.Designer.cs">
       <DependentUpon>Bautismo.cs</DependentUpon>
     </Compile>
-    <Compile Include="InsertarMatrimonios.cs">
+    <Compile Include="Matrimonio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InsertarMatrimonios.Designer.cs">
-      <DependentUpon>InsertarMatrimonios.cs</DependentUpon>
+    <Compile Include="Matrimonio.Designer.cs">
+      <DependentUpon>Matrimonio.cs</DependentUpon>
     </Compile>
     <Compile Include="Libros.cs">
       <SubType>Form</SubType>
@@ -179,8 +179,8 @@
     <EmbeddedResource Include="Bautismo.resx">
       <DependentUpon>Bautismo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InsertarMatrimonios.resx">
-      <DependentUpon>InsertarMatrimonios.cs</DependentUpon>
+    <EmbeddedResource Include="Matrimonio.resx">
+      <DependentUpon>Matrimonio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Libros.resx">
       <DependentUpon>Libros.cs</DependentUpon>
@@ -292,6 +292,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\parroq.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p10.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
