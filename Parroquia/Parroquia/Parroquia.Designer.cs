@@ -67,6 +67,7 @@ namespace Parroquia
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -110,18 +111,21 @@ namespace Parroquia
             this.ingresosToolStripMenuItem.Name = "ingresosToolStripMenuItem";
             this.ingresosToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.ingresosToolStripMenuItem.Text = "Ingresos";
+            this.ingresosToolStripMenuItem.Click += new System.EventHandler(this.ingresosToolStripMenuItem_Click);
             // 
             // egresosToolStripMenuItem
             // 
             this.egresosToolStripMenuItem.Name = "egresosToolStripMenuItem";
             this.egresosToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.egresosToolStripMenuItem.Text = "Egresos";
+            this.egresosToolStripMenuItem.Click += new System.EventHandler(this.egresosToolStripMenuItem_Click);
             // 
             // respaldoDeBDToolStripMenuItem
             // 
             this.respaldoDeBDToolStripMenuItem.Name = "respaldoDeBDToolStripMenuItem";
             this.respaldoDeBDToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.respaldoDeBDToolStripMenuItem.Text = "Respaldo de BD";
+            this.respaldoDeBDToolStripMenuItem.Click += new System.EventHandler(this.respaldoDeBDToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -184,19 +188,21 @@ namespace Parroquia
             this.descargarManualDeUsuarioToolStripMenuItem.Name = "descargarManualDeUsuarioToolStripMenuItem";
             this.descargarManualDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.descargarManualDeUsuarioToolStripMenuItem.Text = "Descargar manual de usuario";
+            this.descargarManualDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.descargarManualDeUsuarioToolStripMenuItem_Click);
             // 
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
             this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.acercaDeToolStripMenuItem.Text = "Enviar correo electrónico";
+            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
             // acercaDeToolStripMenuItem1
             // 
             this.acercaDeToolStripMenuItem1.Name = "acercaDeToolStripMenuItem1";
             this.acercaDeToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
             this.acercaDeToolStripMenuItem1.Text = "Acerca de...";
-            this.acercaDeToolStripMenuItem1.Click += new System.EventHandler(this.acercaDeToolStripMenuItem1_Click);
+            this.acercaDeToolStripMenuItem1.Click += new System.EventHandler(this.acercaDeToolStripMenuItem1_Click_1);
             // 
             // label3
             // 
@@ -423,8 +429,8 @@ namespace Parroquia
             // 
             // Parroquia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(934, 669);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
@@ -490,6 +496,7 @@ namespace Parroquia
         private Timer timer2;
         private Button button2;
         private Button button1;
+        private SaveFileDialog saveFileDialog1;
         public static Button btnbuscar;
 
 

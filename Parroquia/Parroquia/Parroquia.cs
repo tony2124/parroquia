@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
+using System.Diagnostics;
 
 namespace Parroquia
 {
@@ -102,7 +104,7 @@ namespace Parroquia
                 else
                 if (int.Parse(tablaBusqueda["id_categoria", e.RowIndex].Value + "") == 3)
                 {
-                    InsertarPrimerComunion ipc = new InsertarPrimerComunion(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
+                    PrimerComunion ipc = new PrimerComunion(int.Parse(tablaBusqueda["ID", e.RowIndex].Value + ""), tablaBusqueda["nombre_libro", e.RowIndex].Value + "");
                     ipc.ShowDialog();
                 }
                 else
@@ -119,7 +121,7 @@ namespace Parroquia
 
         private void informacionDeLaParroquiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            new Informacion().Show();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -211,6 +213,67 @@ namespace Parroquia
         private void button2_Click(object sender, EventArgs e)
         {
             fondoImg.Image = global::Parroquia.Properties.Resources.p10;
+        }
+
+        private void ingresosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void egresosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void respaldoDeBDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            saveFileDialog1.FileName = "RESPALDO_BD_" + DateTime.Now.Day + "_" + DateTime.Now.ToString("MMMM")+ "_" + DateTime.Now.Year + ".sql";
+            saveFileDialog1.AddExtension = true;
+           // saveFileDialog1.CheckFileExists = true;
+            saveFileDialog1.Title = "RESPALDO DE LA BASE DE DATOS";
+            saveFileDialog1.Filter = "Archivos SQL(*.sql)|*.sql|Archivos de Texto (*.txt)|*.txt|All files (*.*)|*.*";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if (saveFileDialog1.FileName != String.Empty)
+                {
+                    ConexionBD bd = new ConexionBD();
+                    bd.conexion();
+                    String linea;
+                    String fichero = saveFileDialog1.FileName;
+                    System.Diagnostics.Process proc = new System.Diagnostics.Process();
+                    proc.EnableRaisingEvents = false;
+                    proc.StartInfo.UseShellExecute = false;
+                    proc.StartInfo.RedirectStandardOutput = true;
+                    proc.StartInfo.FileName = "mysqldump";
+                    proc.StartInfo.Arguments = "parroquiaantunez --single-transaction --host=localhost --user=root --password="+bd.contrasena;
+                    Process miProceso;
+                    miProceso = Process.Start(proc.StartInfo);
+                    StreamReader sr = miProceso.StandardOutput;
+                    TextWriter tw = new StreamWriter(saveFileDialog1.FileName, false, Encoding.Default);
+                    while ((linea = sr.ReadLine()) != null)
+                    {
+                        tw.WriteLine(linea);
+                    }
+                    tw.Close();
+                    MessageBox.Show("Copia de seguridad realizada con éxito");
+                }
+            }
+        }
+
+        private void descargarManualDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void acercaDeToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            new acercade().Show();
         }
 
     }

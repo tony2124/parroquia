@@ -11,7 +11,7 @@ namespace conexionbd
 {
     class ConexionBD
     {
-        string usuario, contrasena, basedatos, host;
+        public string usuario, contrasena, basedatos, host;
         public static string conex;
         private MySqlConnection conexionBD;
 
@@ -35,16 +35,13 @@ namespace conexionbd
         {
             try
             {
-                conex = "server="+host+"; port=3306; user id=" + usuario + "; password=" + contrasena + "; database=parroquiaantunez;";
+                conex = "server="+host+"; port=3306; user id=" + usuario + "; password=" + contrasena + "; database="+basedatos+";";
                 conexionBD = new MySqlConnection(conex);
                 conexionBD.Open();
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error al conectar al servidor de MySQL: " +
-                    ex.Message, "Error al conectar",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+                MessageBox.Show("Error al conectar al servidor de MySQL: " + ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -66,69 +63,25 @@ namespace conexionbd
             return registrosObtenidosMySQL;
         }
 
-        public int Insertar(String consulta)
+        public int peticion(String consulta)
         {
          
             int resultado=0;
             try
             {
                 MySqlCommand cmd = new MySqlCommand(consulta, conexionBD);
-           
                 resultado = cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error al ingresar datos en MySQL: " +
-                    ex.Message, " Error al ingresar ",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al ingresar datos en MySQL: " + ex.Message, " Error al ingresar ",            MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return resultado;
         }
-
-        public int Eliminar(String consulta)
-        {
-
-            int resultado = 0;
-            MySqlCommand cmd = new MySqlCommand(consulta, conexionBD);
-            try
-            {
-                resultado = cmd.ExecuteNonQuery();
-                
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Error al Eliminar datos en MySQL: " +
-                    ex.Message, " Error al Eliminar ",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return resultado;
-        }
-
-        public int Actualizar(String consulta)
-        {
-
-            int resultado = 0;
-            MySqlCommand cmd = new MySqlCommand(consulta, conexionBD);
-            try
-            {
-                resultado = cmd.ExecuteNonQuery();
-
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Error al actualizar datos en MySQL: " +
-                    ex.Message, " Error al Eliminar ",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return resultado;
-        }
-
 
         public void Desconectar()
         {
             conexionBD.Close();
         }
-
-
     }
 }

@@ -61,12 +61,8 @@ namespace Parroquia
                 Datos = Bdatos.obtenerBasesDatosMySQL("select id_confirmacion from confirmaciones where id_libro =" + ID_LIBRO + " AND bis=0 ;");
 
                 if (Datos.HasRows)
-                {
                     while (Datos.Read())
-                    {
                         Partida++;
-                    }
-                }
 
                 num_partida.Text = "" + (Partida+1);
 
@@ -211,7 +207,7 @@ namespace Parroquia
             if (registrobis.Checked)
                 bis = "1";
             
-            if (Bdatos.Insertar("insert into confirmaciones(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_confirmacion,fecha_bautismo,lugar_bautismo,padrino,madrina,presbitero,anio,bis)" +
+            if (Bdatos.peticion("insert into confirmaciones(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_confirmacion,fecha_bautismo,lugar_bautismo,padrino,madrina,presbitero,anio,bis)" +
                     " values('" + int.Parse(ID_LIBRO) +
                     "','" + int.Parse(num_hoja.Text) +
                     "','" + num_partida.Text +
@@ -246,27 +242,11 @@ namespace Parroquia
                 {
                     Bdatos.conexion();
                     if (!registronull.Checked)
-                    {
                         if(camposVacios())
                             return;
-                    }
-
+                    
                     if (guardarRegistro())
-                    {
-
-                        if (!registrobis.Checked)
-                            Partida++;
-                        else
-                            registrobis.Checked = false;
-
-                        num_partida.Text = "" + (Partida + 1);
-
-                        Hoja = Math.Ceiling((Partida + 1) / 10.0);
-                        num_hoja.Text = "" + Hoja;
-
-                        /*Se establecen en blanco todos los campos*/
-                        limpiarCampos();
-                    }
+                        calculaPartida();
                 }
                 catch (Exception y)
                 {
@@ -304,7 +284,7 @@ namespace Parroquia
         {
             Bdatos.conexion();
 
-            if (Bdatos.Actualizar("UPDATE confirmaciones SET nombre='" + nombre.Text +
+            if (Bdatos.peticion("UPDATE confirmaciones SET nombre='" + nombre.Text +
                      "',padre='" + padre.Text + "',madre='" + madre.Text +
                      "',fecha_confirmacion='" + fecconf.Value.ToString("yyyy-MM-dd") + "',fecha_bautismo='" + fecbau.Value.ToString("yyyy-MM-dd") +
                      "',lugar_bautismo='" + lugarbau.Text + "',padrino='" + padrino.Text +
@@ -353,17 +333,7 @@ namespace Parroquia
 
                        // Imprimir a = new Imprimir();
 
-                        if (!registrobis.Checked)
-                            Partida++;
-                        else
-                            registrobis.Checked = false;
-
-                        num_partida.Text = "" + (Partida + 1);
-
-                        Hoja = Math.Ceiling((Partida + 1) / 10.0);
-                        num_hoja.Text = "" + Hoja;
-
-                        limpiarCampos();
+                        calculaPartida();
                     }
 
                     Bdatos.Desconectar();
@@ -458,5 +428,19 @@ namespace Parroquia
             }
         }
 
+        private void calculaPartida()
+        {
+            if (!registrobis.Checked)
+                Partida++;
+            else
+                registrobis.Checked = false;
+
+            num_partida.Text = "" + (Partida + 1);
+
+            Hoja = Math.Ceiling((Partida + 1) / 10.0);
+            num_hoja.Text = "" + Hoja;
+
+            limpiarCampos();
+        }
     }
 }

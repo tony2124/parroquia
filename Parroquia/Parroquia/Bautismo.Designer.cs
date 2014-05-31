@@ -637,6 +637,7 @@ namespace Parroquia
             this.Controls.Add(this.libro);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Bautismo";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

@@ -464,7 +464,7 @@ namespace Parroquia
             this.guardareimp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardareimp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.guardareimp.Image = global::Parroquia.Properties.Resources.imprimir_icono_3650_64;
-            this.guardareimp.Location = new System.Drawing.Point(546, 509);
+            this.guardareimp.Location = new System.Drawing.Point(546, 501);
             this.guardareimp.Name = "guardareimp";
             this.guardareimp.Size = new System.Drawing.Size(65, 65);
             this.guardareimp.TabIndex = 10;
@@ -477,7 +477,7 @@ namespace Parroquia
             this.guardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardar.Image = global::Parroquia.Properties.Resources.guardar1;
-            this.guardar.Location = new System.Drawing.Point(475, 509);
+            this.guardar.Location = new System.Drawing.Point(475, 501);
             this.guardar.Name = "guardar";
             this.guardar.Size = new System.Drawing.Size(65, 65);
             this.guardar.TabIndex = 9;
@@ -490,7 +490,7 @@ namespace Parroquia
             this.cancelBtnConfirmacion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelBtnConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtnConfirmacion.Image = global::Parroquia.Properties.Resources.eliminar_icono_4790_64;
-            this.cancelBtnConfirmacion.Location = new System.Drawing.Point(617, 509);
+            this.cancelBtnConfirmacion.Location = new System.Drawing.Point(617, 501);
             this.cancelBtnConfirmacion.Name = "cancelBtnConfirmacion";
             this.cancelBtnConfirmacion.Size = new System.Drawing.Size(65, 65);
             this.cancelBtnConfirmacion.TabIndex = 11;
@@ -553,6 +553,8 @@ namespace Parroquia
             this.Controls.Add(this.label2);
             this.Controls.Add(this.libro);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Matrimonio";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -53,7 +53,7 @@ namespace Parroquia
                 BDatos.conexion();
                 try
                 {
-                    if (BDatos.Eliminar("delete from libros where id_libro = '" + datosID[comboBox1.SelectedIndex] + "'; ") > 0)
+                    if (BDatos.peticion("delete from libros where id_libro = '" + datosID[comboBox1.SelectedIndex] + "'; ") > 0)
                     {
 
                         MessageBox.Show("Se ha Eliminado un libro"
