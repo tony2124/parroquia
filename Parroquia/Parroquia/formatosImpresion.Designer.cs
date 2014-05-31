@@ -50,7 +50,7 @@
             this.originalHorizontal.Name = "originalHorizontal";
             this.originalHorizontal.Size = new System.Drawing.Size(133, 147);
             this.originalHorizontal.TabIndex = 1;
-            this.originalHorizontal.Text = "Formato original horizontal";
+            this.originalHorizontal.Text = "Formato original vertical";
             this.originalHorizontal.UseVisualStyleBackColor = true;
             this.originalHorizontal.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -60,7 +60,7 @@
             this.originalVertical.Name = "originalVertical";
             this.originalVertical.Size = new System.Drawing.Size(133, 147);
             this.originalVertical.TabIndex = 2;
-            this.originalVertical.Text = "Formato original vertical";
+            this.originalVertical.Text = "Formato original horizontal";
             this.originalVertical.UseVisualStyleBackColor = true;
             this.originalVertical.Click += new System.EventHandler(this.button3_Click);
             // 

@@ -171,17 +171,23 @@ namespace Parroquia
         //METODO PARA IMPRIMIR FORMATO ORIGINAL HORIZONTAL EN BAUTISMOS
         private void imprimirBautismoFormato2(object sender, PrintPageEventArgs ev)
         {
+            float tamaño_total, mitad;
+
             imprimeImagen(ev);
 
             //IMPRIME NOMBRE
+            tamaño_total = 880 - ev.Graphics.MeasureString(nombre, new Font("Times New Roman", 11, FontStyle.Bold)).Width;
+            mitad = tamaño_total / 2;
             ev.Graphics.DrawString(nombre,
                new Font("Times New Roman", 11, FontStyle.Bold),
-                       Brushes.Black, 210, 140);
+                       Brushes.Black, mitad+15, 140);
 
             //LUGAR BAUTISMO
+            tamaño_total = 880 - ev.Graphics.MeasureString("ANTÚNEZ, MICHOACÁN", new Font("Times New Roman", 11, FontStyle.Bold)).Width;
+            mitad = tamaño_total / 2;
             ev.Graphics.DrawString("ANTÚNEZ, MICHOACÁN",
                new Font("Times New Roman", 11, FontStyle.Bold),
-                       Brushes.Black, 210, 201);
+                       Brushes.Black, mitad+15, 201);
 
             //IMPRIME FECHA DE BAUTISMO
             //separo la fecha de bautismo
@@ -235,8 +241,8 @@ namespace Parroquia
 
             //IMPRIME PADRINOS
             ev.Graphics.DrawString(padrino + " Y " + madrina,
-                new Font("Times New Roman", 9, FontStyle.Bold),
-                        Brushes.Black, 145, 390);
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 145, 388);
 
             //IMPRIME LIBRO
             ev.Graphics.DrawString(libro,
@@ -253,13 +259,10 @@ namespace Parroquia
                 new Font("Times New Roman", 11, FontStyle.Bold),
                         Brushes.Black, 150, 484);
 
-            float tamaño_total;
-            /**/
+            //IMPRIME PRESBITERO
             tamaño_total = 880 - ev.Graphics.MeasureString(presbitero, new Font("Times New Roman", 11, FontStyle.Bold)).Width;
-            /**/
-            float mitad = tamaño_total / 2;
+            mitad = tamaño_total / 2;
 
-            //IMPRIME PRESBITERO 500
             ev.Graphics.DrawString(presbitero,
                 new Font("Times New Roman", 11, FontStyle.Bold),
                         Brushes.Black, mitad+130, 463);
@@ -269,12 +272,15 @@ namespace Parroquia
         //METODO PARA IMPRIMIR FORMATO ORIGINAL VERTICAL EN BAUTISMOS
         private void imprimirBautismoFormato1(object sender, PrintPageEventArgs ev)
         {
+            float tamaño_total, mitad;
             imprimeImagen(ev);
 
             //IMPRIME NOMBRE
+            tamaño_total = 880 - ev.Graphics.MeasureString(nombre, new Font("Times New Roman", 9, FontStyle.Bold)).Width;
+            mitad = tamaño_total / 2;
             ev.Graphics.DrawString(nombre,
                new Font("Times New Roman", 9, FontStyle.Bold),
-                       Brushes.Black, 50, 127);
+                       Brushes.Black, mitad-210, 127);
 
             //IMPRIME PADRES
             ev.Graphics.DrawString(padre + " Y \n \n" + madre,
@@ -313,9 +319,11 @@ namespace Parroquia
                         Brushes.Black, 505, 514);
 
             //IMPRIME LUGAR DE BAUTISMO
+            tamaño_total = 880 - ev.Graphics.MeasureString("ANTÚNEZ, MICHOACÁN", new Font("Times New Roman", 9, FontStyle.Bold)).Width;
+            mitad = tamaño_total / 2;
             ev.Graphics.DrawString("ANTÚNEZ, MICHOACÁN",
                 new Font("Times New Roman", 9, FontStyle.Bold),
-                        Brushes.Black, 200, 587);
+                        Brushes.Black, mitad-135, 587);
 
             //IMPRIME FECHA DE BAUTISMO
             //separo la fecha de bautismo
