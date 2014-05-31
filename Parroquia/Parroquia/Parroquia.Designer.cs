@@ -67,6 +67,7 @@ namespace Parroquia
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -428,8 +429,8 @@ namespace Parroquia
             // 
             // Parroquia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(934, 669);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
@@ -496,6 +497,7 @@ namespace Parroquia
         private Button button2;
         private Button button1;
         public static Button btnbuscar;
+        private SaveFileDialog saveFileDialog1;
 
 
     }

@@ -225,7 +225,11 @@ namespace Parroquia
 
         private void respaldoDeBDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
+            saveFileDialog1.FileName = "base de datos.sql";
+            saveFileDialog1.AddExtension = true;
+            
+            saveFileDialog1.ShowDialog();
         }
 
         private void descargarManualDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
