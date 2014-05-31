@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.nombre_parroquia = new System.Windows.Forms.TextBox();
+            this.nombre_parroco = new System.Windows.Forms.TextBox();
+            this.ubicacion_parroquia = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,29 +49,29 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // nombre_parroquia
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(11, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(270, 21);
-            this.textBox1.TabIndex = 1;
+            this.nombre_parroquia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombre_parroquia.Location = new System.Drawing.Point(11, 25);
+            this.nombre_parroquia.Name = "nombre_parroquia";
+            this.nombre_parroquia.Size = new System.Drawing.Size(270, 21);
+            this.nombre_parroquia.TabIndex = 1;
             // 
-            // textBox2
+            // nombre_parroco
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(11, 76);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(270, 21);
-            this.textBox2.TabIndex = 2;
+            this.nombre_parroco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombre_parroco.Location = new System.Drawing.Point(11, 76);
+            this.nombre_parroco.Name = "nombre_parroco";
+            this.nombre_parroco.Size = new System.Drawing.Size(270, 21);
+            this.nombre_parroco.TabIndex = 2;
             // 
-            // textBox3
+            // ubicacion_parroquia
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(11, 128);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(270, 21);
-            this.textBox3.TabIndex = 3;
+            this.ubicacion_parroquia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ubicacion_parroquia.Location = new System.Drawing.Point(11, 128);
+            this.ubicacion_parroquia.Name = "ubicacion_parroquia";
+            this.ubicacion_parroquia.Size = new System.Drawing.Size(270, 21);
+            this.ubicacion_parroquia.TabIndex = 3;
             // 
             // label1
             // 
@@ -120,7 +120,7 @@
             this.cancelar.Name = "cancelar";
             this.cancelar.Size = new System.Drawing.Size(75, 44);
             this.cancelar.TabIndex = 8;
-            this.cancelar.Text = "CANCELAR";
+            this.cancelar.Text = "CERRAR";
             this.cancelar.UseVisualStyleBackColor = true;
             this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
             // 
@@ -135,9 +135,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ubicacion_parroquia);
+            this.Controls.Add(this.nombre_parroco);
+            this.Controls.Add(this.nombre_parroquia);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -155,9 +155,9 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox nombre_parroquia;
+        private System.Windows.Forms.TextBox nombre_parroco;
+        private System.Windows.Forms.TextBox ubicacion_parroquia;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
