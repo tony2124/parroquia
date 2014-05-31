@@ -33,13 +33,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.host = new System.Windows.Forms.TextBox();
+            this.contrasena = new System.Windows.Forms.TextBox();
+            this.port = new System.Windows.Forms.TextBox();
+            this.basedatos = new System.Windows.Forms.TextBox();
             this.cancelar = new System.Windows.Forms.Button();
             this.conectar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.usuario = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +51,7 @@
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(16, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(373, 68);
+            this.label1.Size = new System.Drawing.Size(373, 54);
             this.label1.TabIndex = 1;
             this.label1.Text = "NO SE PUDO HACER LA CONEXIÓN AL SERVIDOR, INTRODUZCA LOS DATOS DE CONEXIÓN PARA R" +
     "EINTENTAR CONECTAR.";
@@ -69,7 +71,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 69);
+            this.label3.Location = new System.Drawing.Point(8, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 17);
             this.label3.TabIndex = 3;
@@ -79,7 +81,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 100);
+            this.label4.Location = new System.Drawing.Point(8, 136);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 17);
             this.label4.TabIndex = 4;
@@ -89,51 +91,51 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 134);
+            this.label5.Location = new System.Drawing.Point(8, 170);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 17);
             this.label5.TabIndex = 5;
             this.label5.Text = "BASE DE DATOS:";
             // 
-            // textBox1
+            // host
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(137, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(231, 23);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.Text = "127.0.0.1";
+            this.host.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.host.Location = new System.Drawing.Point(137, 34);
+            this.host.Name = "host";
+            this.host.Size = new System.Drawing.Size(231, 23);
+            this.host.TabIndex = 6;
+            this.host.Text = "127.0.0.1";
             // 
-            // textBox2
+            // contrasena
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(137, 66);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(231, 23);
-            this.textBox2.TabIndex = 7;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.contrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contrasena.Location = new System.Drawing.Point(137, 102);
+            this.contrasena.Name = "contrasena";
+            this.contrasena.Size = new System.Drawing.Size(231, 23);
+            this.contrasena.TabIndex = 7;
+            this.contrasena.UseSystemPasswordChar = true;
             // 
-            // textBox3
+            // port
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(137, 97);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(231, 23);
-            this.textBox3.TabIndex = 8;
-            this.textBox3.Text = "3306";
+            this.port.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.port.Location = new System.Drawing.Point(137, 133);
+            this.port.Name = "port";
+            this.port.Size = new System.Drawing.Size(231, 23);
+            this.port.TabIndex = 8;
+            this.port.Text = "3306";
             // 
-            // textBox4
+            // basedatos
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(137, 131);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(231, 23);
-            this.textBox4.TabIndex = 9;
-            this.textBox4.Text = "parroquiaantunez";
+            this.basedatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.basedatos.Location = new System.Drawing.Point(137, 167);
+            this.basedatos.Name = "basedatos";
+            this.basedatos.Size = new System.Drawing.Size(231, 23);
+            this.basedatos.TabIndex = 9;
+            this.basedatos.Text = "parroquiaantunez";
             // 
             // cancelar
             // 
-            this.cancelar.Location = new System.Drawing.Point(199, 271);
+            this.cancelar.Location = new System.Drawing.Point(199, 318);
             this.cancelar.Name = "cancelar";
             this.cancelar.Size = new System.Drawing.Size(75, 32);
             this.cancelar.TabIndex = 10;
@@ -143,7 +145,7 @@
             // 
             // conectar
             // 
-            this.conectar.Location = new System.Drawing.Point(118, 271);
+            this.conectar.Location = new System.Drawing.Point(118, 318);
             this.conectar.Name = "conectar";
             this.conectar.Size = new System.Drawing.Size(75, 32);
             this.conectar.TabIndex = 11;
@@ -153,26 +155,47 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.usuario);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.basedatos);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.port);
+            this.groupBox1.Controls.Add(this.host);
+            this.groupBox1.Controls.Add(this.contrasena);
             this.groupBox1.Location = new System.Drawing.Point(5, 84);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(384, 178);
+            this.groupBox1.Size = new System.Drawing.Size(384, 218);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de conexión";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(8, 70);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 17);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "USUARIO:";
+            // 
+            // usuario
+            // 
+            this.usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usuario.Location = new System.Drawing.Point(137, 67);
+            this.usuario.Name = "usuario";
+            this.usuario.Size = new System.Drawing.Size(231, 23);
+            this.usuario.TabIndex = 11;
+            this.usuario.Text = "root";
             // 
             // DatosConexionDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 312);
+            this.ClientSize = new System.Drawing.Size(396, 362);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.conectar);
             this.Controls.Add(this.cancelar);
@@ -198,12 +221,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox host;
+        private System.Windows.Forms.TextBox contrasena;
+        private System.Windows.Forms.TextBox port;
+        private System.Windows.Forms.TextBox basedatos;
         private System.Windows.Forms.Button cancelar;
         private System.Windows.Forms.Button conectar;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox usuario;
     }
 }

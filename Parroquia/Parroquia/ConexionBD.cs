@@ -11,38 +11,76 @@ namespace conexionbd
 {
     class ConexionBD
     {
-        public string usuario, contrasena, basedatos, host;
+        public static string usuario, contrasena, basedatos, host, puerto;
+        public static bool carga_datos_desde_archivo = false;
         public static string conex;
         private MySqlConnection conexionBD;
+        
 
-        public ConexionBD(string host, string usuario, string contrasena, string basedatos)
+        public ConexionBD(string h, string u, string pass, string port, string bd)
         {
-            this.host = host;
-            this.usuario = usuario;
-            this.contrasena = contrasena;
-            this.basedatos = basedatos;
+            host = h;
+            usuario = u;
+            contrasena = pass;
+            puerto = port;
+            basedatos = bd;
         }
 
         public ConexionBD()
         {
-            host = "localhost";
-            usuario = "root";
-            contrasena = "SIMPUS2124";
-            basedatos = "parroquiaantunez";
+            if (!carga_datos_desde_archivo)
+            {
+                host = "localhost";
+                usuario = "root";
+                contrasena = "SIMPUS2124--";
+                puerto = "3306";
+                basedatos = "parroquiaantunez";
+            }
         }
 
         public void conexion()
         {
             try
             {
-                conex = "server="+host+"; port=3306; user id=" + usuario + "; password=" + contrasena + "; database="+basedatos+";";
+                conex = "server="+host+"; port="+puerto+"; user id=" + usuario + "; password=" + contrasena + "; database="+basedatos+";";
                 conexionBD = new MySqlConnection(conex);
                 conexionBD.Open();
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error al conectar al servidor de MySQL: \nDETALLES DEL ERROR: " + ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                new DatosConexionDB().ShowDialog() ;
+                MessageBox.Show("Error al conectar a la base de datos de MySQL: \nDETALLES DEL ERROR: " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                carga_desde_archivo();
+            }
+        }
+
+        public void carga_desde_archivo()
+        {
+            if (!carga_datos_desde_archivo)
+            {
+                carga_datos_desde_archivo = true;
+
+                /** OBTENER LA INFORMACIÓN DEL ARCHIVO **/
+                string line, archivo = "";
+                System.IO.StreamReader file = new System.IO.StreamReader(@"C:\DOCSParroquia\informacion.txt");
+                while ((line = file.ReadLine()) != null)
+                {
+                    archivo += line;
+                }
+
+                string[] caracteres = archivo.Split(' ');
+                ConexionBD.host = caracteres[0];
+                ConexionBD.usuario = caracteres[1];
+                ConexionBD.contrasena = caracteres[2];
+                ConexionBD.puerto = caracteres[3];
+                ConexionBD.basedatos = caracteres[4];
+                MessageBox.Show("" + caracteres.Length + "\n" + "LOCALHOST: " + caracteres[0] + "\nUSUARIO:" + caracteres[1]);
+                file.Close();
+
+                conexion();
+            }
+            else
+            {
+                new DatosConexionDB().ShowDialog();
             }
         }
 

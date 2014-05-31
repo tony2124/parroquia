@@ -246,7 +246,7 @@ namespace Parroquia
                     proc.StartInfo.UseShellExecute = false;
                     proc.StartInfo.RedirectStandardOutput = true;
                     proc.StartInfo.FileName = "mysqldump";
-                    proc.StartInfo.Arguments = "parroquiaantunez --single-transaction --host=localhost --user=root --password="+bd.contrasena;
+                    proc.StartInfo.Arguments = ConexionBD.basedatos + " --single-transaction --host=" + ConexionBD.host + " --user=" + ConexionBD.usuario + " --password=" + ConexionBD.contrasena;
                     Process miProceso;
                     miProceso = Process.Start(proc.StartInfo);
                     StreamReader sr = miProceso.StandardOutput;

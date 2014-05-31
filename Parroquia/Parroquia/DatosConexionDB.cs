@@ -1,4 +1,5 @@
-﻿using System;
+﻿using conexionbd;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,7 +30,7 @@ namespace Parroquia
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
