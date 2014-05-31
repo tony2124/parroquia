@@ -119,7 +119,7 @@ namespace Parroquia
 
         private void informacionDeLaParroquiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            new Informacion().Show();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -211,6 +211,31 @@ namespace Parroquia
         private void button2_Click(object sender, EventArgs e)
         {
             fondoImg.Image = global::Parroquia.Properties.Resources.p10;
+        }
+
+        private void ingresosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void egresosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void respaldoDeBDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void descargarManualDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

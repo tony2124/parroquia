@@ -16,5 +16,10 @@ namespace Parroquia
         {
             InitializeComponent();
         }
+
+        private void cancelar_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
     }
 }

@@ -110,18 +110,21 @@ namespace Parroquia
             this.ingresosToolStripMenuItem.Name = "ingresosToolStripMenuItem";
             this.ingresosToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.ingresosToolStripMenuItem.Text = "Ingresos";
+            this.ingresosToolStripMenuItem.Click += new System.EventHandler(this.ingresosToolStripMenuItem_Click);
             // 
             // egresosToolStripMenuItem
             // 
             this.egresosToolStripMenuItem.Name = "egresosToolStripMenuItem";
             this.egresosToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.egresosToolStripMenuItem.Text = "Egresos";
+            this.egresosToolStripMenuItem.Click += new System.EventHandler(this.egresosToolStripMenuItem_Click);
             // 
             // respaldoDeBDToolStripMenuItem
             // 
             this.respaldoDeBDToolStripMenuItem.Name = "respaldoDeBDToolStripMenuItem";
             this.respaldoDeBDToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.respaldoDeBDToolStripMenuItem.Text = "Respaldo de BD";
+            this.respaldoDeBDToolStripMenuItem.Click += new System.EventHandler(this.respaldoDeBDToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -184,12 +187,14 @@ namespace Parroquia
             this.descargarManualDeUsuarioToolStripMenuItem.Name = "descargarManualDeUsuarioToolStripMenuItem";
             this.descargarManualDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.descargarManualDeUsuarioToolStripMenuItem.Text = "Descargar manual de usuario";
+            this.descargarManualDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.descargarManualDeUsuarioToolStripMenuItem_Click);
             // 
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
             this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.acercaDeToolStripMenuItem.Text = "Enviar correo electrónico";
+            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
             // acercaDeToolStripMenuItem1
             // 
