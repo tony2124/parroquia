@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using conexionbd;
+using MySql.Data.MySqlClient;
 
 namespace Parroquia
 {
@@ -23,9 +25,12 @@ namespace Parroquia
 
         public static String libro, foja, partida, nombre, padre, madre, 
             lugarNacimiento, fechaNacimiento, fechaBautismo, presbitero, 
-            madrina, padrino, anotacion, lugarBautismo, fechaConfirmacion;
+            madrina, padrino, anotacion, lugarBautismo, fechaConfirmacion,
+            nombre_parroquia, nombre_parroco, ubicacion_parroquia;
 
         public int CATEGORIA, FORMATO;
+        public ConexionBD DbDatos;
+        public MySqlDataReader datos;
 
         public void leerArchivoBautismo()
         {
@@ -83,6 +88,25 @@ namespace Parroquia
             String i, String j, String k, String l, String m, int categoria,
             int formato)
         {
+            //OBTENGO NOMBRE DE LA PARROQUIA, NOMBRE DEL PARROCO Y
+            //LA UBICACION DE LA PARROQUIA DE LA BASE DE DATOS
+            DbDatos = new ConexionBD();
+            DbDatos.conexion();
+
+            datos = DbDatos.obtenerBasesDatosMySQL("select nombre_parroquia, nombre_parroco, ubicacion_parroquia from informacion");
+
+            if (datos.HasRows)
+            {
+                while (datos.Read())
+                {
+                    nombre_parroquia = datos.GetString(0).ToUpper();
+                    nombre_parroco = datos.GetString(1).ToUpper();
+                    ubicacion_parroquia = datos.GetString(2).ToUpper();
+                }
+            }
+            DbDatos.Desconectar();
+
+
             //Asignacion de variables
             libro = a;
             foja = b;
@@ -121,8 +145,6 @@ namespace Parroquia
             //DESPUES DE GUARDAR IMPRIMO
             Cursor.Current = Cursors.WaitCursor;
             //SE ESTABLECEN LAS PROPIEDADES DE IMPRESORA
-            
-
             if (ImpresoraProperties())
             {
                 //SE LEE EL ARCHIVO QUE SE IMPRIMIRA
@@ -183,9 +205,9 @@ namespace Parroquia
                        Brushes.Black, mitad+15, 140);
 
             //LUGAR BAUTISMO
-            tamaño_total = 880 - ev.Graphics.MeasureString("ANTÚNEZ, MICHOACÁN", new Font("Times New Roman", 11, FontStyle.Bold)).Width;
+            tamaño_total = 880 - ev.Graphics.MeasureString(nombre_parroquia+ " " + ubicacion_parroquia, new Font("Times New Roman", 11, FontStyle.Bold)).Width;
             mitad = tamaño_total / 2;
-            ev.Graphics.DrawString("ANTÚNEZ, MICHOACÁN",
+            ev.Graphics.DrawString(nombre_parroquia+" "+ubicacion_parroquia,
                new Font("Times New Roman", 11, FontStyle.Bold),
                        Brushes.Black, mitad+15, 201);
 
@@ -319,9 +341,9 @@ namespace Parroquia
                         Brushes.Black, 505, 514);
 
             //IMPRIME LUGAR DE BAUTISMO
-            tamaño_total = 880 - ev.Graphics.MeasureString("ANTÚNEZ, MICHOACÁN", new Font("Times New Roman", 9, FontStyle.Bold)).Width;
+            tamaño_total = 880 - ev.Graphics.MeasureString(ubicacion_parroquia, new Font("Times New Roman", 9, FontStyle.Bold)).Width;
             mitad = tamaño_total / 2;
-            ev.Graphics.DrawString("ANTÚNEZ, MICHOACÁN",
+            ev.Graphics.DrawString(ubicacion_parroquia,
                 new Font("Times New Roman", 9, FontStyle.Bold),
                         Brushes.Black, mitad-135, 587);
 
@@ -369,6 +391,14 @@ namespace Parroquia
             ev.Graphics.DrawString(partida,
                 new Font("Times New Roman", 9, FontStyle.Bold),
                         Brushes.Black, 120, 777);
+
+            //NOMBRE DEL PARROCO
+            tamaño_total = 880 - ev.Graphics.MeasureString(nombre_parroco, new Font("Times New Roman", 9, FontStyle.Bold)).Width;
+            mitad = tamaño_total / 2;
+            ev.Graphics.DrawString(nombre_parroco,
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, mitad-90, 748);
+
         }
 
         //METODO PARA IMPRIMIR COPIA DE CONFIRMACION
