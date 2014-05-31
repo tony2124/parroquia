@@ -158,6 +158,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.pictureBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "acercade";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

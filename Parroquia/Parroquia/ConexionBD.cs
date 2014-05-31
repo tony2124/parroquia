@@ -35,16 +35,13 @@ namespace conexionbd
         {
             try
             {
-                conex = "server="+host+"; port=3306; user id=" + usuario + "; password=" + contrasena + "; database=parroquiaantunez;";
+                conex = "server="+host+"; port=3306; user id=" + usuario + "; password=" + contrasena + "; database="+basedatos+";";
                 conexionBD = new MySqlConnection(conex);
                 conexionBD.Open();
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error al conectar al servidor de MySQL: " +
-                    ex.Message, "Error al conectar",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+                MessageBox.Show("Error al conectar al servidor de MySQL: " + ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -73,7 +70,6 @@ namespace conexionbd
             try
             {
                 MySqlCommand cmd = new MySqlCommand(consulta, conexionBD);
-           
                 resultado = cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)
@@ -87,7 +83,5 @@ namespace conexionbd
         {
             conexionBD.Close();
         }
-
-
     }
 }

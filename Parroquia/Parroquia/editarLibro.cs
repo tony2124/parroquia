@@ -50,6 +50,10 @@ namespace Parroquia
             }
             BDatos.Desconectar();
             InitializeComponent();
+
+            this.comboBoxNLibros.Items.AddRange(datosNombre);
+            this.comboBoxNLibros.Text = datosNombre[0];
+            this.Text = "Editar libro de la categoria de " + Categorias;
         }
 
         private void button2_Click(object sender, EventArgs e)

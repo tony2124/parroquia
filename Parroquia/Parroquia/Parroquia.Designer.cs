@@ -202,7 +202,7 @@ namespace Parroquia
             this.acercaDeToolStripMenuItem1.Name = "acercaDeToolStripMenuItem1";
             this.acercaDeToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
             this.acercaDeToolStripMenuItem1.Text = "Acerca de...";
-            this.acercaDeToolStripMenuItem1.Click += new System.EventHandler(this.acercaDeToolStripMenuItem1_Click);
+            this.acercaDeToolStripMenuItem1.Click += new System.EventHandler(this.acercaDeToolStripMenuItem1_Click_1);
             // 
             // label3
             // 
@@ -496,8 +496,8 @@ namespace Parroquia
         private Timer timer2;
         private Button button2;
         private Button button1;
-        public static Button btnbuscar;
         private SaveFileDialog saveFileDialog1;
+        public static Button btnbuscar;
 
 
     }

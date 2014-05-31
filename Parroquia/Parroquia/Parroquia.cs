@@ -227,9 +227,12 @@ namespace Parroquia
 
         private void respaldoDeBDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            saveFileDialog1.FileName = "base de datos.sql";
+
+            saveFileDialog1.FileName = "RESPALDO_BD_" + DateTime.Now.Day + "_" + DateTime.Now.ToString("MMMM")+ "_" + DateTime.Now.Year + ".sql";
             saveFileDialog1.AddExtension = true;
+            saveFileDialog1.CheckFileExists = true;
+            saveFileDialog1.Title = "RESPALDO DE LA BASE DE DATOS";
+            saveFileDialog1.Filter = "Archivos SQL(*.sql)|*.sql|Archivos de Texto (*.txt)|*.txt|All files (*.*)|*.*";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 if (saveFileDialog1.FileName != String.Empty)
@@ -265,7 +268,12 @@ namespace Parroquia
 
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void acercaDeToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            new acercade().Show();
         }
 
     }
