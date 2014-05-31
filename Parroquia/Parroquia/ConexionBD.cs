@@ -11,7 +11,7 @@ namespace conexionbd
 {
     class ConexionBD
     {
-        string usuario, contrasena, basedatos, host;
+        public string usuario, contrasena, basedatos, host;
         public static string conex;
         private MySqlConnection conexionBD;
 
@@ -27,7 +27,7 @@ namespace conexionbd
         {
             host = "localhost";
             usuario = "root";
-            contrasena = "";
+            contrasena = "SIMPUS2124";
             basedatos = "parroquiaantunez";
         }
 

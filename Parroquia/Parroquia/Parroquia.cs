@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
+using System.Diagnostics;
 
 namespace Parroquia
 {
@@ -228,8 +230,32 @@ namespace Parroquia
             
             saveFileDialog1.FileName = "base de datos.sql";
             saveFileDialog1.AddExtension = true;
-            
-            saveFileDialog1.ShowDialog();
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if (saveFileDialog1.FileName != String.Empty)
+                {
+                    ConexionBD bd = new ConexionBD();
+                    bd.conexion();
+                    String linea;
+                    String fichero = saveFileDialog1.FileName;
+                    System.Diagnostics.Process proc = new System.Diagnostics.Process();
+                    proc.EnableRaisingEvents = false;
+                    proc.StartInfo.UseShellExecute = false;
+                    proc.StartInfo.RedirectStandardOutput = true;
+                    proc.StartInfo.FileName = "mysqldump";
+                    proc.StartInfo.Arguments = "parroquiaantunez --single-transaction --host=localhost --user=root --password=SIMPUS2124";
+                    Process miProceso;
+                    miProceso = Process.Start(proc.StartInfo);
+                    StreamReader sr = miProceso.StandardOutput;
+                    TextWriter tw = new StreamWriter(saveFileDialog1.FileName, false, Encoding.Default);
+                    while ((linea = sr.ReadLine()) != null)
+                    {
+                        tw.WriteLine(linea);
+                    }
+                    tw.Close();
+                    MessageBox.Show("Copia de seguridad realizada con éxito");
+                }
+            }
         }
 
         private void descargarManualDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
