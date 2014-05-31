@@ -213,6 +213,7 @@ namespace Parroquia
             if (registrobis.Checked)
                 bis = "1";
             Bdatos.conexion();
+
             //insertar datos
             if (Bdatos.Insertar("insert into bautismos(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_nac,lugar_nac,fecha_bautismo,padrino,madrina,presbitero,anotacion,anio,bis)" +
                 " values('" + int.Parse(ID_LIBRO) +
@@ -283,19 +284,8 @@ namespace Parroquia
                     }
 
                     if (guardarRegistro())
-                    {
-                        if (!registrobis.Checked)
-                            Partida++;
-                        else
-                            registrobis.Checked = false;
-
-                        num_partida.Text = "" + (Partida + 1);
-
-                        Hoja = Math.Ceiling((Partida + 1) / 10.0);
-                        num_hoja.Text = "" + Hoja;
-
-                        limpiarCampos();
-                    }
+                        calculaPartida();
+                    
                 }
                 catch (Exception y)
                 {
@@ -335,7 +325,6 @@ namespace Parroquia
         {
             if (!edicion)
             {
-
                 try
                 {
                     if (!registronull.Checked)
@@ -361,18 +350,7 @@ namespace Parroquia
                             presbitero.Text, madrina.Text, padrino.Text, anotacion.Text,1);
                         fi.ShowDialog();
 
-
-                        if (!registrobis.Checked)
-                            Partida++;
-                        else
-                            registrobis.Checked = false;
-
-                        num_partida.Text = "" + (Partida + 1);
-
-                        Hoja = Math.Ceiling((Partida + 1) / 10.0);
-                        num_hoja.Text = "" + Hoja;
-
-                        limpiarCampos();                     
+                        calculaPartida();                     
                     }
 
                 }
@@ -399,6 +377,21 @@ namespace Parroquia
                 fi.ShowDialog();
             }
             
+        }
+
+        private void calculaPartida()
+        {
+            if (!registrobis.Checked)
+                Partida++;
+            else
+                registrobis.Checked = false;
+
+            num_partida.Text = "" + (Partida + 1);
+
+            Hoja = Math.Ceiling((Partida + 1) / 10.0);
+            num_hoja.Text = "" + Hoja;
+
+            limpiarCampos();
         }
 
         private void cancelar_Click(object sender, EventArgs e)

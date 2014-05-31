@@ -27,19 +27,21 @@ namespace Parroquia
         MySqlDataReader Datos;
         ConexionBD Bdatos = new ConexionBD();
 
+        /* CONSTRUCTOR DE VENTANA DE INSERCIÓN **/
         public Matrimonio(String ID_libro)
         {
             ID_LIBRO = ID_libro;
 
-            anios = new Object[(DateTime.Now.Year - 1970) + 1];
-            int u = 0;
-            for (int i = 1970; i <= DateTime.Now.Year; i++)
-            {
-                anios[u] = i;
-                u++;
-            }
+            calculoAnios();
 
             InitializeComponent();
+            
+            /* MODIFICACION DEL FORMULARIO EN CASO DE INSERCION DE REGISTRO */
+            Text = "::INSERTAR REGISTRO DE MATRIMONIO::";
+            toolTip1.SetToolTip(guardar, ":: GUARDAR REGISTRO ::");
+            toolTip1.SetToolTip(guardareimp, ":: GUARDAR E IMPRIMIR::");
+            anio.Items.AddRange(anios);
+            anio.Text = DateTime.Now.Year + "";
 
             try
             {
@@ -51,7 +53,7 @@ namespace Parroquia
                 {
                     while (Datos.Read())
                     {
-                        textBox1.Text = Datos.GetString(0).ToString();
+                        libro.Text = Datos.GetString(0).ToString();
 
                     }
                 }
@@ -69,14 +71,11 @@ namespace Parroquia
                     }
                 }
 
-                textBox3.Text = "" + (Partida + 1);
+                num_partida.Text = "" + (Partida + 1);
 
                 /*CALCULANDO LA HOJA*/
                 Hoja = Math.Ceiling((Partida + 1) / 10.0);
-
-                textBox2.Text = "" + Hoja;
-
-
+                num_hoja.Text = "" + Hoja;
                 Bdatos.Desconectar();
             }
             catch (Exception r) { MessageBox.Show("Error: " + r.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -98,21 +97,20 @@ namespace Parroquia
             }
 
             InitializeComponent();
-            //Establecemos los componentes sin edicion
-            novio.Enabled = false;
-            novia.Enabled = false;
-            fecha_Matrimonio.Enabled = false;
-            lugar_celebracion.Enabled = false;
-            testigo1.Enabled = false;
-            testigo2.Enabled = false;
-            asistente.Enabled = false;
-            notas_marginales.Enabled = false;
-            anioCombo.Enabled = false;
-            registronull.Enabled = false;
-            registrobis.Enabled = false;
+            habilitarCampos(false);
+
+            /* MODIFICACION DEL FORMULARIO EN CASO DE EDICION DE BAUTISMO */
+            registrobis.Visible = false;
+            Text = "::MODIFICAR REGISTRO DE MATRIMONIO::";
+            toolTip1.SetToolTip(guardar, ":: MODIFICAR REGISTRO ::");
+            toolTip1.SetToolTip(guardareimp, ":: IMPRIMIR::");
+            anio.Items.AddRange(anios);
+            anio.Text = DateTime.Now.Year + "";
+            guardar.Image = global::Parroquia.Properties.Resources.actualizar;
+
             try
             {  
-                textBox1.Text = NOMMBRE_LIBRO;
+                libro.Text = NOMMBRE_LIBRO;
                 Bdatos.conexion();
 
                 Datos = Bdatos.obtenerBasesDatosMySQL("SELECT * FROM matrimonios where id_matrimonio = " + ID_REGISTRO);
@@ -121,8 +119,8 @@ namespace Parroquia
                 {
                     while (Datos.Read())
                     {
-                        textBox2.Text = Datos.GetString(2);
-                        textBox3.Text = Datos.GetString(3);
+                        num_hoja.Text = Datos.GetString(2);
+                        num_partida.Text = Datos.GetString(3);
                         novio.Text = Datos.GetString(4);
                         novia.Text = Datos.GetString(5);
                         fecha_Matrimonio.Text = Datos.GetString(6);
@@ -131,7 +129,7 @@ namespace Parroquia
                         testigo2.Text = Datos.GetString(9);
                         asistente.Text = Datos.GetString(10);
                         notas_marginales.Text = Datos.GetString(11); 
-                        anioCombo.Text = Datos.GetString(12);
+                        anio.Text = Datos.GetString(12);
                     }
                 }
                 Bdatos.Desconectar();
@@ -143,81 +141,150 @@ namespace Parroquia
             }
         }
 
+        /* CALCULAR LOS AÑOS */
+        public void calculoAnios()
+        {
+            /*Calculo de años para el combobox */
+            anios = new Object[(DateTime.Now.Year - 1970) + 1];
+            int u = 0;
+            for (int i = 1970; i <= DateTime.Now.Year; i++)
+            {
+                anios[u] = i;
+                u++;
+            }
+        }
+
+        /* HABILITA O DESHABILITA LOS CAMPOS */
+        public void habilitarCampos(Boolean enabled)
+        {
+            novio.Enabled = enabled;
+            novia.Enabled = enabled;
+            fecha_Matrimonio.Enabled = enabled;
+            lugar_celebracion.Enabled = enabled;
+            testigo1.Enabled = enabled;
+            testigo2.Enabled = enabled;
+            asistente.Enabled = enabled;
+            notas_marginales.Enabled = enabled;
+            anio.Enabled = enabled;
+            registronull.Enabled = enabled;
+            registrobis.Enabled = enabled;
+
+        }
+
+        /*Se establecen en blanco todos los campos*/
+        public void limpiarCampos()
+        {
+            novio.Text = "";
+            novio.Focus();
+            novia.Text = "";
+            lugar_celebracion.Text = "";
+            testigo1.Text = "";
+            testigo2.Text = "";
+            asistente.Text = "";
+            //fecha_Matrimonio.Value = DateTime.Now;
+            notas_marginales.Text = "";
+           
+        }
+
+        /* VERIFICA SI HAY CAMPOS OBLIGATORIOS VACIOS */
+        public Boolean camposVacios()
+        {
+            if ((novio.Text.ToString().CompareTo("") == 0) ||
+                (novia.Text.ToString().CompareTo("") == 0) ||
+                (testigo1.Text.ToString().CompareTo("") == 0) ||
+                (lugar_celebracion.Text.ToString().CompareTo("") == 0) ||
+                (testigo2.Text.ToString().CompareTo("") == 0) ||
+                (asistente.Text.ToString().CompareTo("") == 0))
+            {
+                MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+            return false;
+        }
+
+         /*INSERTAR REGISTRO EN LA BD */
+        private Boolean guardarRegistro()
+        {
+            //Se guardan todos los campos en la base de datos
+            String bis = "0", partida = num_partida.Text;
+            if (registrobis.Checked)
+                bis = "1";
+            
+            Bdatos.conexion();
+            
+            if (Bdatos.Insertar("insert into matrimonios(id_libro,num_hoja,num_partida,novio,novia,fecha_matrimonio,lugar_celebracion,testigo1,testigo2,asistente,nota_marginal,anio,bis)" +
+                " values('" + int.Parse(ID_LIBRO) +
+                "','" + int.Parse(num_hoja.Text.ToString()) +
+                "','" + num_partida.Text +
+                "','" + novio.Text +
+                "','" + novia.Text +
+                "','" + fecha_Matrimonio.Value.ToString("yyyy-MM-dd") +
+                "','" + lugar_celebracion.Text +
+                "','" + testigo1.Text +
+                "','" + testigo2.Text +
+                "','" + asistente.Text +
+                "','" + notas_marginales.Text +
+                "','" + anio.Text +
+                "'," + bis + ");") > 0)
+            {
+                MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Bdatos.Desconectar();
+                return true;
+            }
+            else MessageBox.Show("Error al ingresar datos ", " Error al ingresar ",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Bdatos.Desconectar();
+            return false;
+        }
+
+        /*** ACTUALIZAR REGISTRO ***/
+        private Boolean actualizarRegistro()
+        {
+            Bdatos.conexion();
+            //Se hace la actualizacion en la base de datos
+            if (Bdatos.Actualizar("UPDATE matrimonios SET novio='" + novio.Text.ToString() +
+                    "',novia='" + novia.Text.ToString() + "',fecha_matrimonio='" + fecha_Matrimonio.Value.ToString("yyyy-MM-dd") +
+                    "',lugar_celebracion='" + lugar_celebracion.Text.ToString() + "',testigo1='" + testigo1.Text.ToString() +
+                    "',testigo2='" + testigo2.Text.ToString() + "',asistente='" + asistente.Text.ToString() +
+                    "',nota_marginal='" + notas_marginales.Text.ToString() + "',anio='" + anio.Text.ToString() +
+                    "' where id_matrimonio= '" + ID_REGISTRO + "';") > 0)
+            {
+                //Establecemos los componentes sin edicion
+                habilitarCampos(false);
+                guardareimp.Enabled = true;
+                guardar.Image = global::Parroquia.Properties.Resources.actualizar;
+                toolTip1.SetToolTip(guardar, ":: EDITAR REGISTRO ::");
+
+                //actualizar tabla de busqueda
+                Parroquia.btnbuscar.PerformClick();
+                MessageBox.Show("Registro actualizado correctamente ", " Acción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Bdatos.Desconectar();
+                return true;
+            }
+            else
+                MessageBox.Show("Error al actualizar datos en MySQL ", " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Bdatos.Desconectar();
+            return false;
+        }
+
         private void guardarConfirBtn_Click(object sender, EventArgs e)
         {
             if (!edicion) //SI NO ESTA PUESTO EDICION SE GUARDA NORMALMENTE
             {
                 try
                 {
-                    Bdatos.conexion();
                     if (!registronull.Checked)
                     {
-                        if ((novio.Text.ToString().CompareTo("") == 0) ||
-                            (novia.Text.ToString().CompareTo("") == 0) ||
-                            (testigo1.Text.ToString().CompareTo("") == 0) ||
-                            (lugar_celebracion.Text.ToString().CompareTo("") == 0) ||
-                            (testigo2.Text.ToString().CompareTo("") == 0) ||
-                            (asistente.Text.ToString().CompareTo("") == 0))
-                        {
-                            MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
-                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (camposVacios())
                             return;
-                        }
                     }
-                    
-                    //Se guardan todos los campos en la base de datos
-                    String bis = "0", partida = textBox3.Text;
-                    if (registrobis.Checked)
-                    {
-                        bis = "1";
-                    }
-                        if (Bdatos.Insertar("insert into matrimonios(id_libro,num_hoja,num_partida,novio,novia,fecha_matrimonio,lugar_celebracion,testigo1,testigo2,asistente,nota_marginal,anio,bis)" +
-                            " values('" + int.Parse(ID_LIBRO) +
-                            "','" + int.Parse(textBox2.Text.ToString()) +
-                            "','" + textBox3.Text +
-                            "','" + novio.Text +
-                            "','" + novia.Text +
-                            "','" + fecha_Matrimonio.Value.ToString("yyyy-MM-dd") +
-                            "','" + lugar_celebracion.Text +
-                            "','" + testigo1.Text +
-                            "','" + testigo2.Text +
-                            "','" + asistente.Text +
-                            "','" + notas_marginales.Text +
-                            "','" + anioCombo.Text +
-                            "'," + bis + ");") > 0)
-                        {
-                            MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa",
-                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            if (!registrobis.Checked)
-                                Partida++;
-                            else
-                                registrobis.Checked = false;
- 
-                            textBox3.Text = "" + (Partida + 1);
 
-                            Hoja = Math.Ceiling((Partida + 1) / 10.0);
-                            textBox2.Text = "" + Hoja;
-
-                            /*Se establecen en blanco todos los campos*/
-                            novio.Text = "";
-                            novia.Text = "";
-                            lugar_celebracion.Text = "";
-                            testigo1.Text = "";
-                            testigo2.Text = "";
-                            asistente.Text = "";
-                            notas_marginales.Text = "";
-                            fecha_Matrimonio.Value = DateTime.Now;
-                        }
-                        else MessageBox.Show("Error al ingresar datos en MySQL ", " Error al ingresar ",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                        Bdatos.Desconectar();
+                    if (guardarRegistro())
+                        calculaPartida();
                 }
                 catch (Exception y)
                 {
-                    MessageBox.Show("Error al ingresar datos en MySQL: " +
-                        y.Message, " Error al ingresar ",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error); ;
+                    MessageBox.Show("Error al ingresar datos en MySQL: " + y.Message, " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
                 }
             }
             else //SI LA EDICION ESTA PUESTA
@@ -225,77 +292,24 @@ namespace Parroquia
                 if (btn == false)
                 {
                     btn = true;
-                    this.guardarConfirBtn.Text = "Guardar registro";
-                    this.guardaImprimeBtn.Enabled = false;
-
-                    //Permitimes edicion a los componentes
-                    novio.Enabled = true;
-                    novia.Enabled = true;
-                    fecha_Matrimonio.Enabled = true;
-                    lugar_celebracion.Enabled = true;
-                    testigo1.Enabled = true;
-                    testigo2.Enabled = true;
-                    asistente.Enabled = true;
-                    notas_marginales.Enabled = true;
-                    anioCombo.Enabled = true;
-                    registronull.Enabled = true;
+                    guardar.Image = global::Parroquia.Properties.Resources.guardar1;
+                    guardareimp.Enabled = false;
+                    toolTip1.SetToolTip(guardar, ":: GUARDAR REGISTRO ::");
+                    habilitarCampos(true);
                     return;
                 }
                 else
                 {
-                    //Actualizamos datos en la base de datos
                     if (!registronull.Checked)
                     {
-                        if ((novio.Text.ToString().CompareTo("") == 0) ||
-                           (novia.Text.ToString().CompareTo("") == 0) ||
-                           (lugar_celebracion.Text.ToString().CompareTo("") == 0) ||
-                           (testigo1.Text.ToString().CompareTo("") == 0) ||
-                           (testigo2.Text.ToString().CompareTo("") == 0) ||
-                           (asistente.Text.ToString().CompareTo("") == 0))
-                        {
-                            MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (camposVacios())
                             return;
-                        }
                     }
 
-                    Bdatos.conexion();
-                    //Se hace la actualizacion en la base de datos
-                    if (Bdatos.Actualizar("UPDATE matrimonios SET novio='" + novio.Text.ToString() +
-                         "',novia='" + novia.Text.ToString() + "',fecha_matrimonio='" + fecha_Matrimonio.Value.ToString("yyyy-MM-dd") +
-                         "',lugar_celebracion='" + lugar_celebracion.Text.ToString() + "',testigo1='" + testigo1.Text.ToString() +
-                         "',testigo2='" + testigo2.Text.ToString() + "',asistente='" + asistente.Text.ToString() +
-                         "',nota_marginal='" + notas_marginales.Text.ToString() + "',anio='" + anioCombo.Text.ToString() +
-                         "' where id_matrimonio= '" + ID_REGISTRO + "';") > 0)
+                    if (actualizarRegistro())
                     {
-                        MessageBox.Show("Registro actualizado correctamente ", " Acción exitosa",
-                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btn = false;
-                        this.guardarConfirBtn.Text = "Editar registro";
-                        this.cancelBtnConfirmacion.Enabled = true;
-                        this.guardaImprimeBtn.Enabled = true;
-
-                        //Establecemos los componentes sin edicion
-                        registronull.Checked = false;
-                        novio.Enabled = false;
-                        novia.Enabled = false;
-                        fecha_Matrimonio.Enabled = false;
-                        lugar_celebracion.Enabled = false;
-                        testigo1.Enabled = false;
-                        testigo2.Enabled = false;
-                        asistente.Enabled = false;
-                        notas_marginales.Enabled = false;
-                        anioCombo.Enabled = false;
-                        registronull.Enabled = false;
-                        registrobis.Enabled = false;
-
-                        //actualizamos la tabla
-                        Parroquia.btnbuscar.PerformClick();
                     }
-                    else
-                        MessageBox.Show("Error al actualizar datos en MySQL ", " Error al ingresar ",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Bdatos.Desconectar();
                 }
             }
         }
@@ -303,19 +317,15 @@ namespace Parroquia
         public void registrobis_CheckedChanged(object sender, EventArgs e)
         {
             if (registrobis.Checked)
-            {
-                textBox3.Text = (int.Parse(textBox3.Text) - 1) + "BIS";
-            }
+                num_partida.Text = (int.Parse(num_partida.Text) - 1) + "BIS";
             else
-            {
-                textBox3.Text = (Partida + 1) + "";
-            }
+                num_partida.Text = (Partida + 1) + "";
         }
 
         private void botones(KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
-                guardarConfirBtn.PerformClick();
+                guardar.PerformClick();
         }
 
         private void padre_KeyPress(object sender, KeyPressEventArgs e)
@@ -362,41 +372,72 @@ namespace Parroquia
         {
             if (registronull.Checked)
             {
-                novio.Text = "";
-                novio.Enabled = false;
-                novia.Text = "";
-                novia.Enabled = false;
-                fecha_Matrimonio.Text = "";
-                fecha_Matrimonio.Enabled = false;
-                lugar_celebracion.Text = "";
-                lugar_celebracion.Enabled = false;
-                testigo1.Text = "";
-                testigo1.Enabled = false;
-                testigo2.Text = "";
-                testigo2.Enabled = false;
-                asistente.Text = "";
-                asistente.Enabled = false;
-                notas_marginales.Text = "";
-                notas_marginales.Enabled = false;
-                guardaImprimeBtn.Enabled = false;
+                habilitarCampos(false);
+                limpiarCampos();
+                guardareimp.Enabled = false;
             }
             else
             {
-                
-                novio.Enabled = true;
-                novia.Enabled = true;
-                fecha_Matrimonio.Enabled = true;
-                lugar_celebracion.Enabled = true;
-                testigo1.Enabled = true;
-                testigo2.Enabled = true;
-                asistente.Enabled = true;
-                notas_marginales.Enabled = true;
+                habilitarCampos(true);
                 if (!edicion)
-                    guardaImprimeBtn.Enabled = true;
-                else guardaImprimeBtn.Enabled = false;
+                    guardareimp.Enabled = true;
+                else guardareimp.Enabled = false;
             }
         }
 
+        private void guardaImprimeBtn_Click(object sender, EventArgs e)
+        {
+            if (!edicion)
+            {
+                try
+                {
+                    if (!registronull.Checked)
+                    {
+                        if (camposVacios())
+                            return;
+                    }
 
+                    if (guardarRegistro())
+                    {
+
+                        //IMPRIME
+
+                        /* Imprimir a = new Imprimir(libro.Text, num_hoja.Text,
+                             num_partida.Text, nombre.Text, padre.Text, madre.Text, 
+                             lugarnac.Text,fechanac.Value.ToString("yyyy-MMMM-dd"), 
+                             fechabautismo.Value.ToString("yyyy-MMMM-dd"),
+                             presbitero.Text,madrina.Text, padrino.Text, anotacion.Text);*/
+
+                        calculaPartida();
+                    }
+
+                }
+                catch (Exception y)
+                {
+                    MessageBox.Show("Error al ingresar datos en MySQL: " + y.Message, " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            else
+            {
+                //IMPRIME
+               
+            }
+        }
+
+        private void calculaPartida()
+        {
+            if (!registrobis.Checked)
+                Partida++;
+            else
+                registrobis.Checked = false;
+
+            num_partida.Text = "" + (Partida + 1);
+
+            Hoja = Math.Ceiling((Partida + 1) / 10.0);
+            num_hoja.Text = "" + Hoja;
+
+            limpiarCampos();
+        }
     }
 }

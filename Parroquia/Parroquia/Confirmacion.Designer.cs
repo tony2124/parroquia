@@ -364,6 +364,7 @@ namespace Parroquia
             // 
             // cancelBtnConfirmacion
             // 
+            this.cancelBtnConfirmacion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelBtnConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtnConfirmacion.Image = global::Parroquia.Properties.Resources.eliminar_icono_4790_64;
             this.cancelBtnConfirmacion.Location = new System.Drawing.Point(608, 451);
@@ -518,6 +519,7 @@ namespace Parroquia
             // 
             // guardaImprimeBtn
             // 
+            this.guardaImprimeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guardaImprimeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardaImprimeBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.guardaImprimeBtn.Image = global::Parroquia.Properties.Resources.imprimir_icono_3650_64;
@@ -530,6 +532,7 @@ namespace Parroquia
             // 
             // guardarConfirBtn
             // 
+            this.guardarConfirBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guardarConfirBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardarConfirBtn.Image = global::Parroquia.Properties.Resources.guardar1;
             this.guardarConfirBtn.Location = new System.Drawing.Point(608, 314);
