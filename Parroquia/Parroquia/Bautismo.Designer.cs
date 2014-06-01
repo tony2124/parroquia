@@ -535,7 +535,7 @@ namespace Parroquia
             this.cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelar.Image = global::Parroquia.Properties.Resources.eliminar_icono_4790_64;
+            this.cancelar.Image = global::Parroquia.Properties.Resources.cancelar;
             this.cancelar.Location = new System.Drawing.Point(608, 496);
             this.cancelar.Name = "cancelar";
             this.cancelar.Size = new System.Drawing.Size(65, 65);
@@ -548,7 +548,7 @@ namespace Parroquia
             // 
             this.guardareimp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guardareimp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardareimp.Image = global::Parroquia.Properties.Resources.imprimir_icono_3650_64;
+            this.guardareimp.Image = global::Parroquia.Properties.Resources.imprimir;
             this.guardareimp.Location = new System.Drawing.Point(608, 425);
             this.guardareimp.Name = "guardareimp";
             this.guardareimp.Size = new System.Drawing.Size(65, 65);

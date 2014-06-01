@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="imprimir-icono-3650-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imprimir-icono-3650-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="p11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\p11.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,17 +133,20 @@
   <data name="matrimonio1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\matrimonio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="virgen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\virgen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="p14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\p14.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="253331_112399185524690_100002638274955_82681_7576911_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\253331_112399185524690_100002638274955_82681_7576911_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cancelar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eliminar-icono-4790-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="parroq" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\parroq.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="baner" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\baner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="p16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\p16.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imprimir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imprimir-icono-3650-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="p4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\p4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,29 +166,29 @@
   <data name="p3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\p3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eliminar-icono-4790-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eliminar-icono-4790-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="actualizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\actualizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="p13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\p13.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="p15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\p15.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="p9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\p9.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="virgen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\virgen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="virgen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\virgen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="p18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\p18.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="p6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\p6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="p12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\p12.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="p19" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\p19.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="facebook_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\facebook_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,22 +205,16 @@
   <data name="p5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\p5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="matrimonio" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\matrimonio.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="baner2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\baner2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="logo_simpus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo_simpus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="simpus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\simpus.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="p17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\p17.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="p7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\p7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="p14" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\p14.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="p20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\p20.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

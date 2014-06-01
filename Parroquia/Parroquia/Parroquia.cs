@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
 using System.Diagnostics;
+using System.Net;
+using System.Net.Sockets;
 
 namespace Parroquia
 {
@@ -21,6 +23,7 @@ namespace Parroquia
         public static MySqlDataAdapter Adaptador;
         public static DataSet ds;
         int foto = 0;
+        bool play = false;
 
 
         public Parroquia()
@@ -28,7 +31,7 @@ namespace Parroquia
             BDatos = new ConexionBD();
             BDatos.conexion();
             InitializeComponent();
-
+            ip.Text = LocalIPAddress();
         }
 
         public void Pintar_tabla(String filtro, String libros)
@@ -193,7 +196,7 @@ namespace Parroquia
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label7.Text = DateTime.Now.ToLongTimeString()+"                Fecha:   "+DateTime.Now.ToLongDateString();
+            label7.Text = DateTime.Now.ToLongDateString() + "   " + DateTime.Now.ToLongTimeString();
         }
 
         public void Salir_Click(object sender, EventArgs e)
@@ -209,7 +212,7 @@ namespace Parroquia
         private void button1_Click_1(object sender, EventArgs e)
         {
             foto++;
-            if (foto == 14)
+            if (foto == 20)
                 foto = 0;
             cambiarFoto();
         }
@@ -218,9 +221,11 @@ namespace Parroquia
         {
             foto--;
             if (foto == -1)
-                foto = 9;
+                foto = 19;
             cambiarFoto();
         }
+
+
 
         private void ingresosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -263,6 +268,18 @@ namespace Parroquia
                 case 12: fondoImg.Image = global::Parroquia.Properties.Resources.p13;
                     break;
                 case 13: fondoImg.Image = global::Parroquia.Properties.Resources.p14;
+                    break;
+                case 14: fondoImg.Image = global::Parroquia.Properties.Resources.p15;
+                    break;
+                case 15: fondoImg.Image = global::Parroquia.Properties.Resources.p16;
+                    break;
+                case 16: fondoImg.Image = global::Parroquia.Properties.Resources.p17;
+                    break;
+                case 17: fondoImg.Image = global::Parroquia.Properties.Resources.p18;
+                    break;
+                case 18: fondoImg.Image = global::Parroquia.Properties.Resources.p19;
+                    break;
+                case 19: fondoImg.Image = global::Parroquia.Properties.Resources.p20;
                     break;
                 
             }
@@ -330,8 +347,43 @@ namespace Parroquia
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            if (!play)
+            {
+                pause.Text = "|>";
+                timer2.Enabled = false;
+                play = true;
+            }
+            else
+            {
+                pause.Text = "| |";
+                timer2.Enabled = true;
+                play = false;
+            }
         }
 
+        public string LocalIPAddress()
+        {
+            IPHostEntry host;
+            string localIP = "";
+            host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (IPAddress ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    localIP = ip.ToString();
+                    break;
+                }
+            }
+            return localIP;
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            cambiarFoto();
+            if (foto == 20)
+                foto = 0;
+            foto++;
+            
+        }
     }
 }

@@ -63,16 +63,6 @@ namespace Parroquia.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _253331_112399185524690_100002638274955_82681_7576911_n {
-            get {
-                object obj = ResourceManager.GetObject("253331_112399185524690_100002638274955_82681_7576911_n", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap actualizar {
             get {
                 object obj = ResourceManager.GetObject("actualizar", resourceCulture);
@@ -83,29 +73,19 @@ namespace Parroquia.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap baner {
-            get {
-                object obj = ResourceManager.GetObject("baner", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap baner2 {
-            get {
-                object obj = ResourceManager.GetObject("baner2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap bautismo {
             get {
                 object obj = ResourceManager.GetObject("bautismo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancelar {
+            get {
+                object obj = ResourceManager.GetObject("cancelar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,16 +113,6 @@ namespace Parroquia.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap eliminar_icono_4790_64 {
-            get {
-                object obj = ResourceManager.GetObject("eliminar-icono-4790-64", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap facebook_icon {
             get {
                 object obj = ResourceManager.GetObject("facebook_icon", resourceCulture);
@@ -163,9 +133,9 @@ namespace Parroquia.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap imprimir_icono_3650_64 {
+        internal static System.Drawing.Bitmap imprimir {
             get {
-                object obj = ResourceManager.GetObject("imprimir-icono-3650-64", resourceCulture);
+                object obj = ResourceManager.GetObject("imprimir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -176,16 +146,6 @@ namespace Parroquia.Properties {
         internal static System.Drawing.Bitmap logo_simpus {
             get {
                 object obj = ResourceManager.GetObject("logo_simpus", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap matrimonio {
-            get {
-                object obj = ResourceManager.GetObject("matrimonio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,9 +223,69 @@ namespace Parroquia.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap p15 {
+            get {
+                object obj = ResourceManager.GetObject("p15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap p16 {
+            get {
+                object obj = ResourceManager.GetObject("p16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap p17 {
+            get {
+                object obj = ResourceManager.GetObject("p17", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap p18 {
+            get {
+                object obj = ResourceManager.GetObject("p18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap p19 {
+            get {
+                object obj = ResourceManager.GetObject("p19", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap p2 {
             get {
                 object obj = ResourceManager.GetObject("p2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap p20 {
+            get {
+                object obj = ResourceManager.GetObject("p20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,49 +373,9 @@ namespace Parroquia.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap simpus {
-            get {
-                object obj = ResourceManager.GetObject("simpus", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap twitter_icon {
             get {
                 object obj = ResourceManager.GetObject("twitter_icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap virgen {
-            get {
-                object obj = ResourceManager.GetObject("virgen", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap virgen1 {
-            get {
-                object obj = ResourceManager.GetObject("virgen1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap virgen2 {
-            get {
-                object obj = ResourceManager.GetObject("virgen2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -366,7 +366,7 @@ namespace Parroquia
             // 
             this.cancelBtnConfirmacion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelBtnConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelBtnConfirmacion.Image = global::Parroquia.Properties.Resources.eliminar_icono_4790_64;
+            this.cancelBtnConfirmacion.Image = global::Parroquia.Properties.Resources.cancelar;
             this.cancelBtnConfirmacion.Location = new System.Drawing.Point(608, 451);
             this.cancelBtnConfirmacion.Name = "cancelBtnConfirmacion";
             this.cancelBtnConfirmacion.Size = new System.Drawing.Size(65, 65);
@@ -522,7 +522,7 @@ namespace Parroquia
             this.guardaImprimeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guardaImprimeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardaImprimeBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guardaImprimeBtn.Image = global::Parroquia.Properties.Resources.imprimir_icono_3650_64;
+            this.guardaImprimeBtn.Image = global::Parroquia.Properties.Resources.imprimir;
             this.guardaImprimeBtn.Location = new System.Drawing.Point(608, 382);
             this.guardaImprimeBtn.Name = "guardaImprimeBtn";
             this.guardaImprimeBtn.Size = new System.Drawing.Size(65, 65);

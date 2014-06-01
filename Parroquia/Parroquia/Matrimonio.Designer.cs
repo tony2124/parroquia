@@ -463,7 +463,7 @@ namespace Parroquia
             this.guardareimp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guardareimp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardareimp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guardareimp.Image = global::Parroquia.Properties.Resources.imprimir_icono_3650_64;
+            this.guardareimp.Image = global::Parroquia.Properties.Resources.imprimir;
             this.guardareimp.Location = new System.Drawing.Point(546, 501);
             this.guardareimp.Name = "guardareimp";
             this.guardareimp.Size = new System.Drawing.Size(65, 65);
@@ -489,7 +489,7 @@ namespace Parroquia
             // 
             this.cancelBtnConfirmacion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelBtnConfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelBtnConfirmacion.Image = global::Parroquia.Properties.Resources.eliminar_icono_4790_64;
+            this.cancelBtnConfirmacion.Image = global::Parroquia.Properties.Resources.cancelar;
             this.cancelBtnConfirmacion.Location = new System.Drawing.Point(617, 501);
             this.cancelBtnConfirmacion.Name = "cancelBtnConfirmacion";
             this.cancelBtnConfirmacion.Size = new System.Drawing.Size(65, 65);

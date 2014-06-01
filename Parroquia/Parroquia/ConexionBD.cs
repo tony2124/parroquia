@@ -33,7 +33,7 @@ namespace conexionbd
             {
                 host = "localhost";
                 usuario = "root";
-                contrasena = "SIMPjUS2124";
+                contrasena = "SIMPUS2124";
                 puerto = "3306";
                 basedatos = "parroquiaantunez";
             }

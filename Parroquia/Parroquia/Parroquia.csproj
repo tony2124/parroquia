@@ -200,19 +200,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Parroquia_ClaveTemporal.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -230,9 +230,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\virgen.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\virgen1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bautismo.png" />
@@ -343,6 +340,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\p14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p15.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p19.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p20.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
