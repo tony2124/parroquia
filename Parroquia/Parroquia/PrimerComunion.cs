@@ -86,7 +86,7 @@ namespace Parroquia
             InitializeComponent();
             calculoAnios();
             habilitarCampos(false);
-
+            calculoAnios();
             /* MODIFICACION DEL FORMULARIO EN CASO DE EDICION DE BAUTISMO */
             registrobis.Visible = false;
             Text = "::MODIFICAR REGISTRO DE PRIMERA COMUNIÓN ::";
@@ -257,8 +257,6 @@ namespace Parroquia
                 Bdatos.Desconectar();
                 return true;
             }
-            else
-                MessageBox.Show("Error al actualizar datos en MySQL ", " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Bdatos.Desconectar();
             return false;
         }
@@ -273,21 +271,15 @@ namespace Parroquia
         {
             if (!edicion) //SI NO ESTA PUESTO EDICION SE GUARDA NORMALMENTE
             {
-                try
+                if (!registronull.Checked)
                 {
-                    if (!registronull.Checked)
-                    {
-                        if (camposVacios())
-                            return;
-                    }
+                    if (camposVacios())
+                        return;
+                }
 
-                    if (guardarRegistro())
-                        calculaPartida();
-                }
-                catch (Exception y)
-                {
-                    MessageBox.Show("Error al ingresar datos en MySQL: " + y.Message, " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
-                }
+                if (guardarRegistro())
+                    calculaPartida();
+
             }
             else //SI LA EDICION ESTA PUESTA
             {
@@ -316,15 +308,13 @@ namespace Parroquia
         {
             if (!edicion)
             {
-                try
+               
+                if (!registronull.Checked)
                 {
-                    Bdatos.conexion();
+                    if (camposVacios())
+                        return;
+                }
 
-                    if (!registronull.Checked)
-                    {
-                        if (camposVacios())
-                            return;
-                    }
 
                     if (guardarRegistro())
                     {
@@ -335,14 +325,7 @@ namespace Parroquia
                             fecha_bautism.Value.ToString("yyyy-MMMM-dd"),
                             lugar_bautismo.Text, madrina.Text, padrino.Text,"","",3);
                         fi.ShowDialog();
-
                         calculaPartida();
-                    }
-                    Bdatos.Desconectar();
-                }
-                catch (Exception y)
-                {
-                    MessageBox.Show("Error al ingresar datos en MySQL: " + y.Message, " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

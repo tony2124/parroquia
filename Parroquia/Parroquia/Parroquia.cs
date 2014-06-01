@@ -20,6 +20,7 @@ namespace Parroquia
 
         public static MySqlDataAdapter Adaptador;
         public static DataSet ds;
+        int foto = 0;
 
 
         public Parroquia()
@@ -45,12 +46,12 @@ namespace Parroquia
            ConexionBD.conex);
             ds = new DataSet();
             Adaptador.Fill(ds, "prueba");
-
+            
             BDatos.Desconectar();
             
             tablaBusqueda.DataSource = ds;
             tablaBusqueda.DataMember = "prueba";
-
+            reg_encontrados.Text = tablaBusqueda.RowCount+"";
             //Ancho de columnas al tamaño del contenido
             tablaBusqueda.AutoResizeColumns();
 
@@ -207,12 +208,18 @@ namespace Parroquia
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            fondoImg.Image = global::Parroquia.Properties.Resources.p1;
+            foto++;
+            if (foto == 14)
+                foto = 0;
+            cambiarFoto();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            fondoImg.Image = global::Parroquia.Properties.Resources.p10;
+            foto--;
+            if (foto == -1)
+                foto = 9;
+            cambiarFoto();
         }
 
         private void ingresosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -223,6 +230,43 @@ namespace Parroquia
         private void egresosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void cambiarFoto()
+        {
+            switch (foto)
+            {
+                case 0: fondoImg.Image = global::Parroquia.Properties.Resources.p1;
+                    break;
+                case 1: fondoImg.Image = global::Parroquia.Properties.Resources.p2;
+                    break;
+                case 2: fondoImg.Image = global::Parroquia.Properties.Resources.p3;
+                    break;
+                case 3: fondoImg.Image = global::Parroquia.Properties.Resources.p4;
+                    break;
+                case 4: fondoImg.Image = global::Parroquia.Properties.Resources.p5;
+                    break;
+                case 5: fondoImg.Image = global::Parroquia.Properties.Resources.p6;
+                    break;
+                case 6: fondoImg.Image = global::Parroquia.Properties.Resources.p7;
+                    break;
+                case 7: fondoImg.Image = global::Parroquia.Properties.Resources.p8;
+                    break;
+                case 8: fondoImg.Image = global::Parroquia.Properties.Resources.p9;
+                    break;
+                case 9: fondoImg.Image = global::Parroquia.Properties.Resources.p10;
+                    break;
+                case 10: fondoImg.Image = global::Parroquia.Properties.Resources.p11;
+                    break;
+                case 11: fondoImg.Image = global::Parroquia.Properties.Resources.p12;
+                    break;
+                case 12: fondoImg.Image = global::Parroquia.Properties.Resources.p13;
+                    break;
+                case 13: fondoImg.Image = global::Parroquia.Properties.Resources.p14;
+                    break;
+                
+            }
+            
         }
 
         private void respaldoDeBDToolStripMenuItem_Click(object sender, EventArgs e)
@@ -246,16 +290,24 @@ namespace Parroquia
                     proc.StartInfo.UseShellExecute = false;
                     proc.StartInfo.RedirectStandardOutput = true;
                     proc.StartInfo.FileName = "mysqldump";
-                    proc.StartInfo.Arguments = "parroquiaantunez --single-transaction --host=localhost --user=root --password="+bd.contrasena;
+                    proc.StartInfo.Arguments = ConexionBD.basedatos + " --single-transaction --host=" + ConexionBD.host + " --user=" + ConexionBD.usuario + " --password=" + ConexionBD.contrasena;
                     Process miProceso;
                     miProceso = Process.Start(proc.StartInfo);
-                    StreamReader sr = miProceso.StandardOutput;
-                    TextWriter tw = new StreamWriter(saveFileDialog1.FileName, false, Encoding.Default);
-                    while ((linea = sr.ReadLine()) != null)
+                    try
                     {
-                        tw.WriteLine(linea);
+                        StreamReader sr = miProceso.StandardOutput;
+                        TextWriter tw = new StreamWriter(saveFileDialog1.FileName, false, Encoding.Default);
+                        while ((linea = sr.ReadLine()) != null)
+                        {
+                            tw.WriteLine(linea);
+                        }
+                        tw.Close();
                     }
-                    tw.Close();
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show(exception.Message);
+                        return;
+                    }
                     MessageBox.Show("Copia de seguridad realizada con éxito");
                 }
             }
@@ -274,6 +326,11 @@ namespace Parroquia
         private void acercaDeToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
             new acercade().Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

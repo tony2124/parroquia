@@ -6,42 +6,89 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Parroquia;
+using System.IO;
 
 namespace conexionbd
 {
     class ConexionBD
     {
-        public string usuario, contrasena, basedatos, host;
+        public static string usuario, contrasena, basedatos, host, puerto;
+        public static bool carga_datos_desde_archivo = false, form = true;
         public static string conex;
         private MySqlConnection conexionBD;
+        
 
-        public ConexionBD(string host, string usuario, string contrasena, string basedatos)
+        public ConexionBD(string h, string u, string pass, string port, string bd)
         {
-            this.host = host;
-            this.usuario = usuario;
-            this.contrasena = contrasena;
-            this.basedatos = basedatos;
+            host = h;
+            usuario = u;
+            contrasena = pass;
+            puerto = port;
+            basedatos = bd;
         }
 
         public ConexionBD()
         {
-            host = "localhost";
-            usuario = "root";
-            contrasena = "simpus2124";
-            basedatos = "parroquiaantunez";
+            if (!carga_datos_desde_archivo && form)
+            {
+                host = "localhost";
+                usuario = "root";
+                contrasena = "SIMPjUS2124";
+                puerto = "3306";
+                basedatos = "parroquiaantunez";
+            }
         }
 
         public void conexion()
         {
             try
             {
-                conex = "server="+host+"; port=3306; user id=" + usuario + "; password=" + contrasena + "; database="+basedatos+";";
+                conex = "server="+host+"; port="+puerto+"; user id=" + usuario + "; password=" + contrasena + "; database="+basedatos+";";
                 conexionBD = new MySqlConnection(conex);
                 conexionBD.Open();
+                //form = true;
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error al conectar al servidor de MySQL: " + ex.Message, "Error al conectar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if(form)
+                    MessageBox.Show("Error al conectar a la base de datos de MySQL: \nDETALLES DEL ERROR: " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                carga_desde_archivo();
+            }
+        }
+
+        public void carga_desde_archivo()
+        {
+            if (!carga_datos_desde_archivo)
+            {
+                carga_datos_desde_archivo = true;
+
+                if (File.Exists(@"C:\DOCSParroquia\informacion.txt"))
+                {
+                    /** OBTENER LA INFORMACIÓN DEL ARCHIVO **/
+                    string line, archivo = "";
+                    StreamReader file = new StreamReader(@"C:\DOCSParroquia\informacion.txt");
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        archivo += line;
+                    }
+
+                    string[] caracteres = archivo.Split(' ');
+                    ConexionBD.host = caracteres[0];
+                    ConexionBD.usuario = caracteres[1];
+                    ConexionBD.contrasena = caracteres[2];
+                    ConexionBD.puerto = caracteres[3];
+                    ConexionBD.basedatos = caracteres[4];
+                    //MessageBox.Show("" + caracteres.Length + "\n" + "LOCALHOST: " + caracteres[0] + "\nUSUARIO:" + caracteres[1]);
+                    file.Close();
+                    
+                }
+                conexion();
+            }
+            else
+            {
+                carga_datos_desde_archivo = false;
+                new DatosConexionDB().ShowDialog();
+                conexion();
             }
         }
 
@@ -56,9 +103,7 @@ namespace conexionbd
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error al obtener bases de datos de MySQL: " +
-                    ex.Message, "Error al obtener catálogos",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al obtener bases de datos de MySQL: \nDETALLES DEL ERROR: " + ex.Message, "Error al obtener catálogos",  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return registrosObtenidosMySQL;
         }
@@ -74,7 +119,7 @@ namespace conexionbd
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error al ingresar datos en MySQL: " + ex.Message, " Error al ingresar ",            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al ingresar datos en MySQL: \nDETALLES DEL ERROR: " + ex.Message, " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return resultado;
         }

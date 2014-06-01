@@ -202,6 +202,7 @@ namespace Parroquia
         /** GUARDAR EL REGISTRO A LA BD */
         public bool guardarRegistro()
         {
+            Bdatos.conexion();
             //Se prepara para verificar si es BIS
             String bis = "0", partida = num_partida.Text;
             if (registrobis.Checked)
@@ -227,8 +228,7 @@ namespace Parroquia
                 Bdatos.Desconectar();
                 return true;
             }
-            else MessageBox.Show("Error al ingresar datos en MySQL ", " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+           
             Bdatos.Desconectar();
             return false;
         }
@@ -238,20 +238,12 @@ namespace Parroquia
 
             if (!edicion)//si no esta puesta edicion se guarda normalmente
             {
-                try
-                {
-                    Bdatos.conexion();
-                    if (!registronull.Checked)
-                        if(camposVacios())
-                            return;
-                    
-                    if (guardarRegistro())
-                        calculaPartida();
-                }
-                catch (Exception y)
-                {
-                    MessageBox.Show("Error al ingresar datos en MySQL: " + y.Message, " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
-                }
+
+                if (!registronull.Checked)
+                    if (camposVacios())
+                        return;
+                if (guardarRegistro())
+                    calculaPartida();
             }
             else //Si edicion esta puesta
             {
@@ -267,15 +259,10 @@ namespace Parroquia
                 else
                 {
                     if (!registronull.Checked)
-                    {
                         if (camposVacios())
                             return;
-                    }
-
                     if (actualizarRegistro())
-                    {
                         btn = false;
-                    }
                 }
             }
         }
@@ -304,8 +291,6 @@ namespace Parroquia
                 Bdatos.Desconectar();
                 return true;
             }
-            else
-                MessageBox.Show("Error al actualizar datos en MySQL ", " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Bdatos.Desconectar();
             return false;
         }
@@ -314,36 +299,20 @@ namespace Parroquia
         {
             if (!edicion)
             {
+                if (!registronull.Checked)
+                    if (camposVacios())
+                        return;
 
-                try
+                if (guardarRegistro())
                 {
-                    Bdatos.conexion();
 
-                    if (!registronull.Checked)
-                    {
-                        if (camposVacios())
-                            return;
-                    }
-
-                    if (guardarRegistro())
-                    {
-
-                        //IMPRIME
+                    //IMPRIME
 
 
-                       // Imprimir a = new Imprimir();
+                    // Imprimir a = new Imprimir();
 
-                        calculaPartida();
-                    }
-
-                    Bdatos.Desconectar();
-
+                    calculaPartida();
                 }
-                catch (Exception y)
-                {
-                    MessageBox.Show("Error al ingresar datos en MySQL: " + y.Message, " Error al ingresar ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
             }
             else
             {
