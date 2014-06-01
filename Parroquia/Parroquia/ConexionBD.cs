@@ -6,13 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Parroquia;
+using System.IO;
 
 namespace conexionbd
 {
     class ConexionBD
     {
         public static string usuario, contrasena, basedatos, host, puerto;
-        public static bool carga_datos_desde_archivo = false;
+        public static bool carga_datos_desde_archivo = false, form = true;
         public static string conex;
         private MySqlConnection conexionBD;
         
@@ -28,11 +29,11 @@ namespace conexionbd
 
         public ConexionBD()
         {
-            if (!carga_datos_desde_archivo)
+            if (!carga_datos_desde_archivo && form)
             {
                 host = "localhost";
                 usuario = "root";
-                contrasena = "SIMPUS2124--";
+                contrasena = "SIMPjUS2124";
                 puerto = "3306";
                 basedatos = "parroquiaantunez";
             }
@@ -45,10 +46,12 @@ namespace conexionbd
                 conex = "server="+host+"; port="+puerto+"; user id=" + usuario + "; password=" + contrasena + "; database="+basedatos+";";
                 conexionBD = new MySqlConnection(conex);
                 conexionBD.Open();
+                //form = true;
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error al conectar a la base de datos de MySQL: \nDETALLES DEL ERROR: " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if(form)
+                    MessageBox.Show("Error al conectar a la base de datos de MySQL: \nDETALLES DEL ERROR: " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 carga_desde_archivo();
             }
         }
@@ -59,28 +62,33 @@ namespace conexionbd
             {
                 carga_datos_desde_archivo = true;
 
-                /** OBTENER LA INFORMACIÓN DEL ARCHIVO **/
-                string line, archivo = "";
-                System.IO.StreamReader file = new System.IO.StreamReader(@"C:\DOCSParroquia\informacion.txt");
-                while ((line = file.ReadLine()) != null)
+                if (File.Exists(@"C:\DOCSParroquia\informacion.txt"))
                 {
-                    archivo += line;
+                    /** OBTENER LA INFORMACIÓN DEL ARCHIVO **/
+                    string line, archivo = "";
+                    StreamReader file = new StreamReader(@"C:\DOCSParroquia\informacion.txt");
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        archivo += line;
+                    }
+
+                    string[] caracteres = archivo.Split(' ');
+                    ConexionBD.host = caracteres[0];
+                    ConexionBD.usuario = caracteres[1];
+                    ConexionBD.contrasena = caracteres[2];
+                    ConexionBD.puerto = caracteres[3];
+                    ConexionBD.basedatos = caracteres[4];
+                    //MessageBox.Show("" + caracteres.Length + "\n" + "LOCALHOST: " + caracteres[0] + "\nUSUARIO:" + caracteres[1]);
+                    file.Close();
+                    
                 }
-
-                string[] caracteres = archivo.Split(' ');
-                ConexionBD.host = caracteres[0];
-                ConexionBD.usuario = caracteres[1];
-                ConexionBD.contrasena = caracteres[2];
-                ConexionBD.puerto = caracteres[3];
-                ConexionBD.basedatos = caracteres[4];
-                MessageBox.Show("" + caracteres.Length + "\n" + "LOCALHOST: " + caracteres[0] + "\nUSUARIO:" + caracteres[1]);
-                file.Close();
-
                 conexion();
             }
             else
             {
+                carga_datos_desde_archivo = false;
                 new DatosConexionDB().ShowDialog();
+                conexion();
             }
         }
 

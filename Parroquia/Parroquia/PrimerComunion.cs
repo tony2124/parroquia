@@ -85,7 +85,7 @@ namespace Parroquia
             ID_REGISTRO = id_registro;
             InitializeComponent();
             habilitarCampos(false);
-
+            calculoAnios();
             /* MODIFICACION DEL FORMULARIO EN CASO DE EDICION DE BAUTISMO */
             registrobis.Visible = false;
             Text = "::MODIFICAR REGISTRO DE PRIMERA COMUNIÓN ::";

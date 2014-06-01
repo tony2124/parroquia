@@ -249,13 +249,21 @@ namespace Parroquia
                     proc.StartInfo.Arguments = ConexionBD.basedatos + " --single-transaction --host=" + ConexionBD.host + " --user=" + ConexionBD.usuario + " --password=" + ConexionBD.contrasena;
                     Process miProceso;
                     miProceso = Process.Start(proc.StartInfo);
-                    StreamReader sr = miProceso.StandardOutput;
-                    TextWriter tw = new StreamWriter(saveFileDialog1.FileName, false, Encoding.Default);
-                    while ((linea = sr.ReadLine()) != null)
+                    try
                     {
-                        tw.WriteLine(linea);
+                        StreamReader sr = miProceso.StandardOutput;
+                        TextWriter tw = new StreamWriter(saveFileDialog1.FileName, false, Encoding.Default);
+                        while ((linea = sr.ReadLine()) != null)
+                        {
+                            tw.WriteLine(linea);
+                        }
+                        tw.Close();
                     }
-                    tw.Close();
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show(exception.Message);
+                        return;
+                    }
                     MessageBox.Show("Copia de seguridad realizada con éxito");
                 }
             }

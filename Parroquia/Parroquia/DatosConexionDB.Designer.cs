@@ -207,7 +207,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CONETAR A BASE DE DATOS";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DatosConexionDB_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
