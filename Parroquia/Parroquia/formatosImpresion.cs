@@ -42,6 +42,9 @@ namespace Parroquia
         /**/private string FECHA_CONFIRMACION;
         /**/private string LUGAR_BAUTISMO;
 
+        /*VARIABLES GLOBALES DE COMUNIONES*/
+        private string FECHA_COMUNION;
+
         private int CATEGORIA;
 
         public formatosImpresion()
@@ -91,6 +94,14 @@ namespace Parroquia
             }
             else if (categoria == 3)
             {
+                this.NOMBRE = A;
+                this.PADRE = B;
+                this.MADRE = C;
+                this.FECHA_COMUNION = D;
+                this.FECHA_BAUTISMO = E;
+                this.LUGAR_BAUTISMO = F;
+                this.MADRINA = G;
+                this.PADRINO = H;
 
             }
             else if (categoria == 4)
@@ -119,7 +130,10 @@ namespace Parroquia
             }
             else if (CATEGORIA == 3)
             {
-
+                Imprimir a = new Imprimir(LIBRO, HOJA, PARTIDA, NOMBRE,
+                PADRE, MADRE, FECHA_COMUNION, FECHA_BAUTISMO,
+                LUGAR_BAUTISMO, PADRINO, MADRINA,"","",
+                CATEGORIA, 0);
                 Dispose();
             }
             else if (CATEGORIA == 4)
