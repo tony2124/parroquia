@@ -221,14 +221,68 @@ namespace Parroquia
             
             /*OBTENCION DE LA MITAD DE LA HOJA***********************/
             float tamaño_total, mitad;
-            tamaño_total = 880 - ev.Graphics.MeasureString(nombre, new Font("Times New Roman", 18, FontStyle.Bold)).Width;
+            tamaño_total = 880 - ev.Graphics.MeasureString(nombre, new Font("Times New Roman", 10, FontStyle.Bold)).Width;
             mitad = tamaño_total / 2;
             /********************************************************/
 
             //IMPRIME NOMBRE
             ev.Graphics.DrawString(nombre,
-               new Font("Times New Roman", 18, FontStyle.Bold),
-                       Brushes.Black, mitad, 385);
+               new Font("Times New Roman", 10, FontStyle.Bold),
+                       Brushes.Black, mitad-100, 240);
+
+            //IMPRIME PADRES
+            ev.Graphics.DrawString(padre+" Y \n \n"+madre,
+               new Font("Times New Roman", 10, FontStyle.Bold),
+               Brushes.Black, 160, 329);
+
+
+            //IMPRIME PADRINOS
+            String padrinos = "";
+            if (padrino.Length > 4 && madrina.Length < 4)
+                padrinos = padrino;
+            else if (padrino.Length < 4 && madrina.Length > 4)
+                padrinos = madrina;
+            else if (padrino.Length > 4 && madrina.Length > 4)
+                padrinos = padrino + " Y " + madrina;
+            ev.Graphics.DrawString(padrinos,
+                new Font("Times New Roman", 10, FontStyle.Bold),
+                Brushes.Black, 165, 392);
+
+            //IMPRIME LUGAR DE BAUTISMO
+            ev.Graphics.DrawString(lugarBautismo,
+                new Font("Times New Roman", 10, FontStyle.Bold),
+                Brushes.Black, 165, 425);
+
+            /*********************************************************/
+            /*FALTA PARROQUIA DEL BAUTIZADO***************************/
+            /*********************************************************/
+
+
+            //IMPRIME LIBRO
+            tamaño_total = 880 - ev.Graphics.MeasureString(libro, 
+                new Font("Times New Roman", 6, FontStyle.Bold)).Width;
+            mitad = tamaño_total / 2;
+            ev.Graphics.DrawString(libro,
+                new Font("Times New Roman", 6, FontStyle.Bold),
+                Brushes.Black, mitad-341, 489);
+
+            //IMPRIME HOJA
+            tamaño_total = 880 - ev.Graphics.MeasureString(foja,
+                new Font("Times New Roman", 8, FontStyle.Bold)).Width;
+            mitad = tamaño_total / 2;
+            ev.Graphics.DrawString(foja,
+                new Font("Times New Roman", 8, FontStyle.Bold),
+                Brushes.Black, mitad - 292, 486);
+
+            //IMPRIME PARTIDA
+            tamaño_total = 880 - ev.Graphics.MeasureString(partida,
+                new Font("Times New Roman", 8, FontStyle.Bold)).Width;
+            mitad = tamaño_total / 2;
+            ev.Graphics.DrawString(partida,
+                new Font("Times New Roman", 8, FontStyle.Bold),
+                Brushes.Black, mitad - 242, 486);
+
+
         }
 
         //METODO PARA IMPRIMIR FORMATO COPIA EN COMUNIONES
