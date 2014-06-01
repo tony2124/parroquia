@@ -84,6 +84,7 @@ namespace Parroquia
             edicion = true;
             ID_REGISTRO = id_registro;
             InitializeComponent();
+            calculoAnios();
             habilitarCampos(false);
             calculoAnios();
             /* MODIFICACION DEL FORMULARIO EN CASO DE EDICION DE BAUTISMO */
@@ -314,18 +315,28 @@ namespace Parroquia
                         return;
                 }
 
-                if (guardarRegistro())
-                {
-                    //IMPRIME
 
-                    // Imprimir a = new Imprimir();
-
-                    calculaPartida();
+                    if (guardarRegistro())
+                    {
+                        //IMPRIME
+                        formatosImpresion fi = new formatosImpresion(libro.Text, num_hoja.Text,
+                            num_partida.Text, nombre.Text, padre.Text, madre.Text,
+                            fechaPrimerCom.Value.ToString("yyyy-MMMM-dd"),
+                            fecha_bautism.Value.ToString("yyyy-MMMM-dd"),
+                            lugar_bautismo.Text, madrina.Text, padrino.Text,"","",3);
+                        fi.ShowDialog();
+                        calculaPartida();
                 }
             }
             else
             {
                 //IMPRIME
+                formatosImpresion fi = new formatosImpresion(libro.Text, num_hoja.Text,
+                    num_partida.Text, nombre.Text, padre.Text, madre.Text,
+                    fechaPrimerCom.Value.ToString("yyyy-MMMM-dd"),
+                    fecha_bautism.Value.ToString("yyyy-MMMM-dd"),
+                    lugar_bautismo.Text, madrina.Text, padrino.Text, "", "", 3);
+                fi.ShowDialog();
             }
         }
 
