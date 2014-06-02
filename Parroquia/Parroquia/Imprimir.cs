@@ -26,8 +26,10 @@ namespace Parroquia
         public static String libro, foja, partida, nombre, padre, madre, 
             lugarNacimiento, fechaNacimiento, fechaBautismo, presbitero, 
             madrina, padrino, anotacion, lugarBautismo, fechaConfirmacion,
-            fechaComunion,
+            fechaComunion, parroquiaBautismo, diocesisBautismo,
             nombre_parroquia, nombre_parroco, ubicacion_parroquia;
+
+        public static bool impresion = true;
 
         public int CATEGORIA, FORMATO;
         public ConexionBD DbDatos;
@@ -159,15 +161,27 @@ namespace Parroquia
 
             //DESPUES DE GUARDAR IMPRIMO
             Cursor.Current = Cursors.WaitCursor;
-            //SE ESTABLECEN LAS PROPIEDADES DE IMPRESORA
-            if (ImpresoraProperties())
+            
+            if (CATEGORIA == 2 && FORMATO == 1)
             {
-                //SE LEE EL ARCHIVO QUE SE IMPRIMIRA
-                leerArchivoBautismo();
+                DialogConfirmacion dc = new DialogConfirmacion();
+                dc.ShowDialog();
 
-                //SE manda a imprimir el archivo leido y lleno de informacion
-                mandaImpresion();
-                
+                impresion = DialogConfirmacion.impresion;
+            }
+
+            if (impresion)
+            {
+                //SE ESTABLECEN LAS PROPIEDADES DE IMPRESORA
+                if (ImpresoraProperties())
+                {
+                    //SE LEE EL ARCHIVO QUE SE IMPRIMIRA
+                    leerArchivoBautismo();
+
+                    //SE manda a imprimir el archivo leido y lleno de informacion
+                    mandaImpresion();
+
+                }
             }
         }
 
@@ -228,7 +242,7 @@ namespace Parroquia
             //IMPRIME NOMBRE
             ev.Graphics.DrawString(nombre,
                new Font("Times New Roman", 10, FontStyle.Bold),
-                       Brushes.Black, mitad-100, 240);
+                       Brushes.Black, mitad-100, 241);
 
             //IMPRIME PADRES
             ev.Graphics.DrawString(padre+" Y \n \n"+madre,
@@ -256,7 +270,10 @@ namespace Parroquia
             /*********************************************************/
             /*FALTA PARROQUIA DEL BAUTIZADO***************************/
             /*********************************************************/
-
+            //IMPRIME PARROQUIA DEL BAUTIZADO
+            ev.Graphics.DrawString(parroquiaBautismo.ToUpper(),
+                new Font("Times New Roman", 10, FontStyle.Bold),
+                Brushes.Black, 155, 455);
 
             //IMPRIME LIBRO
             tamaño_total = 880 - ev.Graphics.MeasureString(libro, 
@@ -280,8 +297,55 @@ namespace Parroquia
             mitad = tamaño_total / 2;
             ev.Graphics.DrawString(partida,
                 new Font("Times New Roman", 8, FontStyle.Bold),
-                Brushes.Black, mitad - 242, 486);
+                Brushes.Black, mitad - 242, 489);
 
+            //IMPRIME FECHA DE BAUTISMO
+            //separo la fecha de bautismo
+            fecha = fechaBautismo.Split('-');
+            fecha[1] = fecha[1].ToUpper();
+            //imprimo el dia
+            ev.Graphics.DrawString(fecha[2],
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 310, 488);
+
+            //imprimo el mes
+            ev.Graphics.DrawString(fecha[1],
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 395, 490);
+
+            //imprimo el año
+            ev.Graphics.DrawString(fecha[0],
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 538, 491);
+
+            //IMPRIME DIOCESIS DEL BAUTIZADO
+            ev.Graphics.DrawString(diocesisBautismo.ToUpper(),
+                new Font("Times New Roman", 10, FontStyle.Bold),
+                Brushes.Black, 210, 520);
+
+            //IMPRIME PARROQUIA DE CONFIRMACION
+            ev.Graphics.DrawString(nombre_parroquia+" EN "+ubicacion_parroquia,
+                new Font("Times New Roman", 10, FontStyle.Bold),
+                Brushes.Black, 250, 552);
+
+            //IMPRIME FECHA DE CONFIRMACION
+            //separo la fecha de CONFIRMACION
+            fecha = fechaConfirmacion.Split('-');
+            fecha[1] = fecha[1].ToUpper();
+            //imprimo el dia
+            ev.Graphics.DrawString(fecha[2],
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 285, 640);
+
+            //imprimo el mes
+            ev.Graphics.DrawString(fecha[1],
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 350, 643);
+
+            //imprimo el año
+            ev.Graphics.DrawString(fecha[0],
+                new Font("Times New Roman", 9, FontStyle.Bold),
+                        Brushes.Black, 500, 645);
 
         }
 
