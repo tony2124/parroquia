@@ -175,11 +175,14 @@ namespace Parroquia
             }
             else if (CATEGORIA == 3)
             {
-               
+                
             }
             else if (CATEGORIA == 4)
             {
-
+                Imprimir a = new Imprimir(LIBRO, HOJA, PARTIDA, NOVIO,
+                 NOVIA, FECHA_MATRIMONIO, LUGAR_CELEBRACION, TESTIGO1,
+                 TESTIGO2, PRESBITERO, ANOTACION, "", "",
+                 CATEGORIA, 1);
                 Dispose();
             }
         }
@@ -212,7 +215,7 @@ namespace Parroquia
             else if (CATEGORIA == 4)
             {
 
-                Dispose();
+               // Dispose();
             }
         }
     }
