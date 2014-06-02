@@ -14,6 +14,7 @@ namespace Parroquia
     {
 
         public static bool impresion = false;
+
         public DialogConfirmacion()
         {
             InitializeComponent();

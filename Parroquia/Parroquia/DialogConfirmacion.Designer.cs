@@ -76,6 +76,7 @@
             // 
             // diocesis
             // 
+            this.diocesis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.diocesis.Location = new System.Drawing.Point(16, 131);
             this.diocesis.Name = "diocesis";
             this.diocesis.Size = new System.Drawing.Size(303, 20);
@@ -93,6 +94,7 @@
             // 
             // parroquia
             // 
+            this.parroquia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.parroquia.Location = new System.Drawing.Point(16, 73);
             this.parroquia.Name = "parroquia";
             this.parroquia.Size = new System.Drawing.Size(303, 20);

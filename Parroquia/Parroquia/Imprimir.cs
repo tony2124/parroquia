@@ -26,7 +26,9 @@ namespace Parroquia
         public static String libro, foja, partida, nombre, padre, madre, 
             lugarNacimiento, fechaNacimiento, fechaBautismo, presbitero, 
             madrina, padrino, anotacion, lugarBautismo, fechaConfirmacion,
-            fechaComunion, parroquiaBautismo, diocesisBautismo,
+            fechaComunion, parroquiaBautismo, diocesisBautismo, novio,
+            novia, testigo1, testigo2, fechaMatrimonio, lugarCelebracion,
+            padreNovio, madreNovio, padreNovia, madreNovia,
             nombre_parroquia, nombre_parroco, ubicacion_parroquia;
 
         public static bool impresion = true;
@@ -59,6 +61,14 @@ namespace Parroquia
             {
                 if (FORMATO == 0)
                     newImage = Image.FromFile("C:\\DOCSParroquia\\PrimeraComunion.jpg");
+                else if(FORMATO==2)
+                    newImage = Image.FromFile("C:\\DOCSParroquia\\MatrimonioFormato2.jpg");
+                    
+            }
+            else if (CATEGORIA == 4)
+            {
+                if( FORMATO == 0)
+                    newImage = Image.FromFile("C:\\DOCSParroquia\\Matrimonio.jpg");
             }
                 
 
@@ -156,9 +166,21 @@ namespace Parroquia
                 madrina = k;
 
             }
+            else if (categoria == 4)
+            {
+                novio = d;
+                novia = e;
+                fechaMatrimonio = f;
+                lugarCelebracion = g;
+                testigo1 = h;
+                testigo2 = i;
+                presbitero = j;
+                anotacion = k;
+
+            }
 
 
-
+            impresion = true;
             //DESPUES DE GUARDAR IMPRIMO
             Cursor.Current = Cursors.WaitCursor;
             
@@ -168,6 +190,13 @@ namespace Parroquia
                 dc.ShowDialog();
 
                 impresion = DialogConfirmacion.impresion;
+            }
+            else if (CATEGORIA == 4 && FORMATO == 0)
+            {
+                DialogMatrimonio dm = new DialogMatrimonio();
+                dm.ShowDialog();
+
+                impresion = DialogMatrimonio.impresion;
             }
 
             if (impresion)
@@ -216,6 +245,17 @@ namespace Parroquia
                 if (FORMATO == 0)
                     pd.PrintPage += new PrintPageEventHandler
                        (this.imprimirComunionCopia);
+                else if (FORMATO == 2)
+                {
+                    pd.PrintPage += new PrintPageEventHandler
+                      (this.imprimirMatrimonioOriginal);
+                }
+            }
+            else if (CATEGORIA == 4)
+            {
+                if (FORMATO == 0)
+                    pd.PrintPage += new PrintPageEventHandler
+                       (this.imprimirMatrimonioCopia);
                 else if (FORMATO == 1)
                 {
 
@@ -228,6 +268,159 @@ namespace Parroquia
             //pd.Print();
         }
 
+        private void imprimirMatrimonioOriginal(object sender, PrintPageEventArgs ev)
+        {
+            string []fecha;
+            float tamaño_total, mitad;
+            imprimeImagen(ev);
+
+            //NOMBRE
+            tamaño_total = 880 - ev.Graphics.MeasureString(nombre, new Font("Times New Roman", 12, FontStyle.Bold)).Width;
+            mitad = tamaño_total / 2;
+            ev.Graphics.DrawString(nombre,
+               new Font("Times New Roman", 12, FontStyle.Bold),
+               Brushes.Black, mitad-60, 120);
+
+            //NOMBRE Y LUGAR DE PARROQUIA
+            tamaño_total = 880 - ev.Graphics.MeasureString(nombre_parroquia+", "+ubicacion_parroquia , new Font("Times New Roman", 12, FontStyle.Bold)).Width;
+            mitad = tamaño_total / 2;
+            ev.Graphics.DrawString(nombre_parroquia + ", " + ubicacion_parroquia,
+               new Font("Times New Roman", 12, FontStyle.Bold),
+               Brushes.Black, mitad - 60, 180);
+
+            //FECHA DE COMUNION
+            fecha = fechaComunion.Split('-');
+            fecha[1] = fecha[1].ToUpper();
+            ev.Graphics.DrawString(fecha[2],
+               new Font("Times New Roman", 12, FontStyle.Bold),
+               Brushes.Black, 260, 245);
+
+            ev.Graphics.DrawString(fecha[1],
+               new Font("Times New Roman", 12, FontStyle.Bold),
+               Brushes.Black, 310, 245);
+
+            ev.Graphics.DrawString(fecha[0],
+               new Font("Times New Roman", 12, FontStyle.Bold),
+               Brushes.Black, 475, 245);
+
+        }
+
+        private void imprimirMatrimonioCopia(object sender, PrintPageEventArgs ev)
+        {
+            String[] fecha;
+            imprimeImagen(ev);
+
+            //IMPRIME LIBRO
+            ev.Graphics.DrawString(libro,
+               new Font("Times New Roman", 10, FontStyle.Bold),
+                       Brushes.Black, 295, 401);
+
+            //IMPRIME hoja
+            ev.Graphics.DrawString(foja,
+               new Font("Times New Roman", 10, FontStyle.Bold),
+                       Brushes.Black, 410, 401);
+
+            //IMPRIME partida
+            ev.Graphics.DrawString(partida,
+               new Font("Times New Roman", 10, FontStyle.Bold),
+                       Brushes.Black, 550, 401);
+
+
+            //IMPRIME NOVIO
+            ev.Graphics.DrawString(novio,
+               new Font("Times New Roman", 10, FontStyle.Bold ),
+                       Brushes.Black, 290, 438);
+
+            //IMPRIME NOVIA
+            ev.Graphics.DrawString(novia,
+               new Font("Times New Roman", 10, FontStyle.Bold),
+                       Brushes.Black, 290, 473);
+
+            //IMPRIME FECHA DE MATRIMONIO
+            //separo la fecha de matrimonio
+            fecha = fechaMatrimonio.Split('-');
+            fecha[1] = fecha[1].ToUpper();
+            //imprimo el dia
+            ev.Graphics.DrawString(fecha[2],
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 385, 510);
+
+            //imprimo el mes
+            ev.Graphics.DrawString(fecha[1],
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 470, 510);
+
+            //imprimo el año
+            ev.Graphics.DrawString(fecha[0],
+                new Font("Times New Roman", 11, FontStyle.Bold),
+                        Brushes.Black, 620, 510);
+
+            //IMPRIME LUGAR CELEBRACION
+            ev.Graphics.DrawString(lugarCelebracion,
+               new Font("Times New Roman", 10, FontStyle.Bold),
+               Brushes.Black, 270, 550);
+
+            //IMPRIME PADRE NOVIO
+            ev.Graphics.DrawString(padreNovio,
+               new Font("Times New Roman", 10, FontStyle.Bold),
+               Brushes.Black, 244, 586);
+
+            //IMPRIME MADRE NOVIO
+            ev.Graphics.DrawString(madreNovio,
+               new Font("Times New Roman", 10, FontStyle.Bold),
+               Brushes.Black, 480, 586);
+
+            //IMPRIME PADRE NOVIA
+            ev.Graphics.DrawString(padreNovia,
+               new Font("Times New Roman", 10, FontStyle.Bold),
+               Brushes.Black, 255, 626);
+
+            //IMPRIME MADRE NOVIA
+            ev.Graphics.DrawString(madreNovia,
+               new Font("Times New Roman", 10, FontStyle.Bold),
+               Brushes.Black, 480, 626);
+
+            //IMPRIME TESTIGO 1
+            ev.Graphics.DrawString(testigo1,
+               new Font("Times New Roman", 10, FontStyle.Bold),
+               Brushes.Black, 220, 670);
+
+            //IMPRIME TESTIGO 2
+            ev.Graphics.DrawString(testigo2,
+               new Font("Times New Roman", 10, FontStyle.Bold),
+               Brushes.Black, 480, 670);
+
+            //IMPRIME ASISTENTE
+            ev.Graphics.DrawString(presbitero,
+               new Font("Times New Roman", 10, FontStyle.Bold),
+               Brushes.Black, 290, 725);
+
+            //ESTABLECEMOS LA FECHA ACTUAL
+            String d = DateTime.Now.Day + "";
+            String m = DateTime.Now.ToString("MMMM");
+            String a = DateTime.Now.Year + "";
+
+            m = m.ToUpper();
+            ev.Graphics.DrawString(d,
+                new Font("Times New Roman", 12, FontStyle.Bold),
+                        Brushes.Black, 270, 795);
+            ev.Graphics.DrawString(m,
+                new Font("Times New Roman", 12, FontStyle.Bold),
+                        Brushes.Black, 350, 795);
+            ev.Graphics.DrawString(a,
+                new Font("Times New Roman", 12, FontStyle.Bold),
+                        Brushes.Black, 540, 795);
+
+            //PARROCO
+            float tamaño_total, mitad;
+            tamaño_total = 880 - ev.Graphics.MeasureString("PBRO. " + nombre_parroco, new Font("Times New Roman", 12, FontStyle.Bold)).Width;
+            mitad = tamaño_total / 2;
+            ev.Graphics.DrawString("PBRO. "+nombre_parroco,
+               new Font("Times New Roman", 12, FontStyle.Bold),
+               Brushes.Black, mitad+110, 945);
+        }
+
+        //IMPRESION DE BOLETA ORIGINAL DE CONFIRMACION
         private void imprimirConfirmacionOriginal(object sender, PrintPageEventArgs ev)
         {
             String[] fecha;
@@ -245,18 +438,26 @@ namespace Parroquia
                        Brushes.Black, mitad-100, 241);
 
             //IMPRIME PADRES
-            ev.Graphics.DrawString(padre+" Y \n \n"+madre,
+            //IMPRIME PADRES
+            String padres = "";
+            if (padre.Trim().Length > 4 && madre.Trim().Length < 4)
+                padres = padre;
+            else if (padre.Trim().Length < 4 && madre.Trim().Length > 4)
+                padres = madre;
+            else if (padre.Trim().Length > 4 && madre.Trim().Length > 4)
+                padres = padre + "  Y \n \n" + madre;
+            ev.Graphics.DrawString(padres,
                new Font("Times New Roman", 10, FontStyle.Bold),
                Brushes.Black, 160, 329);
 
 
             //IMPRIME PADRINOS
             String padrinos = "";
-            if (padrino.Length > 4 && madrina.Length < 4)
+            if (padrino.Trim().Length > 4 && madrina.Trim().Length < 4)
                 padrinos = padrino;
-            else if (padrino.Length < 4 && madrina.Length > 4)
+            else if (padrino.Trim().Length < 4 && madrina.Trim().Length > 4)
                 padrinos = madrina;
-            else if (padrino.Length > 4 && madrina.Length > 4)
+            else if (padrino.Trim().Length > 4 && madrina.Trim().Length > 4)
                 padrinos = padrino + " Y " + madrina;
             ev.Graphics.DrawString(padrinos,
                 new Font("Times New Roman", 10, FontStyle.Bold),
@@ -267,9 +468,6 @@ namespace Parroquia
                 new Font("Times New Roman", 10, FontStyle.Bold),
                 Brushes.Black, 165, 425);
 
-            /*********************************************************/
-            /*FALTA PARROQUIA DEL BAUTIZADO***************************/
-            /*********************************************************/
             //IMPRIME PARROQUIA DEL BAUTIZADO
             ev.Graphics.DrawString(parroquiaBautismo.ToUpper(),
                 new Font("Times New Roman", 10, FontStyle.Bold),
@@ -372,17 +570,24 @@ namespace Parroquia
                         Brushes.Black, 470, 442);
 
             //IMPRIME PADRES
-            ev.Graphics.DrawString(padre + " Y " + madre,
+            string padres = "";
+            if (padre.Trim().Length > 4 && madre.Trim().Length < 4)
+                padres = padre;
+            else if (padre.Trim().Length < 4 && madre.Trim().Length > 4)
+                padres = madre;
+            else if (padre.Trim().Length > 4 && madre.Trim().Length > 4)
+                padres = padre + "  Y " + madre;
+            ev.Graphics.DrawString(padres,
                 new Font("Times New Roman", 12, FontStyle.Bold),
                         Brushes.Black, 220, 513);
 
             //IMPRIME PADRINOS
             String padrinos="";
-            if (padrino.Length > 4 && madrina.Length < 4)
+            if (padrino.Trim().Length > 4 && madrina.Trim().Length < 4)
                 padrinos = padrino;
-            else if (padrino.Length < 4 && madrina.Length > 4)
+            else if (padrino.Trim().Length < 4 && madrina.Trim().Length > 4)
                 padrinos = madrina;
-            else if (padrino.Length > 4 && madrina.Length > 4)
+            else if (padrino.Trim().Length > 4 && madrina.Trim().Length > 4)
                 padrinos = padrino + " Y " + madrina;
             ev.Graphics.DrawString(padrinos,
                 new Font("Times New Roman", 12, FontStyle.Bold),
@@ -473,12 +678,26 @@ namespace Parroquia
                         Brushes.Black, 610, 324);
 
             //IMPRIME PADRES
-            ev.Graphics.DrawString(padre + " Y " + madre,
+            String padres="";
+            if (padre.Trim().Length > 4 && madre.Trim().Length < 4)
+                padres = padre;
+            else if (padre.Trim().Length < 4 && madre.Trim().Length > 4)
+                padres = madre;
+            else if (padre.Trim().Length > 4 && madre.Trim().Length > 4)
+                padres = padre + " Y " + madre;
+            ev.Graphics.DrawString(padres,
                 new Font("Times New Roman", 11, FontStyle.Bold),
                         Brushes.Black, 130, 357);
 
             //IMPRIME PADRINOS
-            ev.Graphics.DrawString(padrino + " Y " + madrina,
+            String padrinos="";
+            if (padrino.Trim().Length > 4 && madrina.Trim().Length < 4)
+                padrinos = padrino;
+            else if (padrino.Trim().Length < 4 && madrina.Trim().Length > 4)
+                padrinos = madrina;
+            else if (padrino.Trim().Length > 4 && madrina.Trim().Length > 4)
+                padrinos = padrino + " Y " + madrina;
+            ev.Graphics.DrawString(padrinos,
                 new Font("Times New Roman", 11, FontStyle.Bold),
                         Brushes.Black, 145, 388);
 
@@ -521,12 +740,26 @@ namespace Parroquia
                        Brushes.Black, mitad-210, 127);
 
             //IMPRIME PADRES
-            ev.Graphics.DrawString(padre + " Y \n \n" + madre,
+            String padres = "";
+            if (padre.Trim().Length > 4 && madre.Trim().Length < 4)
+                padres = padre;
+            else if (padre.Trim().Length < 4 && madre.Trim().Length > 4)
+                padres = madre;
+            else if (padre.Trim().Length > 4 && madre.Trim().Length > 4)
+                padres = padre + " Y \n \n" + madre;
+            ev.Graphics.DrawString(padres,
                 new Font("Times New Roman", 9, FontStyle.Bold),
                         Brushes.Black, 120, 327);
 
             //IMPRIME PADRINOS
-            ev.Graphics.DrawString(padrino + " Y \n\n" + madrina,
+            String padrinos = "";
+            if (padrino.Trim().Length > 4 && madrina.Trim().Length < 4)
+                padrinos = padrino;
+            else if (padrino.Trim().Length < 4 && madrina.Trim().Length > 4)
+                padrinos = madrina;
+            else if (padrino.Trim().Length > 4 && madrina.Trim().Length > 4)
+                padrinos = padrino + " Y \n\n" + madrina;
+            ev.Graphics.DrawString(padrinos,
                 new Font("Times New Roman", 9, FontStyle.Bold),
                         Brushes.Black, 70, 415);
 
@@ -640,12 +873,26 @@ namespace Parroquia
                         Brushes.Black, 267, 460);
 
             //IMPRIME PADRES
-            ev.Graphics.DrawString(padre+" Y "+madre,
+            String padres = "";
+            if (padre.Trim().Length > 4 && madre.Trim().Length < 4)
+                padres = padre;
+            else if (padre.Trim().Length < 4 && madre.Trim().Length > 4)
+                padres = madre;
+            else if (padre.Trim().Length > 4 && madre.Trim().Length > 4)
+                padres = padre + " Y " + madre;
+            ev.Graphics.DrawString(padres,
                 new Font("Times New Roman", 11, FontStyle.Bold),
                         Brushes.Black, 220, 530);
 
             //IMPRIME PADRINOS
-            ev.Graphics.DrawString(padrino + " Y " + madrina,
+            String padrinos = "";
+            if (padrino.Trim().Length > 4 && madrina.Trim().Length < 4)
+                padrinos = padrino;
+            else if (padrino.Trim().Length < 4 && madrina.Trim().Length > 4)
+                padrinos = madrina;
+            else if (padrino.Trim().Length > 4 && madrina.Trim().Length > 4)
+                padrinos = padrino + " Y " + madrina;
+            ev.Graphics.DrawString(padrinos,
                 new Font("Times New Roman", 11, FontStyle.Bold),
                         Brushes.Black, 220, 555);
 
@@ -837,7 +1084,6 @@ namespace Parroquia
             ev.Graphics.DrawImage(newImage, 0, 0);
             
         }
-
 
     }
 }

@@ -95,6 +95,12 @@
     <Compile Include="DialogConfirmacion.Designer.cs">
       <DependentUpon>DialogConfirmacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogMatrimonio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogMatrimonio.Designer.cs">
+      <DependentUpon>DialogMatrimonio.cs</DependentUpon>
+    </Compile>
     <Compile Include="formatosImpresion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DialogConfirmacion.resx">
       <DependentUpon>DialogConfirmacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMatrimonio.resx">
+      <DependentUpon>DialogMatrimonio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formatosImpresion.resx">
       <DependentUpon>formatosImpresion.cs</DependentUpon>

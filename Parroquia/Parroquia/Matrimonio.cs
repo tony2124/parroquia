@@ -381,13 +381,13 @@ namespace Parroquia
                 if (guardarRegistro())
                 {
 
-                    //IMPRIME
-
-                    /* Imprimir a = new Imprimir(libro.Text, num_hoja.Text,
-                            num_partida.Text, nombre.Text, padre.Text, madre.Text, 
-                            lugarnac.Text,fechanac.Value.ToString("yyyy-MMMM-dd"), 
-                            fechabautismo.Value.ToString("yyyy-MMMM-dd"),
-                            presbitero.Text,madrina.Text, padrino.Text, anotacion.Text);*/
+                    //IMPRIME   
+                    formatosImpresion fi = new formatosImpresion(libro.Text, num_hoja.Text,
+                           num_partida.Text, novio.Text, novia.Text,
+                           fecha_Matrimonio.Value.ToString("yyyy-MMMM-dd"),
+                           lugar_celebracion.Text, testigo1.Text, testigo2.Text,
+                           asistente.Text, notas_marginales.Text, "", "", 4);
+                    fi.ShowDialog();
 
                     calculaPartida();
                 }
@@ -395,6 +395,12 @@ namespace Parroquia
             else
             {
                 //IMPRIME
+                formatosImpresion fi = new formatosImpresion(libro.Text, num_hoja.Text,
+                             num_partida.Text, novio.Text, novia.Text, 
+                             fecha_Matrimonio.Value.ToString("yyyy-MMMM-dd"), 
+                             lugar_celebracion.Text, testigo1.Text, testigo2.Text,
+                             asistente.Text, notas_marginales.Text,"","", 4);
+                fi.ShowDialog();
                
             }
         }

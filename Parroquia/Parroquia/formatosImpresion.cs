@@ -33,17 +33,18 @@ namespace Parroquia
         /***************************************************************/
 
         /*VARIABLES GLOBALES SOLO DE BAUTISMO***************************/
-        /**/private string NACIMIENTO_LUGAR;
-        /**/private string FECHA_NACIMIENTO;
-        /**/private string ANOTACION;
+        /**/private string NACIMIENTO_LUGAR, FECHA_NACIMIENTO, ANOTACION;
         /***************************************************************/
 
         /*VARIABLES GLOBALES SOLO DE CONFIRMACION*/
-        /**/private string FECHA_CONFIRMACION;
-        /**/private string LUGAR_BAUTISMO;
+        /**/private string FECHA_CONFIRMACION, LUGAR_BAUTISMO;
 
         /*VARIABLES GLOBALES DE COMUNIONES*/
         private string FECHA_COMUNION;
+
+        /*VARIABLES GLOBALES DE MATRIMONIO*/
+        private string NOVIO, NOVIA, TESTIGO1, TESTIGO2, FECHA_MATRIMONIO,
+            LUGAR_CELEBRACION;
 
         private int CATEGORIA;
 
@@ -106,7 +107,14 @@ namespace Parroquia
             }
             else if (categoria == 4)
             {
-
+                this.NOVIO = A;
+                this.NOVIA = B;
+                this.FECHA_MATRIMONIO = C;
+                this.LUGAR_CELEBRACION = D;
+                this.TESTIGO1 = E;
+                this.TESTIGO2 = F;
+                this.PRESBITERO = G;
+                this.ANOTACION = H;
             }
         }
 
@@ -138,7 +146,10 @@ namespace Parroquia
             }
             else if (CATEGORIA == 4)
             {
-
+                Imprimir a = new Imprimir(LIBRO, HOJA, PARTIDA, NOVIO,
+                NOVIA, FECHA_MATRIMONIO, LUGAR_CELEBRACION, TESTIGO1,
+                TESTIGO2, PRESBITERO, ANOTACION, "", "",
+                CATEGORIA, 0);
                 Dispose();
             }
             
@@ -164,8 +175,7 @@ namespace Parroquia
             }
             else if (CATEGORIA == 3)
             {
-
-                Dispose();
+               
             }
             else if (CATEGORIA == 4)
             {
@@ -186,14 +196,16 @@ namespace Parroquia
             }
             else if (CATEGORIA == 2)
             {
-                Imprimir a = new Imprimir(LIBRO, HOJA, PARTIDA, NOMBRE,
-                PADRE, MADRE, LUGAR_BAUTISMO, FECHA_BAUTISMO,
-                FECHA_CONFIRMACION, PRESBITERO, MADRINA, PADRINO, "",
-                CATEGORIA, 2);
-                Dispose();
+               
+              
             }
             else if (CATEGORIA == 3)
             {
+                Imprimir a = new Imprimir(LIBRO, HOJA, PARTIDA, NOMBRE,
+               PADRE, MADRE, FECHA_COMUNION, FECHA_BAUTISMO,
+               LUGAR_BAUTISMO, PADRINO, MADRINA, "", "",
+               CATEGORIA, 2);
+                Dispose();
 
                 Dispose();
             }
