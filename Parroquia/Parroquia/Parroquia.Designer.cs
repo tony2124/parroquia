@@ -72,6 +72,7 @@ namespace Parroquia
             this.reg_encontrados = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ip = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fondoImg)).BeginInit();
@@ -344,7 +345,7 @@ namespace Parroquia
             // 
             // fondoImg
             // 
-            this.fondoImg.Image = global::Parroquia.Properties.Resources.p13;
+            this.fondoImg.Image = global::Parroquia.Properties.Resources.p3;
             this.fondoImg.Location = new System.Drawing.Point(-1, -1);
             this.fondoImg.Name = "fondoImg";
             this.fondoImg.Size = new System.Drawing.Size(693, 211);
@@ -408,11 +409,11 @@ namespace Parroquia
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(626, 615);
+            this.label1.Location = new System.Drawing.Point(613, 650);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(296, 32);
+            this.label1.Size = new System.Drawing.Size(305, 16);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Simpus Soluciones Informáticas :: Derechos reservados 2014 Prototipo de prueba.";
+            this.label1.Text = "Simpus Soluciones Informáticas :: Derechos reservados 2014.";
             // 
             // timer2
             // 
@@ -474,11 +475,23 @@ namespace Parroquia
             this.ip.TabIndex = 17;
             this.ip.Text = "127.0.0.1";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label5.Location = new System.Drawing.Point(766, 621);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(167, 15);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "PROTOTIPO DE PRUEBA";
+            // 
             // Parroquia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(947, 669);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.ip);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.reg_encontrados);
@@ -553,6 +566,7 @@ namespace Parroquia
         private Label label4;
         private Label ip;
         public static Button btnbuscar;
+        private Label label5;
 
 
     }

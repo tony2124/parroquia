@@ -383,7 +383,7 @@ namespace Parroquia
             if (foto == 20)
                 foto = 0;
             foto++;
-            
+
         }
     }
 }
