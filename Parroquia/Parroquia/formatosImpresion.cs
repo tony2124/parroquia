@@ -91,6 +91,7 @@ namespace Parroquia
                 this.PRESBITERO = G;
                 this.MADRINA = H;
                 this.PADRINO = I;
+                this.originalHorizontal.Enabled = false;
 
             }
             else if (categoria == 3)
@@ -103,7 +104,7 @@ namespace Parroquia
                 this.LUGAR_BAUTISMO = F;
                 this.MADRINA = G;
                 this.PADRINO = H;
-
+                this.originalVertical.Enabled = false;
             }
             else if (categoria == 4)
             {
@@ -115,6 +116,7 @@ namespace Parroquia
                 this.TESTIGO2 = F;
                 this.PRESBITERO = G;
                 this.ANOTACION = H;
+                this.originalHorizontal.Enabled = false;
             }
         }
 
@@ -126,7 +128,7 @@ namespace Parroquia
                 PADRE, MADRE, NACIMIENTO_LUGAR, FECHA_NACIMIENTO,
                 FECHA_BAUTISMO, PRESBITERO, MADRINA, PADRINO, ANOTACION, 
                 CATEGORIA,0);
-                Dispose();
+               // Dispose();
             }
             else if (CATEGORIA == 2)
             {
@@ -134,7 +136,7 @@ namespace Parroquia
                 PADRE, MADRE, LUGAR_BAUTISMO, FECHA_BAUTISMO, 
                 FECHA_CONFIRMACION, PRESBITERO, MADRINA, PADRINO,"",
                 CATEGORIA,0);
-                Dispose();
+               // Dispose();
             }
             else if (CATEGORIA == 3)
             {
@@ -142,7 +144,7 @@ namespace Parroquia
                 PADRE, MADRE, FECHA_COMUNION, FECHA_BAUTISMO,
                 LUGAR_BAUTISMO, PADRINO, MADRINA,"","",
                 CATEGORIA, 0);
-                Dispose();
+              //  Dispose();
             }
             else if (CATEGORIA == 4)
             {
@@ -150,7 +152,7 @@ namespace Parroquia
                 NOVIA, FECHA_MATRIMONIO, LUGAR_CELEBRACION, TESTIGO1,
                 TESTIGO2, PRESBITERO, ANOTACION, "", "",
                 CATEGORIA, 0);
-                Dispose();
+               // Dispose();
             }
             
         }
@@ -163,7 +165,7 @@ namespace Parroquia
                 PADRE, MADRE, NACIMIENTO_LUGAR, FECHA_NACIMIENTO,
                 FECHA_BAUTISMO, PRESBITERO, MADRINA, PADRINO, ANOTACION,
                 CATEGORIA, 1);
-                Dispose();
+           //     Dispose();
             }
             else if (CATEGORIA == 2)
             {
@@ -171,7 +173,7 @@ namespace Parroquia
                 PADRE, MADRE, LUGAR_BAUTISMO, FECHA_BAUTISMO,
                 FECHA_CONFIRMACION, PRESBITERO, MADRINA, PADRINO, "",
                 CATEGORIA, 1);
-                Dispose();
+            //    Dispose();
             }
             else if (CATEGORIA == 3)
             {
@@ -183,7 +185,7 @@ namespace Parroquia
                  NOVIA, FECHA_MATRIMONIO, LUGAR_CELEBRACION, TESTIGO1,
                  TESTIGO2, PRESBITERO, ANOTACION, "", "",
                  CATEGORIA, 1);
-                Dispose();
+             //   Dispose();
             }
         }
 
@@ -195,7 +197,7 @@ namespace Parroquia
                 PADRE, MADRE, NACIMIENTO_LUGAR, FECHA_NACIMIENTO,
                 FECHA_BAUTISMO, PRESBITERO, MADRINA, PADRINO, ANOTACION,
                 CATEGORIA, 2);
-                Dispose();
+            //    Dispose();
             }
             else if (CATEGORIA == 2)
             {
@@ -210,7 +212,7 @@ namespace Parroquia
                CATEGORIA, 2);
                 Dispose();
 
-                Dispose();
+              //  Dispose();
             }
             else if (CATEGORIA == 4)
             {

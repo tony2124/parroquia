@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.formatoCopia = new System.Windows.Forms.Button();
-            this.originalHorizontal = new System.Windows.Forms.Button();
             this.originalVertical = new System.Windows.Forms.Button();
+            this.originalHorizontal = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -44,25 +44,25 @@
             this.formatoCopia.UseVisualStyleBackColor = true;
             this.formatoCopia.Click += new System.EventHandler(this.button1_Click);
             // 
-            // originalHorizontal
-            // 
-            this.originalHorizontal.Location = new System.Drawing.Point(191, 48);
-            this.originalHorizontal.Name = "originalHorizontal";
-            this.originalHorizontal.Size = new System.Drawing.Size(133, 147);
-            this.originalHorizontal.TabIndex = 1;
-            this.originalHorizontal.Text = "Formato original vertical";
-            this.originalHorizontal.UseVisualStyleBackColor = true;
-            this.originalHorizontal.Click += new System.EventHandler(this.button2_Click);
-            // 
             // originalVertical
             // 
-            this.originalVertical.Location = new System.Drawing.Point(370, 48);
+            this.originalVertical.Location = new System.Drawing.Point(191, 48);
             this.originalVertical.Name = "originalVertical";
             this.originalVertical.Size = new System.Drawing.Size(133, 147);
-            this.originalVertical.TabIndex = 2;
-            this.originalVertical.Text = "Formato original horizontal";
+            this.originalVertical.TabIndex = 1;
+            this.originalVertical.Text = "Formato original vertical";
             this.originalVertical.UseVisualStyleBackColor = true;
-            this.originalVertical.Click += new System.EventHandler(this.button3_Click);
+            this.originalVertical.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // originalHorizontal
+            // 
+            this.originalHorizontal.Location = new System.Drawing.Point(370, 48);
+            this.originalHorizontal.Name = "originalHorizontal";
+            this.originalHorizontal.Size = new System.Drawing.Size(133, 147);
+            this.originalHorizontal.TabIndex = 2;
+            this.originalHorizontal.Text = "Formato original horizontal";
+            this.originalHorizontal.UseVisualStyleBackColor = true;
+            this.originalHorizontal.Click += new System.EventHandler(this.button3_Click);
             // 
             // label1
             // 
@@ -81,8 +81,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(515, 211);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.originalVertical);
             this.Controls.Add(this.originalHorizontal);
+            this.Controls.Add(this.originalVertical);
             this.Controls.Add(this.formatoCopia);
             this.MaximizeBox = false;
             this.Name = "formatosImpresion";
@@ -98,8 +98,8 @@
         #endregion
 
         private System.Windows.Forms.Button formatoCopia;
-        private System.Windows.Forms.Button originalHorizontal;
         private System.Windows.Forms.Button originalVertical;
+        private System.Windows.Forms.Button originalHorizontal;
         private System.Windows.Forms.Label label1;
     }
 }
