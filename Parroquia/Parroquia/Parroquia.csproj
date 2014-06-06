@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Public\parroquia\</PublishUrl>
+    <PublishUrl>D:\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>20</ApplicationRevision>
+    <ApplicationRevision>23</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -66,6 +66,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -100,6 +101,12 @@
     </Compile>
     <Compile Include="DialogMatrimonio.Designer.cs">
       <DependentUpon>DialogMatrimonio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Egresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Egresos.Designer.cs">
+      <DependentUpon>Egresos.cs</DependentUpon>
     </Compile>
     <Compile Include="formatosImpresion.cs">
       <SubType>Form</SubType>
@@ -181,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DialogMatrimonio.resx">
       <DependentUpon>DialogMatrimonio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Egresos.resx">
+      <DependentUpon>Egresos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formatosImpresion.resx">
       <DependentUpon>formatosImpresion.cs</DependentUpon>

@@ -234,7 +234,7 @@ namespace Parroquia
 
         private void egresosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            new Egresos().ShowDialog();
         }
 
         public void cambiarFoto()
