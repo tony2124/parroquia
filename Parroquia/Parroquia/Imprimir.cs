@@ -675,6 +675,14 @@ namespace Parroquia
             DbDatos.Desconectar();
             String[] fecha;
             imprimeImagen(ev);
+
+            /*****PRUEBA- PRUEBA- PRUEBA - PRUEBA - PRUEBA - PRUEBA****/
+          /*  for (int i = 0; i < 40; i++ )
+                ev.Graphics.DrawString(".",
+                   new Font("Times New Roman", 10, FontStyle.Bold),
+                           Brushes.Black, 0+i, 229 + y); 
+            */
+            /**********************************************************/
             
             /*OBTENCION DE LA MITAD DE LA HOJA***********************/
             float tamaño_total, mitad;
