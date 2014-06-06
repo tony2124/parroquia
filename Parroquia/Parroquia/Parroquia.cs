@@ -385,5 +385,11 @@ namespace Parroquia
             foto++;
 
         }
+
+        private void configurarCoordenadasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            configurarCoordenada cc = new configurarCoordenada();
+            cc.ShowDialog();
+        }
     }
 }

@@ -42,6 +42,7 @@ namespace Parroquia
             this.confirmaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.primeraComuniónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matrimonioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configurarCoordenadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.descargarManualDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -145,7 +146,8 @@ namespace Parroquia
             this.bautismoToolStripMenuItem,
             this.confirmaciónToolStripMenuItem,
             this.primeraComuniónToolStripMenuItem,
-            this.matrimonioToolStripMenuItem});
+            this.matrimonioToolStripMenuItem,
+            this.configurarCoordenadasToolStripMenuItem});
             this.librosToolStripMenuItem.Name = "librosToolStripMenuItem";
             this.librosToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.librosToolStripMenuItem.Text = "Libros";
@@ -153,30 +155,37 @@ namespace Parroquia
             // bautismoToolStripMenuItem
             // 
             this.bautismoToolStripMenuItem.Name = "bautismoToolStripMenuItem";
-            this.bautismoToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.bautismoToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.bautismoToolStripMenuItem.Text = "Bautismo";
             this.bautismoToolStripMenuItem.Click += new System.EventHandler(this.bautismoToolStripMenuItem_Click);
             // 
             // confirmaciónToolStripMenuItem
             // 
             this.confirmaciónToolStripMenuItem.Name = "confirmaciónToolStripMenuItem";
-            this.confirmaciónToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.confirmaciónToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.confirmaciónToolStripMenuItem.Text = "Confirmación";
             this.confirmaciónToolStripMenuItem.Click += new System.EventHandler(this.confirmaciónToolStripMenuItem_Click);
             // 
             // primeraComuniónToolStripMenuItem
             // 
             this.primeraComuniónToolStripMenuItem.Name = "primeraComuniónToolStripMenuItem";
-            this.primeraComuniónToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.primeraComuniónToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.primeraComuniónToolStripMenuItem.Text = "Primera comunión";
             this.primeraComuniónToolStripMenuItem.Click += new System.EventHandler(this.primeraComuniónToolStripMenuItem_Click);
             // 
             // matrimonioToolStripMenuItem
             // 
             this.matrimonioToolStripMenuItem.Name = "matrimonioToolStripMenuItem";
-            this.matrimonioToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.matrimonioToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.matrimonioToolStripMenuItem.Text = "Matrimonio";
             this.matrimonioToolStripMenuItem.Click += new System.EventHandler(this.matrimonioToolStripMenuItem_Click);
+            // 
+            // configurarCoordenadasToolStripMenuItem
+            // 
+            this.configurarCoordenadasToolStripMenuItem.Name = "configurarCoordenadasToolStripMenuItem";
+            this.configurarCoordenadasToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.configurarCoordenadasToolStripMenuItem.Text = "Configurar coordenadas";
+            this.configurarCoordenadasToolStripMenuItem.Click += new System.EventHandler(this.configurarCoordenadasToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
@@ -565,8 +574,9 @@ namespace Parroquia
         private Button pause;
         private Label label4;
         private Label ip;
-        public static Button btnbuscar;
         private Label label5;
+        private ToolStripMenuItem configurarCoordenadasToolStripMenuItem;
+        public static Button btnbuscar;
 
 
     }
