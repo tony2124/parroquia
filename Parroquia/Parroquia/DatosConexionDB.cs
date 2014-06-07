@@ -22,6 +22,7 @@ namespace Parroquia
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+            
         }
 
         private void DatosConexionDB_FormClosing(object sender, FormClosingEventArgs e)

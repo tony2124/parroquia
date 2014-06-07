@@ -41,11 +41,14 @@ namespace Parroquia
             tabla.Rows[31].ReadOnly = true;
             tabla.Columns[18].ReadOnly = true;
 
+            /**MES***/
+            mes.SelectedIndex = DateTime.Now.Month - 1;
+
             /**** ANCHO DE LA COLUMNA ******/
             tabla.Columns[0].Width = 40;
             for(int i = 1; i < 19; i++)
             {
-                tabla.Columns[i].Width = 55;
+                tabla.Columns[i].Width = 65;
                 tabla.Columns[i].MinimumWidth = 30;
                 tabla.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
@@ -77,7 +80,7 @@ namespace Parroquia
                 else 
                     suma += double.Parse(tabla.Rows[fila].Cells[i].Value+"");
             }
-            tabla.Rows[fila].Cells[18].Value = "$  " + suma;
+            tabla.Rows[fila].Cells[18].Value = "$ " + String.Format("{0:0.00}", suma); ;
             
             /*** SUMA DE COLUMNA ***/
             suma = 0.0;
@@ -91,12 +94,23 @@ namespace Parroquia
                     suma += double.Parse(tabla.Rows[i].Cells[col].Value + "");
                 }
             }
-            tabla.Rows[31].Cells[col].Value = "$  " + suma;
+            tabla.Rows[31].Cells[col].Value = "$ " + String.Format("{0:0.00}", suma); ;
+
+            /** calculo de total **/
+            suma = 0.0;
+            for (int i = 0; i < 31; i++)
+            {
+                if (estaVacia(i, 18))
+                    suma += 0.0;
+                else
+                    suma += double.Parse((tabla.Rows[i].Cells[18].Value + "").Replace("$",""));
+            }
+            tabla.Rows[31].Cells[18].Value = "$ " + String.Format("{0:0.00}", suma);;
+            total.Text = "$ " + String.Format("{0:0.00}", suma);
         }
 
         private void tabla_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-           // MessageBox.Show("Editada: Column: "+e.ColumnIndex+" Row:"+e.RowIndex);
             if (e.ColumnIndex < 2)
                 return;
 
@@ -115,6 +129,31 @@ namespace Parroquia
             sumaFilaColumna(e.RowIndex, e.ColumnIndex);
 
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
