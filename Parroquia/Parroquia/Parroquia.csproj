@@ -22,11 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-<<<<<<< HEAD
     <ApplicationRevision>23</ApplicationRevision>
-=======
-    <ApplicationRevision>21</ApplicationRevision>
->>>>>>> 6d935cd6fb618f33a9700b5e429442cb97908efb
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -399,6 +395,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\p20.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ejem.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

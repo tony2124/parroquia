@@ -69,7 +69,7 @@
             // Cerrar
             // 
             this.Cerrar.Image = global::Parroquia.Properties.Resources.cancelar;
-            this.Cerrar.Location = new System.Drawing.Point(188, 243);
+            this.Cerrar.Location = new System.Drawing.Point(207, 243);
             this.Cerrar.Name = "Cerrar";
             this.Cerrar.Size = new System.Drawing.Size(56, 51);
             this.Cerrar.TabIndex = 12;
@@ -78,8 +78,8 @@
             // 
             // Guardar
             // 
-            this.Guardar.Image = global::Parroquia.Properties.Resources.guardar1;
-            this.Guardar.Location = new System.Drawing.Point(102, 243);
+            this.Guardar.Image = global::Parroquia.Properties.Resources.guardar;
+            this.Guardar.Location = new System.Drawing.Point(145, 243);
             this.Guardar.Name = "Guardar";
             this.Guardar.Size = new System.Drawing.Size(56, 51);
             this.Guardar.TabIndex = 11;
@@ -126,7 +126,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(15, 151);
+            this.label7.Location = new System.Drawing.Point(17, 144);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(156, 20);
             this.label7.TabIndex = 6;
@@ -172,7 +172,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 55);
+            this.label2.Location = new System.Drawing.Point(17, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(141, 20);
             this.label2.TabIndex = 1;

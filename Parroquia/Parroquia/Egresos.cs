@@ -35,29 +35,20 @@ namespace Parroquia
             tabla.Columns.Add("Fecha", "Impuesto");
             tabla.Columns.Add("Fecha", "Diversos");
             tabla.Columns.Add("Fecha", "TOTAL");
+
             tabla.Rows.Add(31);
             tabla.Rows.Insert(tabla.RowCount-1, "");
             tabla.Rows[31].ReadOnly = true;
             tabla.Columns[18].ReadOnly = true;
 
-            string[] datos = new string[20]; 
-            /*
-            for (int i = 1; i < 32; i++)
+            /**** ANCHO DE LA COLUMNA ******/
+            tabla.Columns[0].Width = 40;
+            for(int i = 1; i < 19; i++)
             {
-                datos[0] = ""+i;
-                datos[1] = "";
-                for (int j = 2; j < 18; j++)
-                    datos[j] = "500.00";
-                tabla.Rows[i-1].SetValues(datos);
+                tabla.Columns[i].Width = 55;
+                tabla.Columns[i].MinimumWidth = 30;
+                tabla.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
-              */  
-           /* 
-            datos[0] = "";
-            datos[1] = "TOTAL";
-            for (int i = 2; i < 18; i++ )
-                datos[i] = "1500.00";
-            tabla.Rows[31].SetValues(datos);
-            * */
 
             //** suma por columnas **/
             for (int i = 2; i < 18; i++)
