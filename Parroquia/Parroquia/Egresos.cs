@@ -16,9 +16,9 @@ namespace Parroquia
         {
             InitializeComponent();
             DataSet ds = new DataSet();
-            tabla.Columns.Add("Fecha","Fecha");
+            tabla.Columns.Add("fecha","Fecha");
             tabla.Columns.Add("conceptos", "Conceptos");
-            tabla.Columns.Add("Fecha", "Sueldos");
+            tabla.Columns.Add("sueldo", "Sueldos");
             tabla.Columns.Add("Fecha", "Prima Seguro");
             tabla.Columns.Add("Fecha", "Seguro de Vida");
             tabla.Columns.Add("Fecha", "Mtto. vehículo");
@@ -38,11 +38,13 @@ namespace Parroquia
 
             tabla.Rows.Add(31);
             tabla.Rows.Insert(tabla.RowCount-1, "");
+
             tabla.Rows[31].ReadOnly = true;
             tabla.Columns[18].ReadOnly = true;
 
-            /**MES***/
+            /****  MES Y AÑOS  ****/
             mes.SelectedIndex = DateTime.Now.Month - 1;
+            anio.Text = DateTime.Now.Year + "";
 
             /**** ANCHO DE LA COLUMNA ******/
             tabla.Columns[0].Width = 40;
@@ -60,6 +62,10 @@ namespace Parroquia
             //Suma opr filas
             for (int i = 0; i < 31; i++)
                 sumaFilaColumna(i, 2);
+
+            //Poner los numeros de los dias
+            for (int i = 0; i < 31; i++)
+                tabla.Rows[i].SetValues((i+1)+"");
         }
 
         bool estaVacia(int fil, int col)
@@ -89,10 +95,7 @@ namespace Parroquia
                 if (estaVacia(i, col))
                     suma += 0.0;
                 else
-                {
-                    //MessageBox.Show(tabla.Rows[i].Cells[col].Value + "");
-                    suma += double.Parse(tabla.Rows[i].Cells[col].Value + "");
-                }
+                    suma += double.Parse(tabla.Rows[i].Cells[col].Value + "");                
             }
             tabla.Rows[31].Cells[col].Value = "$ " + String.Format("{0:0.00}", suma); ;
 
