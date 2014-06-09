@@ -65,20 +65,20 @@ namespace Parroquia
             datos.Close();
             Bda.Desconectar();
 
-            BHX.Text = float.Parse(bhx) / 30 + "";
-            BHY.Text = float.Parse(bhy) / 30 + "";
+            BHX.Text = bhx ;
+            BHY.Text = bhy;
 
-            BVX.Text = float.Parse(bvx) / 30 + "";
-            BVY.Text = float.Parse(bvy) / 30 + "";
+            BVX.Text =bvx;
+            BVY.Text = bvy;
 
-            CX.Text = float.Parse(cx) / 30 + "";
-            CY.Text = float.Parse(cy) / 30 + "";
+            CX.Text = cx;
+            CY.Text = cy;
 
-            PX.Text = float.Parse(px) / 30 + "";
-            PY.Text = float.Parse(py) / 30 + "";
+            PX.Text = px;
+            PY.Text = py;
 
-            MX.Text = float.Parse(mx) / 30 + "";
-            MY.Text = float.Parse(my) / 30 + "";
+            MX.Text = mx;
+            MY.Text = my;
 
 
         }
@@ -91,12 +91,12 @@ namespace Parroquia
         private void guardar_Click(object sender, EventArgs e)
         {
             Bda.conexion();
-
-            if (Bda.peticion("update coordenadas set x=" + Math.Ceiling(float.Parse(BHX.Text) * 30 ) + ", y=" + Math.Ceiling(float.Parse(BHY.Text)*30) + " where id=1") > 0 &&
-                Bda.peticion("update coordenadas set x=" + Math.Ceiling(float.Parse(BVX.Text) * 30) + ", y=" + Math.Ceiling(float.Parse(BVY.Text) * 30) + " where id=5") > 0 &&
-                Bda.peticion("update coordenadas set x=" + Math.Ceiling(float.Parse(CX.Text) * 30)+ ", y=" + Math.Ceiling(float.Parse(CY.Text)*30 )+ " where id=2") > 0 &&
-                Bda.peticion("update coordenadas set x=" + Math.Ceiling(float.Parse(PX.Text) * 30 )+ ", y=" + Math.Ceiling(float.Parse(PY.Text)*30 )+ " where id=3") > 0 &&
-                Bda.peticion("update coordenadas set x=" + Math.Ceiling(float.Parse(MX.Text) * 30 )+ ", y=" + Math.Ceiling(float.Parse(MY.Text)*30) + " where id=4") > 0)
+            //Math.Ceiling(float.Parse(BHX.Text) * 30 ) + ", y=" + Math.Ceiling(float.Parse(BHY.Text)*30)
+            if (Bda.peticion("update coordenadas set x=" + BHX.Text + ", y=" + BHY.Text+ " where id=1") > 0 &&
+                Bda.peticion("update coordenadas set x=" + BVX.Text+ ", y=" + Math.Ceiling(float.Parse(BVY.Text) * 30) + " where id=5") > 0 &&
+                Bda.peticion("update coordenadas set x=" + CX.Text+ ", y=" + CY.Text+ " where id=2") > 0 &&
+                Bda.peticion("update coordenadas set x=" + PX.Text+ ", y=" + PY.Text+ " where id=3") > 0 &&
+                Bda.peticion("update coordenadas set x=" + MX.Text+ ", y=" + MY.Text + " where id=4") > 0)
                 MessageBox.Show("Coordenadas actualizadas","Exito",MessageBoxButtons.OK,MessageBoxIcon.Information);
             Bda.Desconectar();
         }

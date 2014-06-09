@@ -290,7 +290,8 @@ namespace Parroquia
                 }
             }
             DbDatos.Desconectar();
-
+            x =int.Parse( Math.Ceiling( float.Parse(x + "") * 30 ) +"");
+            y = int.Parse(Math.Ceiling( float.Parse(y + "") * 30) + "");
 
             float tamaño_total, mitad;
             imprimeImagen(ev);
@@ -393,6 +394,11 @@ namespace Parroquia
                 }
             }
             DbDatos.Desconectar();
+
+            x = int.Parse(Math.Ceiling(float.Parse(x + "") * 30) + "");
+            y = int.Parse(Math.Ceiling(float.Parse(y + "") * 30) + "");
+
+
             string []fecha;
             float tamaño_total, mitad;
             imprimeImagen(ev);
@@ -673,6 +679,11 @@ namespace Parroquia
                 }
             }
             DbDatos.Desconectar();
+
+            x = int.Parse(Math.Ceiling(float.Parse(x + "") * 30) + "");
+            y = int.Parse(Math.Ceiling(float.Parse(y + "") * 30) + "");
+
+
             String[] fecha;
             imprimeImagen(ev);
 
@@ -940,6 +951,11 @@ namespace Parroquia
                 }
             }
             DbDatos.Desconectar();
+
+            x = int.Parse(Math.Ceiling(float.Parse(x + "") * 30) + "");
+            y = int.Parse(Math.Ceiling(float.Parse(y + "") * 30) + "");
+
+
             float tamaño_total, mitad;
 
            imprimeImagen(ev);
@@ -1085,6 +1101,11 @@ namespace Parroquia
                 }
             }
             DbDatos.Desconectar();
+
+            x = int.Parse(Math.Ceiling(float.Parse(x + "") * 30) + "");
+            y = int.Parse(Math.Ceiling(float.Parse(y + "") * 30) + "");
+
+
             float tamaño_total, mitad;
             imprimeImagen(ev);
 
@@ -1507,3 +1528,10 @@ namespace Parroquia
 
     }
 }
+
+
+
+
+
+
+
