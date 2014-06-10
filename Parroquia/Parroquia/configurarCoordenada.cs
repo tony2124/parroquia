@@ -65,6 +65,7 @@ namespace Parroquia
             datos.Close();
             Bda.Desconectar();
 
+
             BHX.Text = bhx ;
             BHY.Text = bhy;
 
@@ -91,9 +92,9 @@ namespace Parroquia
         private void guardar_Click(object sender, EventArgs e)
         {
             Bda.conexion();
-            //Math.Ceiling(float.Parse(BHX.Text) * 30 ) + ", y=" + Math.Ceiling(float.Parse(BHY.Text)*30)
-            if (Bda.peticion("update coordenadas set x=" + BHX.Text + ", y=" + BHY.Text+ " where id=1") > 0 &&
-                Bda.peticion("update coordenadas set x=" + BVX.Text+ ", y=" + Math.Ceiling(float.Parse(BVY.Text) * 30) + " where id=5") > 0 &&
+
+            if (Bda.peticion("update coordenadas set x=" + BHX.Text+ ", y=" + BHY.Text + " where id=1") > 0 &&
+                Bda.peticion("update coordenadas set x=" + BVX.Text + ", y=" + BVY.Text + " where id=5") > 0 &&
                 Bda.peticion("update coordenadas set x=" + CX.Text+ ", y=" + CY.Text+ " where id=2") > 0 &&
                 Bda.peticion("update coordenadas set x=" + PX.Text+ ", y=" + PY.Text+ " where id=3") > 0 &&
                 Bda.peticion("update coordenadas set x=" + MX.Text+ ", y=" + MY.Text + " where id=4") > 0)

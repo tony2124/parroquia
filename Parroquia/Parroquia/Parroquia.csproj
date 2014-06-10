@@ -90,6 +90,7 @@
     <Compile Include="configurarCoordenada.Designer.cs">
       <DependentUpon>configurarCoordenada.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataGridViewPrinter.cs" />
     <Compile Include="DatosConexionDB.cs">
       <SubType>Form</SubType>
     </Compile>
