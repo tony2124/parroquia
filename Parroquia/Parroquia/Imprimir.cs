@@ -291,7 +291,6 @@ namespace Parroquia
             }
             DbDatos.Desconectar();
 
-
             float tamaño_total, mitad;
             imprimeImagen(ev);
 
