@@ -177,6 +177,8 @@ namespace Parroquia
             bool more = MyDataGridViewPrinter.DrawDataGridView(e.Graphics);
             if (more == true)
                 e.HasMorePages = true;
+
+
         }
 
         private bool SetupThePrinting()
