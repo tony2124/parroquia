@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>23</ApplicationRevision>
+    <ApplicationRevision>26</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -90,6 +90,7 @@
     <Compile Include="configurarCoordenada.Designer.cs">
       <DependentUpon>configurarCoordenada.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataGridViewPrinter.cs" />
     <Compile Include="DatosConexionDB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,34 +264,16 @@
     <None Include="Resources\simpus.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\virgen.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\virgen.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\bautismo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\253331_112399185524690_100002638274955_82681_7576911_n.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\confirmacion.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\matrimonio.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\comunion.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\matrimonio.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baner.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baner2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo_simpus.png" />
@@ -404,6 +387,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\vistapre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\egresos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gen_mail.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

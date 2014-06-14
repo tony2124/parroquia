@@ -7,156 +7,276 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Printing;
+using System.Drawing;
+using conexionbd;
+using MySql.Data.MySqlClient;
 
 namespace Parroquia
 {
     public partial class Egresos : Form
     {
+        public PrintDocument MyPrintDocument;
+        DataGridViewPrinter MyDataGridViewPrinter;
+        static int num_columns = 19, num_rows = 31;
+        int[,] matriz_modificacion; // 0 -> null   1 -> ya registrado   2 -> modificado ya registrado  3 -> modificado no registrado
+        double[,] matriz_mapeada; //matriz que mapea los datos a la tabla
+
         public Egresos()
         {
             InitializeComponent();
-            DataSet ds = new DataSet();
-            tabla.Columns.Add("fecha","Fecha");
-            tabla.Columns.Add("conceptos", "Conceptos");
-            tabla.Columns.Add("sueldo", "Sueldos");
-            tabla.Columns.Add("Fecha", "Prima Seguro");
-            tabla.Columns.Add("Fecha", "Seguro de Vida");
-            tabla.Columns.Add("Fecha", "Mtto. vehículo");
-            tabla.Columns.Add("Fecha", "Construcción");
-            tabla.Columns.Add("Fecha", "Papelería");
-            tabla.Columns.Add("Fecha", "Cocina");
-            tabla.Columns.Add("Fecha", "IMSS");
-            tabla.Columns.Add("Fecha", "Altar");
-            tabla.Columns.Add("Fecha", "Telefono correos");
-            tabla.Columns.Add("Fecha", "Luz");
-            tabla.Columns.Add("Fecha", "Porcentaje MITRA");
-            tabla.Columns.Add("Fecha", "SAR Infonavit");
-            tabla.Columns.Add("Fecha", "Ordenadas");
-            tabla.Columns.Add("Fecha", "Impuesto");
-            tabla.Columns.Add("Fecha", "Diversos");
-            tabla.Columns.Add("Fecha", "TOTAL");
-
-            tabla.Rows.Add(31);
-            tabla.Rows.Insert(tabla.RowCount-1, "");
-
-            tabla.Rows[31].ReadOnly = true;
-            tabla.Columns[18].ReadOnly = true;
 
             /****  MES Y AÑOS  ****/
+            Object[] a = new Object[DateTime.Now.Year - 2014 + 1];
+            for (int i = 2014; i <= DateTime.Now.Year; i++)
+                a[i - 2014] = i;
             mes.SelectedIndex = DateTime.Now.Month - 1;
+            anio.Items.AddRange(a);
             anio.Text = DateTime.Now.Year + "";
 
-            /**** ANCHO DE LA COLUMNA ******/
-            tabla.Columns[0].Width = 40;
-            for(int i = 1; i < 19; i++)
-            {
-                tabla.Columns[i].Width = 65;
-                tabla.Columns[i].MinimumWidth = 30;
-                tabla.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            }
+            /*** OBTENER EL NUMERO DE DIAS DEL MES ****/
+            int calc_mes = (mes.SelectedIndex + 1) % 12 + 1;
+            num_rows = Convert.ToDateTime("01-" + calc_mes + "-" + anio.Text).AddDays(-1).Day;
 
-            //** suma por columnas **/
-            for (int i = 2; i < 18; i++)
-                sumaFilaColumna(0, i);
+            /*** CREAR MATRICES MAPEADAS ****/
+            matriz_modificacion = new int[num_rows, num_columns];
+            matriz_mapeada = new double[num_rows + 1, num_columns + 1];
 
-            //Suma opr filas
-            for (int i = 0; i < 31; i++)
-                sumaFilaColumna(i, 2);
+            /**** IMPRIMIR ***/
+            MyPrintDocument = new PrintDocument();
+            this.MyPrintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.MyPrintDocument_PrintPage);
+
+            /** CARACTERISTICAS DE LA TABLA ****/
+            tabla.Rows.Add(num_rows);
+            tabla.Rows.Insert(tabla.RowCount-1, "");
+            tabla.Rows[num_rows].Cells[1].Value = "TOTAL";
+
+            tabla.Rows[num_rows].ReadOnly = true;
+            tabla.Columns[num_columns].ReadOnly = true;
+
+            //Hacer consulta
+            restaurar(DateTime.Now.Month.ToString(), DateTime.Now.Year.ToString());
+
+            //** calculo de totales **/
+            calculoTotales();
 
             //Poner los numeros de los dias
-            for (int i = 0; i < 31; i++)
+            for (int i = 0; i < num_rows; i++)
                 tabla.Rows[i].SetValues((i+1)+"");
         }
 
-        bool estaVacia(int fil, int col)
+        public void restaurar(string mes, string anio)
         {
-            if (tabla.Rows[fil].Cells[col].Value == null)
-                return true;
-            return false;
+            DateTime fecha;
+            int concepto;
+            double cantidad;
+
+            ConexionBD db = new ConexionBD();
+            db.conexion();
+            MySqlDataReader Datos = db.obtenerBasesDatosMySQL("SELECT * FROM egresos WHERE fecha >= '" + anio + "-" + mes + "-01' AND fecha <= '" + anio + "-" + mes + "-" + num_rows + "'");
+            if (Datos.HasRows)
+            {
+                while (Datos.Read())
+                {
+                    fecha = Datos.GetDateTime(0);
+                    concepto = Datos.GetInt32(1);
+                    cantidad = Datos.GetDouble(2);
+                    matriz_mapeada[fecha.Day-1, concepto] = cantidad;
+                    matriz_modificacion[fecha.Day-1, concepto] = 1;
+                    //MessageBox.Show(fecha.Day+" - "+concepto+": "+cantidad);
+                    tabla.Rows[fecha.Day-1].Cells[concepto].Value = cantidad;
+                }
+            }
         }
 
-        private void sumaFilaColumna(int fila, int col)
+ 
+        public void mapear_matriz(int fil, int col, double valor)
+        {
+            /*** CALCULANDO TOTALES Y ESCRIBIENDO NUEVO VALOR **/
+            matriz_mapeada[fil, num_columns] = matriz_mapeada[fil, num_columns] - matriz_mapeada[fil, col] + valor;
+            matriz_mapeada[num_rows, col] = matriz_mapeada[num_rows, col] - matriz_mapeada[fil, col] + valor;
+            matriz_mapeada[fil, col] = valor;
+
+            tabla.Rows[fil].Cells[num_columns].Value = matriz_mapeada[fil, num_columns];
+            tabla.Rows[num_rows].Cells[col].Value = matriz_mapeada[num_rows, col];
+            tabla.Rows[fil].Cells[col].Value = valor;
+
+            /**** ESTABLECER MODO DE ALMACENAMIENTO ****/
+            switch (matriz_modificacion[fil, col])
+            {
+                case 0: matriz_modificacion[fil, col] = 3; break;
+                case 1: matriz_modificacion[fil, col] = 2; break;
+            }
+
+            /**** CALCULAR TOTAL ****/
+            double suma = 0.0;
+            for (int i = 0; i < num_rows; i++)
+                suma += matriz_mapeada[i, num_columns];
+            
+            tabla.Rows[num_rows].Cells[num_columns].Value = suma;
+
+            total.Text = "$ " + String.Format("{0:0.00}", suma);
+        }
+
+
+        private void calculoTotales()
         {
             double suma = 0;
-            /** SUMA DE FILA */
-            for(int i = 2; i < 18; i++)
+            /*** SUMA DE FILA O(n*m) ***/
+            for (int fila = 0; fila < num_rows; fila++)
             {
-                if (estaVacia(fila, i))
-                    suma += 0.00;
-                else 
-                    suma += double.Parse(tabla.Rows[fila].Cells[i].Value+"");
+                suma = 0;
+                for (int i = 2; i < num_columns; i++)
+                    suma += matriz_mapeada[fila, i];
+                matriz_mapeada[fila, num_columns] = suma;
+                tabla.Rows[fila].Cells[num_columns].Value = suma;
             }
-            tabla.Rows[fila].Cells[18].Value = "$ " + String.Format("{0:0.00}", suma); ;
             
             /*** SUMA DE COLUMNA ***/
-            suma = 0.0;
-            for(int i = 0; i < 31; i++)
+            for (int col = 2; col < num_columns+1; col++)
             {
-                if (estaVacia(i, col))
-                    suma += 0.0;
-                else
-                    suma += double.Parse(tabla.Rows[i].Cells[col].Value + "");                
+                suma = 0.0;
+                for (int i = 0; i < num_rows; i++)
+                    suma += matriz_mapeada[i, col];
+                matriz_mapeada[num_rows, col] = suma;
+                tabla.Rows[num_rows].Cells[col].Value = suma;
             }
-            tabla.Rows[31].Cells[col].Value = "$ " + String.Format("{0:0.00}", suma); ;
-
-            /** calculo de total **/
-            suma = 0.0;
-            for (int i = 0; i < 31; i++)
-            {
-                if (estaVacia(i, 18))
-                    suma += 0.0;
-                else
-                    suma += double.Parse((tabla.Rows[i].Cells[18].Value + "").Replace("$",""));
-            }
-            tabla.Rows[31].Cells[18].Value = "$ " + String.Format("{0:0.00}", suma);;
+            tabla.Rows[num_rows].Cells[num_columns].Value = suma; 
             total.Text = "$ " + String.Format("{0:0.00}", suma);
         }
 
         private void tabla_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex < 2)
-                return;
-
-            if (!estaVacia(e.RowIndex, e.ColumnIndex))
+            try
             {
-                try
-                {
-                    double.Parse(tabla.Rows[e.RowIndex].Cells[e.ColumnIndex].Value + "");
-                }
-                catch (Exception exc)
-                {
-                    MessageBox.Show(this, "El valor ingresado no es válido", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    tabla.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = null;
-                }
+                double valor = double.Parse(tabla.Rows[e.RowIndex].Cells[e.ColumnIndex].Value + "");
+                mapear_matriz(e.RowIndex, e.ColumnIndex, valor);
             }
-            sumaFilaColumna(e.RowIndex, e.ColumnIndex);
+            catch (Exception exc)
+            {
+                MessageBox.Show(this, "El valor ingresado no es válido", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tabla.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = null;
+                mapear_matriz(e.RowIndex, e.ColumnIndex, 0);
+            }
+      
+        }
+  
 
-            
+        private void MyPrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            bool more = MyDataGridViewPrinter.DrawDataGridView(e.Graphics);
+            if (more == true)
+                e.HasMorePages = true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private bool SetupThePrinting()
+        {
+            PrintDialog MyPrintDialog = new PrintDialog();
+            MyPrintDialog.AllowCurrentPage = false;
+            MyPrintDialog.AllowPrintToFile = false;
+            MyPrintDialog.AllowSelection = false;
+            MyPrintDialog.AllowSomePages = false;
+            MyPrintDialog.PrintToFile = false;
+            MyPrintDialog.ShowHelp = false;
+            MyPrintDialog.ShowNetwork = false;
+
+            if (MyPrintDialog.ShowDialog() != DialogResult.OK)
+                return false;
+
+            MyPrintDocument.DocumentName = "Customers Report";
+            MyPrintDocument.PrinterSettings = MyPrintDialog.PrinterSettings;
+            MyPrintDocument.DefaultPageSettings = MyPrintDialog.PrinterSettings.DefaultPageSettings;
+            MyPrintDocument.DefaultPageSettings.Landscape = true;
+        
+            MyPrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Legal", 850, 1400);
+            MyPrintDocument.DefaultPageSettings.Margins = new Margins(40, 40, 40, 40);
+
+           
+            MyDataGridViewPrinter = new DataGridViewPrinter(tabla, MyPrintDocument, true, true, "Reportes mensuales", new Font("Tahoma", 12, FontStyle.Bold, GraphicsUnit.Point), Color.Black, true);
+           
+            return true;
+        }
+
+        private void guardar_Click(object sender, EventArgs e)
+        {
+            ConexionBD datos = new ConexionBD();
+            datos.conexion();
+            for(int dia = 0; dia < num_rows; dia++)
+                for (int concep = 2; concep < num_columns; concep++)
+                {
+                    if (matriz_modificacion[dia, concep] == 2)
+                    {
+                        //MessageBox.Show("Actualizar: " + (dia + 1) + "," + concep);
+                        String fecha = anio.Text + "-" + (mes.SelectedIndex + 1) + "-" + (dia + 1);
+                        if (datos.peticion("UPDATE egresos SET cantidad = " + matriz_mapeada[dia, concep] + " WHERE fecha = '" + fecha + "' AND concepto = " + concep) > 0)
+                        {
+                            matriz_modificacion[dia, concep] = 1;
+                        }
+                    }
+                    else if (matriz_modificacion[dia, concep] == 3)
+                    {
+                        //MessageBox.Show("Insertar: " + (dia + 1) + "," + concep + ": " + matriz_mapeada[dia, concep]);
+                        String fecha = anio.Text + "-" + (mes.SelectedIndex + 1) + "-" + (dia + 1);
+                        if (datos.peticion("INSERT INTO egresos (fecha, concepto, cantidad) values('" + fecha + "'," + concep + "," + matriz_mapeada[dia, concep] + ")") > 0)
+                        {
+                            matriz_modificacion[dia, concep] = 1;
+                        }
+
+                    }
+                }
+            MessageBox.Show(this,"Datos guardados correctamente.","Éxito",MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
+        private void imprimir_Click(object sender, EventArgs e)
+        {
+            if (SetupThePrinting())
+            {
+                PrintPreviewDialog MyPrintPreviewDialog = new PrintPreviewDialog();
+                MyPrintPreviewDialog.Document = MyPrintDocument;
+                MyPrintPreviewDialog.ShowDialog();
+            }
+        }
+
+        private void enviar_correo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancelar_Click(object sender, EventArgs e)
         {
             Dispose();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ver_Click(object sender, EventArgs e)
         {
+            /*** OBTENER EL NUMERO DE DIAS DEL MES ****/
+            int calc_mes = (mes.SelectedIndex + 1) % 12 + 1;
+            num_rows = Convert.ToDateTime("01-" + calc_mes + "-" + anio.Text).AddDays(-1).Day;
 
-        }
+            /*** CREAR NUEVAS MATRICES ***/
+            matriz_modificacion = new int[num_rows, num_columns];
+            matriz_mapeada = new double[num_rows + 1, num_columns + 1];
 
-        private void button6_Click(object sender, EventArgs e)
-        {
+            tabla.Rows.Clear();
 
-        }
+            /** CARACTERISTICAS DE LA TABLA ****/
+            tabla.Rows.Add(num_rows);
+            tabla.Rows.Insert(tabla.RowCount - 1, "");
+            tabla.Rows[num_rows].Cells[1].Value = "TOTAL";
 
-        private void button5_Click(object sender, EventArgs e)
-        {
+            tabla.Rows[num_rows].ReadOnly = true;
+            tabla.Columns[num_columns].ReadOnly = true;
 
-        }
+            //Poner los numeros de los dias
+            for (int i = 0; i < num_rows; i++)
+                tabla.Rows[i].SetValues((i + 1) + "");
 
-        private void button4_Click(object sender, EventArgs e)
-        {
+            //Hacer consulta
+            restaurar((mes.SelectedIndex + 1)+"", anio.Text);
 
+            //** calculo de totales **/
+            calculoTotales();
         }
     }
+
 }

@@ -266,11 +266,11 @@ namespace Parroquia
                        (this.imprimirMatrimonioOriginal);
                 }
             }
-            ppD.Document = pd;
-            ppD.ShowDialog();
-            ppD.BringToFront();
+           // ppD.Document = pd;
+           // ppD.ShowDialog();
+           // ppD.BringToFront();
 
-           // pd.Print();
+            pd.Print();
         }
 
         private void imprimirMatrimonioOriginal(object sender, PrintPageEventArgs ev)
@@ -291,8 +291,11 @@ namespace Parroquia
             }
             DbDatos.Desconectar();
 
+            x =int.Parse( Math.Ceiling( float.Parse(x + "") * 30 ) +"");
+            y = int.Parse(Math.Ceiling( float.Parse(y + "") * 30) + "");
+
             float tamaño_total, mitad;
-            imprimeImagen(ev);
+            //imprimeImagen(ev);
 
             //IMPRIME NOVIO
             tamaño_total = 880 - ev.Graphics.MeasureString(novio, new Font("Times New Roman", 12, FontStyle.Bold)).Width;
@@ -392,9 +395,14 @@ namespace Parroquia
                 }
             }
             DbDatos.Desconectar();
+
+            x = int.Parse(Math.Ceiling(float.Parse(x + "") * 30) + "");
+            y = int.Parse(Math.Ceiling(float.Parse(y + "") * 30) + "");
+
+
             string []fecha;
             float tamaño_total, mitad;
-            imprimeImagen(ev);
+           // imprimeImagen(ev);
 
             //NOMBRE
             tamaño_total = 880 - ev.Graphics.MeasureString(nombre, new Font("Times New Roman", 12, FontStyle.Bold)).Width;
@@ -672,8 +680,13 @@ namespace Parroquia
                 }
             }
             DbDatos.Desconectar();
+
+            x = int.Parse(Math.Ceiling(float.Parse(x + "") * 30) + "");
+            y = int.Parse(Math.Ceiling(float.Parse(y + "") * 30) + "");
+
+
             String[] fecha;
-            imprimeImagen(ev);
+            //imprimeImagen(ev);
 
             /*****PRUEBA- PRUEBA- PRUEBA - PRUEBA - PRUEBA - PRUEBA****/
           /*  for (int i = 0; i < 40; i++ )
@@ -939,9 +952,14 @@ namespace Parroquia
                 }
             }
             DbDatos.Desconectar();
+
+            x = int.Parse(Math.Ceiling(float.Parse(x + "") * 30) + "");
+            y = int.Parse(Math.Ceiling(float.Parse(y + "") * 30) + "");
+
+
             float tamaño_total, mitad;
 
-           imprimeImagen(ev);
+           //imprimeImagen(ev);
 
             //IMPRIME NOMBRE
             tamaño_total = 880 - ev.Graphics.MeasureString(nombre, new Font("Times New Roman", 11, FontStyle.Bold)).Width;
@@ -1084,8 +1102,13 @@ namespace Parroquia
                 }
             }
             DbDatos.Desconectar();
+
+            x = int.Parse(Math.Ceiling(float.Parse(x + "") * 30) + "");
+            y = int.Parse(Math.Ceiling(float.Parse(y + "") * 30) + "");
+
+
             float tamaño_total, mitad;
-            imprimeImagen(ev);
+            //imprimeImagen(ev);
 
             //IMPRIME NOMBRE
             tamaño_total = 880 - ev.Graphics.MeasureString(nombre, new Font("Times New Roman", 9, FontStyle.Bold)).Width;
@@ -1506,3 +1529,10 @@ namespace Parroquia
 
     }
 }
+
+
+
+
+
+
+

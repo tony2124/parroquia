@@ -13,7 +13,7 @@ namespace conexionbd
     class ConexionBD
     {
         public static string usuario, contrasena, basedatos, host, puerto;
-        public static bool carga_datos_desde_archivo = false, form = true;
+        public static bool carga_datos_desde_archivo = false, form = true, exit = false;
         public static string conex;
         private MySqlConnection conexionBD;
         
@@ -33,7 +33,7 @@ namespace conexionbd
             {
                 host = "localhost";
                 usuario = "root";
-                contrasena = "SIMPUS2124";
+                contrasena = "";
                 puerto = "3306";
                 basedatos = "parroquiaantunez";
             }
@@ -73,22 +73,23 @@ namespace conexionbd
                     }
 
                     string[] caracteres = archivo.Split(' ');
-                    ConexionBD.host = caracteres[0];
-                    ConexionBD.usuario = caracteres[1];
-                    ConexionBD.contrasena = caracteres[2];
-                    ConexionBD.puerto = caracteres[3];
-                    ConexionBD.basedatos = caracteres[4];
-                    //MessageBox.Show("" + caracteres.Length + "\n" + "LOCALHOST: " + caracteres[0] + "\nUSUARIO:" + caracteres[1]);
+                    host = caracteres[0];
+                    usuario = caracteres[1];
+                    contrasena = caracteres[2];
+                    puerto = caracteres[3];
+                    basedatos = caracteres[4];
                     file.Close();
-                    
                 }
                 conexion();
             }
             else
             {
                 carga_datos_desde_archivo = false;
-                new DatosConexionDB().ShowDialog();
-                conexion();
+                if (!exit)
+                {
+                    new DatosConexionDB().ShowDialog();
+                    conexion();
+                }
             }
         }
 
@@ -110,7 +111,6 @@ namespace conexionbd
 
         public int peticion(String consulta)
         {
-         
             int resultado=0;
             try
             {

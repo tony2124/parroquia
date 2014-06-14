@@ -65,20 +65,21 @@ namespace Parroquia
             datos.Close();
             Bda.Desconectar();
 
-            BHX.Text = float.Parse(bhx) +"";
-            BHY.Text = float.Parse(bhy) + "";
 
-            BVX.Text = float.Parse(bvx) + "";
-            BVY.Text = float.Parse(bvy) + "";
+            BHX.Text = bhx ;
+            BHY.Text = bhy;
 
-            CX.Text = float.Parse(cx)  + "";
-            CY.Text = float.Parse(cy)  + "";
+            BVX.Text =bvx;
+            BVY.Text = bvy;
 
-            PX.Text = float.Parse(px)  + "";
-            PY.Text = float.Parse(py)  + "";
+            CX.Text = cx;
+            CY.Text = cy;
 
-            MX.Text = float.Parse(mx)  + "";
-            MY.Text = float.Parse(my)  + "";
+            PX.Text = px;
+            PY.Text = py;
+
+            MX.Text = mx;
+            MY.Text = my;
 
 
         }
@@ -91,7 +92,7 @@ namespace Parroquia
         private void guardar_Click(object sender, EventArgs e)
         {
             Bda.conexion();
-            //Math.Ceiling(float.Parse(BHX.Text) * 30 )
+
             if (Bda.peticion("update coordenadas set x=" + BHX.Text+ ", y=" + BHY.Text + " where id=1") > 0 &&
                 Bda.peticion("update coordenadas set x=" + BVX.Text + ", y=" + BVY.Text + " where id=5") > 0 &&
                 Bda.peticion("update coordenadas set x=" + CX.Text+ ", y=" + CY.Text+ " where id=2") > 0 &&

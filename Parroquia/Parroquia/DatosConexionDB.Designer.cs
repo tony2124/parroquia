@@ -141,7 +141,7 @@
             this.cancelar.TabIndex = 10;
             this.cancelar.Text = "CANCELAR";
             this.cancelar.UseVisualStyleBackColor = true;
-            this.cancelar.Click += new System.EventHandler(this.button1_Click);
+            this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
             // 
             // conectar
             // 
@@ -151,7 +151,7 @@
             this.conectar.TabIndex = 11;
             this.conectar.Text = "CONECTAR";
             this.conectar.UseVisualStyleBackColor = true;
-            this.conectar.Click += new System.EventHandler(this.button2_Click);
+            this.conectar.Click += new System.EventHandler(this.conectar_Click);
             // 
             // groupBox1
             // 
