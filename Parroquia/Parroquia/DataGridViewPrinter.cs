@@ -100,9 +100,13 @@ class DataGridViewPrinter
                 if (tmpFont == null) // If there is no special HeaderFont style, then use the default DataGridView font style
                     tmpFont = TheDataGridView.DefaultCellStyle.Font;
 
+               
                 tmpSize = g.MeasureString(TheDataGridView.Columns[i].HeaderText, tmpFont);
+                /////////////////////*MODIFICACION///////////////////////
+             
                 tmpWidth = tmpSize.Width;
-                RowHeaderHeight = tmpSize.Height;
+                //////*************//////MODIFICACION AQUI//////////////////////////////////
+                RowHeaderHeight = tmpSize.Height+20;
 
                 for (int j = 0; j < TheDataGridView.Rows.Count; j++)
                 {
@@ -116,7 +120,18 @@ class DataGridViewPrinter
                     tmpSize = g.MeasureString(TheDataGridView.Rows[j].Cells[i].EditedFormattedValue.ToString(), tmpFont);
                     if (tmpSize.Width > tmpWidth)
                         tmpWidth = tmpSize.Width;
+
+                    /******MODIFICACION*************/
+                    if(tmpWidth > 70)
+                        tmpWidth=70;
+
+                    if (i == 6 )
+                        tmpWidth = 90;
+
+                    if (i == 14)
+                        tmpWidth = 80;
                 }
+               
                 if (TheDataGridView.Columns[i].Visible)
                     TheDataGridViewWidth += tmpWidth;
                 ColumnsWidth.Add(tmpWidth);
@@ -255,7 +270,8 @@ class DataGridViewPrinter
 
         // Printing each visible cell of the header row
         RectangleF CellBounds;
-        float ColumnWidth;        
+        float ColumnWidth;
+        Font font = new Font("Times New Roman", 7, FontStyle.Bold);
         for (int i = (int)mColumnPoints[mColumnPoint].GetValue(0); i < (int)mColumnPoints[mColumnPoint].GetValue(1); i++)
         {
             if (!TheDataGridView.Columns[i].Visible) continue; // If the column is not visible then ignore this iteration
@@ -270,15 +286,53 @@ class DataGridViewPrinter
             else
                 CellFormat.Alignment = StringAlignment.Near;
 
+            CellFormat.Alignment = StringAlignment.Center;
+            /*if (i == 0 || i == 1 || i == 2 || i == 6 || i == 8 || i == 9 || i == 10 || i == 11 || i == 13 || i == 16 || i == 17 || i == 18 || i == 19)
+                CellFormat.LineAlignment = StringAlignment.Center;
+            else
+                CellFormat.LineAlignment = StringAlignment.Near;*/
+
+                CellFormat.LineAlignment = StringAlignment.Center;
             CellBounds = new RectangleF(CurrentX, CurrentY, ColumnWidth, RowHeaderHeight);
 
+            /////////*MODIFICACION////////////////////////////
             // Printing the cell text
-            g.DrawString(TheDataGridView.Columns[i].HeaderText, HeaderFont, HeaderForeBrush, CellBounds, CellFormat);
+            SizeF a;
+            a = g.MeasureString(TheDataGridView.Columns[i].HeaderText, HeaderFont);
+           if (a.Width > 70)
+            {
+              //  float cY = CurrentY;
+                String txt = TheDataGridView.Columns[i].HeaderText;
+                String[] b = txt.Split(' ');
+                int y = 0, x = 0;
+                String h="";
+                for (int k = 0; k < b.Length; k++)
+                {
+                    h =h+ b[k]+"\n";
+
+                   /* if(i==6)
+                        g.DrawString(b[k], new Font("Times New Roman", 6, FontStyle.Bold), HeaderForeBrush, CellBounds, CellFormat);
+                    else*/
+
+                 /*       g.DrawString(b[k], font, HeaderForeBrush, CellBounds, CellFormat);
+                    y += 10;
+                    if(k!=0)
+                    x = 2;
+                    
+                    CellBounds = new RectangleF(CurrentX+x, CurrentY+y, ColumnWidth, RowHeaderHeight);
+                  * */
+                }
+                g.DrawString(h, font, HeaderForeBrush, CellBounds, CellFormat);
+              //  cY = cY + 10;
+               // txt = txt.Substring(70);
+            }else
+            g.DrawString(TheDataGridView.Columns[i].HeaderText, font, HeaderForeBrush, CellBounds, CellFormat);
 
             // Drawing the cell bounds
-            if (TheDataGridView.RowHeadersBorderStyle != DataGridViewHeaderBorderStyle.None) // Draw the cell border only if the HeaderBorderStyle is not None
+            if (TheDataGridView.RowHeadersBorderStyle != DataGridViewHeaderBorderStyle.None)
+            { // Draw the cell border only if the HeaderBorderStyle is not None
                 g.DrawRectangle(TheLinePen, CurrentX, CurrentY, ColumnWidth, RowHeaderHeight);
-
+            }
             CurrentX += ColumnWidth;
         }
 

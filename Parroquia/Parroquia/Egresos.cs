@@ -36,7 +36,8 @@ namespace Parroquia
 
             /*** OBTENER EL NUMERO DE DIAS DEL MES ****/
             int calc_mes = (mes.SelectedIndex + 1) % 12 + 1;
-            num_rows = Convert.ToDateTime(anio.Text+"-" + calc_mes + "-" + "01").AddDays(-1).Day;
+            num_rows = Convert.ToDateTime(anio.Text + "-" + calc_mes + "-01").AddDays(-1).Day;
+
 
             /*** CREAR MATRICES MAPEADAS ****/
             matriz_modificacion = new int[num_rows, num_columns];
@@ -253,7 +254,7 @@ namespace Parroquia
         {
             /*** OBTENER EL NUMERO DE DIAS DEL MES ****/
             int calc_mes = (mes.SelectedIndex + 1) % 12 + 1;
-            num_rows = Convert.ToDateTime("01-" + calc_mes + "-" + anio.Text).AddDays(-1).Day;
+            num_rows = Convert.ToDateTime(anio.Text + "-" + calc_mes + "-01").AddDays(-1).Day;
 
             /*** CREAR NUEVAS MATRICES ***/
             matriz_modificacion = new int[num_rows, num_columns];
