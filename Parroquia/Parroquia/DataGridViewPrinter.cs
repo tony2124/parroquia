@@ -158,6 +158,8 @@ class DataGridViewPrinter
                     break;
                 }
 
+           
+
             float mTempWidth = TheDataGridViewWidth;
             float mTempPrintArea = (float)PageWidth - (float)LeftMargin - (float)RightMargin;
             
@@ -195,7 +197,7 @@ class DataGridViewPrinter
     private void DrawHeader(Graphics g)
     {
         CurrentY = (float)TopMargin;
-
+       
         // Printing the page number (if isWithPaging is set to true)
         if (IsWithPaging)
         {
@@ -211,9 +213,14 @@ class DataGridViewPrinter
 
             RectangleF PageStringRectangle = new RectangleF((float)LeftMargin, CurrentY, (float)PageWidth - (float)RightMargin - (float)LeftMargin, g.MeasureString(PageString, PageStringFont).Height);
 
-            g.DrawString(PageString, PageStringFont, new SolidBrush(Color.Black), PageStringRectangle, PageStringFormat);
+            
+
+         
+
+            //g.DrawString(PageString, PageStringFont, new SolidBrush(Color.Black), PageStringRectangle, PageStringFormat);
             //DETERMINA Y DE TODA LA TABLA
-            CurrentY += g.MeasureString(PageString, PageStringFont).Height;
+            CurrentY += g.MeasureString(PageString, PageStringFont).Height+60;
+           
         }
 
         // Printing the title (if IsWithTitle is set to true)
@@ -238,6 +245,29 @@ class DataGridViewPrinter
         float CurrentX = (float)LeftMargin;
         if (IsCenterOnPage)            
             CurrentX += (((float)PageWidth - (float)RightMargin - (float)LeftMargin) - mColumnPointsWidth[mColumnPoint]) / 2.0F;
+
+        float tamano_total, mitad;
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX - g.MeasureString("DIÓCESIS DE APATZINGÁN, A.R.",
+            new Font("Times New Roman", 12, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString("DIÓCESIS DE APATZINGÁN, A.R.",
+            new Font("Times New Roman", 12, FontStyle.Bold),
+              Brushes.Black, mitad, TopMargin + 2);
+
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX - g.MeasureString("Parroquia: _____________________________ mes de _________________________ de ___________________",
+            new Font("Times New Roman", 12, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString("Parroquia: _____________________________ mes de _________________________ de ___________________",
+            new Font("Times New Roman", 12, FontStyle.Bold),
+              Brushes.Black, mitad, TopMargin + 25);
+
+
+        System.Drawing.Pen myPen = new System.Drawing.Pen(System.Drawing.Color.Black, 1);
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 1, TopMargin, (Int32)TheDataGridViewWidth + 1, 50));
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 1, TopMargin + 50, (Int32)TheDataGridViewWidth + 1, 50));
+
 
         // Setting the HeaderFore style
         Color HeaderForeColor = TheDataGridView.ColumnHeadersDefaultCellStyle.ForeColor;

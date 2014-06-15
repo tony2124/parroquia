@@ -186,7 +186,7 @@ namespace Parroquia
             if (MyPrintDialog.ShowDialog() != DialogResult.OK)
                 return false;
 
-            MyPrintDocument.DocumentName = "Customers Report";
+            MyPrintDocument.DocumentName = "ReporteErogaciones";
             MyPrintDocument.PrinterSettings = MyPrintDialog.PrinterSettings;
             MyPrintDocument.DefaultPageSettings = MyPrintDialog.PrinterSettings.DefaultPageSettings;
             MyPrintDocument.DefaultPageSettings.Landscape = true;
@@ -195,7 +195,7 @@ namespace Parroquia
             MyPrintDocument.DefaultPageSettings.Margins = new Margins(40, 40, 40, 40);
 
            
-            MyDataGridViewPrinter = new DataGridViewPrinter(tabla, MyPrintDocument, true, true, "Reportes mensuales", new Font("Tahoma", 12, FontStyle.Bold, GraphicsUnit.Point), Color.Black, true);
+            MyDataGridViewPrinter = new DataGridViewPrinter(tabla, MyPrintDocument, true, true, "E   R   O   G   A   C   I   O   N   E   S", new Font("Tahoma", 12, FontStyle.Bold, GraphicsUnit.Point), Color.Black, true);
            
             return true;
         }
