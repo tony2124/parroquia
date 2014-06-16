@@ -41,10 +41,17 @@ class DataGridViewPrinter
     private List<int[]> mColumnPoints;
     private List<float> mColumnPointsWidth;
     private int mColumnPoint;
+
+    public String NOMBREPARROQUIA, UBICACIONPARROQUIA, MES, ANIO;
         
     // The class constructor
-    public DataGridViewPrinter(DataGridView aDataGridView, PrintDocument aPrintDocument, bool CenterOnPage, bool WithTitle, string aTitleText, Font aTitleFont, Color aTitleColor, bool WithPaging)
+    public DataGridViewPrinter(DataGridView aDataGridView, PrintDocument aPrintDocument, bool CenterOnPage, bool WithTitle, string aTitleText, Font aTitleFont, Color aTitleColor, bool WithPaging, String nombreParroquia, String ubicacionParroquia, String mes, String anio)
     {
+        NOMBREPARROQUIA = nombreParroquia;
+        UBICACIONPARROQUIA = ubicacionParroquia;
+        MES = mes;
+        ANIO = anio;
+
         TheDataGridView = aDataGridView;
         ThePrintDocument = aPrintDocument;
         IsCenterOnPage = CenterOnPage;
@@ -115,7 +122,7 @@ class DataGridViewPrinter
                         tmpFont = TheDataGridView.DefaultCellStyle.Font;
 
                     tmpSize = g.MeasureString("Anything", tmpFont);
-                    RowsHeight.Add(tmpSize.Height);
+                    RowsHeight.Add(tmpSize.Height+2);
 
                     tmpSize = g.MeasureString(TheDataGridView.Rows[j].Cells[i].EditedFormattedValue.ToString(), tmpFont);
                     if (tmpSize.Width > tmpWidth)
@@ -130,6 +137,15 @@ class DataGridViewPrinter
 
                     if (i == 14)
                         tmpWidth = 80;
+
+                    /*if (i == 2)
+                        tmpWidth = 70;*/
+
+                    if (i == 4)
+                        tmpWidth = 60;
+
+                    if (i == 3)
+                        tmpWidth = 50;
                 }
                
                 if (TheDataGridView.Columns[i].Visible)
@@ -255,14 +271,39 @@ class DataGridViewPrinter
             new Font("Times New Roman", 12, FontStyle.Bold),
               Brushes.Black, mitad, TopMargin + 2);
 
-        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX - g.MeasureString("Parroquia: _____________________________ mes de _________________________ de ___________________",
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX - g.MeasureString("Parroquia: _____________________________________________________ mes de _________________________ de ___________________",
             new Font("Times New Roman", 12, FontStyle.Bold)).Width;
         mitad = tamano_total / 2;
 
-        g.DrawString("Parroquia: _____________________________ mes de _________________________ de ___________________",
+        g.DrawString("Parroquia: _____________________________________________________ mes de _________________________ de ___________________",
             new Font("Times New Roman", 12, FontStyle.Bold),
               Brushes.Black, mitad, TopMargin + 25);
 
+        /*IMPRESION DE EL NOMBRE Y UBICACION DE PARROQUIA*/
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX - g.MeasureString(NOMBREPARROQUIA+", "+UBICACIONPARROQUIA,
+           new Font("Times New Roman", 12, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString(NOMBREPARROQUIA + ", " + UBICACIONPARROQUIA,
+            new Font("Times New Roman", 12, FontStyle.Bold),
+              Brushes.Black, mitad-200, TopMargin + 23);
+
+        /*IMPRESION DEL MES Y EL AÑO*/
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX - g.MeasureString(MES,
+           new Font("Times New Roman", 12, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString(MES,
+            new Font("Times New Roman", 12, FontStyle.Bold),
+              Brushes.Black, mitad+200, TopMargin + 23);
+
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX - g.MeasureString(ANIO,
+          new Font("Times New Roman", 12, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString(ANIO,
+            new Font("Times New Roman", 12, FontStyle.Bold),
+              Brushes.Black, mitad + 400, TopMargin + 23);
 
         System.Drawing.Pen myPen = new System.Drawing.Pen(System.Drawing.Color.Black, 1);
         g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 1, TopMargin, (Int32)TheDataGridViewWidth + 1, 50));
@@ -389,7 +430,7 @@ class DataGridViewPrinter
         StringFormat CellFormat = new StringFormat();
         CellFormat.Trimming = StringTrimming.Word;
         CellFormat.FormatFlags = StringFormatFlags.NoWrap | StringFormatFlags.LineLimit;
-
+        CellFormat.LineAlignment = StringAlignment.Far;
         // Printing each visible cell
         RectangleF RowBounds;
         float CurrentX;
@@ -453,8 +494,16 @@ class DataGridViewPrinter
                     RectangleF CellBounds = new RectangleF(CurrentX, CurrentY, ColumnWidth, RowsHeight[CurrentRow]);
 
                     // Printing the cell text
-                    g.DrawString(TheDataGridView.Rows[CurrentRow].Cells[CurrentCell].EditedFormattedValue.ToString(), RowFont, RowForeBrush, CellBounds, CellFormat);
                     
+
+                    if (CurrentRow == TheDataGridView.Rows.Count-1)
+                        g.DrawString(TheDataGridView.Rows[CurrentRow].Cells[CurrentCell].EditedFormattedValue.ToString(), new Font("Times New Roman", 8, FontStyle.Bold), RowForeBrush, CellBounds, CellFormat);
+                    else
+                        if (CurrentCell == (int)mColumnPoints[mColumnPoint].GetValue(1)-1)
+                            g.DrawString(TheDataGridView.Rows[CurrentRow].Cells[CurrentCell].EditedFormattedValue.ToString(), new Font("Times New Roman", 8, FontStyle.Bold), RowForeBrush, CellBounds, CellFormat);
+                        else
+                            g.DrawString(TheDataGridView.Rows[CurrentRow].Cells[CurrentCell].EditedFormattedValue.ToString(), new Font("Times New Roman", 8, FontStyle.Regular), RowForeBrush, CellBounds, CellFormat);
+
                     // Drawing the cell bounds
                     if (TheDataGridView.CellBorderStyle != DataGridViewCellBorderStyle.None) // Draw the cell border only if the CellBorderStyle is not None
                         g.DrawRectangle(TheLinePen, CurrentX, CurrentY, ColumnWidth, RowsHeight[CurrentRow]);
