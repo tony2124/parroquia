@@ -271,11 +271,11 @@ class DataGridViewPrinter
             new Font("Times New Roman", 12, FontStyle.Bold),
               Brushes.Black, mitad, TopMargin + 2);
 
-        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX - g.MeasureString("Parroquia: _____________________________________________________ mes de _________________________ de ___________________",
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX - g.MeasureString("Parroquia: ___________________________________________________________ mes de _________________________ de ___________________",
             new Font("Times New Roman", 12, FontStyle.Bold)).Width;
         mitad = tamano_total / 2;
 
-        g.DrawString("Parroquia: _____________________________________________________ mes de _________________________ de ___________________",
+        g.DrawString("Parroquia: ___________________________________________________________ mes de _________________________ de ___________________",
             new Font("Times New Roman", 12, FontStyle.Bold),
               Brushes.Black, mitad, TopMargin + 25);
 
@@ -309,6 +309,8 @@ class DataGridViewPrinter
         g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 1, TopMargin, (Int32)TheDataGridViewWidth + 1, 50));
         g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 1, TopMargin + 50, (Int32)TheDataGridViewWidth + 1, 50));
 
+        Image newImage = newImage = Image.FromFile("C:\\DOCSParroquia\\virgen.jpg");
+        g.DrawImage(newImage,CurrentX+TheDataGridViewWidth-110,41);
 
         // Setting the HeaderFore style
         Color HeaderForeColor = TheDataGridView.ColumnHeadersDefaultCellStyle.ForeColor;

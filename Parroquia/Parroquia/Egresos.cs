@@ -8,9 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Printing;
-using System.Drawing;
 using conexionbd;
 using MySql.Data.MySqlClient;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using System.Diagnostics;
 
 
 namespace Parroquia
@@ -31,40 +34,13 @@ namespace Parroquia
             Object[] a = new Object[DateTime.Now.Year - 2014 + 1];
             for (int i = 2014; i <= DateTime.Now.Year; i++)
                 a[i - 2014] = i;
-            mes.SelectedIndex = DateTime.Now.Month - 1;
             anio.Items.AddRange(a);
             anio.Text = DateTime.Now.Year + "";
-
-            /*** OBTENER EL NUMERO DE DIAS DEL MES ****/
-            int calc_mes = (mes.SelectedIndex + 1) % 12 + 1;
-            num_rows = Convert.ToDateTime(anio.Text + "-" + calc_mes + "-01").AddDays(-1).Day;
-
-
-            /*** CREAR MATRICES MAPEADAS ****/
-            matriz_modificacion = new int[num_rows, num_columns];
-            matriz_mapeada = new double[num_rows + 1, num_columns + 1];
+            mes.SelectedIndex = DateTime.Now.Month - 1;
 
             /**** IMPRIMIR ***/
             MyPrintDocument = new PrintDocument();
             this.MyPrintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.MyPrintDocument_PrintPage);
-
-            /** CARACTERISTICAS DE LA TABLA ****/
-            tabla.Rows.Add(num_rows);
-            tabla.Rows.Insert(tabla.RowCount-1, "");
-            tabla.Rows[num_rows].Cells[1].Value = "TOTAL";
-
-            tabla.Rows[num_rows].ReadOnly = true;
-            tabla.Columns[num_columns].ReadOnly = true;
-
-            //Hacer consulta
-            restaurar(DateTime.Now.Month.ToString(), DateTime.Now.Year.ToString());
-
-            //** calculo de totales **/
-            calculoTotales();
-
-            //Poner los numeros de los dias
-            for (int i = 0; i < num_rows; i++)
-                tabla.Rows[i].SetValues((i+1)+"");
         }
 
         public void restaurar(string mes, string anio)
@@ -160,7 +136,6 @@ namespace Parroquia
                 tabla.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = null;
                 mapear_matriz(e.RowIndex, e.ColumnIndex, 0);
             }
-      
         }
   
 
@@ -169,8 +144,6 @@ namespace Parroquia
             bool more = MyDataGridViewPrinter.DrawDataGridView(e.Graphics);
             if (more == true)
                 e.HasMorePages = true;
-
-
         }
 
         private bool SetupThePrinting()
@@ -212,7 +185,7 @@ namespace Parroquia
             MyPrintDocument.DefaultPageSettings.Margins = new Margins(40, 40, 40, 40);
 
            
-            MyDataGridViewPrinter = new DataGridViewPrinter(tabla, MyPrintDocument, true, true, "E   R   O   G   A   C   I   O   N   E   S", new Font("Tahoma", 12, FontStyle.Bold, GraphicsUnit.Point), Color.Black, true, nombreParroquia, ubicacionParroquia, mes.Text, anio.Text);
+            MyDataGridViewPrinter = new DataGridViewPrinter(tabla, MyPrintDocument, true, true, "E   R   O   G   A   C   I   O   N   E   S", new System.Drawing.Font("Tahoma", 12, FontStyle.Bold, GraphicsUnit.Point), Color.Black, true, nombreParroquia, ubicacionParroquia, mes.Text, anio.Text);
            
             return true;
         }
@@ -247,27 +220,7 @@ namespace Parroquia
             MessageBox.Show(this,"Datos guardados correctamente.","Éxito",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
-        private void imprimir_Click(object sender, EventArgs e)
-        {
-            if (SetupThePrinting())
-            {
-                PrintPreviewDialog MyPrintPreviewDialog = new PrintPreviewDialog();
-                MyPrintPreviewDialog.Document = MyPrintDocument;
-                MyPrintPreviewDialog.ShowDialog();
-            }
-        }
-
-        private void enviar_correo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cancelar_Click(object sender, EventArgs e)
-        {
-            Dispose();
-        }
-
-        private void ver_Click(object sender, EventArgs e)
+        void actualizarDatos()
         {
             /*** OBTENER EL NUMERO DE DIAS DEL MES ****/
             int calc_mes = (mes.SelectedIndex + 1) % 12 + 1;
@@ -292,10 +245,115 @@ namespace Parroquia
                 tabla.Rows[i].SetValues((i + 1) + "");
 
             //Hacer consulta
-            restaurar((mes.SelectedIndex + 1)+"", anio.Text);
+            restaurar((mes.SelectedIndex + 1) + "", anio.Text);
 
             //** calculo de totales **/
             calculoTotales();
+
+        }
+
+        private void imprimir_Click(object sender, EventArgs e)
+        {
+            if (SetupThePrinting())
+            {
+                PrintPreviewDialog MyPrintPreviewDialog = new PrintPreviewDialog();
+                MyPrintPreviewDialog.Document = MyPrintDocument;
+                MyPrintPreviewDialog.ShowDialog();
+            }
+        }
+
+        private void enviar_correo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Document doc = new Document(PageSize.LEGAL.Rotate(),
+                    10, 10, 10, 10);
+                string filename = "DataGridViewTest.pdf";
+                FileStream file = new FileStream(filename,
+                                    FileMode.OpenOrCreate,
+                                    FileAccess.ReadWrite,
+                                    FileShare.ReadWrite);
+                PdfWriter.GetInstance(doc, file);
+                doc.Open();
+                GenerarDocumento(doc);
+                doc.Close();
+                Process.Start(filename);
+ 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        //Función que genera el documento Pdf
+        public void GenerarDocumento(Document document)
+        {
+        //se crea un objeto PdfTable con el numero de columnas del 
+        //dataGridView
+            PdfPTable datatable = new PdfPTable(tabla.ColumnCount);
+            //asignamos algunas propiedades para el diseño del pdf
+            datatable.DefaultCell.Padding = 3;
+            float[] headerwidths = GetTamañoColumnas(tabla);
+            datatable.SetWidths(headerwidths);
+            datatable.WidthPercentage = 100;
+            datatable.DefaultCell.BorderWidth = 2;
+            datatable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+            //SE GENERA EL ENCABEZADO DE LA TABLA EN EL PDF
+            for (int i = 0; i < tabla.ColumnCount; i++)
+            {
+                datatable.AddCell(tabla.Columns[i].HeaderText);
+            }
+
+            datatable.HeaderRows = 1;
+            datatable.DefaultCell.BorderWidth = 1;
+
+            //SE GENERA EL CUERPO DEL PDF
+            for (int i = 0; i < tabla.RowCount; i++)
+            {
+                for (int j = 0; j < tabla.ColumnCount; j++)
+                {
+                    datatable.AddCell(tabla[j, i].Value.ToString());
+                }
+                datatable.CompleteRow();
+            }
+
+            //SE AGREGAR LA PDFPTABLE AL DOCUMENTO
+            document.Add(datatable);
+        }
+
+        //Función que obtiene los tamaños de las columnas del grid
+        public float[] GetTamañoColumnas(DataGridView dg)
+        {
+            float[] values = new float[dg.ColumnCount];
+            for (int i = 0; i < dg.ColumnCount; i++)
+            {
+                values[i] = (float)dg.Columns[i].Width;
+            }
+            return values;
+        }
+
+
+        private void cancelar_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        private void ver_Click(object sender, EventArgs e)
+        {
+            actualizarDatos();
+        }
+
+        private void mes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            actualizarDatos();
+        }
+
+        private void anio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            actualizarDatos();
         }
     }
 
