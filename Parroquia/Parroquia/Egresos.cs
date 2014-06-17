@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Printing;
-using System.Drawing;
 using conexionbd;
 using MySql.Data.MySqlClient;
 
@@ -30,40 +29,13 @@ namespace Parroquia
             Object[] a = new Object[DateTime.Now.Year - 2014 + 1];
             for (int i = 2014; i <= DateTime.Now.Year; i++)
                 a[i - 2014] = i;
-            mes.SelectedIndex = DateTime.Now.Month - 1;
             anio.Items.AddRange(a);
             anio.Text = DateTime.Now.Year + "";
-
-            /*** OBTENER EL NUMERO DE DIAS DEL MES ****/
-            int calc_mes = (mes.SelectedIndex + 1) % 12 + 1;
-            num_rows = Convert.ToDateTime(anio.Text + "-" + calc_mes + "-01").AddDays(-1).Day;
-
-
-            /*** CREAR MATRICES MAPEADAS ****/
-            matriz_modificacion = new int[num_rows, num_columns];
-            matriz_mapeada = new double[num_rows + 1, num_columns + 1];
+            mes.SelectedIndex = DateTime.Now.Month - 1;
 
             /**** IMPRIMIR ***/
             MyPrintDocument = new PrintDocument();
             this.MyPrintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.MyPrintDocument_PrintPage);
-
-            /** CARACTERISTICAS DE LA TABLA ****/
-            tabla.Rows.Add(num_rows);
-            tabla.Rows.Insert(tabla.RowCount-1, "");
-            tabla.Rows[num_rows].Cells[1].Value = "TOTAL";
-
-            tabla.Rows[num_rows].ReadOnly = true;
-            tabla.Columns[num_columns].ReadOnly = true;
-
-            //Hacer consulta
-            restaurar(DateTime.Now.Month.ToString(), DateTime.Now.Year.ToString());
-
-            //** calculo de totales **/
-            calculoTotales();
-
-            //Poner los numeros de los dias
-            for (int i = 0; i < num_rows; i++)
-                tabla.Rows[i].SetValues((i+1)+"");
         }
 
         public void restaurar(string mes, string anio)
@@ -159,7 +131,6 @@ namespace Parroquia
                 tabla.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = null;
                 mapear_matriz(e.RowIndex, e.ColumnIndex, 0);
             }
-      
         }
   
 
@@ -168,8 +139,6 @@ namespace Parroquia
             bool more = MyDataGridViewPrinter.DrawDataGridView(e.Graphics);
             if (more == true)
                 e.HasMorePages = true;
-
-
         }
 
         private bool SetupThePrinting()
@@ -230,27 +199,7 @@ namespace Parroquia
             MessageBox.Show(this,"Datos guardados correctamente.","Éxito",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
-        private void imprimir_Click(object sender, EventArgs e)
-        {
-            if (SetupThePrinting())
-            {
-                PrintPreviewDialog MyPrintPreviewDialog = new PrintPreviewDialog();
-                MyPrintPreviewDialog.Document = MyPrintDocument;
-                MyPrintPreviewDialog.ShowDialog();
-            }
-        }
-
-        private void enviar_correo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cancelar_Click(object sender, EventArgs e)
-        {
-            Dispose();
-        }
-
-        private void ver_Click(object sender, EventArgs e)
+        void actualizarDatos()
         {
             /*** OBTENER EL NUMERO DE DIAS DEL MES ****/
             int calc_mes = (mes.SelectedIndex + 1) % 12 + 1;
@@ -275,10 +224,46 @@ namespace Parroquia
                 tabla.Rows[i].SetValues((i + 1) + "");
 
             //Hacer consulta
-            restaurar((mes.SelectedIndex + 1)+"", anio.Text);
+            restaurar((mes.SelectedIndex + 1) + "", anio.Text);
 
             //** calculo de totales **/
             calculoTotales();
+
+        }
+
+        private void imprimir_Click(object sender, EventArgs e)
+        {
+            if (SetupThePrinting())
+            {
+                PrintPreviewDialog MyPrintPreviewDialog = new PrintPreviewDialog();
+                MyPrintPreviewDialog.Document = MyPrintDocument;
+                MyPrintPreviewDialog.ShowDialog();
+            }
+        }
+
+        private void enviar_correo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancelar_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        private void ver_Click(object sender, EventArgs e)
+        {
+            actualizarDatos();
+        }
+
+        private void mes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            actualizarDatos();
+        }
+
+        private void anio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            actualizarDatos();
         }
     }
 
