@@ -10,8 +10,6 @@ using System.Windows.Forms;
 using System.Drawing.Printing;
 using conexionbd;
 using MySql.Data.MySqlClient;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
 using System.IO;
 using System.Diagnostics;
 
