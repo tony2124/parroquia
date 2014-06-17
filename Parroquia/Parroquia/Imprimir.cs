@@ -75,9 +75,6 @@ namespace Parroquia
                     newImage = Image.FromFile("C:\\DOCSParroquia\\MatrimonioOriginalFormato1.jpg");
             }
                 
-
-
-
         }
 
         public Boolean ImpresoraProperties()

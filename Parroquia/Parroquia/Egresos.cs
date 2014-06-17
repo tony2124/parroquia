@@ -26,6 +26,7 @@ namespace Parroquia
         int[,] matriz_modificacion; // 0 -> null   1 -> ya registrado   2 -> modificado ya registrado  3 -> modificado no registrado
         double[,] matriz_mapeada; //matriz que mapea los datos a la tabla
 
+        public bool guardar1 = false;
         public Egresos()
         {
             InitializeComponent();
@@ -163,22 +164,32 @@ namespace Parroquia
                 }
 
             db.Desconectar();
+            if (!guardar1)
+            {
+                PrintDialog MyPrintDialog = new PrintDialog();
+                MyPrintDialog.AllowCurrentPage = false;
+                MyPrintDialog.AllowPrintToFile = false;
+                MyPrintDialog.AllowSelection = false;
+                MyPrintDialog.AllowSomePages = false;
+                MyPrintDialog.PrintToFile = false;
+                MyPrintDialog.ShowHelp = false;
+                MyPrintDialog.ShowNetwork = false;
 
-            PrintDialog MyPrintDialog = new PrintDialog();
-            MyPrintDialog.AllowCurrentPage = false;
-            MyPrintDialog.AllowPrintToFile = false;
-            MyPrintDialog.AllowSelection = false;
-            MyPrintDialog.AllowSomePages = false;
-            MyPrintDialog.PrintToFile = false;
-            MyPrintDialog.ShowHelp = false;
-            MyPrintDialog.ShowNetwork = false;
+                if (MyPrintDialog.ShowDialog() != DialogResult.OK)
+                    return false;
 
-            if (MyPrintDialog.ShowDialog() != DialogResult.OK)
-                return false;
+
+                MyPrintDocument.PrinterSettings = MyPrintDialog.PrinterSettings;
+                MyPrintDocument.DefaultPageSettings = MyPrintDialog.PrinterSettings.DefaultPageSettings;
+                
+            }
+            else
+            {
+                guardar1 = false;
+                MyPrintDocument.DefaultPageSettings.PrinterSettings.PrinterName = "PDFCreator";
+            }
 
             MyPrintDocument.DocumentName = "ReporteErogaciones";
-            MyPrintDocument.PrinterSettings = MyPrintDialog.PrinterSettings;
-            MyPrintDocument.DefaultPageSettings = MyPrintDialog.PrinterSettings.DefaultPageSettings;
             MyPrintDocument.DefaultPageSettings.Landscape = true;
         
             MyPrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Legal", 850, 1400);
@@ -264,75 +275,12 @@ namespace Parroquia
 
         private void enviar_correo_Click(object sender, EventArgs e)
         {
-            try
+            guardar1 = true;
+            if (SetupThePrinting())
             {
-                Document doc = new Document(PageSize.LEGAL.Rotate(),
-                    10, 10, 10, 10);
-                string filename = "DataGridViewTest.pdf";
-                FileStream file = new FileStream(filename,
-                                    FileMode.OpenOrCreate,
-                                    FileAccess.ReadWrite,
-                                    FileShare.ReadWrite);
-                PdfWriter.GetInstance(doc, file);
-                doc.Open();
-                GenerarDocumento(doc);
-                doc.Close();
-                Process.Start(filename);
- 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-
-        //Función que genera el documento Pdf
-        public void GenerarDocumento(Document document)
-        {
-        //se crea un objeto PdfTable con el numero de columnas del 
-        //dataGridView
-            PdfPTable datatable = new PdfPTable(tabla.ColumnCount);
-            //asignamos algunas propiedades para el diseño del pdf
-            datatable.DefaultCell.Padding = 3;
-            float[] headerwidths = GetTamañoColumnas(tabla);
-            datatable.SetWidths(headerwidths);
-            datatable.WidthPercentage = 100;
-            datatable.DefaultCell.BorderWidth = 2;
-            datatable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
-
-            //SE GENERA EL ENCABEZADO DE LA TABLA EN EL PDF
-            for (int i = 0; i < tabla.ColumnCount; i++)
-            {
-                datatable.AddCell(tabla.Columns[i].HeaderText);
+                MyPrintDocument.Print();
             }
 
-            datatable.HeaderRows = 1;
-            datatable.DefaultCell.BorderWidth = 1;
-
-            //SE GENERA EL CUERPO DEL PDF
-            for (int i = 0; i < tabla.RowCount; i++)
-            {
-                for (int j = 0; j < tabla.ColumnCount; j++)
-                {
-                    datatable.AddCell(tabla[j, i].Value.ToString());
-                }
-                datatable.CompleteRow();
-            }
-
-            //SE AGREGAR LA PDFPTABLE AL DOCUMENTO
-            document.Add(datatable);
-        }
-
-        //Función que obtiene los tamaños de las columnas del grid
-        public float[] GetTamañoColumnas(DataGridView dg)
-        {
-            float[] values = new float[dg.ColumnCount];
-            for (int i = 0; i < dg.ColumnCount; i++)
-            {
-                values[i] = (float)dg.Columns[i].Width;
-            }
-            return values;
         }
 
 
