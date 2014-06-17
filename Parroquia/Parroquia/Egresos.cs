@@ -143,6 +143,22 @@ namespace Parroquia
 
         private bool SetupThePrinting()
         {
+            String ubicacionParroquia = "", nombreParroquia = "";
+            ConexionBD db = new ConexionBD();
+            MySqlDataReader datos;
+            db.conexion();
+
+            datos = db.obtenerBasesDatosMySQL("select nombre_parroquia, ubicacion_parroquia from informacion;");     
+
+            if (datos.HasRows)
+                while (datos.Read())
+                {
+                    nombreParroquia = datos.GetString(0);
+                    ubicacionParroquia = datos.GetString(1);
+                }
+
+            db.Desconectar();
+
             PrintDialog MyPrintDialog = new PrintDialog();
             MyPrintDialog.AllowCurrentPage = false;
             MyPrintDialog.AllowPrintToFile = false;
@@ -164,7 +180,7 @@ namespace Parroquia
             MyPrintDocument.DefaultPageSettings.Margins = new Margins(40, 40, 40, 40);
 
            
-            MyDataGridViewPrinter = new DataGridViewPrinter(tabla, MyPrintDocument, true, true, "E   R   O   G   A   C   I   O   N   E   S", new Font("Tahoma", 12, FontStyle.Bold, GraphicsUnit.Point), Color.Black, true);
+            MyDataGridViewPrinter = new DataGridViewPrinter(tabla, MyPrintDocument, true, true, "E   R   O   G   A   C   I   O   N   E   S", new Font("Tahoma", 12, FontStyle.Bold, GraphicsUnit.Point), Color.Black, true, nombreParroquia, ubicacionParroquia, mes.Text, anio.Text);
            
             return true;
         }
