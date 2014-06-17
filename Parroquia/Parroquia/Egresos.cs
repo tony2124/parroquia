@@ -12,6 +12,7 @@ using System.Drawing;
 using conexionbd;
 using MySql.Data.MySqlClient;
 
+
 namespace Parroquia
 {
     public partial class Egresos : Form
