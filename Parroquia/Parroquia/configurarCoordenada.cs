@@ -15,7 +15,7 @@ namespace Parroquia
     public partial class configurarCoordenada : Form
     {
         public MySqlDataReader datos;
-        private string bhx, bhy, bvx, bvy, cx, cy, px, py, mx, my;
+        private float bhx, bhy, bvx, bvy, cx, cy, px, py, mx, my;
         private ConexionBD Bda;
         public configurarCoordenada()
         {
@@ -33,28 +33,28 @@ namespace Parroquia
                 {
                     if (i == 0)
                     {
-                        bhx = datos.GetString(0);
-                        bhy = datos.GetString(1);
+                        BHX.Text = datos.GetString(0);
+                        BHY.Text = datos.GetString(1);
                     }
                     else if (i == 1)
                     {
-                        cx = datos.GetString(0);
-                        cy = datos.GetString(1);
+                        CX.Text = datos.GetString(0);
+                        CY.Text = datos.GetString(1);
                     }
                     else if (i == 2)
                     {
-                        px = datos.GetString(0);
-                        py = datos.GetString(1);
+                        PX.Text = datos.GetString(0);
+                        PY.Text = datos.GetString(1);
                     }
                     else if (i == 3)
                     {
-                        mx = datos.GetString(0);
-                        my = datos.GetString(1);
+                        MX.Text = datos.GetString(0);
+                        MY.Text = datos.GetString(1);
                     }
                     else if (i == 4)
                     {
-                        bvx = datos.GetString(0);
-                        bvy = datos.GetString(1);
+                        BVX.Text = datos.GetString(0);
+                        BVY.Text = datos.GetString(1);
                     }
 
 
@@ -65,23 +65,6 @@ namespace Parroquia
             datos.Close();
             Bda.Desconectar();
 
-
-            BHX.Text = bhx ;
-            BHY.Text = bhy;
-
-            BVX.Text =bvx;
-            BVY.Text = bvy;
-
-            CX.Text = cx;
-            CY.Text = cy;
-
-            PX.Text = px;
-            PY.Text = py;
-
-            MX.Text = mx;
-            MY.Text = my;
-
-
         }
 
         private void configurarCoordenada_Load(object sender, EventArgs e)
@@ -91,15 +74,34 @@ namespace Parroquia
 
         private void guardar_Click(object sender, EventArgs e)
         {
-            Bda.conexion();
+            try
+            {
+                bhx = float.Parse(BHX.Text);
+                bhy = float.Parse(BHY.Text);
 
-            if (Bda.peticion("update coordenadas set x=" + BHX.Text+ ", y=" + BHY.Text + " where id=1") > 0 &&
-                Bda.peticion("update coordenadas set x=" + BVX.Text + ", y=" + BVY.Text + " where id=5") > 0 &&
-                Bda.peticion("update coordenadas set x=" + CX.Text+ ", y=" + CY.Text+ " where id=2") > 0 &&
-                Bda.peticion("update coordenadas set x=" + PX.Text+ ", y=" + PY.Text+ " where id=3") > 0 &&
-                Bda.peticion("update coordenadas set x=" + MX.Text+ ", y=" + MY.Text + " where id=4") > 0)
-                MessageBox.Show("Coordenadas actualizadas","Exito",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            Bda.Desconectar();
+                bvx = float.Parse(BVX.Text);
+                bvy = float.Parse(BVY.Text);
+
+                cx = float.Parse(CX.Text);
+                cy = float.Parse(CY.Text);
+
+                px = float.Parse(PX.Text);
+                py = float.Parse(PY.Text);
+
+                mx = float.Parse(MX.Text);
+                my = float.Parse(MY.Text);
+
+                Bda.conexion();
+
+                if (Bda.peticion("update coordenadas set x=" + BHX.Text + ", y=" + BHY.Text + " where id=1") > 0 &&
+                    Bda.peticion("update coordenadas set x=" + BVX.Text + ", y=" + BVY.Text + " where id=5") > 0 &&
+                    Bda.peticion("update coordenadas set x=" + CX.Text + ", y=" + CY.Text + " where id=2") > 0 &&
+                    Bda.peticion("update coordenadas set x=" + PX.Text + ", y=" + PY.Text + " where id=3") > 0 &&
+                    Bda.peticion("update coordenadas set x=" + MX.Text + ", y=" + MY.Text + " where id=4") > 0)
+                    MessageBox.Show("Coordenadas actualizadas", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Bda.Desconectar();
+            }
+            catch (FormatException ev) { MessageBox.Show("Debe introducir solo numeros: "+ev.Message); }
         }
 
         private void cerrar_Click(object sender, EventArgs e)
