@@ -74,7 +74,7 @@
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.Location = new System.Drawing.Point(47, 121);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 43);
+            this.button1.Size = new System.Drawing.Size(88, 43);
             this.button1.TabIndex = 3;
             this.button1.Text = "Editar / Guardar";
             this.button1.UseVisualStyleBackColor = true;

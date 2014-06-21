@@ -379,7 +379,7 @@ class DataGridViewPrinter
               //  float cY = CurrentY;
                 String txt = TheDataGridView.Columns[i].HeaderText;
                 String[] b = txt.Split(' ');
-                int y = 0, x = 0;
+               // int y = 0, x = 0;
                 String h="";
                 for (int k = 0; k < b.Length; k++)
                 {

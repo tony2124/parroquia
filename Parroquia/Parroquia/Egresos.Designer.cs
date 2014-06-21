@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle100 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle81 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle82 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle83 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle84 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle85 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle91 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle92 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle93 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle94 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle95 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle96 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle97 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle98 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle99 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabla = new System.Windows.Forms.DataGridView();
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CONCEPTOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,16 +75,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.anio = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.total = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guardar = new System.Windows.Forms.Button();
             this.enviar_correo = new System.Windows.Forms.Button();
             this.imprimir = new System.Windows.Forms.Button();
             this.cancelar = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.total = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -121,16 +120,16 @@
             this.IMPUESTO,
             this.DIVERSOS,
             this.total_tabla});
-            dataGridViewCellStyle100.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle100.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle100.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle100.Format = "C2";
-            dataGridViewCellStyle100.NullValue = null;
-            dataGridViewCellStyle100.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle100.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle100.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tabla.DefaultCellStyle = dataGridViewCellStyle100;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.Format = "C2";
+            dataGridViewCellStyle20.NullValue = null;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tabla.DefaultCellStyle = dataGridViewCellStyle20;
             this.tabla.Location = new System.Drawing.Point(12, 112);
             this.tabla.Name = "tabla";
             this.tabla.RowHeadersWidth = 10;
@@ -140,11 +139,11 @@
             // 
             // FECHA
             // 
-            dataGridViewCellStyle81.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle81.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle81.Format = "N2";
-            dataGridViewCellStyle81.NullValue = null;
-            this.FECHA.DefaultCellStyle = dataGridViewCellStyle81;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.FECHA.DefaultCellStyle = dataGridViewCellStyle1;
             this.FECHA.Frozen = true;
             this.FECHA.HeaderText = "FECHA";
             this.FECHA.Name = "FECHA";
@@ -159,166 +158,166 @@
             // 
             // SUELDOS
             // 
-            dataGridViewCellStyle82.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle82.Format = "C2";
-            dataGridViewCellStyle82.NullValue = null;
-            this.SUELDOS.DefaultCellStyle = dataGridViewCellStyle82;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.SUELDOS.DefaultCellStyle = dataGridViewCellStyle2;
             this.SUELDOS.HeaderText = "SUELDOS";
             this.SUELDOS.Name = "SUELDOS";
             // 
             // PRIMA_SEGURO
             // 
-            dataGridViewCellStyle83.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle83.Format = "C2";
-            dataGridViewCellStyle83.NullValue = null;
-            this.PRIMA_SEGURO.DefaultCellStyle = dataGridViewCellStyle83;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.PRIMA_SEGURO.DefaultCellStyle = dataGridViewCellStyle3;
             this.PRIMA_SEGURO.HeaderText = "PRIMA SEGURO";
             this.PRIMA_SEGURO.Name = "PRIMA_SEGURO";
             // 
             // SEGURO_VIDA
             // 
-            dataGridViewCellStyle84.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle84.Format = "C2";
-            dataGridViewCellStyle84.NullValue = null;
-            this.SEGURO_VIDA.DefaultCellStyle = dataGridViewCellStyle84;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.SEGURO_VIDA.DefaultCellStyle = dataGridViewCellStyle4;
             this.SEGURO_VIDA.HeaderText = "SEGURO DE VIDA";
             this.SEGURO_VIDA.Name = "SEGURO_VIDA";
             // 
             // MTTO_VEHICULO
             // 
-            dataGridViewCellStyle85.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle85.Format = "C2";
-            dataGridViewCellStyle85.NullValue = null;
-            this.MTTO_VEHICULO.DefaultCellStyle = dataGridViewCellStyle85;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.MTTO_VEHICULO.DefaultCellStyle = dataGridViewCellStyle5;
             this.MTTO_VEHICULO.HeaderText = "MTTO. VEHÍCULO";
             this.MTTO_VEHICULO.Name = "MTTO_VEHICULO";
             // 
             // CONSTRUCCION
             // 
-            dataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle86.Format = "C2";
-            dataGridViewCellStyle86.NullValue = null;
-            this.CONSTRUCCION.DefaultCellStyle = dataGridViewCellStyle86;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.CONSTRUCCION.DefaultCellStyle = dataGridViewCellStyle6;
             this.CONSTRUCCION.HeaderText = "CONSTRUCCIÓN";
             this.CONSTRUCCION.Name = "CONSTRUCCION";
             // 
             // MINISTRO_CULTO
             // 
-            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle87.Format = "C2";
-            dataGridViewCellStyle87.NullValue = null;
-            this.MINISTRO_CULTO.DefaultCellStyle = dataGridViewCellStyle87;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.MINISTRO_CULTO.DefaultCellStyle = dataGridViewCellStyle7;
             this.MINISTRO_CULTO.HeaderText = "MINISTRO DE CULTO";
             this.MINISTRO_CULTO.Name = "MINISTRO_CULTO";
             // 
             // PAPELERIA
             // 
-            dataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle88.Format = "C2";
-            dataGridViewCellStyle88.NullValue = null;
-            this.PAPELERIA.DefaultCellStyle = dataGridViewCellStyle88;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "C2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.PAPELERIA.DefaultCellStyle = dataGridViewCellStyle8;
             this.PAPELERIA.HeaderText = "PAPELERÍA";
             this.PAPELERIA.Name = "PAPELERIA";
             // 
             // COCINA
             // 
-            dataGridViewCellStyle89.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle89.Format = "C2";
-            dataGridViewCellStyle89.NullValue = null;
-            this.COCINA.DefaultCellStyle = dataGridViewCellStyle89;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "C2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.COCINA.DefaultCellStyle = dataGridViewCellStyle9;
             this.COCINA.HeaderText = "COCINA";
             this.COCINA.Name = "COCINA";
             // 
             // IMSS
             // 
-            dataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle90.Format = "C2";
-            dataGridViewCellStyle90.NullValue = null;
-            this.IMSS.DefaultCellStyle = dataGridViewCellStyle90;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "C2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.IMSS.DefaultCellStyle = dataGridViewCellStyle10;
             this.IMSS.HeaderText = "IMSS";
             this.IMSS.Name = "IMSS";
             // 
             // ALTAR
             // 
-            dataGridViewCellStyle91.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle91.Format = "C2";
-            dataGridViewCellStyle91.NullValue = null;
-            this.ALTAR.DefaultCellStyle = dataGridViewCellStyle91;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "C2";
+            dataGridViewCellStyle11.NullValue = null;
+            this.ALTAR.DefaultCellStyle = dataGridViewCellStyle11;
             this.ALTAR.HeaderText = "ALTAR";
             this.ALTAR.Name = "ALTAR";
             // 
             // TELEFONO_CORREOS
             // 
-            dataGridViewCellStyle92.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle92.Format = "C2";
-            dataGridViewCellStyle92.NullValue = null;
-            this.TELEFONO_CORREOS.DefaultCellStyle = dataGridViewCellStyle92;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Format = "C2";
+            dataGridViewCellStyle12.NullValue = null;
+            this.TELEFONO_CORREOS.DefaultCellStyle = dataGridViewCellStyle12;
             this.TELEFONO_CORREOS.HeaderText = "TELÉFONO / CORREOS";
             this.TELEFONO_CORREOS.Name = "TELEFONO_CORREOS";
             // 
             // LUZ
             // 
-            dataGridViewCellStyle93.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle93.Format = "C2";
-            dataGridViewCellStyle93.NullValue = null;
-            this.LUZ.DefaultCellStyle = dataGridViewCellStyle93;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "C2";
+            dataGridViewCellStyle13.NullValue = null;
+            this.LUZ.DefaultCellStyle = dataGridViewCellStyle13;
             this.LUZ.HeaderText = "LUZ";
             this.LUZ.Name = "LUZ";
             // 
             // PORCENTAJE_MITRA
             // 
-            dataGridViewCellStyle94.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle94.Format = "C2";
-            dataGridViewCellStyle94.NullValue = null;
-            this.PORCENTAJE_MITRA.DefaultCellStyle = dataGridViewCellStyle94;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "C2";
+            dataGridViewCellStyle14.NullValue = null;
+            this.PORCENTAJE_MITRA.DefaultCellStyle = dataGridViewCellStyle14;
             this.PORCENTAJE_MITRA.HeaderText = "PROCENTAJE MITRA";
             this.PORCENTAJE_MITRA.Name = "PORCENTAJE_MITRA";
             // 
             // SAR_INFONAVIT
             // 
-            dataGridViewCellStyle95.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle95.Format = "C2";
-            dataGridViewCellStyle95.NullValue = null;
-            this.SAR_INFONAVIT.DefaultCellStyle = dataGridViewCellStyle95;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Format = "C2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.SAR_INFONAVIT.DefaultCellStyle = dataGridViewCellStyle15;
             this.SAR_INFONAVIT.HeaderText = "SAR INFONAVIT";
             this.SAR_INFONAVIT.Name = "SAR_INFONAVIT";
             // 
             // ORDENADAS
             // 
-            dataGridViewCellStyle96.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle96.Format = "C2";
-            dataGridViewCellStyle96.NullValue = null;
-            this.ORDENADAS.DefaultCellStyle = dataGridViewCellStyle96;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Format = "C2";
+            dataGridViewCellStyle16.NullValue = null;
+            this.ORDENADAS.DefaultCellStyle = dataGridViewCellStyle16;
             this.ORDENADAS.HeaderText = "ORDENADAS";
             this.ORDENADAS.Name = "ORDENADAS";
             // 
             // IMPUESTO
             // 
-            dataGridViewCellStyle97.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle97.Format = "C2";
-            dataGridViewCellStyle97.NullValue = null;
-            this.IMPUESTO.DefaultCellStyle = dataGridViewCellStyle97;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Format = "C2";
+            dataGridViewCellStyle17.NullValue = null;
+            this.IMPUESTO.DefaultCellStyle = dataGridViewCellStyle17;
             this.IMPUESTO.HeaderText = "IMPUESTO";
             this.IMPUESTO.Name = "IMPUESTO";
             // 
             // DIVERSOS
             // 
-            dataGridViewCellStyle98.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle98.Format = "C2";
-            dataGridViewCellStyle98.NullValue = null;
-            this.DIVERSOS.DefaultCellStyle = dataGridViewCellStyle98;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.Format = "C2";
+            dataGridViewCellStyle18.NullValue = null;
+            this.DIVERSOS.DefaultCellStyle = dataGridViewCellStyle18;
             this.DIVERSOS.HeaderText = "DIVERSOS";
             this.DIVERSOS.Name = "DIVERSOS";
             // 
             // total_tabla
             // 
-            dataGridViewCellStyle99.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle99.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle99.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle99.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle99.Format = "C2";
-            dataGridViewCellStyle99.NullValue = null;
-            this.total_tabla.DefaultCellStyle = dataGridViewCellStyle99;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle19.Format = "C2";
+            dataGridViewCellStyle19.NullValue = null;
+            this.total_tabla.DefaultCellStyle = dataGridViewCellStyle19;
             this.total_tabla.HeaderText = "TOTAL";
             this.total_tabla.Name = "total_tabla";
             this.total_tabla.ReadOnly = true;
@@ -392,54 +391,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operaciones";
             // 
-            // guardar
-            // 
-            this.guardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guardar.Image = global::Parroquia.Properties.Resources.guardar;
-            this.guardar.Location = new System.Drawing.Point(16, 23);
-            this.guardar.Name = "guardar";
-            this.guardar.Size = new System.Drawing.Size(62, 62);
-            this.guardar.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.guardar, ":: GUARDAR ::");
-            this.guardar.UseVisualStyleBackColor = true;
-            this.guardar.Click += new System.EventHandler(this.guardar_Click);
-            // 
-            // enviar_correo
-            // 
-            this.enviar_correo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.enviar_correo.Image = global::Parroquia.Properties.Resources.gen_mail;
-            this.enviar_correo.Location = new System.Drawing.Point(152, 23);
-            this.enviar_correo.Name = "enviar_correo";
-            this.enviar_correo.Size = new System.Drawing.Size(62, 62);
-            this.enviar_correo.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.enviar_correo, ":: VISTA PRELIMINAR ::");
-            this.enviar_correo.UseVisualStyleBackColor = true;
-            this.enviar_correo.Click += new System.EventHandler(this.enviar_correo_Click);
-            // 
-            // imprimir
-            // 
-            this.imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.imprimir.Image = global::Parroquia.Properties.Resources.vistapre;
-            this.imprimir.Location = new System.Drawing.Point(84, 23);
-            this.imprimir.Name = "imprimir";
-            this.imprimir.Size = new System.Drawing.Size(62, 62);
-            this.imprimir.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.imprimir, ":: IMPRIMIR ::");
-            this.imprimir.UseVisualStyleBackColor = true;
-            this.imprimir.Click += new System.EventHandler(this.imprimir_Click);
-            // 
-            // cancelar
-            // 
-            this.cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cancelar.Image = global::Parroquia.Properties.Resources.cancelar;
-            this.cancelar.Location = new System.Drawing.Point(220, 23);
-            this.cancelar.Name = "cancelar";
-            this.cancelar.Size = new System.Drawing.Size(62, 62);
-            this.cancelar.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.cancelar, ":: CERRAR ::");
-            this.cancelar.UseVisualStyleBackColor = true;
-            this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -476,17 +427,6 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "TOTAL:";
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(12, 423);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(170, 13);
-            this.linkLabel1.TabIndex = 11;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Enviar reporte a correo electrónico";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Parroquia.Properties.Resources.egresos;
@@ -496,13 +436,60 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
+            // guardar
+            // 
+            this.guardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guardar.Image = global::Parroquia.Properties.Resources.guardar;
+            this.guardar.Location = new System.Drawing.Point(16, 23);
+            this.guardar.Name = "guardar";
+            this.guardar.Size = new System.Drawing.Size(62, 62);
+            this.guardar.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.guardar, ":: GUARDAR ::");
+            this.guardar.UseVisualStyleBackColor = true;
+            this.guardar.Click += new System.EventHandler(this.guardar_Click);
+            // 
+            // enviar_correo
+            // 
+            this.enviar_correo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.enviar_correo.Image = global::Parroquia.Properties.Resources.pdf;
+            this.enviar_correo.Location = new System.Drawing.Point(152, 23);
+            this.enviar_correo.Name = "enviar_correo";
+            this.enviar_correo.Size = new System.Drawing.Size(62, 62);
+            this.enviar_correo.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.enviar_correo, ":: GUARDAR PDF::");
+            this.enviar_correo.UseVisualStyleBackColor = true;
+            this.enviar_correo.Click += new System.EventHandler(this.enviar_correo_Click);
+            // 
+            // imprimir
+            // 
+            this.imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.imprimir.Image = global::Parroquia.Properties.Resources.vistapre;
+            this.imprimir.Location = new System.Drawing.Point(84, 23);
+            this.imprimir.Name = "imprimir";
+            this.imprimir.Size = new System.Drawing.Size(62, 62);
+            this.imprimir.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.imprimir, ":: IMPRIMIR ::");
+            this.imprimir.UseVisualStyleBackColor = true;
+            this.imprimir.Click += new System.EventHandler(this.imprimir_Click);
+            // 
+            // cancelar
+            // 
+            this.cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancelar.Image = global::Parroquia.Properties.Resources.cancelar;
+            this.cancelar.Location = new System.Drawing.Point(220, 23);
+            this.cancelar.Name = "cancelar";
+            this.cancelar.Size = new System.Drawing.Size(62, 62);
+            this.cancelar.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.cancelar, ":: CERRAR ::");
+            this.cancelar.UseVisualStyleBackColor = true;
+            this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
+            // 
             // Egresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 453);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.total);
             this.Controls.Add(this.groupBox2);
@@ -539,7 +526,6 @@
         private System.Windows.Forms.Button guardar;
         private System.Windows.Forms.Label total;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHA;

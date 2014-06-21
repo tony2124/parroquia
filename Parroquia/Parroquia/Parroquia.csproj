@@ -116,6 +116,12 @@
     <Compile Include="Egresos.Designer.cs">
       <DependentUpon>Egresos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ingresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ingresos.Designer.cs">
+      <DependentUpon>Ingresos.cs</DependentUpon>
+    </Compile>
     <Compile Include="formatosImpresion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Informacion.resx">
       <DependentUpon>Informacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ingresos.resx">
+      <DependentUpon>Ingresos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrimerComunion.resx">
       <DependentUpon>PrimerComunion.cs</DependentUpon>
@@ -409,6 +418,12 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ingresos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pdf.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

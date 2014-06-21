@@ -229,7 +229,7 @@ namespace Parroquia
 
         private void ingresosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            new Ingresos().Show();
         }
 
         private void egresosToolStripMenuItem_Click(object sender, EventArgs e)

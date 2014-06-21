@@ -36,6 +36,27 @@ namespace Parroquia
             tamanio = TAMANIO;
             BDatos = new ConexionBD();
             InitializeComponent();
+
+
+            BDatos.conexion();
+            conjuntoDatos = BDatos.obtenerBasesDatosMySQL("select id_libro, nombre_libro from libros where id_categoria='" + CATEGORIA + "';");
+
+            datosNombre = new string[tamanio];
+            datosID = new string[tamanio];
+            int i = 0;
+            while (conjuntoDatos.Read())
+            {
+                datosNombre[i] = conjuntoDatos.GetString(1);
+                datosID[i] = conjuntoDatos.GetString(0);
+                i++;
+            }
+            BDatos.Desconectar();
+
+            comboBox1.Items.AddRange(datosNombre);
+            comboBox1.Text = datosNombre[0];
+
+            this.Text = "Eliminar un libro de " + Categorias;
+
         }
 
         private void botonCancelar_Click(object sender, EventArgs e)

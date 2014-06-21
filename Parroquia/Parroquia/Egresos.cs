@@ -287,11 +287,6 @@ namespace Parroquia
             Dispose();
         }
 
-        private void ver_Click(object sender, EventArgs e)
-        {
-            actualizarDatos();
-        }
-
         private void mes_SelectedIndexChanged(object sender, EventArgs e)
         {
             actualizarDatos();

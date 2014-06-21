@@ -59,26 +59,12 @@ namespace Parroquia
             // 
             // comboBox1
             // 
-            BDatos.conexion();
-            conjuntoDatos = BDatos.obtenerBasesDatosMySQL("select id_libro, nombre_libro from libros where id_categoria='" + CATEGORIA + "';");
-
-            datosNombre = new string[tamanio];
-            datosID = new string[tamanio];
-            int i = 0;
-            while (conjuntoDatos.Read())
-            {
-                datosNombre[i] = conjuntoDatos.GetString(1);
-                datosID[i] = conjuntoDatos.GetString(0);
-                i++;
-            }
-            BDatos.Desconectar();
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(datosNombre);
+           
+            this.comboBox1.FormattingEnabled = true;        
             this.comboBox1.Location = new System.Drawing.Point(83, 56);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 2;
-            this.comboBox1.Text = datosNombre[0];
             this.comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // 
@@ -119,7 +105,7 @@ namespace Parroquia
             this.Name = "eliminarLibro";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Eliminar un libro de "+Categorias;
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 

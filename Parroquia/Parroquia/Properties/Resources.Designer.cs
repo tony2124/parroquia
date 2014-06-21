@@ -183,6 +183,16 @@ namespace Parroquia.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ingresos {
+            get {
+                object obj = ResourceManager.GetObject("ingresos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_simpus {
             get {
                 object obj = ResourceManager.GetObject("logo_simpus", resourceCulture);
@@ -406,6 +416,16 @@ namespace Parroquia.Properties {
         internal static System.Drawing.Bitmap parroq {
             get {
                 object obj = ResourceManager.GetObject("parroq", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pdf {
+            get {
+                object obj = ResourceManager.GetObject("pdf", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
