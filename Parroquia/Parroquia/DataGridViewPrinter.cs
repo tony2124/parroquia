@@ -87,6 +87,7 @@ class DataGridViewPrinter
         RightMargin = ThePrintDocument.DefaultPageSettings.Margins.Right;
         BottomMargin = ThePrintDocument.DefaultPageSettings.Margins.Bottom;
 
+        //LeftMargin = LeftMargin - 40;
         // First, the current row to be printed is the first row in the DataGridView control
         CurrentRow = 0;
     }
@@ -309,7 +310,8 @@ class DataGridViewPrinter
         g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 1, TopMargin, (Int32)TheDataGridViewWidth + 1, 50));
         g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 1, TopMargin + 50, (Int32)TheDataGridViewWidth + 1, 50));
 
-        Image newImage = newImage = Image.FromFile("C:\\DOCSParroquia\\virgen.jpg");
+       // Image newImage = newImage = Image.FromFile("C:\\DOCSParroquia\\virgen.jpg");
+        Image newImage = global::Parroquia.Properties.Resources.virgen;
         g.DrawImage(newImage,CurrentX+TheDataGridViewWidth-110,41);
 
         // Setting the HeaderFore style

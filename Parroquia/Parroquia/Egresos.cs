@@ -10,8 +10,6 @@ using System.Windows.Forms;
 using System.Drawing.Printing;
 using conexionbd;
 using MySql.Data.MySqlClient;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
 using System.IO;
 using System.Diagnostics;
 
@@ -192,9 +190,9 @@ namespace Parroquia
             MyPrintDocument.DocumentName = "ReporteErogaciones";
             MyPrintDocument.DefaultPageSettings.Landscape = true;
         
-            MyPrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Legal", 850, 1400);
-            MyPrintDocument.DefaultPageSettings.Margins = new Margins(40, 40, 40, 40);
-
+            MyPrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Legal", 850, 1340);
+            MyPrintDocument.DefaultPageSettings.Margins = new Margins(5, 5, 40, 40);
+        
            
             MyDataGridViewPrinter = new DataGridViewPrinter(tabla, MyPrintDocument, true, true, "E   R   O   G   A   C   I   O   N   E   S", new System.Drawing.Font("Tahoma", 12, FontStyle.Bold, GraphicsUnit.Point), Color.Black, true, nombreParroquia, ubicacionParroquia, mes.Text, anio.Text);
            

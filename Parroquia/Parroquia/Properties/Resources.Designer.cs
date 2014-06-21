@@ -423,6 +423,16 @@ namespace Parroquia.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap virgen {
+            get {
+                object obj = ResourceManager.GetObject("virgen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap vistapre {
             get {
                 object obj = ResourceManager.GetObject("vistapre", resourceCulture);

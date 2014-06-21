@@ -73,11 +73,11 @@ namespace Parroquia
             this.label27 = new System.Windows.Forms.Label();
             this.registronull = new System.Windows.Forms.CheckBox();
             this.registrobis = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cancelar = new System.Windows.Forms.Button();
             this.guardareimp = new System.Windows.Forms.Button();
             this.guardar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
