@@ -32,7 +32,7 @@ namespace Parroquia
             anio.Text = DateTime.Now.Year + "";
             mes.SelectedIndex = DateTime.Now.Month - 1;
 
-            /**** consultar EGRESOS ****/
+            /**** consultar EGRESOS ****
             ConexionBD db = new ConexionBD();
             db.conexion();
             MySqlDataReader Datos = db.obtenerBasesDatosMySQL("SELECT sum(cantidad) as suma FROM egresos WHERE fecha >= '" + anio.Text + "-" + (mes.SelectedIndex + 1) + "-01' AND fecha <= '" + anio.Text + "-" + (mes.SelectedIndex + 1) + "-31'");
@@ -120,9 +120,18 @@ namespace Parroquia
             {
                 while (Datos.Read())
                 {
-                    cant_egresos = Datos.GetDouble(0);
+                    try
+                    {
+                        cant_egresos = Datos.GetDouble(0);
+                    }
+                    catch (Exception e)
+                    {
+                        cant_egresos = 0;
+                    }
                 }
             }
+
+            Datos.Close();
 
         }
 
@@ -151,12 +160,17 @@ namespace Parroquia
                 suma += matriz_mapeada[i, num_columns];
 
             tabla.Rows[num_rows].Cells[num_columns].Value = suma;
-            tabla.Rows[0].Cells[1].Value = cant_egresos - suma;
+            double exento = 0;
+            if (cant_egresos - suma <= 0)
+                exento = 0;
+            else exento = cant_egresos - suma;
+            
+            tabla.Rows[0].Cells[1].Value = exento;
 
             total.Text = "$ " + String.Format("{0:0.00}", suma);
             ingresos_lbl.Text = "$ " + String.Format("{0:0.00}", suma);
             egresos.Text = "$ " + String.Format("{0:0.00}", cant_egresos);
-            total_exento.Text = "$ " + String.Format("{0:0.00}", cant_egresos - suma);
+            total_exento.Text = "$ " + String.Format("{0:0.00}", exento);
             diez_por_ciento.Text = "$ " + String.Format("{0:0.00}", suma * 0.1);
             dos_por_ciento.Text = "$ " + String.Format("{0:0.00}", suma * 0.02);
             total_mitra.Text = "$ " + String.Format("{0:0.00}", suma * 0.1 + suma * 0.02 + Double.Parse(otros_gastos.Text) + Double.Parse(contador.Text)); 
@@ -187,10 +201,16 @@ namespace Parroquia
             }
             tabla.Rows[num_rows].Cells[num_columns].Value = suma;
 
+            double exento = 0;
+            if (cant_egresos - suma <= 0)
+                exento = 0;
+            else exento = cant_egresos - suma;
+
+            tabla.Rows[0].Cells[1].Value = exento;
             total.Text = "$ " + String.Format("{0:0.00}", suma);
             ingresos_lbl.Text = "$ " + String.Format("{0:0.00}", suma);
             egresos.Text = "$ " + String.Format("{0:0.00}", cant_egresos);
-            total_exento.Text = "$ " + String.Format("{0:0.00}", cant_egresos - suma);
+            total_exento.Text = "$ " + String.Format("{0:0.00}", exento);
             diez_por_ciento.Text = "$ " + String.Format("{0:0.00}", suma * 0.1);
             dos_por_ciento.Text = "$ " + String.Format("{0:0.00}", suma * 0.02);
             total_mitra.Text = "$ " + String.Format("{0:0.00}", suma * 0.1 + suma * 0.02 + Double.Parse(otros_gastos.Text) + Double.Parse(contador.Text)); 
