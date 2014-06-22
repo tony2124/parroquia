@@ -290,18 +290,19 @@ namespace Parroquia
 
         private bool SetupThePrinting()
         {
-            String ubicacionParroquia = "", nombreParroquia = "";
+            String ubicacionParroquia = "", nombreParroquia = "", nombre_parroco="";
             ConexionBD db = new ConexionBD();
             MySqlDataReader datos;
             db.conexion();
 
-            datos = db.obtenerBasesDatosMySQL("select nombre_parroquia, ubicacion_parroquia from informacion;");
+            datos = db.obtenerBasesDatosMySQL("select nombre_parroquia, ubicacion_parroquia, nombre_parroco from informacion;");
 
             if (datos.HasRows)
                 while (datos.Read())
                 {
                     nombreParroquia = datos.GetString(0);
                     ubicacionParroquia = datos.GetString(1);
+                    nombre_parroco = datos.GetString(2);
                 }
 
             db.Desconectar();
@@ -335,9 +336,32 @@ namespace Parroquia
 
             //MyPrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Legal", 850, 1340);
             MyPrintDocument.DefaultPageSettings.Margins = new Margins(40, 40, 40, 40);
+            
+            
+            int row = tabla.Rows.Count;
+            int dif = 25 - row;
+            for (int i = 0; i < dif; i++ )
+                tabla.Rows.Add();
+            fecha.Frozen = false;
+            tabla.Columns.Insert(0,new DataGridViewColumn(new DataGridViewTextBoxCell()));
+            DataGridViewRow dr = new DataGridViewRow();
+            dr = tabla.Rows[5];
+            tabla.Rows.RemoveAt(5);
+            for (int i = 0; i < 24; i++)
+            {
+                tabla.Rows[i].Cells[0].Value = ""+(i+1);
+            }
+            tabla.Rows.Add(dr);
+           
 
-            MyDataGridViewPrinter = new ImprimirIngresos(tabla, MyPrintDocument, true, true, "I   N   G   R   E   S   O   S", new System.Drawing.Font("Tahoma", 12, FontStyle.Bold, GraphicsUnit.Point), Color.Black, true, nombreParroquia, ubicacionParroquia, mes.Text, anio.Text);
-
+            MyDataGridViewPrinter = new ImprimirIngresos(tabla, MyPrintDocument, true, 
+                true, "I  N  G  R  E  S  O  S", 
+                new System.Drawing.Font("Tahoma", 12, FontStyle.Bold, GraphicsUnit.Point),
+                Color.Black, true, nombreParroquia, ubicacionParroquia, 
+                mes.Text, anio.Text, nombre_parroco, diez_por_ciento.Text,
+                dos_por_ciento.Text, contador.Text, otros_gastos.Text, total_mitra.Text,
+                egresos.Text, ingresos_lbl.Text, total_exento.Text);
+            
             return true;
         }
 
@@ -349,6 +373,18 @@ namespace Parroquia
                 MyPrintPreviewDialog.Document = MyPrintDocument;
                 MyPrintPreviewDialog.ShowDialog();
             }
+          //  tabla.Columns.RemoveAt(7);
+            int row = tabla.Rows.Count;
+            int dif = 24 - row;
+
+            for (int i = row; i < dif; i++)
+                tabla.Rows.RemoveAt(i);
+
+
+            tabla.Columns.RemoveAt(0);
+            fecha.Frozen = true;
+
+            actualizarDatos();
         }
     }
 }

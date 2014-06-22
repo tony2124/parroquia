@@ -42,16 +42,33 @@ class ImprimirIngresos
     private List<float> mColumnPointsWidth;
     private int mColumnPoint;
 
-    public String NOMBREPARROQUIA, UBICACIONPARROQUIA, MES, ANIO;
+    public String NOMBREPARROQUIA, UBICACIONPARROQUIA, MES, ANIO, NOMBRE_PARROCO,
+        DIEZPORCIENTO, DOSPORCIENTO, CONTADOR, OTROSGASTOS, TOTALMITRA, EGRESOS,
+        INGRESOS, TOTALEXCENTOS;
         
     // The class constructor
-    public ImprimirIngresos(DataGridView aDataGridView, PrintDocument aPrintDocument, bool CenterOnPage, bool WithTitle, string aTitleText, Font aTitleFont, Color aTitleColor, bool WithPaging, String nombreParroquia, String ubicacionParroquia, String mes, String anio)
+    public ImprimirIngresos(DataGridView aDataGridView, 
+        PrintDocument aPrintDocument, bool CenterOnPage, bool WithTitle, 
+        string aTitleText, Font aTitleFont, Color aTitleColor, bool WithPaging, 
+        String nombreParroquia, String ubicacionParroquia, String mes, String anio, 
+        String nombreParroco, String diez_porciento, String dos_por_ciento, 
+        String contador, String otros_gastos, String total_mitra, String egresos,
+        String ingresos, String totalExcentos)
     {
 
         NOMBREPARROQUIA = nombreParroquia;
         UBICACIONPARROQUIA = ubicacionParroquia;
         MES = mes;
         ANIO = anio;
+        NOMBRE_PARROCO = nombreParroco;
+        DIEZPORCIENTO = diez_porciento;
+        DOSPORCIENTO = dos_por_ciento;
+        CONTADOR = contador;
+        OTROSGASTOS = otros_gastos;
+        TOTALMITRA = total_mitra;
+        EGRESOS = egresos;
+        INGRESOS = ingresos;
+        TOTALEXCENTOS = totalExcentos;
 
         TheDataGridView = aDataGridView;
         ThePrintDocument = aPrintDocument;
@@ -109,7 +126,7 @@ class ImprimirIngresos
                     tmpFont = TheDataGridView.DefaultCellStyle.Font;
 
                 tmpSize = g.MeasureString(TheDataGridView.Columns[i].HeaderText, tmpFont);
-                tmpWidth = tmpSize.Width;
+                tmpWidth = tmpSize.Width+30;
                 RowHeaderHeight = tmpSize.Height;
 
                 for (int j = 0; j < TheDataGridView.Rows.Count; j++)
@@ -119,13 +136,13 @@ class ImprimirIngresos
                         tmpFont = TheDataGridView.DefaultCellStyle.Font;
 
                     tmpSize = g.MeasureString("Anything", tmpFont);
-                    RowsHeight.Add(tmpSize.Height);
+                    RowsHeight.Add(tmpSize.Height+3);
 
                     tmpSize = g.MeasureString(TheDataGridView.Rows[j].Cells[i].EditedFormattedValue.ToString(), tmpFont);
                     if (tmpSize.Width > tmpWidth)
                         tmpWidth = tmpSize.Width;
                 }
-                if (TheDataGridView.Columns[i].Visible)
+                if (TheDataGridView.Columns[i].Visible || !TheDataGridView.Columns[i].Visible)
                     TheDataGridViewWidth += tmpWidth;
                 ColumnsWidth.Add(tmpWidth);
             }
@@ -137,7 +154,7 @@ class ImprimirIngresos
 
             int mStartPoint = 0;
             for (k = 0; k < TheDataGridView.Columns.Count; k++)
-                if (TheDataGridView.Columns[k].Visible)
+                if (TheDataGridView.Columns[k].Visible || !TheDataGridView.Columns[k].Visible)
                 {
                     mStartPoint = k;
                     break;
@@ -145,7 +162,7 @@ class ImprimirIngresos
 
             int mEndPoint = TheDataGridView.Columns.Count;
             for (k = TheDataGridView.Columns.Count - 1; k >= 0; k--)
-                if (TheDataGridView.Columns[k].Visible)
+                if (TheDataGridView.Columns[k].Visible || !TheDataGridView.Columns[k].Visible)
                 {
                     mEndPoint = k + 1;
                     break;
@@ -160,7 +177,7 @@ class ImprimirIngresos
                 mTempWidth = 0.0F;
                 for (k = 0; k < TheDataGridView.Columns.Count; k++)
                 {
-                    if (TheDataGridView.Columns[k].Visible)
+                    if (TheDataGridView.Columns[k].Visible || !TheDataGridView.Columns[k].Visible)
                     {
                         mTempWidth += ColumnsWidth[k];
                         // If the width is bigger than the page area, then define a new column print range
@@ -204,9 +221,9 @@ class ImprimirIngresos
 
             RectangleF PageStringRectangle = new RectangleF((float)LeftMargin, CurrentY, (float)PageWidth - (float)RightMargin - (float)LeftMargin, g.MeasureString(PageString, PageStringFont).Height);
 
-            g.DrawString(PageString, PageStringFont, new SolidBrush(Color.Black), PageStringRectangle, PageStringFormat);
+          //  g.DrawString(PageString, PageStringFont, new SolidBrush(Color.Black), PageStringRectangle, PageStringFormat);
 
-            CurrentY += g.MeasureString(PageString, PageStringFont).Height;
+            CurrentY += g.MeasureString(PageString, PageStringFont).Height+160;
         }
 
         // Printing the title (if IsWithTitle is set to true)
@@ -220,7 +237,7 @@ class ImprimirIngresos
             else
                 TitleFormat.Alignment = StringAlignment.Near;
 
-            RectangleF TitleRectangle = new RectangleF((float)LeftMargin, CurrentY, (float)PageWidth - (float)RightMargin - (float)LeftMargin, g.MeasureString(TheTitleText, TheTitleFont).Height);
+            RectangleF TitleRectangle = new RectangleF((float)LeftMargin, CurrentY+5, (float)PageWidth - (float)RightMargin - (float)LeftMargin, g.MeasureString(TheTitleText, TheTitleFont).Height);
 
             g.DrawString(TheTitleText, TheTitleFont, new SolidBrush(TheTitleColor), TitleRectangle, TitleFormat);
 
@@ -231,6 +248,202 @@ class ImprimirIngresos
         float CurrentX = (float)LeftMargin;
         if (IsCenterOnPage)            
             CurrentX += (((float)PageWidth - (float)RightMargin - (float)LeftMargin) - mColumnPointsWidth[mColumnPoint]) / 2.0F;
+
+        float tamano_total, mitad;
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX - 
+            g.MeasureString("DIÓCESIS DE APATZINGÁN",
+            new Font("Times New Roman", 12, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString("DIÓCESIS DE APATZINGÁN",
+           new Font("Times New Roman", 12, FontStyle.Bold),
+             Brushes.Black, mitad, TopMargin + 100);
+
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX -
+            g.MeasureString("Parroquia: ______________________________ lugar _________________________ de __________________",
+           new Font("Times New Roman", 10, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString("Parroquia: ______________________________ lugar _________________________ de __________________",
+            new Font("Times New Roman", 10, FontStyle.Bold),
+              Brushes.Black, mitad, TopMargin + 130);
+
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX -
+            g.MeasureString(NOMBREPARROQUIA,
+           new Font("Times New Roman", 10, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString(NOMBREPARROQUIA,
+            new Font("Times New Roman", 10, FontStyle.Bold),
+              Brushes.Black, mitad-150, TopMargin + 129);
+
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX -
+           g.MeasureString(UBICACIONPARROQUIA,
+          new Font("Times New Roman", 10, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString(UBICACIONPARROQUIA,
+            new Font("Times New Roman", 10, FontStyle.Bold),
+              Brushes.Black, mitad + 87, TopMargin + 129);
+
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX -
+           g.MeasureString(MES+" "+ANIO,
+          new Font("Times New Roman", 10, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString(MES+" "+ANIO,
+            new Font("Times New Roman", 10, FontStyle.Bold),
+              Brushes.Black, mitad + 265, TopMargin + 129);
+
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX -
+            g.MeasureString("Parroco: "+NOMBRE_PARROCO,
+           new Font("Times New Roman", 10, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString("Parroco: " + NOMBRE_PARROCO,
+            new Font("Times New Roman", 10, FontStyle.Bold),
+              Brushes.Black, mitad, TopMargin + 155);
+
+        System.Drawing.Pen myPen = new System.Drawing.Pen(System.Drawing.Color.Black, 1);
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX , TopMargin+175-100, (Int32)TheDataGridViewWidth + 1, 100));
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX , TopMargin + 175, (Int32)TheDataGridViewWidth + 1, 25));
+
+        g.DrawString("MITRA",
+            new Font("Times New Roman", 10, FontStyle.Bold),
+              Brushes.Black, CurrentX+45, 702);
+
+        g.DrawString("10%",
+           new Font("Times New Roman", 10, FontStyle.Regular),
+             Brushes.Black, CurrentX, 722);
+
+        g.DrawString("2%",
+           new Font("Times New Roman", 10, FontStyle.Regular),
+             Brushes.Black, CurrentX, 742);
+
+        g.DrawString("200",
+           new Font("Times New Roman", 10, FontStyle.Regular),
+             Brushes.Black, CurrentX, 762);
+
+        g.DrawString("900",
+           new Font("Times New Roman", 10, FontStyle.Regular),
+             Brushes.Black, CurrentX, 782);
+
+        g.DrawString("TOTAL:",
+           new Font("Times New Roman", 8, FontStyle.Bold),
+             Brushes.Black, CurrentX, 802);
+
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX -
+            g.MeasureString(DIEZPORCIENTO,
+           new Font("Times New Roman", 10, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString(DIEZPORCIENTO,
+           new Font("Times New Roman", 10, FontStyle.Regular),
+             Brushes.Black, mitad-230, 722);
+
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX -
+           g.MeasureString(DOSPORCIENTO,
+          new Font("Times New Roman", 10, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString(DOSPORCIENTO,
+           new Font("Times New Roman", 10, FontStyle.Regular),
+             Brushes.Black, mitad - 230, 742);
+
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX -
+           g.MeasureString(CONTADOR,
+          new Font("Times New Roman", 10, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString(CONTADOR,
+           new Font("Times New Roman", 10, FontStyle.Regular),
+             Brushes.Black, mitad - 230, 762);
+
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX -
+           g.MeasureString(OTROSGASTOS,
+          new Font("Times New Roman", 10, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString(OTROSGASTOS,
+           new Font("Times New Roman", 10, FontStyle.Regular),
+             Brushes.Black, mitad - 230, 782);
+
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX -
+           g.MeasureString(TOTALMITRA,
+          new Font("Times New Roman", 10, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString(TOTALMITRA,
+           new Font("Times New Roman", 10, FontStyle.Bold),
+             Brushes.Black, mitad - 230, 802);
+
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX, 700 , 150, 20));
+
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX, 720, 50, 20));
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX+50, 720, 100, 20));
+
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX, 740, 50, 20));
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 50, 740, 100, 20));
+
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX, 760, 50, 20));
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 50, 760, 100, 20));
+
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX, 780, 50, 20));
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 50, 780, 100, 20));
+
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX, 800, 50, 20));
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 50, 800, 100, 20));
+
+
+        g.DrawString("EGRESOS",
+           new Font("Times New Roman", 10, FontStyle.Regular),
+             Brushes.Black, CurrentX+250, 722);
+
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX -
+          g.MeasureString(EGRESOS,
+         new Font("Times New Roman", 10, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString(EGRESOS,
+           new Font("Times New Roman", 10, FontStyle.Regular),
+             Brushes.Black, mitad+75, 722);
+
+        g.DrawString("INGRESOS",
+           new Font("Times New Roman", 10, FontStyle.Regular),
+             Brushes.Black, CurrentX + 250, 742);
+
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX -
+          g.MeasureString(INGRESOS,
+         new Font("Times New Roman", 10, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString(INGRESOS,
+           new Font("Times New Roman", 10, FontStyle.Regular),
+             Brushes.Black, mitad + 75, 742);
+
+        g.DrawString("TOTAL",
+           new Font("Times New Roman", 10, FontStyle.Regular),
+             Brushes.Black, CurrentX + 250, 762);
+
+        tamano_total = CurrentX + TheDataGridViewWidth + CurrentX -
+          g.MeasureString(TOTALEXCENTOS,
+         new Font("Times New Roman", 10, FontStyle.Bold)).Width;
+        mitad = tamano_total / 2;
+
+        g.DrawString(TOTALEXCENTOS,
+           new Font("Times New Roman", 10, FontStyle.Regular),
+             Brushes.Black, mitad + 75, 762);
+
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 250, 720, 100, 20));
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 350, 720, 120, 20));
+
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 250, 740, 100, 20));
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 350, 740, 120, 20));
+
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 250, 760, 100, 20));
+        g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX + 350, 760, 120, 20));
+
+        //g.DrawRectangle(myPen, new Rectangle((Int32)CurrentX, TopMargin + 175, (Int32)TheDataGridViewWidth + 1, 25));
 
         // Setting the HeaderFore style
         Color HeaderForeColor = TheDataGridView.ColumnHeadersDefaultCellStyle.ForeColor;
@@ -263,10 +476,11 @@ class ImprimirIngresos
 
         // Printing each visible cell of the header row
         RectangleF CellBounds;
-        float ColumnWidth;        
+        float ColumnWidth;
+        Font font = new Font("Times New Roman", 7, FontStyle.Bold);
         for (int i = (int)mColumnPoints[mColumnPoint].GetValue(0); i < (int)mColumnPoints[mColumnPoint].GetValue(1); i++)
         {
-            if (!TheDataGridView.Columns[i].Visible) continue; // If the column is not visible then ignore this iteration
+            if (!TheDataGridView.Columns[i].Visible || !TheDataGridView.Columns[i].Visible) continue; // If the column is not visible then ignore this iteration
 
             ColumnWidth = ColumnsWidth[i];
 
@@ -278,10 +492,11 @@ class ImprimirIngresos
             else
                 CellFormat.Alignment = StringAlignment.Near;
 
+            CellFormat.Alignment = StringAlignment.Center;
             CellBounds = new RectangleF(CurrentX, CurrentY, ColumnWidth, RowHeaderHeight);
 
             // Printing the cell text
-            g.DrawString(TheDataGridView.Columns[i].HeaderText, HeaderFont, HeaderForeBrush, CellBounds, CellFormat);
+            g.DrawString(TheDataGridView.Columns[i].HeaderText, font, HeaderForeBrush, CellBounds, CellFormat);
 
             // Drawing the cell bounds
             if (TheDataGridView.RowHeadersBorderStyle != DataGridViewHeaderBorderStyle.None) // Draw the cell border only if the HeaderBorderStyle is not None
@@ -320,7 +535,7 @@ class ImprimirIngresos
         float ColumnWidth;
         while (CurrentRow < TheDataGridView.Rows.Count)
         {
-            if (TheDataGridView.Rows[CurrentRow].Visible) // Print the cells of the CurrentRow only if that row is visible
+            if (TheDataGridView.Rows[CurrentRow].Visible || !TheDataGridView.Columns[CurrentRow].Visible) // Print the cells of the CurrentRow only if that row is visible
             {
                 // Setting the row font style
                 RowFont = TheDataGridView.Rows[CurrentRow].DefaultCellStyle.Font;
@@ -363,7 +578,7 @@ class ImprimirIngresos
                 // Printing each visible cell of the CurrentRow                
                 for (int CurrentCell = (int)mColumnPoints[mColumnPoint].GetValue(0); CurrentCell < (int)mColumnPoints[mColumnPoint].GetValue(1); CurrentCell++)
                 {
-                    if (!TheDataGridView.Columns[CurrentCell].Visible) continue; // If the cell is belong to invisible column, then ignore this iteration
+                    if (!TheDataGridView.Columns[CurrentCell].Visible || !TheDataGridView.Columns[CurrentCell].Visible) continue; // If the cell is belong to invisible column, then ignore this iteration
 
                     // Check the CurrentCell alignment and apply it to the CellFormat
                     if (TheDataGridView.Columns[CurrentCell].DefaultCellStyle.Alignment.ToString().Contains("Right"))
@@ -372,7 +587,7 @@ class ImprimirIngresos
                         CellFormat.Alignment = StringAlignment.Center;
                     else
                         CellFormat.Alignment = StringAlignment.Near;
-                    
+                    CellFormat.Alignment = StringAlignment.Far;
                     ColumnWidth = ColumnsWidth[CurrentCell];
                     RectangleF CellBounds = new RectangleF(CurrentX, CurrentY, ColumnWidth, RowsHeight[CurrentRow]);
 
@@ -408,6 +623,8 @@ class ImprimirIngresos
         }
         else
             return true;
+        
+        
     }
 
     // The method that calls all other functions
