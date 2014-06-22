@@ -19,7 +19,7 @@ namespace Parroquia
     public partial class Egresos : Form
     {
         public PrintDocument MyPrintDocument;
-        DataGridViewPrinter MyDataGridViewPrinter;
+        ImprimirEgresos MyDataGridViewPrinter;
         static int num_columns = 19, num_rows = 31;
         int[,] matriz_modificacion; // 0 -> null   1 -> ya registrado   2 -> modificado ya registrado  3 -> modificado no registrado
         double[,] matriz_mapeada; //matriz que mapea los datos a la tabla
@@ -192,9 +192,9 @@ namespace Parroquia
         
             MyPrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Legal", 850, 1340);
             MyPrintDocument.DefaultPageSettings.Margins = new Margins(5, 5, 40, 40);
-        
-           
-            MyDataGridViewPrinter = new DataGridViewPrinter(tabla, MyPrintDocument, true, true, "E   R   O   G   A   C   I   O   N   E   S", new System.Drawing.Font("Tahoma", 12, FontStyle.Bold, GraphicsUnit.Point), Color.Black, true, nombreParroquia, ubicacionParroquia, mes.Text, anio.Text);
+
+
+            MyDataGridViewPrinter = new ImprimirEgresos(tabla, MyPrintDocument, true, true, "E   R   O   G   A   C   I   O   N   E   S", new System.Drawing.Font("Tahoma", 12, FontStyle.Bold, GraphicsUnit.Point), Color.Black, true, nombreParroquia, ubicacionParroquia, mes.Text, anio.Text);
            
             return true;
         }

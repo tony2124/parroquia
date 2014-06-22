@@ -7,7 +7,7 @@ using System.Drawing.Printing;
 using System.Data;
 using System.Windows.Forms;
 
-class DataGridViewPrinter
+class ImprimirEgresos
 {
     private DataGridView TheDataGridView; // The DataGridView Control which will be printed
     private PrintDocument ThePrintDocument; // The PrintDocument to be used for printing
@@ -45,7 +45,7 @@ class DataGridViewPrinter
     public String NOMBREPARROQUIA, UBICACIONPARROQUIA, MES, ANIO;
         
     // The class constructor
-    public DataGridViewPrinter(DataGridView aDataGridView, PrintDocument aPrintDocument, bool CenterOnPage, bool WithTitle, string aTitleText, Font aTitleFont, Color aTitleColor, bool WithPaging, String nombreParroquia, String ubicacionParroquia, String mes, String anio)
+    public ImprimirEgresos(DataGridView aDataGridView, PrintDocument aPrintDocument, bool CenterOnPage, bool WithTitle, string aTitleText, Font aTitleFont, Color aTitleColor, bool WithPaging, String nombreParroquia, String ubicacionParroquia, String mes, String anio)
     {
         NOMBREPARROQUIA = nombreParroquia;
         UBICACIONPARROQUIA = ubicacionParroquia;

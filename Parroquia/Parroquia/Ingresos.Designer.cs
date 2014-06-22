@@ -28,45 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabla = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.mes = new System.Windows.Forms.ComboBox();
-            this.anio = new System.Windows.Forms.ComboBox();
-            this.cerrar = new System.Windows.Forms.Button();
-            this.pdf = new System.Windows.Forms.Button();
-            this.imprimir = new System.Windows.Forms.Button();
-            this.guardar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.diez_por_ciento = new System.Windows.Forms.Label();
-            this.dos_por_ciento = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.contador = new System.Windows.Forms.TextBox();
-            this.otros_gastos = new System.Windows.Forms.TextBox();
-            this.total_mitra = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.egresos = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.ingresos_lbl = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.total_exento = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.total = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.exentros_mitra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.donativos = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +43,37 @@
             this.notaria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.otras = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total_tabla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.anio = new System.Windows.Forms.ComboBox();
+            this.mes = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cerrar = new System.Windows.Forms.Button();
+            this.pdf = new System.Windows.Forms.Button();
+            this.imprimir = new System.Windows.Forms.Button();
+            this.guardar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.total_mitra = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.otros_gastos = new System.Windows.Forms.TextBox();
+            this.contador = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dos_por_ciento = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.diez_por_ciento = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.total_exento = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.ingresos_lbl = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.egresos = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.total = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -105,6 +105,71 @@
             this.tabla.TabIndex = 1;
             this.tabla.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellEndEdit);
             // 
+            // fecha
+            // 
+            dataGridViewCellStyle1.Format = "M";
+            dataGridViewCellStyle1.NullValue = null;
+            this.fecha.DefaultCellStyle = dataGridViewCellStyle1;
+            this.fecha.Frozen = true;
+            this.fecha.HeaderText = "FECHA";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            // 
+            // exentros_mitra
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.exentros_mitra.DefaultCellStyle = dataGridViewCellStyle2;
+            this.exentros_mitra.HeaderText = "EXENTOS MITRA";
+            this.exentros_mitra.Name = "exentros_mitra";
+            this.exentros_mitra.ReadOnly = true;
+            // 
+            // donativos
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.donativos.DefaultCellStyle = dataGridViewCellStyle3;
+            this.donativos.HeaderText = "DONATIVOS";
+            this.donativos.Name = "donativos";
+            // 
+            // limosnas
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.limosnas.DefaultCellStyle = dataGridViewCellStyle4;
+            this.limosnas.HeaderText = "LIMOSNAS";
+            this.limosnas.Name = "limosnas";
+            // 
+            // notaria
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.notaria.DefaultCellStyle = dataGridViewCellStyle5;
+            this.notaria.HeaderText = "NOTARÍA";
+            this.notaria.Name = "notaria";
+            // 
+            // otras
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.otras.DefaultCellStyle = dataGridViewCellStyle6;
+            this.otras.HeaderText = "OTRAS";
+            this.otras.Name = "otras";
+            // 
+            // total_tabla
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.total_tabla.DefaultCellStyle = dataGridViewCellStyle7;
+            this.total_tabla.HeaderText = "TOTAL";
+            this.total_tabla.Name = "total_tabla";
+            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -119,37 +184,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fecha";
             // 
-            // groupBox2
+            // anio
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.cerrar);
-            this.groupBox2.Controls.Add(this.pdf);
-            this.groupBox2.Controls.Add(this.imprimir);
-            this.groupBox2.Controls.Add(this.guardar);
-            this.groupBox2.Location = new System.Drawing.Point(528, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(295, 111);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Operación";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mes";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Año";
+            this.anio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.anio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.anio.FormattingEnabled = true;
+            this.anio.Location = new System.Drawing.Point(51, 67);
+            this.anio.Name = "anio";
+            this.anio.Size = new System.Drawing.Size(136, 21);
+            this.anio.TabIndex = 3;
+            this.anio.SelectedIndexChanged += new System.EventHandler(this.anio_SelectedIndexChanged);
             // 
             // mes
             // 
@@ -175,16 +219,37 @@
             this.mes.TabIndex = 2;
             this.mes.SelectedIndexChanged += new System.EventHandler(this.mes_SelectedIndexChanged);
             // 
-            // anio
+            // label2
             // 
-            this.anio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.anio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.anio.FormattingEnabled = true;
-            this.anio.Location = new System.Drawing.Point(51, 67);
-            this.anio.Name = "anio";
-            this.anio.Size = new System.Drawing.Size(136, 21);
-            this.anio.TabIndex = 3;
-            this.anio.SelectedIndexChanged += new System.EventHandler(this.anio_SelectedIndexChanged);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Año";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Mes";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.cerrar);
+            this.groupBox2.Controls.Add(this.pdf);
+            this.groupBox2.Controls.Add(this.imprimir);
+            this.groupBox2.Controls.Add(this.guardar);
+            this.groupBox2.Location = new System.Drawing.Point(528, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(295, 111);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Operación";
             // 
             // cerrar
             // 
@@ -216,6 +281,7 @@
             this.imprimir.Size = new System.Drawing.Size(62, 62);
             this.imprimir.TabIndex = 1;
             this.imprimir.UseVisualStyleBackColor = true;
+            this.imprimir.Click += new System.EventHandler(this.imprimir_Click);
             // 
             // guardar
             // 
@@ -257,25 +323,67 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "M I T R A";
             // 
-            // label3
+            // total_mitra
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 23);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "10 %";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.total_mitra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total_mitra.Location = new System.Drawing.Point(94, 145);
+            this.total_mitra.Name = "total_mitra";
+            this.total_mitra.Size = new System.Drawing.Size(100, 25);
+            this.total_mitra.TabIndex = 11;
+            this.total_mitra.Text = "----";
+            this.total_mitra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // diez_por_ciento
+            // label9
             // 
-            this.diez_por_ciento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.diez_por_ciento.Location = new System.Drawing.Point(70, 28);
-            this.diez_por_ciento.Name = "diez_por_ciento";
-            this.diez_por_ciento.Size = new System.Drawing.Size(124, 25);
-            this.diez_por_ciento.TabIndex = 1;
-            this.diez_por_ciento.Text = "----";
-            this.diez_por_ciento.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(6, 145);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(82, 23);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "TOTAL";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // otros_gastos
+            // 
+            this.otros_gastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.otros_gastos.Location = new System.Drawing.Point(110, 104);
+            this.otros_gastos.Name = "otros_gastos";
+            this.otros_gastos.Size = new System.Drawing.Size(84, 21);
+            this.otros_gastos.TabIndex = 9;
+            this.otros_gastos.Text = "900";
+            this.otros_gastos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.otros_gastos.Leave += new System.EventHandler(this.otros_gastos_Leave);
+            // 
+            // contador
+            // 
+            this.contador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contador.Location = new System.Drawing.Point(110, 79);
+            this.contador.Name = "contador";
+            this.contador.Size = new System.Drawing.Size(84, 21);
+            this.contador.TabIndex = 8;
+            this.contador.Text = "200";
+            this.contador.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.contador.Leave += new System.EventHandler(this.contador_Leave);
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(6, 103);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(82, 23);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "OTROS";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(6, 78);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(98, 23);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "CONTADOR";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dos_por_ciento
             // 
@@ -297,67 +405,25 @@
             this.label6.Text = "2 %";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label8
+            // diez_por_ciento
             // 
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 78);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 23);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "CONTADOR";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.diez_por_ciento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.diez_por_ciento.Location = new System.Drawing.Point(70, 28);
+            this.diez_por_ciento.Name = "diez_por_ciento";
+            this.diez_por_ciento.Size = new System.Drawing.Size(124, 25);
+            this.diez_por_ciento.TabIndex = 1;
+            this.diez_por_ciento.Text = "----";
+            this.diez_por_ciento.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label10
+            // label3
             // 
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(6, 103);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(82, 23);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "OTROS";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // contador
-            // 
-            this.contador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contador.Location = new System.Drawing.Point(110, 79);
-            this.contador.Name = "contador";
-            this.contador.Size = new System.Drawing.Size(84, 21);
-            this.contador.TabIndex = 8;
-            this.contador.Text = "200";
-            this.contador.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.contador.Leave += new System.EventHandler(this.contador_Leave);
-            // 
-            // otros_gastos
-            // 
-            this.otros_gastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.otros_gastos.Location = new System.Drawing.Point(110, 104);
-            this.otros_gastos.Name = "otros_gastos";
-            this.otros_gastos.Size = new System.Drawing.Size(84, 21);
-            this.otros_gastos.TabIndex = 9;
-            this.otros_gastos.Text = "900";
-            this.otros_gastos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.otros_gastos.Leave += new System.EventHandler(this.otros_gastos_Leave);
-            // 
-            // total_mitra
-            // 
-            this.total_mitra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.total_mitra.Location = new System.Drawing.Point(94, 145);
-            this.total_mitra.Name = "total_mitra";
-            this.total_mitra.Size = new System.Drawing.Size(100, 25);
-            this.total_mitra.TabIndex = 11;
-            this.total_mitra.Text = "----";
-            this.total_mitra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 145);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 23);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "TOTAL";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 23);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "10 %";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupBox4
             // 
@@ -374,46 +440,6 @@
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "E X E N T O S   M I T R A";
-            // 
-            // egresos
-            // 
-            this.egresos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.egresos.Location = new System.Drawing.Point(89, 28);
-            this.egresos.Name = "egresos";
-            this.egresos.Size = new System.Drawing.Size(111, 25);
-            this.egresos.TabIndex = 5;
-            this.egresos.Text = "----";
-            this.egresos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label12
-            // 
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(12, 28);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 23);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "EGRESOS";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ingresos_lbl
-            // 
-            this.ingresos_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ingresos_lbl.Location = new System.Drawing.Point(89, 53);
-            this.ingresos_lbl.Name = "ingresos_lbl";
-            this.ingresos_lbl.Size = new System.Drawing.Size(111, 25);
-            this.ingresos_lbl.TabIndex = 7;
-            this.ingresos_lbl.Text = "----";
-            this.ingresos_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label14
-            // 
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(12, 53);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(77, 23);
-            this.label14.TabIndex = 6;
-            this.label14.Text = "INGRESOS";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // total_exento
             // 
@@ -435,6 +461,46 @@
             this.label16.Text = "TOTAL";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // ingresos_lbl
+            // 
+            this.ingresos_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ingresos_lbl.Location = new System.Drawing.Point(89, 53);
+            this.ingresos_lbl.Name = "ingresos_lbl";
+            this.ingresos_lbl.Size = new System.Drawing.Size(111, 25);
+            this.ingresos_lbl.TabIndex = 7;
+            this.ingresos_lbl.Text = "----";
+            this.ingresos_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(12, 53);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(77, 23);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "INGRESOS";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // egresos
+            // 
+            this.egresos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.egresos.Location = new System.Drawing.Point(89, 28);
+            this.egresos.Name = "egresos";
+            this.egresos.Size = new System.Drawing.Size(111, 25);
+            this.egresos.TabIndex = 5;
+            this.egresos.Text = "----";
+            this.egresos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(12, 28);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(77, 23);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "EGRESOS";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // total
             // 
             this.total.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -454,71 +520,6 @@
             this.label18.Size = new System.Drawing.Size(84, 17);
             this.label18.TabIndex = 7;
             this.label18.Text = "T O T A L:";
-            // 
-            // fecha
-            // 
-            dataGridViewCellStyle15.Format = "M";
-            dataGridViewCellStyle15.NullValue = null;
-            this.fecha.DefaultCellStyle = dataGridViewCellStyle15;
-            this.fecha.Frozen = true;
-            this.fecha.HeaderText = "FECHA";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            // 
-            // exentros_mitra
-            // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.Format = "C2";
-            dataGridViewCellStyle16.NullValue = null;
-            this.exentros_mitra.DefaultCellStyle = dataGridViewCellStyle16;
-            this.exentros_mitra.HeaderText = "EXENTOS MITRA";
-            this.exentros_mitra.Name = "exentros_mitra";
-            this.exentros_mitra.ReadOnly = true;
-            // 
-            // donativos
-            // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.Format = "C2";
-            dataGridViewCellStyle17.NullValue = null;
-            this.donativos.DefaultCellStyle = dataGridViewCellStyle17;
-            this.donativos.HeaderText = "DONATIVOS";
-            this.donativos.Name = "donativos";
-            // 
-            // limosnas
-            // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Format = "C2";
-            dataGridViewCellStyle18.NullValue = null;
-            this.limosnas.DefaultCellStyle = dataGridViewCellStyle18;
-            this.limosnas.HeaderText = "LIMOSNAS";
-            this.limosnas.Name = "limosnas";
-            // 
-            // notaria
-            // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle19.Format = "C2";
-            dataGridViewCellStyle19.NullValue = null;
-            this.notaria.DefaultCellStyle = dataGridViewCellStyle19;
-            this.notaria.HeaderText = "NOTARÍA";
-            this.notaria.Name = "notaria";
-            // 
-            // otras
-            // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle20.Format = "C2";
-            dataGridViewCellStyle20.NullValue = null;
-            this.otras.DefaultCellStyle = dataGridViewCellStyle20;
-            this.otras.HeaderText = "OTRAS";
-            this.otras.Name = "otras";
-            // 
-            // total_tabla
-            // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle21.Format = "C2";
-            dataGridViewCellStyle21.NullValue = null;
-            this.total_tabla.DefaultCellStyle = dataGridViewCellStyle21;
-            this.total_tabla.HeaderText = "TOTAL";
-            this.total_tabla.Name = "total_tabla";
             // 
             // Ingresos
             // 

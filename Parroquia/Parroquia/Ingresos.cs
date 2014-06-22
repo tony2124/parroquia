@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,9 @@ namespace Parroquia
         int[,] matriz_modificacion; // 0 -> null   1 -> ya registrado   2 -> modificado ya registrado  3 -> modificado no registrado
         double[,] matriz_mapeada; //matriz que mapea los datos a la tabla
         double cant_egresos;
+        ImprimirIngresos MyDataGridViewPrinter;
+        public bool guardar1 = false;
+        public PrintDocument MyPrintDocument;
 
         public Ingresos()
         {
@@ -31,6 +35,12 @@ namespace Parroquia
             anio.Items.AddRange(a);
             anio.Text = DateTime.Now.Year + "";
             mes.SelectedIndex = DateTime.Now.Month - 1;
+
+            /**** IMPRIMIR ***/
+            MyPrintDocument = new PrintDocument();
+            this.MyPrintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.MyPrintDocument_PrintPage);
+
+
 
             /**** consultar EGRESOS ****/
             ConexionBD db = new ConexionBD();
@@ -266,6 +276,76 @@ namespace Parroquia
         private void anio_SelectedIndexChanged(object sender, EventArgs e)
         {
             actualizarDatos();
+        }
+
+        private void MyPrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            bool more = MyDataGridViewPrinter.DrawDataGridView(e.Graphics);
+            if (more == true)
+                e.HasMorePages = true;
+        }
+
+        private bool SetupThePrinting()
+        {
+            String ubicacionParroquia = "", nombreParroquia = "";
+            ConexionBD db = new ConexionBD();
+            MySqlDataReader datos;
+            db.conexion();
+
+            datos = db.obtenerBasesDatosMySQL("select nombre_parroquia, ubicacion_parroquia from informacion;");
+
+            if (datos.HasRows)
+                while (datos.Read())
+                {
+                    nombreParroquia = datos.GetString(0);
+                    ubicacionParroquia = datos.GetString(1);
+                }
+
+            db.Desconectar();
+            if (!guardar1)
+            {
+                PrintDialog MyPrintDialog = new PrintDialog();
+                MyPrintDialog.AllowCurrentPage = false;
+                MyPrintDialog.AllowPrintToFile = false;
+                MyPrintDialog.AllowSelection = false;
+                MyPrintDialog.AllowSomePages = false;
+                MyPrintDialog.PrintToFile = false;
+                MyPrintDialog.ShowHelp = false;
+                MyPrintDialog.ShowNetwork = false;
+
+                if (MyPrintDialog.ShowDialog() != DialogResult.OK)
+                    return false;
+
+
+                MyPrintDocument.PrinterSettings = MyPrintDialog.PrinterSettings;
+                MyPrintDocument.DefaultPageSettings = MyPrintDialog.PrinterSettings.DefaultPageSettings;
+
+            }
+            else
+            {
+                guardar1 = false;
+                MyPrintDocument.DefaultPageSettings.PrinterSettings.PrinterName = "PDFCreator";
+            }
+
+            MyPrintDocument.DocumentName = "ReporteErogaciones";
+            //MyPrintDocument.DefaultPageSettings.Landscape = true;
+
+            //MyPrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Legal", 850, 1340);
+            MyPrintDocument.DefaultPageSettings.Margins = new Margins(40, 40, 40, 40);
+
+            MyDataGridViewPrinter = new ImprimirIngresos(tabla, MyPrintDocument, true, true, "I   N   G   R   E   S   O   S", new System.Drawing.Font("Tahoma", 12, FontStyle.Bold, GraphicsUnit.Point), Color.Black, true, nombreParroquia, ubicacionParroquia, mes.Text, anio.Text);
+
+            return true;
+        }
+
+        private void imprimir_Click(object sender, EventArgs e)
+        {
+            if (SetupThePrinting())
+            {
+                PrintPreviewDialog MyPrintPreviewDialog = new PrintPreviewDialog();
+                MyPrintPreviewDialog.Document = MyPrintDocument;
+                MyPrintPreviewDialog.ShowDialog();
+            }
         }
     }
 }
