@@ -237,7 +237,7 @@ class ImprimirIngresos
             else
                 TitleFormat.Alignment = StringAlignment.Near;
 
-            RectangleF TitleRectangle = new RectangleF((float)LeftMargin, CurrentY+5, (float)PageWidth - (float)RightMargin - (float)LeftMargin, g.MeasureString(TheTitleText, TheTitleFont).Height);
+            RectangleF TitleRectangle = new RectangleF((float)LeftMargin, CurrentY+1, (float)PageWidth - (float)RightMargin - (float)LeftMargin, g.MeasureString(TheTitleText, TheTitleFont).Height);
 
             g.DrawString(TheTitleText, TheTitleFont, new SolidBrush(TheTitleColor), TitleRectangle, TitleFormat);
 
@@ -528,7 +528,7 @@ class ImprimirIngresos
         StringFormat CellFormat = new StringFormat();
         CellFormat.Trimming = StringTrimming.Word;
         CellFormat.FormatFlags = StringFormatFlags.NoWrap | StringFormatFlags.LineLimit;
-
+        CellFormat.LineAlignment = StringAlignment.Far;
         // Printing each visible cell
         RectangleF RowBounds;
         float CurrentX;
