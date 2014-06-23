@@ -271,6 +271,7 @@
             this.pdf.Size = new System.Drawing.Size(62, 62);
             this.pdf.TabIndex = 2;
             this.pdf.UseVisualStyleBackColor = true;
+            this.pdf.Click += new System.EventHandler(this.pdf_Click);
             // 
             // imprimir
             // 

@@ -331,10 +331,10 @@ namespace Parroquia
                 MyPrintDocument.DefaultPageSettings.PrinterSettings.PrinterName = "PDFCreator";
             }
 
-            MyPrintDocument.DocumentName = "ReporteErogaciones";
-            //MyPrintDocument.DefaultPageSettings.Landscape = true;
+            String nombreDoc = "";
+            nombreDoc = "Ingresos_" + mes.Text + "_" + anio.Text;
+            MyPrintDocument.DocumentName = nombreDoc;
 
-            //MyPrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Legal", 850, 1340);
             MyPrintDocument.DefaultPageSettings.Margins = new Margins(40, 40, 40, 40);
             
             
@@ -373,7 +373,28 @@ namespace Parroquia
                 MyPrintPreviewDialog.Document = MyPrintDocument;
                 MyPrintPreviewDialog.ShowDialog();
             }
-          //  tabla.Columns.RemoveAt(7);
+        
+            int row = tabla.Rows.Count;
+            int dif = 24 - row;
+
+            for (int i = row; i < dif; i++)
+                tabla.Rows.RemoveAt(i);
+
+
+            tabla.Columns.RemoveAt(0);
+            fecha.Frozen = true;
+
+            actualizarDatos();
+        }
+
+        private void pdf_Click(object sender, EventArgs e)
+        {
+            guardar1 = true;
+            if (SetupThePrinting())
+            {
+                MyPrintDocument.Print();
+            }
+
             int row = tabla.Rows.Count;
             int dif = 24 - row;
 

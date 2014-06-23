@@ -45,7 +45,6 @@ namespace Parroquia
             this.configurarCoordenadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.descargarManualDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.busqueda = new System.Windows.Forms.TextBox();
@@ -192,7 +191,6 @@ namespace Parroquia
             // 
             this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.descargarManualDeUsuarioToolStripMenuItem,
-            this.acercaDeToolStripMenuItem,
             this.acercaDeToolStripMenuItem1});
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
@@ -204,13 +202,6 @@ namespace Parroquia
             this.descargarManualDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.descargarManualDeUsuarioToolStripMenuItem.Text = "Descargar manual de usuario";
             this.descargarManualDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.descargarManualDeUsuarioToolStripMenuItem_Click);
-            // 
-            // acercaDeToolStripMenuItem
-            // 
-            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
-            this.acercaDeToolStripMenuItem.Text = "Enviar correo electrónico";
-            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
             // acercaDeToolStripMenuItem1
             // 
@@ -571,7 +562,6 @@ namespace Parroquia
         private System.Windows.Forms.ToolStripMenuItem primeraComuniónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem matrimonioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem descargarManualDeUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem respaldoDeBDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem1;

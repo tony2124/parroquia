@@ -187,7 +187,10 @@ namespace Parroquia
                 MyPrintDocument.DefaultPageSettings.PrinterSettings.PrinterName = "PDFCreator";
             }
 
-            MyPrintDocument.DocumentName = "ReporteErogaciones";
+            String nombreDoc="";
+            nombreDoc = "Egresos_" + mes.Text + "_" + anio.Text;
+
+            MyPrintDocument.DocumentName = nombreDoc;
             MyPrintDocument.DefaultPageSettings.Landscape = true;
         
             MyPrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Legal", 850, 1340);
