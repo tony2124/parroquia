@@ -351,7 +351,7 @@
             this.otros_gastos.Name = "otros_gastos";
             this.otros_gastos.Size = new System.Drawing.Size(84, 21);
             this.otros_gastos.TabIndex = 9;
-            this.otros_gastos.Text = "900";
+            this.otros_gastos.Text = "0";
             this.otros_gastos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.otros_gastos.Leave += new System.EventHandler(this.otros_gastos_Leave);
             // 
@@ -362,7 +362,7 @@
             this.contador.Name = "contador";
             this.contador.Size = new System.Drawing.Size(84, 21);
             this.contador.TabIndex = 8;
-            this.contador.Text = "200";
+            this.contador.Text = "0";
             this.contador.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.contador.Leave += new System.EventHandler(this.contador_Leave);
             // 
