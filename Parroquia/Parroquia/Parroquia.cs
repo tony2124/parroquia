@@ -125,7 +125,7 @@ namespace Parroquia
 
         private void informacionDeLaParroquiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Informacion().Show();
+            new Informacion().ShowDialog();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -229,7 +229,7 @@ namespace Parroquia
 
         private void ingresosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Ingresos().Show();
+            new Ingresos().ShowDialog();
         }
 
         private void egresosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -332,7 +332,7 @@ namespace Parroquia
 
         private void descargarManualDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Process.Start("www.simpus.com.mx/parroquia/manual_usuario.pdf");
         }
 
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -342,7 +342,7 @@ namespace Parroquia
 
         private void acercaDeToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            new acercade().Show();
+            new acercade().ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)

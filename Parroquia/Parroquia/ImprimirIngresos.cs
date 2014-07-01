@@ -320,11 +320,11 @@ class ImprimirIngresos
            new Font("Times New Roman", 10, FontStyle.Regular),
              Brushes.Black, CurrentX, 742);
 
-        g.DrawString("200",
+        g.DrawString(CONTADOR,
            new Font("Times New Roman", 10, FontStyle.Regular),
              Brushes.Black, CurrentX, 762);
 
-        g.DrawString("900",
+        g.DrawString(OTROSGASTOS,
            new Font("Times New Roman", 10, FontStyle.Regular),
              Brushes.Black, CurrentX, 782);
 

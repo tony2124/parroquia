@@ -15,7 +15,7 @@ namespace Parroquia
 {
     public partial class Ingresos : Form
     {
-
+        bool contador_bool = false, otros_gastos_bool = false;
         static int num_columns = 6, num_rows = 5, num_dias_del_mes, primer_domingo;
         int[,] matriz_modificacion; // 0 -> null   1 -> ya registrado   2 -> modificado ya registrado  3 -> modificado no registrado
         double[,] matriz_mapeada; //matriz que mapea los datos a la tabla
@@ -88,12 +88,12 @@ namespace Parroquia
         public void restaurar(string mes, string anio)
         {
             DateTime fecha;
-            int concepto;
+            int concepto, fila;
             double cantidad;
 
             ConexionBD db = new ConexionBD();
             db.conexion();
-            MySqlDataReader Datos = db.obtenerBasesDatosMySQL("SELECT * FROM ingresos WHERE fecha >= '" + anio + "-" + mes + "-01' AND fecha <= '" + anio + "-" + mes + "-" + num_rows + "'");
+            MySqlDataReader Datos = db.obtenerBasesDatosMySQL("SELECT * FROM ingresos WHERE fecha >= '" + anio + "-" + mes + "-01' AND fecha <= '" + anio + "-" + mes + "-31'");
             if (Datos.HasRows)
             {
                 while (Datos.Read())
@@ -101,9 +101,24 @@ namespace Parroquia
                     fecha = Datos.GetDateTime(0);
                     concepto = Datos.GetInt32(1);
                     cantidad = Datos.GetDouble(2);
-                    matriz_mapeada[fecha.Day - 1, concepto] = cantidad;
-                    matriz_modificacion[fecha.Day - 1, concepto] = 1;
-                    tabla.Rows[fecha.Day - 1].Cells[concepto].Value = cantidad;
+                    fila = Datos.GetInt16(3);
+                   // MessageBox.Show(""+fila);
+                    if (concepto == 0)
+                    {
+                        contador_bool = true;
+                        contador.Text = "" + cantidad;
+                    }
+                    else if (concepto == 1)
+                    {
+                        otros_gastos_bool = true;
+                        otros_gastos.Text = "" + cantidad;
+                    }else
+                    {
+                        
+                        matriz_mapeada[fila, concepto] = cantidad;
+                        matriz_modificacion[fila, concepto] = 1;
+                        tabla.Rows[fila].Cells[concepto].Value = cantidad;
+                    }
                 }
             }
             Datos.Close();
@@ -234,26 +249,37 @@ namespace Parroquia
             ConexionBD datos = new ConexionBD();
             datos.conexion();
             int dia_inicial = 1;
-            for (int dia = 0; dia < num_rows; dia++)
-                for (int concep = 2; concep < num_columns; concep++, dia_inicial += 7)
+            for (int fila = 0; fila < num_rows; fila++, dia_inicial += 7)
+                for (int concep = 2; concep < num_columns; concep++)
                 {
-                    if (matriz_modificacion[dia, concep] == 2)
+                    if (matriz_modificacion[fila, concep] == 2)
                     {
                         String fecha = anio.Text + "-" + (mes.SelectedIndex + 1) + "-" + (dia_inicial);
-                        if (datos.peticion("UPDATE ingresos SET cantidad = " + matriz_mapeada[dia, concep] + " WHERE fecha = '" + fecha + "' AND concepto = " + concep) > 0)
+                        if (datos.peticion("UPDATE ingresos SET cantidad = " + matriz_mapeada[fila, concep] + " WHERE fecha = '" + fecha + "' AND concepto = " + concep) > 0)
                         {
-                            matriz_modificacion[dia, concep] = 1;
+                            matriz_modificacion[fila, concep] = 1;
                         }
                     }
-                    else if (matriz_modificacion[dia, concep] == 3)
+                    else if (matriz_modificacion[fila, concep] == 3)
                     {
                         String fecha = anio.Text + "-" + (mes.SelectedIndex + 1) + "-" + (dia_inicial);
-                        if (datos.peticion("INSERT INTO ingresos (fecha, concepto, cantidad) values('" + fecha + "'," + concep + "," + matriz_mapeada[dia, concep] + ")") > 0)
+                        if (datos.peticion("INSERT INTO ingresos (fecha, concepto, cantidad, fila) values('" + fecha + "'," + concep + "," + matriz_mapeada[fila, concep] + ","+fila+")") > 0)
                         {
-                            matriz_modificacion[dia, concep] = 1;
+                            matriz_modificacion[fila, concep] = 1;
                         }
                     }
                 }
+            String f = anio.Text + "-" + (mes.SelectedIndex + 1) + "-01";
+            if (!contador_bool)
+                datos.peticion("INSERT INTO ingresos (fecha, concepto, cantidad) values('" + f + "',0," + contador.Text + ")");
+            else
+                datos.peticion("UPDATE ingresos SET cantidad = " + contador.Text + " WHERE fecha = '" + f + "' AND concepto = 0");
+
+            if (!otros_gastos_bool)
+                datos.peticion("INSERT INTO ingresos (fecha, concepto, cantidad) values('" + f + "',1," + otros_gastos.Text + ")");
+            else
+                datos.peticion("UPDATE ingresos SET cantidad = " + otros_gastos.Text + " WHERE fecha = '" + f + "' AND concepto = 1");
+
             MessageBox.Show(this, "Datos guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -261,6 +287,13 @@ namespace Parroquia
         {
             if (contador.Text.CompareTo("") == 0)
                 contador.Text = "0";
+            try
+            {
+                Double.Parse(contador.Text);
+            }catch(Exception exc){
+                MessageBox.Show(this, "Introduce un número.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                contador.Text = "0";
+            }
             calculoTotales();
         }
 
@@ -268,6 +301,15 @@ namespace Parroquia
         {
             if (otros_gastos.Text.CompareTo("") == 0)
                 otros_gastos.Text = "0";
+            try
+            {
+                Double.Parse(otros_gastos.Text);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(this, "Introduce un número.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                otros_gastos.Text = "0";
+            }
             calculoTotales();
         }
 
