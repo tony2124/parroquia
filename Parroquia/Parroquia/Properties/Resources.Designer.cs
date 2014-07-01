@@ -83,6 +83,16 @@ namespace Parroquia.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bautismo1 {
+            get {
+                object obj = ResourceManager.GetObject("Bautismo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cancelar {
             get {
                 object obj = ResourceManager.GetObject("cancelar", resourceCulture);
@@ -106,6 +116,16 @@ namespace Parroquia.Properties {
         internal static System.Drawing.Bitmap confirmacion {
             get {
                 object obj = ResourceManager.GetObject("confirmacion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Confirmacion1 {
+            get {
+                object obj = ResourceManager.GetObject("Confirmacion1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,6 +216,16 @@ namespace Parroquia.Properties {
         internal static System.Drawing.Bitmap logo_simpus {
             get {
                 object obj = ResourceManager.GetObject("logo_simpus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Matrimonio {
+            get {
+                object obj = ResourceManager.GetObject("Matrimonio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -426,6 +456,16 @@ namespace Parroquia.Properties {
         internal static System.Drawing.Bitmap pdf {
             get {
                 object obj = ResourceManager.GetObject("pdf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PrimeraComunion {
+            get {
+                object obj = ResourceManager.GetObject("PrimeraComunion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

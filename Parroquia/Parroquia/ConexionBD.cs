@@ -16,7 +16,13 @@ namespace conexionbd
         public static bool carga_datos_desde_archivo = false, form = true, exit = false;
         public static string conex;
         private MySqlConnection conexionBD;
-        
+
+        public void verificarDirectorio(string dir)
+        {
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+                
+        }
 
         public ConexionBD(string h, string u, string pass, string port, string bd)
         {
@@ -25,6 +31,7 @@ namespace conexionbd
             contrasena = pass;
             puerto = port;
             basedatos = bd;
+            
         }
 
         public ConexionBD()
@@ -37,6 +44,7 @@ namespace conexionbd
                 puerto = "3306";
                 basedatos = "parroquiaantunez";
             }
+            verificarDirectorio("C:/DOCSParroquia");
         }
 
         public void conexion()
