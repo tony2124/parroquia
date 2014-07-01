@@ -263,11 +263,11 @@ namespace Parroquia
                 }
             }
 
-            ppD.Document = pd;
-            ppD.ShowDialog();
-            ppD.BringToFront();
+            //ppD.Document = pd;
+            //ppD.ShowDialog();
+            //ppD.BringToFront();
 
-           // pd.Print();
+            pd.Print();
         }
 
         //IMPRESION ORIGINAL DE MATRIMONIO
