@@ -34,17 +34,12 @@ namespace Parroquia
             edicion = false;
             ID_LIBRO = ID_libro;
 
-            calculoAnios();
-
             InitializeComponent();
 
             /* MODIFICACION DEL FORMULARIO EN CASO DE INSERCION DE REGISTRO */
             Text = "::INSERTAR REGISTRO DE BAUTISMO::";
             toolTip1.SetToolTip(guardar, ":: GUARDAR REGISTRO ::");
             toolTip1.SetToolTip(guardareimp, ":: GUARDAR E IMPRIMIR::");
-            anio.Items.AddRange(Bautismo.anios);
-            anio.Text = DateTime.Now.Year + "";
-           
 
             try
             {
@@ -63,9 +58,15 @@ namespace Parroquia
                     while (Datos.Read())
                         Partida++;
                 Datos.Close();
-                Bdatos.Desconectar();
-
                 num_partida.Text = "" + (Partida + 1);
+
+                /*Reestablecer la ultima fecha de bautismo*/
+                Datos = Bdatos.obtenerBasesDatosMySQL("select max(fecha_bautismo) from bautismos where id_libro =" + ID_LIBRO);
+                if (Datos.HasRows)
+                    if (Datos.Read())
+                        fechabautismo.Text = Datos.GetString(0);
+                Datos.Close();
+                Bdatos.Desconectar();
 
                 /*CALCULANDO LA HOJA*/    
                 Hoja = Math.Ceiling((Partida + 1) / 10.0);
@@ -82,7 +83,6 @@ namespace Parroquia
         {
             edicion = true;
             ID_REGISTRO = id_registro;
-            calculoAnios();
 
             InitializeComponent();
             habilitarCampos(false);
@@ -92,8 +92,6 @@ namespace Parroquia
             Text = "::MODIFICAR REGISTRO DE BAUTISMO::";
             toolTip1.SetToolTip(guardar, ":: MODIFICAR REGISTRO ::");
             toolTip1.SetToolTip(guardareimp, ":: IMPRIMIR::");
-            anio.Items.AddRange(Bautismo.anios);
-            anio.Text = DateTime.Now.Year + "";
             guardar.Image = global::Parroquia.Properties.Resources.actualizar;
 
             try
@@ -120,7 +118,6 @@ namespace Parroquia
                         madrina.Text = Datos.GetString(11);
                         presbitero.Text = Datos.GetString(12);
                         anotacion.Text = Datos.GetString(13);
-                        anio.Text = Datos.GetString(14);
                     }
                 }
                 Bdatos.Desconectar();
@@ -129,19 +126,6 @@ namespace Parroquia
             {
                 MessageBox.Show("Error al mostrar edicion. "+j.Message, " Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /* CALCULAR LOS AÑOS */
-        public void calculoAnios()
-        {
-            /*Calculo de años para el combobox */
-            anios = new Object[(DateTime.Now.Year - 1970) + 1];
-            int u = 0;
-            for (int i = 1970; i <= DateTime.Now.Year; i++)
-            {
-                anios[u] = i;
-                u++;
             }
         }
 
@@ -158,9 +142,8 @@ namespace Parroquia
             madrina.Enabled = enabled;
             presbitero.Enabled = enabled;
             anotacion.Enabled = enabled;
-            anio.Enabled = enabled;
             registronull.Enabled = enabled;
-            
+            registrobis.Enabled = enabled;
         }
 
         /*Se establecen en blanco todos los campos*/
@@ -172,8 +155,6 @@ namespace Parroquia
             madre.Text = "";
             padrino.Text = "";
             madrina.Text = "";
-            //fechanac.Value = DateTime.Now;
-            //fechabautismo.Value = DateTime.Now;
             lugarnac.Text = "";
             presbitero.Text = "";
             anotacion.Text = "";
@@ -221,7 +202,7 @@ namespace Parroquia
                 "','" + madrina.Text +
                     "','" + presbitero.Text +
                     "','" + anotacion.Text +
-                "','" + anio.Text +
+                "','" + fechabautismo.Value.Year +
                 "'," + bis + ");") > 0)
             {
                 MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -241,7 +222,7 @@ namespace Parroquia
                     "',fecha_nac='" + fechanac.Value.ToString("yyyy-MM-dd") + "',lugar_nac='" + lugarnac.Text +
                     "',fecha_bautismo='" + fechabautismo.Value.ToString("yyyy-MM-dd") + "',padrino='" + padrino.Text +
                     "',madrina='" + madrina.Text + "',presbitero='" + presbitero.Text +
-                    "',anotacion='" + anotacion.Text + "',anio='" + anio.Text + "' where id_bautismo= '" + ID_REGISTRO + "';") > 0)
+                    "',anotacion='" + anotacion.Text + "',anio='" + fechabautismo.Value.Year + "' where id_bautismo= '" + ID_REGISTRO + "';") > 0)
             {
                 
                 //Establecemos los componentes sin edicion

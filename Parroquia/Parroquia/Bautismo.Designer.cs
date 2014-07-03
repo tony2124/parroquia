@@ -56,16 +56,13 @@ namespace Parroquia
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.presbitero = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.anotacion = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.anio = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -351,16 +348,6 @@ namespace Parroquia
             this.presbitero.TabIndex = 10;
             this.presbitero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.presbitero_KeyPress);
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(543, 17);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(46, 17);
-            this.label15.TabIndex = 31;
-            this.label15.Text = "AÑO:";
-            // 
             // label16
             // 
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -388,17 +375,6 @@ namespace Parroquia
             this.label17.Size = new System.Drawing.Size(452, 23);
             this.label17.TabIndex = 36;
             this.label17.Text = "\"Él los bautizará en el nombre del Espíritu Santo y fuego. Mt. 3, 11\"";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(677, 14);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(12, 15);
-            this.label18.TabIndex = 37;
-            this.label18.Text = "*";
             // 
             // label19
             // 
@@ -443,15 +419,6 @@ namespace Parroquia
             this.label24.Size = new System.Drawing.Size(12, 15);
             this.label24.TabIndex = 43;
             this.label24.Text = "*";
-            // 
-            // anio
-            // 
-            this.anio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.anio.FormattingEnabled = true;
-            this.anio.Location = new System.Drawing.Point(596, 15);
-            this.anio.Name = "anio";
-            this.anio.Size = new System.Drawing.Size(77, 21);
-            this.anio.TabIndex = 44;
             // 
             // label20
             // 
@@ -511,7 +478,7 @@ namespace Parroquia
             // registronull
             // 
             this.registronull.AutoSize = true;
-            this.registronull.Location = new System.Drawing.Point(585, 50);
+            this.registronull.Location = new System.Drawing.Point(583, 17);
             this.registronull.Name = "registronull";
             this.registronull.Size = new System.Drawing.Size(88, 17);
             this.registronull.TabIndex = 50;
@@ -522,7 +489,7 @@ namespace Parroquia
             // registrobis
             // 
             this.registrobis.AutoSize = true;
-            this.registrobis.Location = new System.Drawing.Point(450, 50);
+            this.registrobis.Location = new System.Drawing.Point(583, 40);
             this.registrobis.Name = "registrobis";
             this.registrobis.Size = new System.Drawing.Size(81, 17);
             this.registrobis.TabIndex = 50;
@@ -596,19 +563,16 @@ namespace Parroquia
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.anio);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.anotacion);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.cancelar);
             this.Controls.Add(this.guardareimp);
             this.Controls.Add(this.guardar);
-            this.Controls.Add(this.label15);
             this.Controls.Add(this.presbitero);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label11);
@@ -668,13 +632,11 @@ namespace Parroquia
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button guardar;
         private System.Windows.Forms.Button guardareimp;
         private System.Windows.Forms.Button cancelar;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
@@ -700,6 +662,5 @@ namespace Parroquia
         public System.Windows.Forms.TextBox padrino;
         public System.Windows.Forms.TextBox presbitero;
         public System.Windows.Forms.TextBox anotacion;
-        public System.Windows.Forms.ComboBox anio;
     }
 }
