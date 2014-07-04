@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using conexionbd;
 using System.Drawing.Printing;
+using System.Data.SqlClient;
 
 namespace Parroquia
 {
@@ -40,6 +41,11 @@ namespace Parroquia
             Text = "::INSERTAR REGISTRO DE BAUTISMO::";
             toolTip1.SetToolTip(guardar, ":: GUARDAR REGISTRO ::");
             toolTip1.SetToolTip(guardareimp, ":: GUARDAR E IMPRIMIR::");
+
+            //cargar los datos para el autocomplete del textbox
+            lugarnac.AutoCompleteCustomSource = Autocomplete();
+            lugarnac.AutoCompleteMode = AutoCompleteMode.Suggest;
+            lugarnac.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             try
             {
@@ -93,6 +99,11 @@ namespace Parroquia
             toolTip1.SetToolTip(guardar, ":: MODIFICAR REGISTRO ::");
             toolTip1.SetToolTip(guardareimp, ":: IMPRIMIR::");
             guardar.Image = global::Parroquia.Properties.Resources.actualizar;
+
+            //cargar los datos para el autocomplete del textbox
+            lugarnac.AutoCompleteCustomSource = Autocomplete();
+            lugarnac.AutoCompleteMode = AutoCompleteMode.Suggest;
+            lugarnac.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             try
             {  
@@ -241,6 +252,34 @@ namespace Parroquia
             return false;
         }
 
+        //metodo para cargar los datos de la bd
+        public DataTable DatosAutocomplete()
+        {
+            DataTable dt = new DataTable();
+            string consulta = "SELECT lugar_nac FROM bautismos"; //consulta a la tabla paises
+            MySqlCommand comando = new MySqlCommand(consulta, ConexionBD.conexionBD);
+            MySqlDataAdapter adap = new MySqlDataAdapter(comando);
+            adap.Fill(dt);
+            return dt;
+        }
+
+        //metodo para cargar la coleccion de datos para el autocomplete
+        public AutoCompleteStringCollection Autocomplete()
+        {
+            DataTable dt = DatosAutocomplete();
+
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+            //recorrer y cargar los items para el autocompletado
+            foreach (DataRow row in dt.Rows)
+            {
+                coleccion.Add(Convert.ToString(row["lugar_nac"]));
+            }
+
+            return coleccion;
+        }
+
+
+        //CLICK
         private void guardar_Click(object sender, EventArgs e)
         {
             if (!edicion)//si no esta puesta edicion se guarda normalmente
@@ -257,7 +296,7 @@ namespace Parroquia
                 if (btn == false)
                 {
                     btn = true;
-                    guardar.Image = global::Parroquia.Properties.Resources.guardar1;
+                    guardar.Image = global::Parroquia.Properties.Resources.guardar;
                     guardareimp.Enabled = false;
                     toolTip1.SetToolTip(guardar, ":: GUARDAR REGISTRO ::");
                     habilitarCampos(true);
@@ -287,14 +326,7 @@ namespace Parroquia
 
                 if(guardarRegistro()){
                         
-                        //IMPRIME
-
-                    /* Imprimir a = new Imprimir(libro.Text, num_hoja.Text,
-                        num_partida.Text, nombre.Text, padre.Text, madre.Text, 
-                        lugarnac.Text,fechanac.Value.ToString("yyyy-MMMM-dd"), 
-                        fechabautismo.Value.ToString("yyyy-MMMM-dd"),
-                        presbitero.Text,madrina.Text, padrino.Text, anotacion.Text);*/
-
+                //IMPRIME
                     formatosImpresion fi = new formatosImpresion(libro.Text, num_hoja.Text,
                         num_partida.Text, nombre.Text, padre.Text, madre.Text,
                         lugarnac.Text, fechanac.Value.ToString("yyyy-MMMM-dd"),
@@ -304,16 +336,9 @@ namespace Parroquia
 
                     calculaPartida();                     
                 }
-
             }
             else
             {
-                //IMPRIME
-               /* Imprimir a = new Imprimir(libro.Text, num_hoja.Text,
-                               num_partida.Text, nombre.Text, padre.Text, madre.Text,
-                               lugarnac.Text, fechanac.Value.ToString("yyyy-MMMM-dd"),
-                               fechabautismo.Value.ToString("yyyy-MMMM-dd"),
-                               presbitero.Text, madrina.Text, padrino.Text, anotacion.Text);*/
 
                 formatosImpresion fi = new formatosImpresion(libro.Text, num_hoja.Text,
                             num_partida.Text, nombre.Text, padre.Text, madre.Text,
@@ -419,6 +444,5 @@ namespace Parroquia
         {
             botones(e);
         }
-
     }
 }

@@ -32,15 +32,12 @@ namespace Parroquia
             this.components = new System.ComponentModel.Container();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.anio = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.asistente = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -96,17 +93,6 @@ namespace Parroquia
             this.label20.Size = new System.Drawing.Size(12, 15);
             this.label20.TabIndex = 75;
             this.label20.Text = "*";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(686, 19);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(12, 15);
-            this.label19.TabIndex = 74;
-            this.label19.Text = "*";
             // 
             // label18
             // 
@@ -170,25 +156,6 @@ namespace Parroquia
             this.label5.Size = new System.Drawing.Size(199, 15);
             this.label5.TabIndex = 53;
             this.label5.Text = "DATOS DE LOS CÓNYUGUES:";
-            // 
-            // anio
-            // 
-            this.anio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.anio.FormattingEnabled = true;
-            this.anio.Location = new System.Drawing.Point(592, 16);
-            this.anio.Name = "anio";
-            this.anio.Size = new System.Drawing.Size(89, 21);
-            this.anio.TabIndex = 70;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(540, 18);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(46, 17);
-            this.label15.TabIndex = 69;
-            this.label15.Text = "AÑO:";
             // 
             // asistente
             // 
@@ -324,7 +291,7 @@ namespace Parroquia
             // 
             this.num_partida.Enabled = false;
             this.num_partida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num_partida.Location = new System.Drawing.Point(420, 16);
+            this.num_partida.Location = new System.Drawing.Point(469, 16);
             this.num_partida.Name = "num_partida";
             this.num_partida.ReadOnly = true;
             this.num_partida.Size = new System.Drawing.Size(71, 23);
@@ -335,7 +302,7 @@ namespace Parroquia
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(339, 19);
+            this.label3.Location = new System.Drawing.Point(388, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 17);
             this.label3.TabIndex = 47;
@@ -345,7 +312,7 @@ namespace Parroquia
             // 
             this.num_hoja.Enabled = false;
             this.num_hoja.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num_hoja.Location = new System.Drawing.Point(236, 16);
+            this.num_hoja.Location = new System.Drawing.Point(267, 16);
             this.num_hoja.Name = "num_hoja";
             this.num_hoja.ReadOnly = true;
             this.num_hoja.Size = new System.Drawing.Size(79, 23);
@@ -356,7 +323,7 @@ namespace Parroquia
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(180, 19);
+            this.label2.Location = new System.Drawing.Point(211, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 17);
             this.label2.TabIndex = 42;
@@ -428,7 +395,7 @@ namespace Parroquia
             // registronull
             // 
             this.registronull.AutoSize = true;
-            this.registronull.Location = new System.Drawing.Point(592, 58);
+            this.registronull.Location = new System.Drawing.Point(592, 19);
             this.registronull.Name = "registronull";
             this.registronull.Size = new System.Drawing.Size(88, 17);
             this.registronull.TabIndex = 82;
@@ -439,7 +406,7 @@ namespace Parroquia
             // registrobis
             // 
             this.registrobis.AutoSize = true;
-            this.registrobis.Location = new System.Drawing.Point(450, 58);
+            this.registrobis.Location = new System.Drawing.Point(592, 45);
             this.registrobis.Name = "registrobis";
             this.registrobis.Size = new System.Drawing.Size(81, 17);
             this.registrobis.TabIndex = 50;
@@ -521,7 +488,6 @@ namespace Parroquia
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -531,8 +497,6 @@ namespace Parroquia
             this.Controls.Add(this.guardareimp);
             this.Controls.Add(this.guardar);
             this.Controls.Add(this.cancelBtnConfirmacion);
-            this.Controls.Add(this.anio);
-            this.Controls.Add(this.label15);
             this.Controls.Add(this.asistente);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label11);
@@ -569,7 +533,6 @@ namespace Parroquia
 
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
@@ -579,8 +542,6 @@ namespace Parroquia
         private System.Windows.Forms.Button guardareimp;
         private System.Windows.Forms.Button guardar;
         private System.Windows.Forms.Button cancelBtnConfirmacion;
-        private System.Windows.Forms.ComboBox anio;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox asistente;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;

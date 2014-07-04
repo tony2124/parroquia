@@ -32,7 +32,6 @@ namespace Parroquia
         {
             edicion = false;
             ID_LIBRO = ID_libro;
-            calculoAnios();
 
             InitializeComponent();
 
@@ -40,38 +39,49 @@ namespace Parroquia
             Text = "::INSERTAR REGISTRO DE PRIMERA COMUNIÓN ::";
             toolTip1.SetToolTip(guardar, ":: GUARDAR REGISTRO ::");
             toolTip1.SetToolTip(guardareimp, ":: GUARDAR E IMPRIMIR::");
-            anio.Items.AddRange(anios);
-            anio.Text = DateTime.Now.Year + "";
+
+            //cargar los datos para el autocomplete del textbox
+            lugar_bautismo.AutoCompleteCustomSource = Autocomplete();
+            lugar_bautismo.AutoCompleteMode = AutoCompleteMode.Suggest;
+            lugar_bautismo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            
             try
             {
                 Bdatos.conexion();
 
-                Datos = Bdatos.obtenerBasesDatosMySQL("select nombre_libro from libros where id_libro="+ID_LIBRO+";");
+                Datos = Bdatos.obtenerBasesDatosMySQL("select nombre_libro from libros where id_libro = " + ID_LIBRO);
 
                 if (Datos.HasRows)
                 {
                     while (Datos.Read()) {
                         libro.Text = Datos.GetString(0).ToString();
-                        
                     }
                 }
                 Datos.Close();
 
                 /*Estableciendo la partida*/
                 Partida = 0;
-                Datos = Bdatos.obtenerBasesDatosMySQL("select id_comunion from comuniones where id_libro =" + ID_LIBRO + "  AND bis=0;");
+                Datos = Bdatos.obtenerBasesDatosMySQL("select id_comunion from comuniones where id_libro = " + ID_LIBRO + "  AND bis = 0");
 
                 if (Datos.HasRows)
                     while (Datos.Read())
                         Partida++;
 
                 num_partida.Text = "" + (Partida+1);
-         
+                Datos.Close();
+
+                /*Reestablecer la ultima fecha de primera comunion*/
+                Datos = Bdatos.obtenerBasesDatosMySQL("select max(fecha_comunion) from comuniones where id_libro = " + ID_LIBRO);
+                if (Datos.HasRows)
+                    if (Datos.Read())
+                        fechaPrimerCom.Text = Datos.GetString(0);
+                Datos.Close();
+
                 /*CALCULANDO LA HOJA*/
                 Hoja = Math.Ceiling((Partida + 1) / 10.0);
 
                 num_hoja.Text = "" + Hoja;
-              
+                
                 Bdatos.Desconectar();
             }
             catch (Exception r) { MessageBox.Show("Error: " + r.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -84,16 +94,19 @@ namespace Parroquia
             edicion = true;
             ID_REGISTRO = id_registro;
             InitializeComponent();
-            calculoAnios();
             habilitarCampos(false);
-            calculoAnios();
+
             /* MODIFICACION DEL FORMULARIO EN CASO DE EDICION DE BAUTISMO */
             registrobis.Visible = false;
             Text = "::MODIFICAR REGISTRO DE PRIMERA COMUNIÓN ::";
             toolTip1.SetToolTip(guardar, ":: MODIFICAR REGISTRO ::");
             toolTip1.SetToolTip(guardareimp, ":: IMPRIMIR::");
-            anio.Items.AddRange(anios);
-            anio.Text = DateTime.Now.Year + "";
+
+            //cargar los datos para el autocomplete del textbox
+            lugar_bautismo.AutoCompleteCustomSource = Autocomplete();
+            lugar_bautismo.AutoCompleteMode = AutoCompleteMode.Suggest;
+            lugar_bautismo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
             guardar.Image = global::Parroquia.Properties.Resources.actualizar;
             try
             {  
@@ -116,7 +129,6 @@ namespace Parroquia
                         lugar_bautismo.Text = Datos.GetString(9);
                         padrino.Text = Datos.GetString(10);
                         madrina.Text = Datos.GetString(11); 
-                        anio.Text = Datos.GetString(12);
                     }
                 }
                 Bdatos.Desconectar();
@@ -128,18 +140,6 @@ namespace Parroquia
             }
         }
 
-        /* CALCULAR LOS AÑOS */
-        public void calculoAnios()
-        {
-            /*Calculo de años para el combobox */
-            anios = new Object[(DateTime.Now.Year - 1970) + 1];
-            int u = 0;
-            for (int i = 1970; i <= DateTime.Now.Year; i++)
-            {
-                anios[u] = i;
-                u++;
-            }
-        }
 
         /* HABILITA O DESHABILITA LOS CAMPOS */
         public void habilitarCampos(Boolean enabled)
@@ -152,10 +152,8 @@ namespace Parroquia
             lugar_bautismo.Enabled = enabled;
             padrino.Enabled = enabled;
             madrina.Enabled = enabled;
-            anio.Enabled = enabled;
             registronull.Enabled = enabled;
             registrobis.Enabled = enabled;
-
         }
 
         /*Se establecen en blanco todos los campos*/
@@ -222,7 +220,7 @@ namespace Parroquia
                 "','" + lugar_bautismo.Text +
                 "','" + padrino.Text +
                 "','" + madrina.Text +
-                "','" + anio.Text +
+                "','" + fechaPrimerCom.Value.Year +
                 "'," + bis + ");") > 0)
             {
                 MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -242,7 +240,7 @@ namespace Parroquia
                 "',padre='" + padre.Text + "',madre='" + madre.Text +
                 "',fecha_comunion='" + fechaPrimerCom.Value.ToString("yyyy-MM-dd") + "',fecha_bautismo='" + fecha_bautism.Value.ToString("yyyy-MM-dd") +
                 "',lugar_bautismo='" + lugar_bautismo.Text + "',padrino='" + padrino.Text +
-                "',madrina='" + madrina.Text + "',anio='" + anio.Text +
+                "',madrina='" + madrina.Text + "',anio='" + fechaPrimerCom.Value.Year +
                 "' where id_comunion= '" + ID_REGISTRO + "';") > 0)
             {
                 //Establecemos los componentes sin edicion
@@ -286,7 +284,7 @@ namespace Parroquia
                 if (btn == false)
                 {
                     btn = true;
-                    guardar.Image = global::Parroquia.Properties.Resources.guardar1;
+                    guardar.Image = global::Parroquia.Properties.Resources.guardar;
                     guardareimp.Enabled = false;
                     toolTip1.SetToolTip(guardar, ":: GUARDAR REGISTRO ::");
                     habilitarCampos(true);
@@ -340,6 +338,31 @@ namespace Parroquia
             }
         }
 
+        //metodo para cargar los datos de la bd
+        public DataTable DatosAutocomplete()
+        {
+            DataTable dt = new DataTable();
+            string consulta = "SELECT lugar_bautismo FROM comuniones"; //consulta a la tabla paises
+            MySqlCommand comando = new MySqlCommand(consulta, ConexionBD.conexionBD);
+            MySqlDataAdapter adap = new MySqlDataAdapter(comando);
+            adap.Fill(dt);
+            return dt;
+        }
+
+        //metodo para cargar la coleccion de datos para el autocomplete
+        public AutoCompleteStringCollection Autocomplete()
+        {
+            DataTable dt = DatosAutocomplete();
+
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+            //recorrer y cargar los items para el autocompletado
+            foreach (DataRow row in dt.Rows)
+            {
+                coleccion.Add(Convert.ToString(row["lugar_bautismo"]));
+            }
+
+            return coleccion;
+        }
 
         private void nombre_KeyPress(object sender, KeyPressEventArgs e)
         {

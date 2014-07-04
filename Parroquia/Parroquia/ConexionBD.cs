@@ -15,7 +15,7 @@ namespace conexionbd
         public static string usuario, contrasena, basedatos, host, puerto;
         public static bool carga_datos_desde_archivo = false, form = true, exit = false;
         public static string conex;
-        private MySqlConnection conexionBD;
+        public static MySqlConnection conexionBD;
 
         public void verificarDirectorio(string dir)
         {

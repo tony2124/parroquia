@@ -33,7 +33,6 @@ namespace Parroquia
         {
             edicion = false;
             ID_LIBRO = ID_libro;
-            calculoAnios();
             InitializeComponent();
             
             try
@@ -52,9 +51,11 @@ namespace Parroquia
                 toolTip1.SetToolTip(this.guardarConfirBtn, ":: GUARDAR REGISTRO ::");
                 toolTip1.SetToolTip(this.guardaImprimeBtn, ":: GUARDAR E IMPRIMIR ::");
                 Text = ":: INSERTAR REGISTRO DE CONFIRMACIÓN ::";
-                anioCombo.Items.AddRange(Confirmacion.anios);
-                anioCombo.Text = DateTime.Now.Year + "";
-
+            
+                //cargar los datos para el autocomplete del textbox
+                lugarbau.AutoCompleteCustomSource = Autocomplete();
+                lugarbau.AutoCompleteMode = AutoCompleteMode.Suggest;
+                lugarbau.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
                 /*Estableciendo la partida*/
                 Partida = 0;
@@ -63,8 +64,15 @@ namespace Parroquia
                 if (Datos.HasRows)
                     while (Datos.Read())
                         Partida++;
-
+                Datos.Close();
                 num_partida.Text = "" + (Partida+1);
+
+                /*Reestablecer la ultima fecha de bautismo*/
+                Datos = Bdatos.obtenerBasesDatosMySQL("select max(fecha_confirmacion) from confirmaciones where id_libro =" + ID_LIBRO);
+                if (Datos.HasRows)
+                    if (Datos.Read())
+                        fecconf.Text = Datos.GetString(0);
+                Datos.Close();
 
                 /*CALCULANDO LA HOJA*/
                 Hoja = Math.Ceiling((Partida + 1) / 10.0);
@@ -82,7 +90,6 @@ namespace Parroquia
         {  
             edicion = true;
             ID_REGISTRO = id_registro;
-            calculoAnios();
 
             InitializeComponent();
             //Establecemos los componentes sin edicion
@@ -94,8 +101,11 @@ namespace Parroquia
             toolTip1.SetToolTip(this.guardarConfirBtn, ":: MODIFICAR REGISTRO ::");
             toolTip1.SetToolTip(this.guardaImprimeBtn, ":: IMPRIMIR ::");
             Text = ":: MODIFICAR REGISTRO DE CONFIRMACIÓN ::";
-            anioCombo.Items.AddRange(Confirmacion.anios);
-            anioCombo.Text = DateTime.Now.Year + "";
+
+            //cargar los datos para el autocomplete del textbox
+            lugarbau.AutoCompleteCustomSource = Autocomplete();
+            lugarbau.AutoCompleteMode = AutoCompleteMode.Suggest;
+            lugarbau.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             try
             {  
@@ -119,7 +129,7 @@ namespace Parroquia
                         padrino.Text = Datos.GetString(10);
                         madrina.Text = Datos.GetString(11);
                         ministro.Text = Datos.GetString(12);
-                        anioCombo.Text = Datos.GetString(13);
+                       
                     }
                 }
                 Bdatos.Desconectar();
@@ -128,19 +138,6 @@ namespace Parroquia
             {
                 MessageBox.Show("Error al mostrar edicion. "+j.Message, " Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /* CALCULAR LOS AÑOS */
-        public void calculoAnios()
-        {
-            /*Calculo de años para el combobox */
-            anios = new Object[(DateTime.Now.Year - 1970) + 1];
-            int u = 0;
-            for (int i = 1970; i <= DateTime.Now.Year; i++)
-            {
-                anios[u] = i+"";
-                u++;
             }
         }
 
@@ -156,7 +153,6 @@ namespace Parroquia
             padrino.Enabled = enabled;
             madrina.Enabled = enabled;
             ministro.Enabled = enabled;
-            anioCombo.Enabled = enabled;
             registronull.Enabled = enabled;
             registrobis.Enabled = enabled;
         }
@@ -170,8 +166,6 @@ namespace Parroquia
             madre.Text = "";
             padrino.Text = "";
             madrina.Text = "";
-            //fecbau.Value = DateTime.Now;
-            //fecconf.Value = DateTime.Now;
             lugarbau.Text = "";
             ministro.Text = "";
         }
@@ -180,12 +174,12 @@ namespace Parroquia
         public Boolean camposVacios()
         {
             if ((nombre.Text.ToString().CompareTo("") == 0) ||
-                       (padre.Text.ToString().CompareTo("") == 0) ||
-                       (madre.Text.ToString().CompareTo("") == 0) ||
-                       (padrino.Text.ToString().CompareTo("") == 0) ||
-                       (madrina.Text.ToString().CompareTo("") == 0) ||
-                       (lugarbau.Text.ToString().CompareTo("") == 0) ||
-                       (ministro.Text.ToString().CompareTo("") == 0))
+                       (padre.Text.CompareTo("") == 0) ||
+                       (madre.Text.CompareTo("") == 0) ||
+                       (padrino.Text.CompareTo("") == 0) ||
+                       (madrina.Text.CompareTo("") == 0) ||
+                       (lugarbau.Text.CompareTo("") == 0) ||
+                       (ministro.Text.CompareTo("") == 0))
             {
                 MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error",
                MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -221,7 +215,7 @@ namespace Parroquia
                     "','" + padrino.Text +
                     "','" + madrina.Text +
                     "','" + ministro.Text +
-                    "','" + anioCombo.Text +
+                    "','" + fecconf.Value.Year +
                     "'," + bis + ");") > 0)
             {
                 MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -238,7 +232,6 @@ namespace Parroquia
 
             if (!edicion)//si no esta puesta edicion se guarda normalmente
             {
-
                 if (!registronull.Checked)
                     if (camposVacios())
                         return;
@@ -250,7 +243,7 @@ namespace Parroquia
                 if (btn == false)
                 {
                     btn = true;
-                    guardarConfirBtn.Image = global::Parroquia.Properties.Resources.guardar1;
+                    guardarConfirBtn.Image = global::Parroquia.Properties.Resources.guardar;
                     guardaImprimeBtn.Enabled = false;
                     toolTip1.SetToolTip(guardarConfirBtn, ":: GUARDAR REGISTRO ::");
                     habilitarCampos(true);
@@ -276,7 +269,7 @@ namespace Parroquia
                      "',fecha_confirmacion='" + fecconf.Value.ToString("yyyy-MM-dd") + "',fecha_bautismo='" + fecbau.Value.ToString("yyyy-MM-dd") +
                      "',lugar_bautismo='" + lugarbau.Text + "',padrino='" + padrino.Text +
                      "',madrina='" + madrina.Text + "',presbitero='" + ministro.Text +
-                     "',anio='" + anioCombo.Text + "' where id_confirmacion= '" + ID_REGISTRO + "';") > 0)
+                     "',anio='" + fecconf.Value.Year + "' where id_confirmacion= '" + ID_REGISTRO + "';") > 0)
             {
                 btn = false;
                 this.guardaImprimeBtn.Enabled = true;
@@ -330,6 +323,31 @@ namespace Parroquia
             }
         }
 
+        //metodo para cargar los datos de la bd
+        public DataTable DatosAutocomplete()
+        {
+            DataTable dt = new DataTable();
+            string consulta = "SELECT lugar_bautismo FROM confirmaciones"; //consulta a la tabla paises
+            MySqlCommand comando = new MySqlCommand(consulta, ConexionBD.conexionBD);
+            MySqlDataAdapter adap = new MySqlDataAdapter(comando);
+            adap.Fill(dt);
+            return dt;
+        }
+
+        //metodo para cargar la coleccion de datos para el autocomplete
+        public AutoCompleteStringCollection Autocomplete()
+        {
+            DataTable dt = DatosAutocomplete();
+
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+            //recorrer y cargar los items para el autocompletado
+            foreach (DataRow row in dt.Rows)
+            {
+                coleccion.Add(Convert.ToString(row["lugar_bautismo"]));
+            }
+
+            return coleccion;
+        }
 
         private void nombre_KeyPress(object sender, KeyPressEventArgs e)
         {

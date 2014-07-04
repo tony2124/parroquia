@@ -31,23 +31,23 @@ namespace Parroquia
         public Matrimonio(String ID_libro)
         {
             ID_LIBRO = ID_libro;
-
-            calculoAnios();
-
             InitializeComponent();
             
             /* MODIFICACION DEL FORMULARIO EN CASO DE INSERCION DE REGISTRO */
             Text = "::INSERTAR REGISTRO DE MATRIMONIO::";
             toolTip1.SetToolTip(guardar, ":: GUARDAR REGISTRO ::");
             toolTip1.SetToolTip(guardareimp, ":: GUARDAR E IMPRIMIR::");
-            anio.Items.AddRange(anios);
-            anio.Text = DateTime.Now.Year + "";
+
+            //cargar los datos para el autocomplete del textbox
+            lugar_celebracion.AutoCompleteCustomSource = Autocomplete();
+            lugar_celebracion.AutoCompleteMode = AutoCompleteMode.Suggest;
+            lugar_celebracion.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             try
             {
                 Bdatos.conexion();
 
-                Datos = Bdatos.obtenerBasesDatosMySQL("select nombre_libro from libros where id_libro=" + ID_LIBRO + ";");
+                Datos = Bdatos.obtenerBasesDatosMySQL("select nombre_libro from libros where id_libro=" + ID_LIBRO );
 
                 if (Datos.HasRows)
                 {
@@ -61,7 +61,7 @@ namespace Parroquia
 
                 /*Estableciendo la partida*/
                 Partida = 0;
-                Datos = Bdatos.obtenerBasesDatosMySQL("select id_matrimonio from matrimonios where id_libro =" + ID_LIBRO + " AND bis=0;");
+                Datos = Bdatos.obtenerBasesDatosMySQL("select id_matrimonio from matrimonios where id_libro =" + ID_LIBRO + " AND bis = 0");
 
                 if (Datos.HasRows)
                 {
@@ -76,10 +76,18 @@ namespace Parroquia
                 /*CALCULANDO LA HOJA*/
                 Hoja = Math.Ceiling((Partida + 1) / 10.0);
                 num_hoja.Text = "" + Hoja;
+                Datos.Close();
+
+                /*Reestablecer la ultima fecha de primera comunion*/
+                Datos = Bdatos.obtenerBasesDatosMySQL("select max(fecha_matrimonio) from matrimonios where id_libro = " + ID_LIBRO);
+                if (Datos.HasRows)
+                    if (Datos.Read())
+                        fecha_Matrimonio.Text = Datos.GetString(0);
+                Datos.Close();
+
                 Bdatos.Desconectar();
             }
             catch (Exception r) { MessageBox.Show("Error: " + r.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-
         }
 
         //CONSTRUCTOR PARA EDICIONES
@@ -87,8 +95,6 @@ namespace Parroquia
         {
             edicion = true;
             ID_REGISTRO = id_registro;
-
-            calculoAnios();
 
             InitializeComponent();
             habilitarCampos(false);
@@ -98,9 +104,12 @@ namespace Parroquia
             Text = "::MODIFICAR REGISTRO DE MATRIMONIO::";
             toolTip1.SetToolTip(guardar, ":: MODIFICAR REGISTRO ::");
             toolTip1.SetToolTip(guardareimp, ":: IMPRIMIR::");
-            anio.Items.AddRange(anios);
-            anio.Text = DateTime.Now.Year + "";
             guardar.Image = global::Parroquia.Properties.Resources.actualizar;
+
+            //cargar los datos para el autocomplete del textbox
+            lugar_celebracion.AutoCompleteCustomSource = Autocomplete();
+            lugar_celebracion.AutoCompleteMode = AutoCompleteMode.Suggest;
+            lugar_celebracion.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             try
             {  
@@ -123,7 +132,6 @@ namespace Parroquia
                         testigo2.Text = Datos.GetString(9);
                         asistente.Text = Datos.GetString(10);
                         notas_marginales.Text = Datos.GetString(11); 
-                        anio.Text = Datos.GetString(12);
                     }
                 }
                 Bdatos.Desconectar();
@@ -132,19 +140,6 @@ namespace Parroquia
             {
                 MessageBox.Show("Error al mostrar edicion. "+j.Message, " Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /* CALCULAR LOS AÑOS */
-        public void calculoAnios()
-        {
-            /*Calculo de años para el combobox */
-            anios = new Object[(DateTime.Now.Year - 1970) + 1];
-            int u = 0;
-            for (int i = 1970; i <= DateTime.Now.Year; i++)
-            {
-                anios[u] = i;
-                u++;
             }
         }
 
@@ -159,10 +154,8 @@ namespace Parroquia
             testigo2.Enabled = enabled;
             asistente.Enabled = enabled;
             notas_marginales.Enabled = enabled;
-            anio.Enabled = enabled;
             registronull.Enabled = enabled;
             registrobis.Enabled = enabled;
-
         }
 
         /*Se establecen en blanco todos los campos*/
@@ -175,7 +168,6 @@ namespace Parroquia
             testigo1.Text = "";
             testigo2.Text = "";
             asistente.Text = "";
-            //fecha_Matrimonio.Value = DateTime.Now;
             notas_marginales.Text = "";
            
         }
@@ -194,6 +186,32 @@ namespace Parroquia
                 return true;
             }
             return false;
+        }
+
+        //metodo para cargar los datos de la bd
+        public DataTable DatosAutocomplete()
+        {
+            DataTable dt = new DataTable();
+            string consulta = "SELECT lugar_celebracion FROM matrimonios"; //consulta a la tabla paises
+            MySqlCommand comando = new MySqlCommand(consulta, ConexionBD.conexionBD);
+            MySqlDataAdapter adap = new MySqlDataAdapter(comando);
+            adap.Fill(dt);
+            return dt;
+        }
+
+        //metodo para cargar la coleccion de datos para el autocomplete
+        public AutoCompleteStringCollection Autocomplete()
+        {
+            DataTable dt = DatosAutocomplete();
+
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+            //recorrer y cargar los items para el autocompletado
+            foreach (DataRow row in dt.Rows)
+            {
+                coleccion.Add(Convert.ToString(row["lugar_celebracion"]));
+            }
+
+            return coleccion;
         }
 
          /*INSERTAR REGISTRO EN LA BD */
@@ -218,7 +236,7 @@ namespace Parroquia
                 "','" + testigo2.Text +
                 "','" + asistente.Text +
                 "','" + notas_marginales.Text +
-                "','" + anio.Text +
+                "','" + fecha_Matrimonio.Value.Year +
                 "'," + bis + ");") > 0)
             {
                 MessageBox.Show("Datos ingresados correctamente ", " Acción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -239,7 +257,7 @@ namespace Parroquia
                     "',novia='" + novia.Text + "',fecha_matrimonio='" + fecha_Matrimonio.Value.ToString("yyyy-MM-dd") +
                     "',lugar_celebracion='" + lugar_celebracion.Text + "',testigo1='" + testigo1.Text +
                     "',testigo2='" + testigo2.Text + "',asistente='" + asistente.Text +
-                    "',nota_marginal='" + notas_marginales.Text + "',anio='" + anio.Text +
+                    "',nota_marginal='" + notas_marginales.Text + "',anio='" + fecha_Matrimonio.Value.Year +
                     "' where id_matrimonio= '" + ID_REGISTRO + "';") > 0)
             {
                 //Establecemos los componentes sin edicion
