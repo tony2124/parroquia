@@ -44,7 +44,7 @@ namespace Parroquia
             if(CATEGORIA == 1){
                 if (FORMATO == 0)
                     newImage = global::Parroquia.Properties.Resources.Bautismo1;
-               /* else if (FORMATO == 1)
+              /*  else if (FORMATO == 1)
                     newImage = Image.FromFile("C:\\DOCSParroquia\\BautismoFormatoOriginal1.jpg");
                 else if(FORMATO == 2)
                     newImage = Image.FromFile("C:\\DOCSParroquia\\BautismoFormatoOriginal2.jpg");*/
@@ -53,17 +53,17 @@ namespace Parroquia
             {
                 if (FORMATO == 0)
                     newImage = global::Parroquia.Properties.Resources.Confirmacion1;
-               /* else if (FORMATO == 1)
+         /*       else if (FORMATO == 1)
                 {
                     newImage = Image.FromFile("C:\\DOCSParroquia\\ConfirmacionOriginal.jpg");
-                }*/
-
+                }
+                */
             }
             else if (CATEGORIA == 3)
             {
                 if (FORMATO == 0)
                     newImage = global::Parroquia.Properties.Resources.PrimeraComunion;
-               /* else if(FORMATO==2)
+           /*     else if(FORMATO==2)
                     newImage = Image.FromFile("C:\\DOCSParroquia\\ComunionOriginalFormato2.jpg");*/
                     
             }
@@ -71,7 +71,7 @@ namespace Parroquia
             {
                 if (FORMATO == 0)
                     newImage = global::Parroquia.Properties.Resources.Matrimonio;
-                /*else if (FORMATO == 1)
+            /*    else if (FORMATO == 1)
                     newImage = Image.FromFile("C:\\DOCSParroquia\\MatrimonioOriginalFormato1.jpg");*/
             }
                 
@@ -293,7 +293,7 @@ namespace Parroquia
             y = int.Parse(Math.Round( float.Parse(y1 + "") * 35 ) + "");
 
             float tamaño_total, mitad;
-            //imprimeImagen(ev);
+          //  imprimeImagen(ev);
 
             //IMPRIME NOVIO
             tamaño_total = 880 - ev.Graphics.MeasureString(novio, new Font("Times New Roman", 12, FontStyle.Bold)).Width;
@@ -378,6 +378,13 @@ namespace Parroquia
             new Font("Times New Roman", 10, FontStyle.Bold),
             Brushes.Black, mitad-285+x, 787+y);
 
+            //PARROCO
+            tamaño_total = 880 - ev.Graphics.MeasureString(nombre_parroco, new Font("Times New Roman", 11, FontStyle.Bold)).Width;
+            mitad = tamaño_total / 2;
+            ev.Graphics.DrawString(nombre_parroco,
+               new Font("Times New Roman", 11, FontStyle.Bold),
+               Brushes.Black, mitad-39, 780);
+
         }
 
         //IMPRIME ORIGINAL DE COMUNION
@@ -402,7 +409,7 @@ namespace Parroquia
 
             string []fecha;
             float tamaño_total, mitad;
-            //imprimeImagen(ev);
+           // imprimeImagen(ev);
 
             //NOMBRE
             tamaño_total = 880 - ev.Graphics.MeasureString(nombre, new Font("Times New Roman", 12, FontStyle.Bold)).Width;
@@ -712,7 +719,7 @@ namespace Parroquia
 
 
             String[] fecha;
-            //imprimeImagen(ev);
+           // imprimeImagen(ev);
             
             /*OBTENCION DE LA MITAD DE LA HOJA***********************/
             float tamaño_total, mitad;
@@ -1151,7 +1158,7 @@ namespace Parroquia
 
 
             float tamaño_total, mitad;
-            //imprimeImagen(ev);
+           // imprimeImagen(ev);
 
             //IMPRIME NOMBRE
             tamaño_total = 880 - ev.Graphics.MeasureString(nombre, new Font("Times New Roman", 9, FontStyle.Bold)).Width;
