@@ -39,6 +39,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.version_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -145,12 +147,32 @@
             this.linkLabel2.Text = "Ver términos de uso";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(399, 263);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Versión:";
+            // 
+            // version_label
+            // 
+            this.version_label.AutoSize = true;
+            this.version_label.Location = new System.Drawing.Point(452, 263);
+            this.version_label.Name = "version_label";
+            this.version_label.Size = new System.Drawing.Size(35, 13);
+            this.version_label.TabIndex = 11;
+            this.version_label.Text = "label6";
+            // 
             // acercade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(564, 288);
+            this.Controls.Add(this.version_label);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
@@ -188,5 +210,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label version_label;
     }
 }

@@ -332,7 +332,7 @@ namespace Parroquia
 
         private void descargarManualDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("www.simpus.com.mx/parroquia/manual_usuario.pdf");
+            System.Diagnostics.Process.Start("www.simpus.com.mx/actualizaciones/parroquia/MANUAL_USUARIO.pdf");
         }
 
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)

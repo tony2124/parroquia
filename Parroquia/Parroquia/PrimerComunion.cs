@@ -300,6 +300,9 @@ namespace Parroquia
                         btn = false;
                 }
             }
+
+            //cargar los datos para el autocomplete del textbox
+            lugar_bautismo.AutoCompleteCustomSource = Autocomplete();
         }
 
         private void guardaImprimeBtn_Click(object sender, EventArgs e)

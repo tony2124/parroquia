@@ -43,9 +43,14 @@ namespace Parroquia
             toolTip1.SetToolTip(guardareimp, ":: GUARDAR E IMPRIMIR::");
 
             //cargar los datos para el autocomplete del textbox
-            lugarnac.AutoCompleteCustomSource = Autocomplete();
+            lugarnac.AutoCompleteCustomSource = Autocomplete(0);
             lugarnac.AutoCompleteMode = AutoCompleteMode.Suggest;
             lugarnac.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            /**************************************************/
+            presbitero.AutoCompleteCustomSource = Autocomplete(1);
+            presbitero.AutoCompleteMode = AutoCompleteMode.Suggest;
+            presbitero.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             try
             {
@@ -101,9 +106,14 @@ namespace Parroquia
             guardar.Image = global::Parroquia.Properties.Resources.actualizar;
 
             //cargar los datos para el autocomplete del textbox
-            lugarnac.AutoCompleteCustomSource = Autocomplete();
+            lugarnac.AutoCompleteCustomSource = Autocomplete(0);
             lugarnac.AutoCompleteMode = AutoCompleteMode.Suggest;
             lugarnac.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            /**************************************************/
+            presbitero.AutoCompleteCustomSource = Autocomplete(1);
+            presbitero.AutoCompleteMode = AutoCompleteMode.Suggest;
+            presbitero.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             try
             {  
@@ -253,10 +263,14 @@ namespace Parroquia
         }
 
         //metodo para cargar los datos de la bd
-        public DataTable DatosAutocomplete()
+        public DataTable DatosAutocomplete(int tipo)
         {
             DataTable dt = new DataTable();
-            string consulta = "SELECT lugar_nac FROM bautismos"; //consulta a la tabla paises
+            string consulta;
+            if(tipo == 0)
+                consulta = "SELECT lugar_nac as auto FROM bautismos"; 
+            else
+                consulta = "SELECT presbitero as auto FROM bautismos"; 
             MySqlCommand comando = new MySqlCommand(consulta, ConexionBD.conexionBD);
             MySqlDataAdapter adap = new MySqlDataAdapter(comando);
             adap.Fill(dt);
@@ -264,15 +278,15 @@ namespace Parroquia
         }
 
         //metodo para cargar la coleccion de datos para el autocomplete
-        public AutoCompleteStringCollection Autocomplete()
+        public AutoCompleteStringCollection Autocomplete(int tipo)
         {
-            DataTable dt = DatosAutocomplete();
+            DataTable dt = DatosAutocomplete(tipo);
 
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
             //recorrer y cargar los items para el autocompletado
             foreach (DataRow row in dt.Rows)
             {
-                coleccion.Add(Convert.ToString(row["lugar_nac"]));
+                coleccion.Add(Convert.ToString(row["auto"]));
             }
 
             return coleccion;
@@ -311,6 +325,10 @@ namespace Parroquia
                         btn = false;
                 }
             }
+
+            //cargar los datos para el autocomplete del textbox
+            lugarnac.AutoCompleteCustomSource = Autocomplete(0);
+            presbitero.AutoCompleteCustomSource = Autocomplete(1);
         }
 
         //IMPRIMIR

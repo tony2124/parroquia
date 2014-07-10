@@ -39,9 +39,14 @@ namespace Parroquia
             toolTip1.SetToolTip(guardareimp, ":: GUARDAR E IMPRIMIR::");
 
             //cargar los datos para el autocomplete del textbox
-            lugar_celebracion.AutoCompleteCustomSource = Autocomplete();
+            lugar_celebracion.AutoCompleteCustomSource = Autocomplete(0);
             lugar_celebracion.AutoCompleteMode = AutoCompleteMode.Suggest;
             lugar_celebracion.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            /***************************************************************/
+            asistente.AutoCompleteCustomSource = Autocomplete(1);
+            asistente.AutoCompleteMode = AutoCompleteMode.Suggest;
+            asistente.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             try
             {
@@ -107,9 +112,14 @@ namespace Parroquia
             guardar.Image = global::Parroquia.Properties.Resources.actualizar;
 
             //cargar los datos para el autocomplete del textbox
-            lugar_celebracion.AutoCompleteCustomSource = Autocomplete();
+            lugar_celebracion.AutoCompleteCustomSource = Autocomplete(0);
             lugar_celebracion.AutoCompleteMode = AutoCompleteMode.Suggest;
             lugar_celebracion.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            /*******************************************************************/
+            asistente.AutoCompleteCustomSource = Autocomplete(1);
+            asistente.AutoCompleteMode = AutoCompleteMode.Suggest;
+            asistente.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             try
             {  
@@ -169,7 +179,6 @@ namespace Parroquia
             testigo2.Text = "";
             asistente.Text = "";
             notas_marginales.Text = "";
-           
         }
 
         /* VERIFICA SI HAY CAMPOS OBLIGATORIOS VACIOS */
@@ -189,10 +198,14 @@ namespace Parroquia
         }
 
         //metodo para cargar los datos de la bd
-        public DataTable DatosAutocomplete()
+        public DataTable DatosAutocomplete(int tipo)
         {
             DataTable dt = new DataTable();
-            string consulta = "SELECT lugar_celebracion FROM matrimonios"; //consulta a la tabla paises
+            string consulta;
+            if(tipo == 0)
+                consulta = "SELECT lugar_celebracion as auto FROM matrimonios"; 
+            else
+                consulta = "SELECT asistente as auto FROM matrimonios"; 
             MySqlCommand comando = new MySqlCommand(consulta, ConexionBD.conexionBD);
             MySqlDataAdapter adap = new MySqlDataAdapter(comando);
             adap.Fill(dt);
@@ -200,15 +213,15 @@ namespace Parroquia
         }
 
         //metodo para cargar la coleccion de datos para el autocomplete
-        public AutoCompleteStringCollection Autocomplete()
+        public AutoCompleteStringCollection Autocomplete(int tipo)
         {
-            DataTable dt = DatosAutocomplete();
+            DataTable dt = DatosAutocomplete(tipo);
 
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
             //recorrer y cargar los items para el autocompletado
             foreach (DataRow row in dt.Rows)
             {
-                coleccion.Add(Convert.ToString(row["lugar_celebracion"]));
+                coleccion.Add(Convert.ToString(row["auto"]));
             }
 
             return coleccion;
@@ -313,6 +326,9 @@ namespace Parroquia
                     }
                 }
             }
+            //cargar los datos para el autocomplete del textbox
+            lugar_celebracion.AutoCompleteCustomSource = Autocomplete(0);
+            asistente.AutoCompleteCustomSource = Autocomplete(1);
         }
 
         public void registrobis_CheckedChanged(object sender, EventArgs e)

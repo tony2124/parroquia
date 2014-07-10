@@ -53,9 +53,14 @@ namespace Parroquia
                 Text = ":: INSERTAR REGISTRO DE CONFIRMACIÓN ::";
             
                 //cargar los datos para el autocomplete del textbox
-                lugarbau.AutoCompleteCustomSource = Autocomplete();
+                lugarbau.AutoCompleteCustomSource = Autocomplete(0);
                 lugarbau.AutoCompleteMode = AutoCompleteMode.Suggest;
                 lugarbau.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                /****************************************************************/
+                ministro.AutoCompleteCustomSource = Autocomplete(1);
+                ministro.AutoCompleteMode = AutoCompleteMode.Suggest;
+                ministro.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
                 /*Estableciendo la partida*/
                 Partida = 0;
@@ -103,9 +108,14 @@ namespace Parroquia
             Text = ":: MODIFICAR REGISTRO DE CONFIRMACIÓN ::";
 
             //cargar los datos para el autocomplete del textbox
-            lugarbau.AutoCompleteCustomSource = Autocomplete();
+            lugarbau.AutoCompleteCustomSource = Autocomplete(0);
             lugarbau.AutoCompleteMode = AutoCompleteMode.Suggest;
             lugarbau.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            //cargar los datos para el autocomplete del textbox
+            ministro.AutoCompleteCustomSource = Autocomplete(1);
+            ministro.AutoCompleteMode = AutoCompleteMode.Suggest;
+            ministro.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             try
             {  
@@ -258,6 +268,8 @@ namespace Parroquia
                         btn = false;
                 }
             }
+            lugarbau.AutoCompleteCustomSource = Autocomplete(0);
+            ministro.AutoCompleteCustomSource = Autocomplete(1);
         }
 
         private bool actualizarRegistro()
@@ -324,10 +336,14 @@ namespace Parroquia
         }
 
         //metodo para cargar los datos de la bd
-        public DataTable DatosAutocomplete()
+        public DataTable DatosAutocomplete(int tipo)
         {
             DataTable dt = new DataTable();
-            string consulta = "SELECT lugar_bautismo FROM confirmaciones"; //consulta a la tabla paises
+            string consulta;
+            if(tipo == 0)
+                consulta = "SELECT lugar_bautismo as auto FROM confirmaciones";
+            else
+                consulta = "SELECT presbitero as auto FROM confirmaciones";
             MySqlCommand comando = new MySqlCommand(consulta, ConexionBD.conexionBD);
             MySqlDataAdapter adap = new MySqlDataAdapter(comando);
             adap.Fill(dt);
@@ -335,15 +351,15 @@ namespace Parroquia
         }
 
         //metodo para cargar la coleccion de datos para el autocomplete
-        public AutoCompleteStringCollection Autocomplete()
+        public AutoCompleteStringCollection Autocomplete(int tipo)
         {
-            DataTable dt = DatosAutocomplete();
+            DataTable dt = DatosAutocomplete(tipo);
 
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
             //recorrer y cargar los items para el autocompletado
             foreach (DataRow row in dt.Rows)
             {
-                coleccion.Add(Convert.ToString(row["lugar_bautismo"]));
+                coleccion.Add(Convert.ToString(row["auto"]));
             }
 
             return coleccion;
