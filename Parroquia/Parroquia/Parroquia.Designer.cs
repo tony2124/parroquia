@@ -535,6 +535,7 @@ namespace Parroquia
             this.Name = "Parroquia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parroquía de Nuestra Señora de Guadalupe";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Parroquia_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -288,10 +288,15 @@ namespace Parroquia
 
         private void respaldoDeBDToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            metodoRespaldo();
+        }
 
-            saveFileDialog1.FileName = "RESPALDO_BD_" + DateTime.Now.Day + "_" + DateTime.Now.ToString("MMMM")+ "_" + DateTime.Now.Year + ".sql";
+        public void metodoRespaldo()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            saveFileDialog1.FileName = "RESPALDO_BD_" + DateTime.Now.Day + "_" + DateTime.Now.ToString("MMMM") + "_" + DateTime.Now.Year + "_" + DateTime.Now.Hour + "_" + DateTime.Now.Minute + "_" + DateTime.Now.Second + ".sql";
             saveFileDialog1.AddExtension = true;
-           // saveFileDialog1.CheckFileExists = true;
+            // saveFileDialog1.CheckFileExists = true;
             saveFileDialog1.Title = "RESPALDO DE LA BASE DE DATOS";
             saveFileDialog1.Filter = "Archivos SQL(*.sql)|*.sql|Archivos de Texto (*.txt)|*.txt|All files (*.*)|*.*";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -328,6 +333,7 @@ namespace Parroquia
                     MessageBox.Show("Copia de seguridad realizada con éxito");
                 }
             }
+            Cursor.Current = Cursors.Default;
         }
 
         private void descargarManualDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -390,6 +396,17 @@ namespace Parroquia
         {
             configurarCoordenada cc = new configurarCoordenada();
             cc.ShowDialog();
+        }
+
+        private void Parroquia_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult r = MessageBox.Show("¿Desea realizar un respaldo de los registros?", 
+                "Respaldo",MessageBoxButtons.YesNo);
+
+            if (r == DialogResult.Yes)
+            {
+                metodoRespaldo();
+            }
         }
     }
 }
