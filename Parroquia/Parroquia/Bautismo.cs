@@ -176,8 +176,8 @@ namespace Parroquia
             madre.Text = "";
             padrino.Text = "";
             madrina.Text = "";
-            lugarnac.Text = "";
-            presbitero.Text = "";
+           // lugarnac.Text = "";
+           // presbitero.Text = "";
             anotacion.Text = "";
         }
 
@@ -370,14 +370,17 @@ namespace Parroquia
 
         private void calculaPartida()
         {
+            Partida = int.Parse(num_partida.Text);
             if (!registrobis.Checked)
                 Partida++;
             else
                 registrobis.Checked = false;
 
-            num_partida.Text = "" + (Partida + 1);
+            //num_partida.Text = "" + (Partida + 1);
+            num_partida.Text = "" + (Partida);
 
-            Hoja = Math.Ceiling((Partida + 1) / 10.0);
+            //Hoja = Math.Ceiling((Partida + 1) / 10.0);
+            Hoja = Math.Ceiling((Partida) / 10.0);
             num_hoja.Text = "" + Hoja;
 
             limpiarCampos();

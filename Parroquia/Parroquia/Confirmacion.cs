@@ -176,8 +176,8 @@ namespace Parroquia
             madre.Text = "";
             padrino.Text = "";
             madrina.Text = "";
-            lugarbau.Text = "";
-            ministro.Text = "";
+           // lugarbau.Text = "";
+           // ministro.Text = "";
         }
 
         /* VERIFICA SI HAY CAMPOS OBLIGATORIOS VACIOS */

@@ -163,7 +163,7 @@ namespace Parroquia
             nombre.Focus();
             padre.Text = "";
             madre.Text = "";
-            lugar_bautismo.Text = "";
+            //lugar_bautismo.Text = "";
             padrino.Text = "";
             madrina.Text = "";
         }

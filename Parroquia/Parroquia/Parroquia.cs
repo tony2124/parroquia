@@ -21,8 +21,8 @@ namespace Parroquia
         static ConexionBD BDatos;
 
         public static MySqlDataAdapter Adaptador;
-        public static DataSet ds;
-        int foto = 0;
+        public static DataTable ds;
+        int foto = 0, n_total_registros = 0;
         bool play = false;
 
 
@@ -31,63 +31,79 @@ namespace Parroquia
             BDatos = new ConexionBD();
             BDatos.conexion();
             InitializeComponent();
+            //BDatos.peticion("");
             ip.Text = LocalIPAddress();
         }
 
         public void Pintar_tabla(String filtro, String libros)
         {
-            Adaptador = new MySqlDataAdapter("select id_confirmacion as id,id_libro,id_categoria, nombre,anio,nombre_categoria,nombre_libro, num_hoja,num_partida" +
-           " from confirmaciones natural join libros natural join categorias where (nombre like '%" + filtro + "%' or anio = '"+filtro+"') "+libros+" union " +
-           "select id_matrimonio as id,id_libro,id_categoria, novio as nombre,anio,nombre_categoria,nombre_libro,  num_hoja,num_partida" +
-           " from matrimonios natural join libros natural join categorias where (novio like '%" + filtro + "%' or anio = '" + filtro + "') "+libros+" union " +
-            "select id_matrimonio as id,id_libro,id_categoria, novia as nombre,anio,nombre_categoria,nombre_libro,  num_hoja,num_partida" +
-           " from matrimonios natural join libros natural join categorias where (novia like '%" + filtro + "%' or anio = '" + filtro + "') "+libros+" union " +
-           "select id_comunion as id,id_libro,id_categoria, nombre,anio,nombre_categoria,nombre_libro,  num_hoja,num_partida" +
-           " from comuniones natural join libros natural join categorias where (nombre like '%" + filtro + "%' or anio = '" + filtro + "') "+libros+" union " +
-           " select id_bautismo as id,id_libro,id_categoria, nombre,anio,nombre_categoria,nombre_libro,  num_hoja,num_partida" +
-           " from bautismos natural join libros natural join categorias where (nombre like '%" + filtro + "%' or anio = '" + filtro + "') "+libros+" order by nombre asc ",
-           ConexionBD.conex);
-            ds = new DataSet();
-            Adaptador.Fill(ds, "prueba");
-            
-            BDatos.Desconectar();
-            
+            string otros_filtros = "";
+            if ( combo_categoria.SelectedIndex > 0 )
+                otros_filtros = " AND id_categoria = " + combo_categoria.SelectedIndex;
+            if (text_anio.Text.CompareTo("") != 0)
+                otros_filtros += " AND anio = '" + text_anio.Text + "'";
+            if (text_hoja.Text.CompareTo("") != 0)
+                otros_filtros += " AND num_hoja = " + text_hoja.Text;
+            if (text_libro.Text.CompareTo("") != 0)
+                otros_filtros += " AND nombre_libro = " + text_libro.Text;
+            if (text_lugar.Text.CompareTo("") != 0)
+                otros_filtros += " AND lugar like '%" + text_lugar.Text + "%'";
+          //  otros_filtros += " AND length(nombre) > 0 ";
+
+            string consulta = "select id_confirmacion as id, id_libro, id_categoria, nombre, lugar_bautismo as lugar, anio, nombre_categoria, nombre_libro, num_hoja, num_partida" +
+           " from confirmaciones natural join libros natural join categorias where ((nombre like '%" + filtro + "%' or anio = '" + filtro + "') " + otros_filtros + ") union " +
+           " select id_matrimonio as id,id_libro,id_categoria, novio as nombre, lugar_celebracion as lugar, anio, nombre_categoria, nombre_libro, num_hoja, num_partida" +
+           " from matrimonios natural join libros natural join categorias where ((novio like '%" + filtro + "%' or anio = '" + filtro + "') " + otros_filtros + ") union " +
+           " select id_matrimonio as id,id_libro,id_categoria, novia as nombre, lugar_celebracion as lugar, anio,nombre_categoria,nombre_libro,  num_hoja,num_partida" +
+           " from matrimonios natural join libros natural join categorias where ((novia like '%" + filtro + "%' or anio = '" + filtro + "') " + otros_filtros + ") union " +
+           " select id_comunion as id,id_libro,id_categoria, nombre, lugar_bautismo as lugar, anio, nombre_categoria, nombre_libro, num_hoja,num_partida" +
+           " from comuniones natural join libros natural join categorias where ((nombre like '%" + filtro + "%' or anio = '" + filtro + "') " + otros_filtros + ") union " +
+           " select id_bautismo as id,id_libro,id_categoria, nombre, lugar_nac as lugar, anio, nombre_categoria,nombre_libro,  num_hoja,num_partida" +
+           " from bautismos natural join libros natural join categorias where ((nombre like '%" + filtro + "%' or anio = '" + filtro + "') " + otros_filtros + ") order by nombre asc ";
+          
+            //MessageBox.Show(otros_filtros);
+
+            Adaptador = new MySqlDataAdapter(consulta, ConexionBD.conex);
+
+            ds = new DataTable();
+            Adaptador.Fill(ds);
             tablaBusqueda.DataSource = ds;
-            tablaBusqueda.DataMember = "prueba";
-            reg_encontrados.Text = tablaBusqueda.RowCount+"";
+            
+           /* MessageBox.Show(consulta);*/
+
+            reg_encontrados.Text = tablaBusqueda.RowCount + "";
+            
             //Ancho de columnas al tamaño del contenido
             tablaBusqueda.AutoResizeColumns();
 
             //Agregamos nombre de headers de las columnas
             tablaBusqueda.Columns[0].Visible = false;
-            tablaBusqueda.Columns[0].HeaderText = "ID";
-
             tablaBusqueda.Columns[1].Visible = false;
-            tablaBusqueda.Columns[1].HeaderText = "ID_LIBRO";
-
             tablaBusqueda.Columns[2].Visible = false;
-
+            
             tablaBusqueda.Columns[3].HeaderText = "NOMBRE";
             tablaBusqueda.Columns[3].Width = 420;
 
-            tablaBusqueda.Columns[4].HeaderText = "AÑO";
-            tablaBusqueda.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            tablaBusqueda.Columns[4].HeaderText = "LUGAR NAC. / BAUTISMO / CELEBRACIÓN";
 
-            tablaBusqueda.Columns[5].HeaderText = "CATEGORIA";
+            tablaBusqueda.Columns[5].HeaderText = "AÑO";
             tablaBusqueda.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            tablaBusqueda.Columns[6].HeaderText = "LIBRO";
+            tablaBusqueda.Columns[6].HeaderText = "CATEGORIA";
             tablaBusqueda.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            tablaBusqueda.Columns[7].HeaderText = "FOJA";
+            tablaBusqueda.Columns[7].HeaderText = "LIBRO";
             tablaBusqueda.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            tablaBusqueda.Columns[8].HeaderText = "PARTIDA";
+            tablaBusqueda.Columns[8].HeaderText = "FOJA";
             tablaBusqueda.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
+            tablaBusqueda.Columns[9].HeaderText = "PARTIDA";
+            tablaBusqueda.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            
             //Oculto columna inicial
             tablaBusqueda.RowHeadersVisible = false;
-
+            
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -119,18 +135,11 @@ namespace Parroquia
                 }
                
             }
-
-        
         }
 
         private void informacionDeLaParroquiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new Informacion().ShowDialog();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void bautismoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -181,15 +190,7 @@ namespace Parroquia
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string libro = "";
-            if (librobautismo.Checked)
-                libro = "and id_categoria = 1";
-            else if (libroconfirmacion.Checked)
-                libro = "and id_categoria = 2";
-            else if (librocomunion.Checked)
-                libro = "and id_categoria = 3";
-            else if (libromatrimonio.Checked)
-                libro = "and id_categoria = 4";
+            string libro = "and id_categoria = " + (combo_categoria.SelectedIndex + 1);
 
             Pintar_tabla(busqueda.Text, libro);
         }
@@ -224,8 +225,6 @@ namespace Parroquia
                 foto = 19;
             cambiarFoto();
         }
-
-
 
         private void ingresosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -291,7 +290,7 @@ namespace Parroquia
 
             saveFileDialog1.FileName = "RESPALDO_BD_" + DateTime.Now.Day + "_" + DateTime.Now.ToString("MMMM")+ "_" + DateTime.Now.Year + ".sql";
             saveFileDialog1.AddExtension = true;
-           // saveFileDialog1.CheckFileExists = true;
+            // saveFileDialog1.CheckFileExists = true;
             saveFileDialog1.Title = "RESPALDO DE LA BASE DE DATOS";
             saveFileDialog1.Filter = "Archivos SQL(*.sql)|*.sql|Archivos de Texto (*.txt)|*.txt|All files (*.*)|*.*";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -333,11 +332,6 @@ namespace Parroquia
         private void descargarManualDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("www.simpus.com.mx/actualizaciones/parroquia/MANUAL_USUARIO.pdf");
-        }
-
-        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void acercaDeToolStripMenuItem1_Click_1(object sender, EventArgs e)
@@ -383,13 +377,24 @@ namespace Parroquia
             if (foto == 20)
                 foto = 0;
             foto++;
-
         }
 
         private void configurarCoordenadasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             configurarCoordenada cc = new configurarCoordenada();
             cc.ShowDialog();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new Filtro().ShowDialog();
+        }
+
+
+
+        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            
         }
     }
 }

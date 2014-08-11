@@ -174,10 +174,10 @@ namespace Parroquia
             novio.Text = "";
             novio.Focus();
             novia.Text = "";
-            lugar_celebracion.Text = "";
+           // lugar_celebracion.Text = "";
             testigo1.Text = "";
             testigo2.Text = "";
-            asistente.Text = "";
+           // asistente.Text = "";
             notas_marginales.Text = "";
         }
 
