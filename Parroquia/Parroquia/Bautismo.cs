@@ -370,19 +370,15 @@ namespace Parroquia
 
         private void calculaPartida()
         {
-            Partida = int.Parse(num_partida.Text);
-
             if (!registrobis.Checked)
                 Partida++;
             else
                 registrobis.Checked = false;
             
-            //num_partida.Text = "" + (Partida + 1);
-            num_partida.Text = "" + (Partida);
-           
+            num_partida.Text = "" + (Partida + 1);     
 
-            //Hoja = Math.Ceiling((Partida + 1) / 10.0);
-            Hoja = Math.Ceiling((Partida) / 10.0);
+            Hoja = Math.Ceiling((Partida + 1) / 10.0);
+
             num_hoja.Text = "" + Hoja;
 
             limpiarCampos();
