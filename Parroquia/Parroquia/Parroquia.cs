@@ -390,8 +390,6 @@ namespace Parroquia
             new Filtro().ShowDialog();
         }
 
-
-
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             
