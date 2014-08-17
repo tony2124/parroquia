@@ -34,9 +34,11 @@ namespace Parroquia
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informacionDeLaParroquiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.respaldoDeBDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ingresosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.egresosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.respaldoDeBDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.librosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bautismoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +75,10 @@ namespace Parroquia
             this.label13 = new System.Windows.Forms.Label();
             this.total_registros = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.text_lugar = new System.Windows.Forms.TextBox();
+            this.text_anio = new System.Windows.Forms.TextBox();
+            this.text_hoja = new System.Windows.Forms.TextBox();
+            this.text_libro = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.combo_categoria = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -81,10 +87,6 @@ namespace Parroquia
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.text_libro = new System.Windows.Forms.TextBox();
-            this.text_hoja = new System.Windows.Forms.TextBox();
-            this.text_anio = new System.Windows.Forms.TextBox();
-            this.text_lugar = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fondoImg)).BeginInit();
@@ -101,7 +103,7 @@ namespace Parroquia
             this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(995, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1047, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -109,9 +111,11 @@ namespace Parroquia
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.informacionDeLaParroquiaToolStripMenuItem,
+            this.respaldoDeBDToolStripMenuItem,
+            this.toolStripSeparator2,
             this.ingresosToolStripMenuItem,
             this.egresosToolStripMenuItem,
-            this.respaldoDeBDToolStripMenuItem,
+            this.toolStripSeparator3,
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
@@ -123,6 +127,18 @@ namespace Parroquia
             this.informacionDeLaParroquiaToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.informacionDeLaParroquiaToolStripMenuItem.Text = "Información de la parroquia";
             this.informacionDeLaParroquiaToolStripMenuItem.Click += new System.EventHandler(this.informacionDeLaParroquiaToolStripMenuItem_Click);
+            // 
+            // respaldoDeBDToolStripMenuItem
+            // 
+            this.respaldoDeBDToolStripMenuItem.Name = "respaldoDeBDToolStripMenuItem";
+            this.respaldoDeBDToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.respaldoDeBDToolStripMenuItem.Text = "Respaldo de BD";
+            this.respaldoDeBDToolStripMenuItem.Click += new System.EventHandler(this.respaldoDeBDToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(218, 6);
             // 
             // ingresosToolStripMenuItem
             // 
@@ -138,12 +154,10 @@ namespace Parroquia
             this.egresosToolStripMenuItem.Text = "Egresos";
             this.egresosToolStripMenuItem.Click += new System.EventHandler(this.egresosToolStripMenuItem_Click);
             // 
-            // respaldoDeBDToolStripMenuItem
+            // toolStripSeparator3
             // 
-            this.respaldoDeBDToolStripMenuItem.Name = "respaldoDeBDToolStripMenuItem";
-            this.respaldoDeBDToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.respaldoDeBDToolStripMenuItem.Text = "Respaldo de BD";
-            this.respaldoDeBDToolStripMenuItem.Click += new System.EventHandler(this.respaldoDeBDToolStripMenuItem_Click);
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(218, 6);
             // 
             // salirToolStripMenuItem
             // 
@@ -264,7 +278,7 @@ namespace Parroquia
             this.panel2.Controls.Add(this.label8);
             this.panel2.Location = new System.Drawing.Point(12, 31);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(701, 211);
+            this.panel2.Size = new System.Drawing.Size(700, 211);
             this.panel2.TabIndex = 1;
             // 
             // pause
@@ -321,7 +335,7 @@ namespace Parroquia
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(385, 19);
+            this.label8.Location = new System.Drawing.Point(384, 19);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(292, 176);
             this.label8.TabIndex = 9;
@@ -349,7 +363,7 @@ namespace Parroquia
             this.tablaBusqueda.ReadOnly = true;
             this.tablaBusqueda.RowHeadersWidth = 100;
             this.tablaBusqueda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaBusqueda.Size = new System.Drawing.Size(969, 353);
+            this.tablaBusqueda.Size = new System.Drawing.Size(1021, 353);
             this.tablaBusqueda.TabIndex = 4;
             this.tablaBusqueda.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -357,7 +371,7 @@ namespace Parroquia
             // 
             this.statusStrip1.Location = new System.Drawing.Point(0, 647);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(995, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1047, 22);
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -390,7 +404,7 @@ namespace Parroquia
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Location = new System.Drawing.Point(676, 651);
+            this.label1.Location = new System.Drawing.Point(728, 651);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(305, 16);
             this.label1.TabIndex = 12;
@@ -407,7 +421,7 @@ namespace Parroquia
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 197);
+            this.label2.Location = new System.Drawing.Point(10, 196);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 15);
             this.label2.TabIndex = 14;
@@ -418,7 +432,7 @@ namespace Parroquia
             this.reg_encontrados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.reg_encontrados.AutoSize = true;
             this.reg_encontrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reg_encontrados.Location = new System.Drawing.Point(91, 197);
+            this.reg_encontrados.Location = new System.Drawing.Point(95, 196);
             this.reg_encontrados.Name = "reg_encontrados";
             this.reg_encontrados.Size = new System.Drawing.Size(14, 15);
             this.reg_encontrados.TabIndex = 15;
@@ -452,7 +466,7 @@ namespace Parroquia
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label5.Location = new System.Drawing.Point(814, 621);
+            this.label5.Location = new System.Drawing.Point(866, 621);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(167, 15);
             this.label5.TabIndex = 18;
@@ -496,12 +510,40 @@ namespace Parroquia
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Location = new System.Drawing.Point(719, 31);
+            this.groupBox2.Location = new System.Drawing.Point(718, 31);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(262, 222);
+            this.groupBox2.Size = new System.Drawing.Size(315, 222);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filtros de búsqueda";
+            // 
+            // text_lugar
+            // 
+            this.text_lugar.Location = new System.Drawing.Point(99, 159);
+            this.text_lugar.Name = "text_lugar";
+            this.text_lugar.Size = new System.Drawing.Size(155, 20);
+            this.text_lugar.TabIndex = 38;
+            // 
+            // text_anio
+            // 
+            this.text_anio.Location = new System.Drawing.Point(99, 125);
+            this.text_anio.Name = "text_anio";
+            this.text_anio.Size = new System.Drawing.Size(155, 20);
+            this.text_anio.TabIndex = 37;
+            // 
+            // text_hoja
+            // 
+            this.text_hoja.Location = new System.Drawing.Point(99, 92);
+            this.text_hoja.Name = "text_hoja";
+            this.text_hoja.Size = new System.Drawing.Size(155, 20);
+            this.text_hoja.TabIndex = 36;
+            // 
+            // text_libro
+            // 
+            this.text_libro.Location = new System.Drawing.Point(99, 59);
+            this.text_libro.Name = "text_libro";
+            this.text_libro.Size = new System.Drawing.Size(155, 20);
+            this.text_libro.TabIndex = 35;
             // 
             // linkLabel1
             // 
@@ -512,7 +554,7 @@ namespace Parroquia
             this.linkLabel1.TabIndex = 34;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Reiniciar";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // combo_categoria
             // 
@@ -526,7 +568,7 @@ namespace Parroquia
             "CONFIRMACIÓN",
             "PRIMERA COMUNIÓN",
             "MATRIMONIO"});
-            this.combo_categoria.Location = new System.Drawing.Point(93, 26);
+            this.combo_categoria.Location = new System.Drawing.Point(99, 26);
             this.combo_categoria.Name = "combo_categoria";
             this.combo_categoria.Size = new System.Drawing.Size(155, 21);
             this.combo_categoria.TabIndex = 33;
@@ -580,39 +622,11 @@ namespace Parroquia
             // 
             this.bindingSource1.Filter = "";
             // 
-            // text_libro
-            // 
-            this.text_libro.Location = new System.Drawing.Point(93, 59);
-            this.text_libro.Name = "text_libro";
-            this.text_libro.Size = new System.Drawing.Size(155, 20);
-            this.text_libro.TabIndex = 35;
-            // 
-            // text_hoja
-            // 
-            this.text_hoja.Location = new System.Drawing.Point(93, 92);
-            this.text_hoja.Name = "text_hoja";
-            this.text_hoja.Size = new System.Drawing.Size(155, 20);
-            this.text_hoja.TabIndex = 36;
-            // 
-            // text_anio
-            // 
-            this.text_anio.Location = new System.Drawing.Point(93, 125);
-            this.text_anio.Name = "text_anio";
-            this.text_anio.Size = new System.Drawing.Size(155, 20);
-            this.text_anio.TabIndex = 37;
-            // 
-            // text_lugar
-            // 
-            this.text_lugar.Location = new System.Drawing.Point(93, 159);
-            this.text_lugar.Name = "text_lugar";
-            this.text_lugar.Size = new System.Drawing.Size(155, 20);
-            this.text_lugar.TabIndex = 38;
-            // 
             // Parroquia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(995, 669);
+            this.ClientSize = new System.Drawing.Size(1047, 669);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.total_registros);
             this.Controls.Add(this.label13);
@@ -626,12 +640,15 @@ namespace Parroquia
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Parroquia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parroquía de Nuestra Señora de Guadalupe";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Parroquia_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -701,6 +718,8 @@ namespace Parroquia
         private TextBox text_anio;
         private TextBox text_hoja;
         private TextBox text_libro;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripSeparator toolStripSeparator3;
         public static Button btnbuscar;
 
 

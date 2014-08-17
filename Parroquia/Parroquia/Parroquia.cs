@@ -31,12 +31,37 @@ namespace Parroquia
             BDatos = new ConexionBD();
             BDatos.conexion();
             InitializeComponent();
-            //BDatos.peticion("");
+            combo_categoria.SelectedIndex = 0;
+          
+            /*************************** CONTAR REGISTROS DE TODOS LOS LIBROS *********************************/
+            MySqlDataReader Datos = BDatos.obtenerBasesDatosMySQL("select count(id_bautismo) from bautismos");
+            if (Datos.HasRows)
+                while (Datos.Read())
+                    n_total_registros += Datos.GetInt32(0);
+            Datos.Close();
+            Datos = BDatos.obtenerBasesDatosMySQL("select count(id_confirmacion) from confirmaciones");
+            if (Datos.HasRows)
+                while (Datos.Read())
+                    n_total_registros += Datos.GetInt32(0);
+            Datos.Close();
+            Datos = BDatos.obtenerBasesDatosMySQL("select count(id_comunion) from comuniones");
+            if (Datos.HasRows)
+                while (Datos.Read())
+                    n_total_registros += Datos.GetInt32(0);
+            Datos.Close();
+            Datos = BDatos.obtenerBasesDatosMySQL("select count(id_matrimonio) from matrimonios");
+            if (Datos.HasRows)
+                while (Datos.Read())
+                    n_total_registros += Datos.GetInt32(0);
+            Datos.Close();
+
             ip.Text = LocalIPAddress();
+            total_registros.Text = "" + n_total_registros;
         }
 
         public void Pintar_tabla(String filtro, String libros)
         {
+            //************************ APLICAR FILTROS DE CONSULTA DE DATOS *********************************/
             string otros_filtros = "";
             if ( combo_categoria.SelectedIndex > 0 )
                 otros_filtros = " AND id_categoria = " + combo_categoria.SelectedIndex;
@@ -46,20 +71,17 @@ namespace Parroquia
                 otros_filtros += " AND num_hoja = " + text_hoja.Text;
             if (text_libro.Text.CompareTo("") != 0)
                 otros_filtros += " AND nombre_libro = " + text_libro.Text;
-            if (text_lugar.Text.CompareTo("") != 0)
-                otros_filtros += " AND lugar like '%" + text_lugar.Text + "%'";
-          //  otros_filtros += " AND length(nombre) > 0 ";
-
+  
             string consulta = "select id_confirmacion as id, id_libro, id_categoria, nombre, lugar_bautismo as lugar, anio, nombre_categoria, nombre_libro, num_hoja, num_partida" +
-           " from confirmaciones natural join libros natural join categorias where ((nombre like '%" + filtro + "%' or anio = '" + filtro + "') " + otros_filtros + ") union " +
+           " from confirmaciones natural join libros natural join categorias where ((nombre like '%" + filtro + "%' or anio = '" + filtro + "') " + otros_filtros + " AND lugar_bautismo like '%" + text_lugar.Text + "%' AND length(nombre) > 0) union " +
            " select id_matrimonio as id,id_libro,id_categoria, novio as nombre, lugar_celebracion as lugar, anio, nombre_categoria, nombre_libro, num_hoja, num_partida" +
-           " from matrimonios natural join libros natural join categorias where ((novio like '%" + filtro + "%' or anio = '" + filtro + "') " + otros_filtros + ") union " +
+           " from matrimonios natural join libros natural join categorias where ((novio like '%" + filtro + "%' or anio = '" + filtro + "') " + otros_filtros + " AND lugar_celebracion like '%" + text_lugar.Text + "%' AND length(novio) > 0) union " +
            " select id_matrimonio as id,id_libro,id_categoria, novia as nombre, lugar_celebracion as lugar, anio,nombre_categoria,nombre_libro,  num_hoja,num_partida" +
-           " from matrimonios natural join libros natural join categorias where ((novia like '%" + filtro + "%' or anio = '" + filtro + "') " + otros_filtros + ") union " +
+           " from matrimonios natural join libros natural join categorias where ((novia like '%" + filtro + "%' or anio = '" + filtro + "') " + otros_filtros + " AND lugar_celebracion like '%" + text_lugar.Text + "%' AND length(novia) > 0) union " +
            " select id_comunion as id,id_libro,id_categoria, nombre, lugar_bautismo as lugar, anio, nombre_categoria, nombre_libro, num_hoja,num_partida" +
-           " from comuniones natural join libros natural join categorias where ((nombre like '%" + filtro + "%' or anio = '" + filtro + "') " + otros_filtros + ") union " +
+           " from comuniones natural join libros natural join categorias where ((nombre like '%" + filtro + "%' or anio = '" + filtro + "') " + otros_filtros + " AND lugar_bautismo like '%" + text_lugar.Text + "%' AND length(nombre) > 0) union " +
            " select id_bautismo as id,id_libro,id_categoria, nombre, lugar_nac as lugar, anio, nombre_categoria,nombre_libro,  num_hoja,num_partida" +
-           " from bautismos natural join libros natural join categorias where ((nombre like '%" + filtro + "%' or anio = '" + filtro + "') " + otros_filtros + ") order by nombre asc ";
+           " from bautismos natural join libros natural join categorias where ((nombre like '%" + filtro + "%' or anio = '" + filtro + "') " + otros_filtros + " AND lugar_nac like '%" + text_lugar.Text + "%' AND length(nombre) > 0  ) order by nombre asc ";
           
             //MessageBox.Show(otros_filtros);
 
@@ -287,8 +309,13 @@ namespace Parroquia
 
         private void respaldoDeBDToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            metodoRespaldo();
+        }
 
-            saveFileDialog1.FileName = "RESPALDO_BD_" + DateTime.Now.Day + "_" + DateTime.Now.ToString("MMMM")+ "_" + DateTime.Now.Year + ".sql";
+        public void metodoRespaldo()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            saveFileDialog1.FileName = "RESPALDO_BD_" + DateTime.Now.Day + "_" + DateTime.Now.ToString("MMMM") + "_" + DateTime.Now.Year + "_" + DateTime.Now.Hour + "_" + DateTime.Now.Minute + "_" + DateTime.Now.Second + ".sql";
             saveFileDialog1.AddExtension = true;
             // saveFileDialog1.CheckFileExists = true;
             saveFileDialog1.Title = "RESPALDO DE LA BASE DE DATOS";
@@ -306,7 +333,7 @@ namespace Parroquia
                     proc.StartInfo.UseShellExecute = false;
                     proc.StartInfo.RedirectStandardOutput = true;
                     proc.StartInfo.FileName = "mysqldump";
-                    proc.StartInfo.Arguments = ConexionBD.basedatos + " --single-transaction --host=" + ConexionBD.host + " --user=" + ConexionBD.usuario + " --password=" + ConexionBD.contrasena;
+                    proc.StartInfo.Arguments = ConexionBD.basedatos + " --single-transaction --host=" + ConexionBD.host + " --user=" + ConexionBD.usuario + " --password=" + ConexionBD.DesEncriptar(ConexionBD.contrasena);
                     Process miProceso;
                     miProceso = Process.Start(proc.StartInfo);
                     try
@@ -327,6 +354,7 @@ namespace Parroquia
                     MessageBox.Show("Copia de seguridad realizada con éxito");
                 }
             }
+            Cursor.Current = Cursors.Default;
         }
 
         private void descargarManualDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -385,14 +413,24 @@ namespace Parroquia
             cc.ShowDialog();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Parroquia_FormClosing(object sender, FormClosingEventArgs e)
         {
-            new Filtro().ShowDialog();
+            DialogResult r = MessageBox.Show("¿Desea realizar un respaldo de los registros?", 
+                "Respaldo",MessageBoxButtons.YesNo);
+
+            if (r == DialogResult.Yes)
+            {
+                metodoRespaldo();
+            }
         }
 
-        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+            combo_categoria.SelectedIndex = 0;
+            text_anio.Text = "";
+            text_hoja.Text = "";
+            text_libro.Text = "";
+            text_lugar.Text = "";
         }
     }
 }
