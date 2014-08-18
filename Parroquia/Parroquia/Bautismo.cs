@@ -75,7 +75,7 @@ namespace Parroquia
                 Datos = Bdatos.obtenerBasesDatosMySQL("select max(fecha_bautismo) from bautismos where id_libro =" + ID_LIBRO);
                 if (Datos.HasRows)
                     if (Datos.Read())
-                        fechabautismo.Text = Datos.GetString(0);
+                        fechabautismo.Text = Datos.GetValue(0) + "";
                 Datos.Close();
                 Bdatos.Desconectar();
 

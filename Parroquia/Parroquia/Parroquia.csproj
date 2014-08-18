@@ -25,7 +25,7 @@
     <UpdateUrl>http://www.simpus.com.mx/actualizaciones/parroquia/</UpdateUrl>
     <ProductName>Sistema para la Administración de Parroquia</ProductName>
     <PublisherName>Simpus Soluciones Informáticas</PublisherName>
-    <ApplicationRevision>51</ApplicationRevision>
+    <ApplicationRevision>54</ApplicationRevision>
     <ApplicationVersion>2.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -63,7 +63,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>holy spirit.ico</ApplicationIcon>
+    <ApplicationIcon>espiritu santo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
@@ -444,6 +444,7 @@
     <None Include="Resources\PrimeraComunion.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="espiritu santo.ico" />
     <Content Include="holy spirit.ico" />
     <Content Include="Holy Spirit2.ico" />
     <None Include="Resources\Book-Red.png" />

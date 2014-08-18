@@ -52,19 +52,19 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label24 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.guardar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cerrar = new System.Windows.Forms.Button();
@@ -298,23 +298,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bautismo";
             // 
-            // label1
+            // label20
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(118, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "cm";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(118, 71);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(21, 13);
-            this.label18.TabIndex = 12;
-            this.label18.Text = "cm";
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(118, 157);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(21, 13);
+            this.label20.TabIndex = 14;
+            this.label20.Text = "cm";
             // 
             // label19
             // 
@@ -325,14 +316,23 @@
             this.label19.TabIndex = 13;
             this.label19.Text = "cm";
             // 
-            // label20
+            // label18
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(118, 157);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(21, 13);
-            this.label20.TabIndex = 14;
-            this.label20.Text = "cm";
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(118, 71);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(21, 13);
+            this.label18.TabIndex = 12;
+            this.label18.Text = "cm";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(118, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(21, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "cm";
             // 
             // groupBox2
             // 
@@ -349,15 +349,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Confirmación";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(95, 36);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(21, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "cm";
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -366,6 +357,15 @@
             this.label21.Size = new System.Drawing.Size(21, 13);
             this.label21.TabIndex = 16;
             this.label21.Text = "cm";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(95, 36);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(21, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "cm";
             // 
             // groupBox3
             // 
@@ -382,6 +382,24 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Matrimonio";
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(115, 52);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(21, 13);
+            this.label23.TabIndex = 16;
+            this.label23.Text = "cm";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(115, 31);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(21, 13);
+            this.label22.TabIndex = 15;
+            this.label22.Text = "cm";
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.label24);
@@ -397,23 +415,14 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Primera Comunión";
             // 
-            // label22
+            // label24
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(115, 31);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(21, 13);
-            this.label22.TabIndex = 15;
-            this.label22.Text = "cm";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(115, 52);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(21, 13);
-            this.label23.TabIndex = 16;
-            this.label23.Text = "cm";
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(95, 48);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(21, 13);
+            this.label24.TabIndex = 18;
+            this.label24.Text = "cm";
             // 
             // label14
             // 
@@ -423,15 +432,6 @@
             this.label14.Size = new System.Drawing.Size(21, 13);
             this.label14.TabIndex = 17;
             this.label14.Text = "cm";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(95, 48);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(21, 13);
-            this.label24.TabIndex = 18;
-            this.label24.Text = "cm";
             // 
             // guardar
             // 
@@ -481,6 +481,7 @@
             this.Controls.Add(this.label17);
             this.MaximizeBox = false;
             this.Name = "configurarCoordenada";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

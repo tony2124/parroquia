@@ -102,6 +102,7 @@ namespace Parroquia
             if (CATEGORIA == 2)
             {
                 Button b = (Button)sender;
+               // MessageBox.Show(b.Name.ToString());
                 Confirmacion ic = new Confirmacion(b.Name.ToString());
                 ic.ShowDialog();
                 

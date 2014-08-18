@@ -74,9 +74,11 @@ namespace Parroquia
 
                 /*Reestablecer la ultima fecha de bautismo*/
                 Datos = Bdatos.obtenerBasesDatosMySQL("select max(fecha_confirmacion) from confirmaciones where id_libro =" + ID_LIBRO);
+
                 if (Datos.HasRows)
                     if (Datos.Read())
-                        fecconf.Text = Datos.GetString(0);
+                        fecconf.Text = Datos.GetValue(0) + "";
+                    
                 Datos.Close();
 
                 /*CALCULANDO LA HOJA*/
