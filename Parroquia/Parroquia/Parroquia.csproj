@@ -447,6 +447,8 @@
     <Content Include="espiritu santo.ico" />
     <Content Include="holy spirit.ico" />
     <Content Include="Holy Spirit2.ico" />
+    <None Include="Resources\PrimeraComunion1.jpg" />
+    <None Include="Resources\Confirmacion1.jpg" />
     <None Include="Resources\Book-Red.png" />
     <None Include="Resources\libro.png" />
   </ItemGroup>

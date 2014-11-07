@@ -31,7 +31,7 @@ namespace Parroquia
             fechaComunion, parroquiaBautismo, diocesisBautismo, novio,
             novia, testigo1, testigo2, fechaMatrimonio, lugarCelebracion,
             padreNovio, madreNovio, padreNovia, madreNovia,
-            nombre_parroquia, nombre_parroco, ubicacion_parroquia;
+            nombre_parroquia, nombre_parroco, ubicacion_parroquia, nombre_obispo;
 
         public static bool impresion = true;
 
@@ -44,15 +44,15 @@ namespace Parroquia
             if(CATEGORIA == 1){
                 if (FORMATO == 0)
                     newImage = global::Parroquia.Properties.Resources.Bautismo1;
-                else if (FORMATO == 1)
-                    newImage = Image.FromFile("C:\\DOCSParroquia\\BautismoFormatoOriginal1.jpg");
+             /*   else if (FORMATO == 1)
+                    newImage = Image.FromFile("C:\\DOCSParroquia\\BautismoFormatoOriginal1.jpg");*/
                 /*else if(FORMATO == 2)
                     newImage = Image.FromFile("C:\\DOCSParroquia\\BautismoFormatoOriginal2.jpg");*/
             }
             else if (CATEGORIA == 2)
             {
                 if (FORMATO == 0)
-                    newImage = global::Parroquia.Properties.Resources.Confirmacion1;
+                    newImage = global::Parroquia.Properties.Resources.Confirmacion11;
               /* else if (FORMATO == 1)
                 {
                     newImage = Image.FromFile("C:\\DOCSParroquia\\ConfirmacionOriginal.jpg");
@@ -62,7 +62,7 @@ namespace Parroquia
             else if (CATEGORIA == 3)
             {
                 if (FORMATO == 0)
-                    newImage = global::Parroquia.Properties.Resources.PrimeraComunion;
+                    newImage = global::Parroquia.Properties.Resources.PrimeraComunion1;
               /*  else if(FORMATO==2)
                     newImage = Image.FromFile("C:\\DOCSParroquia\\ComunionOriginalFormato2.jpg");*/
                     
@@ -109,7 +109,7 @@ namespace Parroquia
             DbDatos = new ConexionBD();
             DbDatos.conexion();
 
-            datos = DbDatos.obtenerBasesDatosMySQL("select nombre_parroquia, nombre_parroco, ubicacion_parroquia from informacion");
+            datos = DbDatos.obtenerBasesDatosMySQL("select nombre_parroquia, nombre_parroco, ubicacion_parroquia, nombre_obispo from informacion");
 
             if (datos.HasRows)
             {
@@ -118,6 +118,7 @@ namespace Parroquia
                     nombre_parroquia = datos.GetString(0).ToUpper();
                     nombre_parroco = datos.GetString(1);
                     ubicacion_parroquia = datos.GetString(2).ToUpper();
+                    nombre_obispo = datos.GetString(3).ToUpper();
                 }
             }
             DbDatos.Desconectar();
@@ -264,11 +265,11 @@ namespace Parroquia
                 }
             }
 
-            ppD.Document = pd;
-            ppD.ShowDialog();
-            ppD.BringToFront();
+            //ppD.Document = pd;
+            //ppD.ShowDialog();
+           // ppD.BringToFront();
 
-            //pd.Print();
+            pd.Print();
         }
 
         //IMPRESION ORIGINAL DE MATRIMONIO
@@ -955,7 +956,7 @@ namespace Parroquia
             }
             ev.Graphics.DrawString(padres,
                 new Font("Times New Roman", 12, FontStyle.Bold),
-                        Brushes.Black, 112, 513);
+                        Brushes.Black, 114, 513);
 
             //IMPRIME PADRINOS
             String padrinos="";
@@ -979,12 +980,21 @@ namespace Parroquia
             }
             ev.Graphics.DrawString(padrinos,
                 new Font("Times New Roman", 12, FontStyle.Bold),
-                        Brushes.Black, 112, 538);
+                        Brushes.Black, 114, 538);
 
             //IMPRIME LUGAR Y FECHA DE BAUTISMO
             fecha = fechaBautismo.Split('-');
-            string luharFechaBautismo = lugarBautismo + " EL DÍA " + fecha[2] + " DE " + fecha[1].ToUpper() + " DE " + fecha[0];
-            notasRenglones(luharFechaBautismo, ev, 430, 564, 30,"a");
+            /*string luharFechaBautismo = lugarBautismo + " EL DÍA " + fecha[2] + " DE " + fecha[1].ToUpper() + " DE " + fecha[0];
+            notasRenglones(luharFechaBautismo, ev, 430, 564, 30,"a");*/
+            ev.Graphics.DrawString("Realizó su bautismo en la parroquia de "+lugarBautismo+".",
+               new Font("Times New Roman", 12, FontStyle.Bold),
+                       Brushes.Black, 114, 560);
+
+            ev.Graphics.DrawString("El día: " + fecha[2] + 
+                " DE " + fecha[1].ToUpper() +
+                " DE " + fecha[0]+ ".",
+               new Font("Times New Roman", 12, FontStyle.Bold),
+                       Brushes.Black, 114, 584);
 
             //ESTABLECEMOS LA FECHA ACTUAL
             String d = DateTime.Now.Day + "";
@@ -995,7 +1005,7 @@ namespace Parroquia
             string fechaActual = d + " DE " + m + " DE " + a;
             ev.Graphics.DrawString(fechaActual,
                 new Font("Times New Roman", 12, FontStyle.Bold),
-                        Brushes.Black, 315, 700);
+                        Brushes.Black, 315, 722);
 
             nombre_parroco = nombre_parroco.ToUpper();
             tamaño_total = 880 - ev.Graphics.MeasureString(nombre_parroco, 
@@ -1439,23 +1449,23 @@ namespace Parroquia
 
             //IMPRIME LUGAR Y FECHA DE BAUTISMO
             fecha = fechaBautismo.Split('-');
-            ev.Graphics.DrawString("EL " + fecha[2] + " DE " + fecha[1].ToUpper() + " DE " + fecha[0] + ".",
+            ev.Graphics.DrawString("BAUTISMO: EL " + fecha[2] + " DE " + fecha[1].ToUpper() + " DE " + fecha[0] + ".",
                 new Font("Times New Roman", 11, FontStyle.Bold),
-                        Brushes.Black, 220, 578);
+                        Brushes.Black, 115, 578);
 
             ev.Graphics.DrawString("LUGAR: ",
-               new Font("Times New Roman", 11, FontStyle.Regular),
-                       Brushes.Black, 115, 598);
+               new Font("Times New Roman", 11, FontStyle.Bold),
+                       Brushes.Black, 115, 600);
             ev.Graphics.DrawString(lugarBautismo + ".",
                new Font("Times New Roman", 11, FontStyle.Bold),
-                       Brushes.Black, 177, 598);
+                       Brushes.Black, 185, 600);
 
 
 
-            //IMPRIME PRESBITERO
-            ev.Graphics.DrawString(presbitero+".",
-                new Font("Times New Roman", 9, FontStyle.Bold),
-                        Brushes.Black, 405, 627);
+            //IMPRIME OBISPO
+            ev.Graphics.DrawString(nombre_obispo+".",
+                new Font("Times New Roman", 10, FontStyle.Bold),
+                        Brushes.Black, 405, 629);
 
             //IMPRIME FECHA ACTUAL
             String d = DateTime.Now.Day + "";
