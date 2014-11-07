@@ -71,7 +71,7 @@ namespace Parroquia
             {
                 if (FORMATO == 0)
                     newImage = global::Parroquia.Properties.Resources.Matrimonio;
-            /*    else if (FORMATO == 1)
+             /*   else if (FORMATO == 1)
                     newImage = Image.FromFile("C:\\DOCSParroquia\\MatrimonioOriginalFormato1.jpg");*/
             }
                 
@@ -263,9 +263,9 @@ namespace Parroquia
                 }
             }
 
-            //ppD.Document = pd;
-            //ppD.ShowDialog();
-            //ppD.BringToFront();
+           // ppD.Document = pd;
+           // ppD.ShowDialog();
+           // ppD.BringToFront();
 
             pd.Print();
         }
@@ -293,7 +293,7 @@ namespace Parroquia
             y = int.Parse(Math.Round( float.Parse(y1 + "") * 35 ) + "");
 
             float tamaño_total, mitad;
-          //  imprimeImagen(ev);
+            //imprimeImagen(ev);
 
             //IMPRIME NOVIO
             tamaño_total = 880 - ev.Graphics.MeasureString(novio, new Font("Times New Roman", 12, FontStyle.Bold)).Width;
@@ -379,11 +379,11 @@ namespace Parroquia
             Brushes.Black, mitad-285+x, 787+y);
 
             //PARROCO
-            tamaño_total = 880 - ev.Graphics.MeasureString(nombre_parroco, new Font("Times New Roman", 11, FontStyle.Bold)).Width;
+            tamaño_total = 880 - ev.Graphics.MeasureString("PBRO. "+presbitero, new Font("Times New Roman", 10, FontStyle.Bold)).Width;
             mitad = tamaño_total / 2;
-            ev.Graphics.DrawString(nombre_parroco,
-               new Font("Times New Roman", 11, FontStyle.Bold),
-               Brushes.Black, mitad-39, 780);
+            ev.Graphics.DrawString("PBRO. "+presbitero,
+               new Font("Times New Roman", 10, FontStyle.Bold),
+               Brushes.Black, mitad-45+x, 780+y);
 
         }
 
