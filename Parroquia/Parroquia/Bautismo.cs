@@ -75,7 +75,7 @@ namespace Parroquia
                 Datos = Bdatos.obtenerBasesDatosMySQL("select max(fecha_bautismo) from bautismos where id_libro =" + ID_LIBRO);
                 if (Datos.HasRows)
                     if (Datos.Read())
-                        fechabautismo.Text = Datos.GetString(0);
+                        fechabautismo.Text = Datos.GetValue(0) + "";
                 Datos.Close();
                 Bdatos.Desconectar();
 
@@ -176,8 +176,8 @@ namespace Parroquia
             madre.Text = "";
             padrino.Text = "";
             madrina.Text = "";
-            lugarnac.Text = "";
-            presbitero.Text = "";
+           // lugarnac.Text = "";
+           // presbitero.Text = "";
             anotacion.Text = "";
         }
 
@@ -376,9 +376,7 @@ namespace Parroquia
                 registrobis.Checked = false;
             
             num_partida.Text = "" + (Partida + 1);     
-
             Hoja = Math.Ceiling((Partida + 1) / 10.0);
-
             num_hoja.Text = "" + Hoja;
 
             limpiarCampos();

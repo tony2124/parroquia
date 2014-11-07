@@ -40,7 +40,7 @@ namespace conexionbd
             {
                 host = "localhost";
                 usuario = "root";
-                contrasena = "SIMPUS2124";
+                contrasena = "UwBJAE0AUABVAFMAMgAxADIANAA=";
                 puerto = "3306";
                 basedatos = "parroquiaantunez";
             }
@@ -51,7 +51,7 @@ namespace conexionbd
         {
             try
             {
-                conex = "server="+host+"; port="+puerto+"; user id=" + usuario + "; password=" + contrasena + "; database="+basedatos+";";
+                conex = "server="+host+"; port="+puerto+"; user id=" + usuario + "; password=" + DesEncriptar(contrasena) + "; database="+basedatos+";";
                 conexionBD = new MySqlConnection(conex);
                 conexionBD.Open();
                 //form = true;
@@ -62,6 +62,19 @@ namespace conexionbd
                     MessageBox.Show("Error al conectar a la base de datos de MySQL: \nDETALLES DEL ERROR: " + ex.Message, "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 carga_desde_archivo();
             }
+        }
+
+        public static string DesEncriptar(string _cadenaAdesencriptar)
+        {
+            
+            string result = string.Empty;
+            try
+            {
+                byte[] decryted = Convert.FromBase64String(_cadenaAdesencriptar);
+                result = System.Text.Encoding.Unicode.GetString(decryted);
+            }
+            catch (Exception e) { }
+            return result;
         }
 
         public void carga_desde_archivo()

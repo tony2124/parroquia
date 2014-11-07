@@ -75,15 +75,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.anio = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.guardar = new System.Windows.Forms.Button();
+            this.enviar_correo = new System.Windows.Forms.Button();
+            this.imprimir = new System.Windows.Forms.Button();
+            this.cancelar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.total = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.guardar = new System.Windows.Forms.Button();
-            this.enviar_correo = new System.Windows.Forms.Button();
-            this.imprimir = new System.Windows.Forms.Button();
-            this.cancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -391,51 +391,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operaciones";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.anio);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.mes);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(385, 9);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(191, 97);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Búsqueda";
-            // 
-            // total
-            // 
-            this.total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.total.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.total.Location = new System.Drawing.Point(783, 419);
-            this.total.Name = "total";
-            this.total.Size = new System.Drawing.Size(122, 23);
-            this.total.TabIndex = 9;
-            this.total.Text = "$ 0.00";
-            this.total.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(714, 422);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 17);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "TOTAL:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Parroquia.Properties.Resources.egresos;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(253, 97);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            // 
             // guardar
             // 
             this.guardar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -484,6 +439,51 @@
             this.cancelar.UseVisualStyleBackColor = true;
             this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.anio);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.mes);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Location = new System.Drawing.Point(385, 9);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(191, 97);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Búsqueda";
+            // 
+            // total
+            // 
+            this.total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.total.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total.Location = new System.Drawing.Point(783, 419);
+            this.total.Name = "total";
+            this.total.Size = new System.Drawing.Size(122, 23);
+            this.total.TabIndex = 9;
+            this.total.Text = "$ 0.00";
+            this.total.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(714, 422);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 17);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "TOTAL:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Parroquia.Properties.Resources.egresos;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(253, 97);
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
             // Egresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,6 +497,7 @@
             this.Controls.Add(this.tabla);
             this.DoubleBuffered = true;
             this.Name = "Egresos";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Egresos";

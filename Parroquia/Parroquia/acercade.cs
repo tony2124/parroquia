@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Deployment.Application;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -20,10 +21,15 @@ namespace Parroquia
             linkLabel2.Links.Add(0, 19, "www.simpus.com.mx/es/software/parroquia/terminos");
 
             // Get the version of the executing assembly (that is, this assembly).
-            Assembly assem = Assembly.GetExecutingAssembly();
+           /* Assembly assem = Assembly.GetExecutingAssembly();
             AssemblyName assemName = assem.GetName();
-            Version ver = assemName.Version;
-            version_label.Text = ver.ToString();
+            Version ver = assemName.Version;*/
+            try
+            {
+                version_label.Text = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
+            }
+            catch (Exception e)
+            { MessageBox.Show(""+e); }
         }
 
         private void button1_Click(object sender, EventArgs e)

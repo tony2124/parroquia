@@ -19,6 +19,14 @@ namespace Parroquia
             InitializeComponent();
         }
 
+        public string Encriptar(string _cadenaAencriptar)
+        {
+            string result = string.Empty;
+            byte[] encryted = System.Text.Encoding.Unicode.GetBytes(_cadenaAencriptar);
+            result = Convert.ToBase64String(encryted);
+            return result;
+        }
+
         private void DatosConexionDB_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
@@ -29,7 +37,7 @@ namespace Parroquia
             /** OBTENER LA INFORMACIÓN DEL ARCHIVO **/
             try
             {
-                String linea = host.Text + " " + usuario.Text + " " + contrasena.Text + " " + port.Text + " " + basedatos.Text;
+                String linea = host.Text + " " + usuario.Text + " " + Encriptar(contrasena.Text) + " " + port.Text + " " + basedatos.Text;
                 StreamWriter tw = new StreamWriter("C:/DOCSParroquia/informacion.txt", false, Encoding.Default);
                 tw.WriteLine(linea);
                 tw.Close();
@@ -41,7 +49,7 @@ namespace Parroquia
             }
             ConexionBD.host = host.Text;
             ConexionBD.usuario = usuario.Text;
-            ConexionBD.contrasena = contrasena.Text;
+            ConexionBD.contrasena = Encriptar(contrasena.Text);
             ConexionBD.puerto = port.Text;
             ConexionBD.basedatos = basedatos.Text;
             ConexionBD.form = false;

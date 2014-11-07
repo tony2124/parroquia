@@ -87,7 +87,7 @@ namespace Parroquia
                 Datos = Bdatos.obtenerBasesDatosMySQL("select max(fecha_matrimonio) from matrimonios where id_libro = " + ID_LIBRO);
                 if (Datos.HasRows)
                     if (Datos.Read())
-                        fecha_Matrimonio.Text = Datos.GetString(0);
+                        fecha_Matrimonio.Text = Datos.GetValue(0) + "";
                 Datos.Close();
 
                 Bdatos.Desconectar();
@@ -174,10 +174,10 @@ namespace Parroquia
             novio.Text = "";
             novio.Focus();
             novia.Text = "";
-            lugar_celebracion.Text = "";
+           // lugar_celebracion.Text = "";
             testigo1.Text = "";
             testigo2.Text = "";
-            asistente.Text = "";
+           // asistente.Text = "";
             notas_marginales.Text = "";
         }
 

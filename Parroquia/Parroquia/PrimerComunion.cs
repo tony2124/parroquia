@@ -74,7 +74,7 @@ namespace Parroquia
                 Datos = Bdatos.obtenerBasesDatosMySQL("select max(fecha_comunion) from comuniones where id_libro = " + ID_LIBRO);
                 if (Datos.HasRows)
                     if (Datos.Read())
-                        fechaPrimerCom.Text = Datos.GetString(0);
+                        fechaPrimerCom.Text = Datos.GetValue(0) + "";
                 Datos.Close();
 
                 /*CALCULANDO LA HOJA*/
@@ -163,7 +163,7 @@ namespace Parroquia
             nombre.Focus();
             padre.Text = "";
             madre.Text = "";
-            lugar_bautismo.Text = "";
+            //lugar_bautismo.Text = "";
             padrino.Text = "";
             madrina.Text = "";
         }
