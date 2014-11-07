@@ -36,6 +36,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.guardar = new System.Windows.Forms.Button();
             this.cancelar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.nombre_diocesis = new System.Windows.Forms.TextBox();
+            this.nombre_obispo = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.telefono = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // nombre_parroquia
@@ -116,6 +122,60 @@
             this.cancelar.UseVisualStyleBackColor = true;
             this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(12, 289);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(178, 15);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "NOMBRE DE LA DIÓCESIS";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 237);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(157, 15);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "NOMBRE DEL OBISPO:";
+            // 
+            // nombre_diocesis
+            // 
+            this.nombre_diocesis.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombre_diocesis.Location = new System.Drawing.Point(11, 307);
+            this.nombre_diocesis.Name = "nombre_diocesis";
+            this.nombre_diocesis.Size = new System.Drawing.Size(270, 24);
+            this.nombre_diocesis.TabIndex = 9;
+            // 
+            // nombre_obispo
+            // 
+            this.nombre_obispo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombre_obispo.Location = new System.Drawing.Point(11, 255);
+            this.nombre_obispo.Name = "nombre_obispo";
+            this.nombre_obispo.Size = new System.Drawing.Size(270, 24);
+            this.nombre_obispo.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(12, 167);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 15);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "TELÉFONO";
+            // 
+            // telefono
+            // 
+            this.telefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telefono.Location = new System.Drawing.Point(11, 185);
+            this.telefono.Name = "telefono";
+            this.telefono.Size = new System.Drawing.Size(270, 24);
+            this.telefono.TabIndex = 11;
+            // 
             // Informacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,6 +183,12 @@
             this.BackgroundImage = global::Parroquia.Properties.Resources.parroq;
             this.CancelButton = this.cancelar;
             this.ClientSize = new System.Drawing.Size(570, 427);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.telefono);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.nombre_diocesis);
+            this.Controls.Add(this.nombre_obispo);
             this.Controls.Add(this.cancelar);
             this.Controls.Add(this.guardar);
             this.Controls.Add(this.label3);
@@ -153,5 +219,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button guardar;
         private System.Windows.Forms.Button cancelar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox nombre_diocesis;
+        private System.Windows.Forms.TextBox nombre_obispo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox telefono;
     }
 }

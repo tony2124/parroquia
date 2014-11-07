@@ -30,6 +30,10 @@ namespace Parroquia
                     nombre_parroquia.Text = Datos.GetString(0);
                     nombre_parroco.Text = Datos.GetString(1);
                     ubicacion_parroquia.Text = Datos.GetString(2);
+                    telefono.Text = Datos.GetString(3);
+
+                    nombre_obispo.Text = Datos.GetString(6);
+                    nombre_diocesis.Text = Datos.GetString(7);
                 }
             }
             Bdatos.Desconectar();
@@ -44,7 +48,12 @@ namespace Parroquia
         private void guardar_Click(object sender, EventArgs e)
         {
             Bdatos.conexion();
-            if (Bdatos.peticion("UPDATE informacion set nombre_parroquia = '" + nombre_parroquia.Text + "', nombre_parroco = '" + nombre_parroco.Text + "', ubicacion_parroquia = '" + ubicacion_parroquia.Text + "'") > 0)
+            if (Bdatos.peticion("UPDATE informacion set nombre_parroquia = '" + nombre_parroquia.Text + 
+                "', nombre_parroco = '" + nombre_parroco.Text + 
+                "', ubicacion_parroquia = '" + ubicacion_parroquia.Text + 
+                "', telefono = '" + telefono.Text + 
+                "', nombre_obispo = '" + nombre_obispo.Text + 
+                "', nombre_diocesis = '" + nombre_diocesis.Text + "'") > 0)
                  MessageBox.Show("Se ha actualizado correctamente la información de la parroquia", " Acción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
         }
