@@ -70,6 +70,9 @@ namespace Parroquia
             this.registrobis = new System.Windows.Forms.CheckBox();
             this.label24 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.presbitero = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -468,7 +471,7 @@ namespace Parroquia
             // label24
             // 
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(27, 470);
+            this.label24.Location = new System.Drawing.Point(24, 529);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(478, 39);
             this.label24.TabIndex = 51;
@@ -484,12 +487,46 @@ namespace Parroquia
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
+            // presbitero
+            // 
+            this.presbitero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.presbitero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.presbitero.Location = new System.Drawing.Point(220, 466);
+            this.presbitero.MaxLength = 100;
+            this.presbitero.Name = "presbitero";
+            this.presbitero.Size = new System.Drawing.Size(343, 23);
+            this.presbitero.TabIndex = 53;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(27, 469);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(193, 15);
+            this.label15.TabIndex = 54;
+            this.label15.Text = "NOMBRE DEL PRESBÍTERO:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(569, 469);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(12, 15);
+            this.label19.TabIndex = 55;
+            this.label19.Text = "*";
+            // 
             // PrimerComunion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(703, 524);
+            this.ClientSize = new System.Drawing.Size(703, 577);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.presbitero);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.registronull);
             this.Controls.Add(this.registrobis);
             this.Controls.Add(this.label24);
@@ -583,5 +620,8 @@ namespace Parroquia
         private System.Windows.Forms.CheckBox registronull;
         private System.Windows.Forms.CheckBox registrobis;
         private System.Windows.Forms.Label label24;
+        public System.Windows.Forms.TextBox presbitero;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label19;
     }
 }

@@ -104,6 +104,7 @@ namespace Parroquia
                 this.LUGAR_BAUTISMO = F;
                 this.MADRINA = G;
                 this.PADRINO = H;
+                this.PRESBITERO = I;
                 this.originalVertical.Enabled = false;
             }
             else if (categoria == 4)
@@ -142,7 +143,7 @@ namespace Parroquia
             {
                 Imprimir a = new Imprimir(LIBRO, HOJA, PARTIDA, NOMBRE,
                 PADRE, MADRE, FECHA_COMUNION, FECHA_BAUTISMO,
-                LUGAR_BAUTISMO, PADRINO, MADRINA,"","",
+                LUGAR_BAUTISMO, PADRINO, MADRINA, PRESBITERO,"",
                 CATEGORIA, 0);
               //  Dispose();
             }
@@ -208,7 +209,7 @@ namespace Parroquia
             {
                 Imprimir a = new Imprimir(LIBRO, HOJA, PARTIDA, NOMBRE,
                PADRE, MADRE, FECHA_COMUNION, FECHA_BAUTISMO,
-               LUGAR_BAUTISMO, PADRINO, MADRINA, "", "",
+               LUGAR_BAUTISMO, PADRINO, MADRINA, PRESBITERO, "",
                CATEGORIA, 2);
                 Dispose();
 
