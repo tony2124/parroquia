@@ -128,7 +128,8 @@ namespace Parroquia
                         fecha_bautism.Text = Datos.GetString(8);
                         lugar_bautismo.Text = Datos.GetString(9);
                         padrino.Text = Datos.GetString(10);
-                        madrina.Text = Datos.GetString(11); 
+                        madrina.Text = Datos.GetString(11);
+                        presbitero.Text = Datos.GetString(12); 
                     }
                 }
                 Bdatos.Desconectar();
@@ -152,6 +153,7 @@ namespace Parroquia
             lugar_bautismo.Enabled = enabled;
             padrino.Enabled = enabled;
             madrina.Enabled = enabled;
+            presbitero.Enabled = enabled;
             registronull.Enabled = enabled;
             registrobis.Enabled = enabled;
         }
@@ -192,6 +194,7 @@ namespace Parroquia
                 (madre.Text.CompareTo("") == 0)     ||
                 (padrino.Text.CompareTo("") == 0)   ||
                 (madrina.Text.CompareTo("") == 0)   ||
+                (presbitero.Text.CompareTo("") == 0) ||
                 (lugar_bautismo.Text.CompareTo("") == 0))
             {
                 MessageBox.Show("Los campos marcados con el asterisco rojo son obligatorios, por favor llene los campos obligarios para guardar.", " Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -208,7 +211,7 @@ namespace Parroquia
             if (registrobis.Checked)
                 bis = "1";
             Bdatos.conexion();
-            if (Bdatos.peticion("insert into comuniones(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_comunion,fecha_bautismo,lugar_bautismo,padrino,madrina,anio, bis)" +
+            if (Bdatos.peticion("insert into comuniones(id_libro,num_hoja,num_partida,nombre,padre,madre,fecha_comunion,fecha_bautismo,lugar_bautismo,padrino,madrina,presbitero, anio, bis)" +
                 " values('" + ID_LIBRO +
                 "','" + num_hoja.Text +
                 "','" + num_partida.Text +
@@ -220,6 +223,7 @@ namespace Parroquia
                 "','" + lugar_bautismo.Text +
                 "','" + padrino.Text +
                 "','" + madrina.Text +
+                "','" + presbitero.Text +
                 "','" + fechaPrimerCom.Value.Year +
                 "'," + bis + ");") > 0)
             {
@@ -240,7 +244,7 @@ namespace Parroquia
                 "',padre='" + padre.Text + "',madre='" + madre.Text +
                 "',fecha_comunion='" + fechaPrimerCom.Value.ToString("yyyy-MM-dd") + "',fecha_bautismo='" + fecha_bautism.Value.ToString("yyyy-MM-dd") +
                 "',lugar_bautismo='" + lugar_bautismo.Text + "',padrino='" + padrino.Text +
-                "',madrina='" + madrina.Text + "',anio='" + fechaPrimerCom.Value.Year +
+                "',madrina='" + madrina.Text + "', presbitero='" + presbitero.Text + "',anio='" + fechaPrimerCom.Value.Year +
                 "' where id_comunion= '" + ID_REGISTRO + "';") > 0)
             {
                 //Establecemos los componentes sin edicion
