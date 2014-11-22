@@ -25,8 +25,8 @@
     <UpdateUrl>http://www.simpus.com.mx/actualizaciones/parroquia/</UpdateUrl>
     <ProductName>Sistema para la Administración de Parroquia</ProductName>
     <PublisherName>Simpus Soluciones Informáticas</PublisherName>
-    <ApplicationRevision>56</ApplicationRevision>
-    <ApplicationVersion>2.1.1.%2a</ApplicationVersion>
+    <ApplicationRevision>58</ApplicationRevision>
+    <ApplicationVersion>3.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -447,6 +447,8 @@
     <Content Include="espiritu santo.ico" />
     <Content Include="holy spirit.ico" />
     <Content Include="Holy Spirit2.ico" />
+    <None Include="Resources\PrimeraComunion1.jpg" />
+    <None Include="Resources\Confirmacion1.jpg" />
     <None Include="Resources\Book-Red.png" />
     <None Include="Resources\libro.png" />
   </ItemGroup>

@@ -25,7 +25,6 @@ namespace Parroquia
         int foto = 0, n_total_registros = 0;
         bool play = false;
 
-
         public Parroquia()
         {
             BDatos = new ConexionBD();

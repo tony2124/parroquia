@@ -328,7 +328,7 @@ namespace Parroquia
                             num_partida.Text, nombre.Text, padre.Text, madre.Text,
                             fechaPrimerCom.Value.ToString("yyyy-MMMM-dd"),
                             fecha_bautism.Value.ToString("yyyy-MMMM-dd"),
-                            lugar_bautismo.Text, madrina.Text, padrino.Text,"","",3);
+                            lugar_bautismo.Text, madrina.Text, padrino.Text, presbitero.Text,"",3);
                         fi.ShowDialog();
                         calculaPartida();
                 }
@@ -340,7 +340,7 @@ namespace Parroquia
                     num_partida.Text, nombre.Text, padre.Text, madre.Text,
                     fechaPrimerCom.Value.ToString("yyyy-MMMM-dd"),
                     fecha_bautism.Value.ToString("yyyy-MMMM-dd"),
-                    lugar_bautismo.Text, madrina.Text, padrino.Text, "", "", 3);
+                    lugar_bautismo.Text, madrina.Text, padrino.Text, presbitero.Text, "", 3);
                 fi.ShowDialog();
             }
         }
